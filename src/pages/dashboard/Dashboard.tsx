@@ -1,8 +1,5 @@
-import { format, startOfWeek } from 'date-fns';
 import { AlertCircle } from 'lucide-react';
-import { useState } from 'react';
 import { PageTitle } from '@/components/common/page-title';
-import { DatePicker } from '@/components/custom/date-picker.tsx';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -16,186 +13,165 @@ import { WorkTypeComparisonCard } from '@/features/dashboard/components/WorkType
 import { useDashboardOverview } from '@/features/dashboard/hooks/use-dashboard';
 
 export default function Dashboard() {
-	const { data: overview, isLoading, error } = useDashboardOverview();
+  const { data: overview, isLoading, error } = useDashboardOverview();
 
-	const [rankingDate, setRankingDate] = useState<Date>(new Date());
+  if (isLoading) {
+    return (
+      <div className="container py-4">
+        <PageTitle title="Dashboard Overview" />
+        <div className="mt-6 space-y-6">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+            {Array.from({ length: 5 }, (_, i) => `skeleton-${i}`).map(key => (
+              <Skeleton key={key} className="h-32" />
+            ))}
+          </div>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <Skeleton key="skeleton-left" className="h-96" />
+            <Skeleton key="skeleton-right" className="h-96" />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
-	if (isLoading) {
-		return (
-			<div className="container py-4">
-				<PageTitle title="Dashboard Overview" />
-				<div className="mt-6 space-y-6">
-					<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-						{Array.from({ length: 5 }, (_, i) => `skeleton-${i}`).map((key) => (
-							<Skeleton key={key} className="h-32" />
-						))}
-					</div>
-					<div className="grid gap-6 lg:grid-cols-2">
-						<Skeleton key="skeleton-left" className="h-96" />
-						<Skeleton key="skeleton-right" className="h-96" />
-					</div>
-				</div>
-			</div>
-		);
-	}
+  if (error) {
+    return (
+      <div className="container py-4">
+        <PageTitle title="Dashboard Overview" />
+        <Alert variant="destructive" className="mt-6">
+          <AlertCircle className="h-4 w-4" />
+          <AlertDescription>
+            Failed to load dashboard data. Please try again later.
+          </AlertDescription>
+        </Alert>
+      </div>
+    );
+  }
 
-	if (error) {
-		return (
-			<div className="container py-4">
-				<PageTitle title="Dashboard Overview" />
-				<Alert variant="destructive" className="mt-6">
-					<AlertCircle className="h-4 w-4" />
-					<AlertDescription>
-						Failed to load dashboard data. Please try again later.
-					</AlertDescription>
-				</Alert>
-			</div>
-		);
-	}
+  if (!overview) {
+    return null;
+  }
 
-	if (!overview) {
-		return null;
-	}
+  return (
+    <div className="container py-4">
+      <PageTitle title="Dashboard Overview" />
 
-	return (
-		<div className="container py-4">
-			<PageTitle title="Dashboard Overview" />
+      <div className="mt-6 space-y-6">
+        {/* KPI Cards */}
+        <KPICards kpis={overview?.kpis} />
 
-			<div className="mt-6 space-y-6">
-				{/* KPI Cards */}
-				<KPICards kpis={overview?.kpis} />
+        {/* Main Grid */}
+        <div className="grid gap-6 lg:grid-cols-2">
+          {/* Burnout Risk */}
+          <BurnoutRiskCard risks={overview?.burnoutRisks} />
 
-				{/* Main Grid */}
-				<div className="grid gap-6 lg:grid-cols-2">
-					{/* Burnout Risk */}
-					<BurnoutRiskCard risks={overview?.burnoutRisks} />
+          {/* Weekly MVP */}
+          <WeeklyMVPCard mvpData={overview?.weeklyMVP} />
+        </div>
 
-					{/* Weekly MVP */}
-					<WeeklyMVPCard mvpData={overview?.weeklyMVP} />
-				</div>
+        {/* Charts Row */}
+        <div className="grid gap-6 lg:grid-cols-2">
+          {/* Day Performance */}
+          <DayPerformanceChart
+            data={{
+              data: [
+                {
+                  day: 'Monday',
+                  avgHours: 7.5,
+                  avgCommits: 3.2,
+                  sessionCount: 24,
+                  productivityScore: 78,
+                },
+                {
+                  day: 'Tuesday',
+                  avgHours: 8.2,
+                  avgCommits: 4.1,
+                  sessionCount: 28,
+                  productivityScore: 92,
+                },
+                {
+                  day: 'Wednesday',
+                  avgHours: 7.8,
+                  avgCommits: 3.8,
+                  sessionCount: 26,
+                  productivityScore: 85,
+                },
+                {
+                  day: 'Thursday',
+                  avgHours: 7.6,
+                  avgCommits: 3.5,
+                  sessionCount: 25,
+                  productivityScore: 82,
+                },
+                {
+                  day: 'Friday',
+                  avgHours: 6.9,
+                  avgCommits: 2.8,
+                  sessionCount: 22,
+                  productivityScore: 72,
+                },
+                {
+                  day: 'Saturday',
+                  avgHours: 2.1,
+                  avgCommits: 0.8,
+                  sessionCount: 5,
+                  productivityScore: 25,
+                },
+                {
+                  day: 'Sunday',
+                  avgHours: 1.5,
+                  avgCommits: 0.5,
+                  sessionCount: 3,
+                  productivityScore: 18,
+                },
+              ],
+              insights: {
+                bestDay: 'Tuesday',
+                worstDay: 'Sunday',
+                avgWeeklyHours: 41.6,
+                peakPerformance: 92,
+              },
+            }}
+          />
 
-				{/* Charts Row */}
-				<div className="grid gap-6 lg:grid-cols-2">
-					{/* Day Performance */}
-					<DayPerformanceChart
-						data={{
-							data: [
-								{
-									day: 'Monday',
-									avgHours: 7.5,
-									avgCommits: 3.2,
-									sessionCount: 24,
-									productivityScore: 78,
-								},
-								{
-									day: 'Tuesday',
-									avgHours: 8.2,
-									avgCommits: 4.1,
-									sessionCount: 28,
-									productivityScore: 92,
-								},
-								{
-									day: 'Wednesday',
-									avgHours: 7.8,
-									avgCommits: 3.8,
-									sessionCount: 26,
-									productivityScore: 85,
-								},
-								{
-									day: 'Thursday',
-									avgHours: 7.6,
-									avgCommits: 3.5,
-									sessionCount: 25,
-									productivityScore: 82,
-								},
-								{
-									day: 'Friday',
-									avgHours: 6.9,
-									avgCommits: 2.8,
-									sessionCount: 22,
-									productivityScore: 72,
-								},
-								{
-									day: 'Saturday',
-									avgHours: 2.1,
-									avgCommits: 0.8,
-									sessionCount: 5,
-									productivityScore: 25,
-								},
-								{
-									day: 'Sunday',
-									avgHours: 1.5,
-									avgCommits: 0.5,
-									sessionCount: 3,
-									productivityScore: 18,
-								},
-							],
-							insights: {
-								bestDay: 'Tuesday',
-								worstDay: 'Sunday',
-								avgWeeklyHours: 41.6,
-								peakPerformance: 92,
-							},
-						}}
-					/>
+          {/* Work Type Comparison */}
+          <WorkTypeComparisonCard
+            data={{
+              remote: {
+                totalSessions: 156,
+                avgHours: 7.8,
+                totalCommits: 234,
+                avgPauseMinutes: 45.2,
+                userCount: 12,
+              },
+              office: {
+                totalSessions: 89,
+                avgHours: 7.2,
+                totalCommits: 189,
+                avgPauseMinutes: 52.1,
+                userCount: 8,
+              },
+              insights: {
+                hoursComparisonPercent: 8.3,
+                commitsComparisonPercent: 23.8,
+                preferredMode: 'remote',
+              },
+            }}
+          />
+        </div>
 
-					{/* Work Type Comparison */}
-					<WorkTypeComparisonCard
-						data={{
-							remote: {
-								totalSessions: 156,
-								avgHours: 7.8,
-								totalCommits: 234,
-								avgPauseMinutes: 45.2,
-								userCount: 12,
-							},
-							office: {
-								totalSessions: 89,
-								avgHours: 7.2,
-								totalCommits: 189,
-								avgPauseMinutes: 52.1,
-								userCount: 8,
-							},
-							insights: {
-								hoursComparisonPercent: 8.3,
-								commitsComparisonPercent: 23.8,
-								preferredMode: 'remote',
-							},
-						}}
-					/>
-				</div>
+        {/* Trend Forecast */}
+        <TrendForecastChart data={overview?.trendForecast} />
 
-				{/* Trend Forecast */}
-				<TrendForecastChart data={overview?.trendForecast} />
+        {/* Recent Activity */}
+        <RecentActivityCard activities={overview?.recentActivities} />
 
-				{/* Recent Activity */}
-				<RecentActivityCard activities={overview?.recentActivities} />
+        {/* Separator */}
+        <Separator className="my-8" />
 
-				{/* Separator */}
-				<Separator className="my-8" />
-
-				{/* Separator */}
-				<Separator className="my-8" />
-
-				{/* Team Ranking Section */}
-				<section className="space-y-6">
-					<div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-						<div>
-							<h2 className="font-bold text-2xl">Team Ranking</h2>
-							<p className="text-muted-foreground text-sm">
-								Weekly performance rankings for week starting{' '}
-								{format(startOfWeek(rankingDate, { weekStartsOn: 1 }), 'PPP')}
-							</p>
-						</div>
-						<DatePicker
-							date={rankingDate}
-							onDateSelect={(date) => date && setRankingDate(date)}
-							placeholder="Select week"
-							className="w-full sm:w-auto"
-						/>
-					</div>
-				</section>
-			</div>
-		</div>
-	);
+        {/* Separator */}
+        <Separator className="my-8" />
+      </div>
+    </div>
+  );
 }

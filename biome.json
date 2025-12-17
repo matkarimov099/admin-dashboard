@@ -1,57 +1,72 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.3.9/schema.json",
-	"vcs": {
-		"enabled": true,
-		"clientKind": "git",
-		"useIgnoreFile": true
-	},
-	"formatter": {
-		"enabled": true,
-		"indentStyle": "tab",
-		"lineWidth": 100
-	},
-	"linter": {
-		"enabled": true,
-		"rules": {
-			"recommended": true,
-			"style": {
-				"noNonNullAssertion": "off",
-				"useTemplate": "off"
-			},
-			"nursery": {
-				"useSortedClasses": "on"
-			},
-			"a11y": {
-				"noStaticElementInteractions": "off",
-				"useSemanticElements": "off",
-				"useAriaPropsSupportedByRole": "off",
-				"useMediaCaption": "off"
-			},
-			"suspicious": {
-				"noDocumentCookie": "off",
-				"noArrayIndexKey": "off"
-			}
-		}
-	},
-	"javascript": {
-		"formatter": {
-			"quoteStyle": "single",
-			"jsxQuoteStyle": "double",
-			"semicolons": "always",
-			"trailingCommas": "es5"
-		}
-	},
-	"json": {
-		"parser": {
-			"allowComments": true
-		}
-	},
-	"css": {
-		"parser": {
-			"tailwindDirectives": true
-		},
-		"linter": {
-			"enabled": false
-		}
-	}
+  "$schema": "https://biomejs.dev/schemas/2.3.5/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": false,
+    "maxSize": 10485760,
+    "includes": ["**", "!**/*.css"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100,
+    "lineEnding": "lf",
+    "formatWithErrors": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "complexity": {
+        "noExcessiveCognitiveComplexity": "off"
+      },
+      "style": {
+        "useTemplate": "off"
+      },
+      "nursery": {
+        "useSortedClasses": "on"
+      },
+      "a11y": {
+        "noStaticElementInteractions": "off",
+        "useSemanticElements": "off",
+        "useAriaPropsSupportedByRole": "off",
+        "useMediaCaption": "off"
+      },
+      "suspicious": {
+        "noDocumentCookie": "off",
+        "noArrayIndexKey": "off"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "es5",
+      "semicolons": "always",
+      "arrowParentheses": "asNeeded",
+      "bracketSpacing": true,
+      "bracketSameLine": false
+    },
+    "globals": ["React", "JSX"]
+  },
+  "json": {
+    "formatter": {
+      "trailingCommas": "none"
+    }
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    },
+    "linter": {
+      "enabled": false
+    }
+  }
 }

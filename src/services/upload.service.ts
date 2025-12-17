@@ -5,7 +5,7 @@ import axiosClient from '@/plugins/axios.ts';
  * Backend returns only the asset ID
  */
 export interface UploadAssetResponse {
-	id: string;
+  id: string;
 }
 
 /**
@@ -13,7 +13,7 @@ export interface UploadAssetResponse {
  * This is a client-side transformation - collects all IDs from individual uploads
  */
 export interface UploadAssetsResponse {
-	ids: string[];
+  ids: string[];
 }
 
 /**
@@ -22,15 +22,15 @@ export interface UploadAssetsResponse {
  * @returns Promise with backend response { id: string }
  */
 export async function uploadAsset(file: File): Promise<UploadAssetResponse> {
-	const formData = new FormData();
-	formData.append('file', file);
+  const formData = new FormData();
+  formData.append('file', file);
 
-	console.log('Uploading single file:', file.name, file.type, file.size);
+  console.log('Uploading single file:', file.name, file.type, file.size);
 
-	const { data } = await axiosClient.post<UploadAssetResponse>('/assets', formData);
+  const { data } = await axiosClient.post<UploadAssetResponse>('/assets', formData);
 
-	console.log('Upload response:', data);
-	return data; // Backend returns: { id: string }
+  console.log('Upload response:', data);
+  return data; // Backend returns: { id: string }
 }
 
 /**
@@ -44,16 +44,16 @@ export async function uploadAsset(file: File): Promise<UploadAssetResponse> {
  * // This function transforms to: { ids: ["abc-123", "def-456", ...] }
  */
 export async function uploadAssets(files: File[]): Promise<UploadAssetsResponse> {
-	console.log('Uploading', files.length, 'files to /assets endpoint...');
+  console.log('Uploading', files.length, 'files to /assets endpoint...');
 
-	// Upload each file individually
-	const uploadPromises = files.map((file) => uploadAsset(file));
-	const results = await Promise.all(uploadPromises);
+  // Upload each file individually
+  const uploadPromises = files.map(file => uploadAsset(file));
+  const results = await Promise.all(uploadPromises);
 
-	// Collect all IDs from individual responses
-	const ids = results.map((result) => result.id);
+  // Collect all IDs from individual responses
+  const ids = results.map(result => result.id);
 
-	console.log('All uploads complete. Asset IDs:', ids);
+  console.log('All uploads complete. Asset IDs:', ids);
 
-	return { ids }; // Transform to { ids: string[] }
+  return { ids }; // Transform to { ids: string[] }
 }

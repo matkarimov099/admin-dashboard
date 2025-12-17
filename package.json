@@ -12,6 +12,7 @@
 		"format:check": "biome format .",
 		"check": "biome check .",
 		"check:fix": "biome check --write .",
+		"mega-fix": "biome format --write src/ && biome lint --write --unsafe src/ && biome check --write --unsafe src/",
 		"preview": "vite preview"
 	},
 	"author": {
@@ -72,7 +73,7 @@
 		"zod": "^3.25.76"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.3.9",
+		"@biomejs/biome": "2.3.5",
 		"@eslint/js": "^9.39.2",
 		"@tanstack/eslint-plugin-query": "^5.91.2",
 		"@types/color": "^4.2.0",

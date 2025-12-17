@@ -1,9 +1,9 @@
 import { type UseMutationOptions, useMutation } from '@tanstack/react-query';
 import {
-	type UploadAssetResponse,
-	type UploadAssetsResponse,
-	uploadAsset,
-	uploadAssets,
+  type UploadAssetResponse,
+  type UploadAssetsResponse,
+  uploadAsset,
+  uploadAssets,
 } from '@/services/upload.service';
 
 /**
@@ -20,12 +20,12 @@ import {
  * });
  */
 export function useUploadAsset(
-	options?: Omit<UseMutationOptions<UploadAssetResponse, Error, File>, 'mutationFn'>
+  options?: Omit<UseMutationOptions<UploadAssetResponse, Error, File>, 'mutationFn'>
 ) {
-	return useMutation<UploadAssetResponse, Error, File>({
-		mutationFn: uploadAsset,
-		...options,
-	});
+  return useMutation<UploadAssetResponse, Error, File>({
+    mutationFn: uploadAsset,
+    ...options,
+  });
 }
 
 /**
@@ -43,10 +43,10 @@ export function useUploadAsset(
  * });
  */
 export function useUploadAssets(
-	options?: Omit<UseMutationOptions<UploadAssetsResponse, Error, File[]>, 'mutationFn'>
+  options?: Omit<UseMutationOptions<UploadAssetsResponse, Error, File[]>, 'mutationFn'>
 ) {
-	return useMutation<UploadAssetsResponse, Error, File[]>({
-		mutationFn: uploadAssets,
-		...options,
-	});
+  return useMutation<UploadAssetsResponse, Error, File[]>({
+    mutationFn: uploadAssets,
+    ...options,
+  });
 }

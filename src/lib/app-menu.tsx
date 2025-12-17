@@ -6,64 +6,64 @@ import type { Role } from '@/types/common.ts';
  * Menu item configuration interface
  */
 export interface MenuItemConfig {
-	title: string;
-	path: string;
-	icon?: ReactNode;
-	roles?: Role[];
-	component?: ComponentType;
-	items?: MenuSubItemConfig[];
-	disabled?: boolean;
+  title: string;
+  path: string;
+  icon?: ReactNode;
+  roles?: Role[];
+  component?: ComponentType;
+  items?: MenuSubItemConfig[];
+  disabled?: boolean;
 }
 
 /**
  * Sub-menu item configuration interface
  */
 export interface MenuSubItemConfig {
-	title: string;
-	path: string;
-	icon?: ReactNode;
-	roles?: Role[];
-	component?: ComponentType;
-	disabled?: boolean;
+  title: string;
+  path: string;
+  icon?: ReactNode;
+  roles?: Role[];
+  component?: ComponentType;
+  disabled?: boolean;
 }
 
 export const menuConfig: MenuItemConfig[] = [
-	{
-		title: 'Dashboard',
-		path: '/dashboard',
-		icon: <ChartNoAxesCombinedIcon />,
-		roles: [], // Accessible to all authenticated users
-		component: lazy(() => import('@/pages/dashboard/Dashboard.tsx')),
-	},
-	{
-		title: 'Users',
-		path: '/users',
-		icon: <UsersIcon />,
-		roles: [],
-		component: lazy(() => import('@/pages/users/Users.tsx')),
-	},
-	{
-		title: 'Task Management',
-		path: '', // Parent-only menu (no direct route)
-		icon: <CheckSquareIcon />,
-		roles: [], // Accessible to all authenticated users
-		items: [
-			{
-				title: 'Tasks Table',
-				path: '/tasks/table',
-				icon: <LayoutListIcon />,
-				roles: [],
-				component: lazy(() => import('@/pages/tasks/TasksTable.tsx')),
-			},
-			{
-				title: 'Tasks Board',
-				path: '/tasks/board',
-				icon: <CheckSquareIcon />,
-				roles: [],
-				component: lazy(() => import('@/pages/tasks/TasksBoard.tsx')),
-			},
-		],
-	},
+  {
+    title: 'Dashboard',
+    path: '/dashboard',
+    icon: <ChartNoAxesCombinedIcon />,
+    roles: [], // Accessible to all authenticated users
+    component: lazy(() => import('@/pages/dashboard/Dashboard.tsx')),
+  },
+  {
+    title: 'Users',
+    path: '/users',
+    icon: <UsersIcon />,
+    roles: [],
+    component: lazy(() => import('@/pages/users/Users.tsx')),
+  },
+  {
+    title: 'Task Management',
+    path: '', // Parent-only menu (no direct route)
+    icon: <CheckSquareIcon />,
+    roles: [], // Accessible to all authenticated users
+    items: [
+      {
+        title: 'Tasks Table',
+        path: '/tasks/table',
+        icon: <LayoutListIcon />,
+        roles: [],
+        component: lazy(() => import('@/pages/tasks/TasksTable.tsx')),
+      },
+      {
+        title: 'Tasks Board',
+        path: '/tasks/board',
+        icon: <CheckSquareIcon />,
+        roles: [],
+        component: lazy(() => import('@/pages/tasks/TasksBoard.tsx')),
+      },
+    ],
+  },
 ];
 
 /**
@@ -78,16 +78,16 @@ export const footerMenuConfig: MenuItemConfig[] = [];
  * - Direct links from other pages
  */
 export const hiddenRoutes: MenuItemConfig[] = [
-	{
-		title: 'Profile',
-		path: '/profile',
-		roles: ['manager', 'admin', 'developer'],
-		component: lazy(() => import('@/pages/profile/Profile.tsx')),
-	},
-	{
-		title: 'Task Details',
-		path: '/tasks/:taskKey',
-		roles: ['admin', 'manager', 'developer', 'guest'], // Accessible to all authenticated users
-		component: lazy(() => import('@/pages/tasks/TaskDetail.tsx')),
-	},
+  {
+    title: 'Profile',
+    path: '/profile',
+    roles: ['manager', 'admin', 'developer'],
+    component: lazy(() => import('@/pages/profile/Profile.tsx')),
+  },
+  {
+    title: 'Task Details',
+    path: '/tasks/:taskKey',
+    roles: ['admin', 'manager', 'developer', 'guest'], // Accessible to all authenticated users
+    component: lazy(() => import('@/pages/tasks/TaskDetail.tsx')),
+  },
 ];
