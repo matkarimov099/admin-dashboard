@@ -230,7 +230,7 @@ function Sidebar({
             'flex h-full w-full flex-col',
             'bg-sidebar text-sidebar-foreground',
             'border-sidebar-border',
-            'group-data-[variant=floating]:rounded-xl group-data-[variant=floating]:border group-data-[variant=floating]:shadow-lg',
+            'group-data-[variant=floating]:rounded-[var(--radius-lg)] group-data-[variant=floating]:border group-data-[variant=floating]:shadow-lg',
             // Enhanced styling
             'backdrop-blur-xl backdrop-saturate-150',
             'group-data-[side=left]:border-r group-data-[side=right]:border-l',
@@ -303,7 +303,7 @@ function SidebarInset({ className, ...props }: ComponentProps<'main'>) {
       data-slot="sidebar-inset"
       className={cn(
         'relative flex w-full flex-1 flex-col bg-background',
-        'md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2 md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow-sm',
+        'md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2 md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-[var(--radius-lg)] md:peer-data-[variant=inset]:shadow-sm',
         className
       )}
       {...props}
@@ -398,7 +398,7 @@ function SidebarGroupLabel({
       data-slot="sidebar-group-label"
       data-sidebar="group-label"
       className={cn(
-        'flex h-8 shrink-0 items-center rounded-md px-2 outline-hidden transition-[margin,opacity] duration-250 ease-[cubic-bezier(0.2,0.9,0.25,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--system-blue)] [&>svg]:size-4 [&>svg]:shrink-0',
+        'flex h-8 shrink-0 items-center rounded-[var(--radius-sm)] px-2 outline-hidden transition-[margin,opacity] duration-250 ease-[cubic-bezier(0.2,0.9,0.25,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--system-blue)] [&>svg]:size-4 [&>svg]:shrink-0',
         'font-semibold text-xs uppercase tracking-wide',
         'group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0',
         className
@@ -424,7 +424,7 @@ function SidebarGroupAction({
       data-slot="sidebar-group-action"
       data-sidebar="group-action"
       className={cn(
-        'absolute top-3.5 right-3 flex aspect-square w-5 items-center justify-center rounded-md p-0 text-sidebar-foreground outline-hidden ring-sidebar-ring transition-transform hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0',
+        'absolute top-3.5 right-3 flex aspect-square w-5 items-center justify-center rounded-[var(--radius-sm)] p-0 text-sidebar-foreground outline-hidden ring-sidebar-ring transition-transform hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0',
         // Increases the hit area of the button on mobile.
         'after:-inset-2 after:absolute md:after:hidden',
         'group-data-[collapsible=icon]:hidden',
@@ -474,9 +474,9 @@ const sidebarMenuButtonVariants = cva(
     variants: {
       variant: {
         default:
-          'rounded-md hover:bg-[color-mix(in_srgb,var(--sidebar-bg)_85%,var(--background)_15%)] hover:text-[var(--sidebar-accent-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--system-blue)] data-[active=true]:bg-[var(--system-blue)] data-[active=true]:text-white data-[active=true]:font-medium data-[active=true]:shadow-sm data-[state=open]:hover:bg-[color-mix(in_srgb,var(--sidebar-bg)_85%,var(--background)_15%)]',
+          'rounded-[var(--radius-md)] hover:bg-[color-mix(in_srgb,var(--sidebar-bg)_85%,var(--background)_15%)] hover:text-[var(--sidebar-accent-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--system-blue)] data-[active=true]:bg-[var(--system-blue)] data-[active=true]:text-white data-[active=true]:font-medium data-[active=true]:shadow-sm data-[state=open]:hover:bg-[color-mix(in_srgb,var(--sidebar-bg)_85%,var(--background)_15%)]',
         outline:
-          'bg-background shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:bg-[color-mix(in_srgb,var(--sidebar-bg)_85%,var(--background)_15%)] hover:shadow-[0_0_0_1px_hsl(var(--system-blue))] hover:text-[var(--sidebar-accent-foreground)] rounded-md',
+          'bg-background shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:bg-[color-mix(in_srgb,var(--sidebar-bg)_85%,var(--background)_15%)] hover:shadow-[0_0_0_1px_hsl(var(--system-blue))] hover:text-[var(--sidebar-accent-foreground)] rounded-[var(--radius-md)]',
       },
       size: {
         default: 'h-8 text-sm',
@@ -554,7 +554,7 @@ function SidebarMenuAction({
       data-slot="sidebar-menu-action"
       data-sidebar="menu-action"
       className={cn(
-        'absolute top-1.5 right-1 flex aspect-square w-5 items-center justify-center rounded-md p-0 text-sidebar-foreground outline-hidden ring-sidebar-ring transition-all duration-200 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 peer-hover/menu-button:text-sidebar-accent-foreground [&>svg]:size-4 [&>svg]:shrink-0',
+        'absolute top-1.5 right-1 flex aspect-square w-5 items-center justify-center rounded-[var(--radius-sm)] p-0 text-sidebar-foreground outline-hidden ring-sidebar-ring transition-all duration-200 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 peer-hover/menu-button:text-sidebar-accent-foreground [&>svg]:size-4 [&>svg]:shrink-0',
         // Increases the hit area of the button on mobile.
         'after:-inset-2 after:absolute md:after:hidden',
         'peer-data-[size=sm]/menu-button:top-1',
@@ -576,7 +576,7 @@ function SidebarMenuBadge({ className, ...props }: ComponentProps<'div'>) {
       data-slot="sidebar-menu-badge"
       data-sidebar="menu-badge"
       className={cn(
-        'pointer-events-none absolute right-1 flex h-5 min-w-5 select-none items-center justify-center rounded-md px-1 font-medium text-sidebar-foreground text-xs tabular-nums',
+        'pointer-events-none absolute right-1 flex h-5 min-w-5 select-none items-center justify-center rounded-[var(--radius-sm)] px-1 font-medium text-sidebar-foreground text-xs tabular-nums',
         'peer-hover/menu-button:text-sidebar-accent-foreground peer-data-[active=true]/menu-button:text-sidebar-accent-foreground',
         'peer-data-[size=sm]/menu-button:top-1',
         'peer-data-[size=default]/menu-button:top-1.5',
@@ -605,10 +605,10 @@ function SidebarMenuSkeleton({
     <div
       data-slot="sidebar-menu-skeleton"
       data-sidebar="menu-skeleton"
-      className={cn('flex h-8 items-center gap-2 rounded-md px-2', className)}
+      className={cn('flex h-8 items-center gap-2 rounded-[var(--radius-sm)] px-2', className)}
       {...props}
     >
-      {showIcon && <Skeleton className="size-4 rounded-md" data-sidebar="menu-skeleton-icon" />}
+      {showIcon && <Skeleton className="size-4 rounded-[var(--radius-sm)]" data-sidebar="menu-skeleton-icon" />}
       <Skeleton
         className="h-4 max-w-(--skeleton-width) flex-1"
         data-sidebar="menu-skeleton-text"
@@ -665,7 +665,7 @@ function SidebarMenuSubButton({
       data-sidebar="menu-sub-button"
       data-size={size}
       className={cn(
-        '-translate-x-px flex h-7 min-w-0 items-center gap-2 overflow-hidden rounded-md px-2 text-sidebar-foreground outline-hidden transition-all duration-200 ease-out disabled:pointer-events-none disabled:text-muted-foreground aria-disabled:pointer-events-none aria-disabled:text-muted-foreground [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0',
+        '-translate-x-px flex h-7 min-w-0 items-center gap-2 overflow-hidden rounded-[var(--radius-sm)] px-2 text-sidebar-foreground outline-hidden transition-all duration-200 ease-out disabled:pointer-events-none disabled:text-muted-foreground aria-disabled:pointer-events-none aria-disabled:text-muted-foreground [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0',
         'hover:bg-[color-mix(in_srgb,var(--sidebar-bg)_85%,var(--background)_15%)] hover:text-[var(--sidebar-accent-foreground)]',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--system-blue)]',
         'data-[active=true]:bg-[var(--system-blue)] data-[active=true]:font-medium data-[active=true]:text-white',

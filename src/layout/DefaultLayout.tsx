@@ -3,6 +3,7 @@ import { Suspense, useId } from 'react';
 import { NavLink, Outlet } from 'react-router';
 import { AppSidebar } from '@/components/common/app-sidebar.tsx';
 import { ModeToggle } from '@/components/custom/mode-toggle.tsx';
+import { SettingsPanel } from '@/components/custom/settings-panel.tsx';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -66,6 +67,7 @@ export const DefaultLayout = () => {
 
               {/* Right section - Actions */}
               <div className="flex shrink-0 items-center px-2">
+                <SettingsPanel />
                 <ModeToggle />
               </div>
 
@@ -96,7 +98,7 @@ export const DefaultLayout = () => {
                   className="flex min-h-0 min-w-0 flex-1 flex-col"
                 >
                   {/* Main content - overflow hidden to enable nested scrolling */}
-                  <main className="flex flex-1 flex-col overflow-y-auto overflow-x-hidden max-h-[calc(100vh-5rem)] sm:h-[calc(100vh-6rem)] p-4 shadow-md rounded-lg bg-content min-w-0">
+                  <main className="flex max-h-[calc(100vh-5rem)] min-w-0 flex-1 flex-col overflow-y-auto overflow-x-hidden rounded-lg bg-content p-4 shadow-md sm:h-[calc(100vh-6rem)]">
                     <Outlet />
                   </main>
                 </motion.div>
