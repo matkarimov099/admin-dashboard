@@ -5,30 +5,30 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // Primary (Blue) - using proper contrast colors for light and dark modes
+        // Primary - Uses global theme color
         default:
-          'bg-blue-600 hover:bg-blue-700 text-white shadow-sm border-control focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:text-white',
+          'bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white shadow-sm border-control focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2',
         primary:
-          'bg-blue-600 hover:bg-blue-700 text-white shadow-sm border-control focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:text-white',
+          'bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white shadow-sm border-control focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2',
 
-        // Secondary (Green)
+        // Secondary (Green) - Uses global success color
         secondary:
-          'bg-green-600 text-white shadow-sm border-control hover:bg-green-700 focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2',
+          'bg-[var(--color-success)] text-white shadow-sm border-control hover:bg-[#16a34a] focus-visible:ring-2 focus-visible:ring-[var(--color-success)] focus-visible:ring-offset-2',
         success:
-          'bg-green-600 text-white shadow-sm border-control hover:bg-green-700 focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2',
+          'bg-[var(--color-success)] text-white shadow-sm border-control hover:bg-[#16a34a] focus-visible:ring-2 focus-visible:ring-[var(--color-success)] focus-visible:ring-offset-2',
 
-        // Destructive (Red)
+        // Destructive - Uses global error color
         destructive:
-          'bg-red-500 text-white shadow-sm border-control hover:bg-red-600 focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2',
+          'bg-[var(--color-error)] text-white shadow-sm border-control hover:bg-[#dc2626] focus-visible:ring-2 focus-visible:ring-[var(--color-error)] focus-visible:ring-offset-2',
 
-        // Outline/Ghost
+        // Outline/Ghost - Uses global theme color
         outline:
-          'bg-control border-control text-primary hover:bg-gray-50 dark:hover:bg-gray-800 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2',
+          'bg-control border-control text-primary hover:bg-gray-50 dark:hover:bg-gray-800 focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2',
         ghost:
-          'bg-transparent text-foreground hover:bg-[color-mix(in_srgb,var(--system-blue)_8%,transparent)] hover:text-foreground focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2',
+          'bg-transparent text-foreground hover:bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)] hover:text-foreground focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2',
 
-        // Link
-        link: 'text-blue-500 underline-offset-4 hover:underline hover:text-blue-600 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2',
+        // Link - Uses global theme color
+        link: 'text-[var(--color-primary)] underline-offset-4 hover:underline hover:text-[var(--color-primary-dark)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2',
       },
       size: {
         xs: 'h-7 px-2 text-xs rounded [&_svg]:size-3',

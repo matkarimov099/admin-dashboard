@@ -92,8 +92,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     const motionAwareClassName = React.useMemo(() => {
       return cn(
         'flex w-full bg-control border-control rounded-md text-primary font file:border-0 file:bg-transparent file:font-medium file:text-primary placeholder:text-secondary placeholder:opacity-75 placeholder:text-sm focus:outline-none disabled:cursor-not-allowed disabled:opacity-60 appearance-none',
-        // Focus styles - blue focus ring (smaller)
-        'focus-visible:ring-1 focus-visible:ring-blue-500 focus-visible:ring-offset-0 focus:border-blue-500',
+        // Focus styles - using global theme color
+        'focus-visible:ring-1 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-0 focus:border-[var(--color-primary)]',
         // Transition with conditional duration
         prefersReducedMotion ? 'transition-colors duration-0' : 'transition-fast',
         // Size-specific classes
@@ -103,7 +103,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         inputSize === 'lg' && 'h-11 text-lg px-5 py-2.5 rounded-lg',
         inputSize === 'xl' && 'h-12 text-xl px-6 py-3 rounded-lg',
         // Error state
-        error && 'border-[var(--system-red)] focus:border-[var(--system-red)]',
+        error && 'border-[var(--color-error)] focus:border-[var(--color-error)]',
         className
       );
     }, [inputSize, className, prefersReducedMotion, error]);

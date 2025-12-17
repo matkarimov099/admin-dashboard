@@ -17,10 +17,10 @@ export function WeeklyMVPCard({ mvpData }: WeeklyMVPCardProps) {
 
   if (!mvpData || safeTopPerformers.length === 0) {
     return (
-      <Card className="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-950 dark:to-orange-950">
+      <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Trophy className="h-6 w-6 text-yellow-600" />
+            <Trophy className="h-6 w-6 text-[var(--color-warning)]" />
             Weekly MVP
           </CardTitle>
           <CardDescription>Most Valuable Players</CardDescription>
@@ -35,10 +35,10 @@ export function WeeklyMVPCard({ mvpData }: WeeklyMVPCardProps) {
   }
 
   return (
-    <Card className="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-950 dark:to-orange-950">
+    <Card>
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <Trophy className="h-6 w-6 text-yellow-600" />
+          <Trophy className="h-6 w-6 text-[var(--color-warning)]" />
           Weekly MVP
         </CardTitle>
         <CardDescription>Most Valuable Players - Week {mvpData.week.weekNumber}</CardDescription>
@@ -48,12 +48,7 @@ export function WeeklyMVPCard({ mvpData }: WeeklyMVPCardProps) {
           {safeTopPerformers.slice(0, 3).map((mvp, index) => (
             <div
               key={mvp.userId}
-              className={cn(
-                'mb-4 rounded-lg border bg-white p-4 dark:bg-gray-900',
-                index === 0 && 'border-yellow-500',
-                index === 1 && 'border-gray-400',
-                index === 2 && 'border-orange-400'
-              )}
+              className="mb-4 rounded-lg border bg-white p-4 dark:bg-gray-900"
             >
               <div className="mb-3 flex items-center gap-4">
                 <div className="text-3xl">{index === 0 ? '🥇' : index === 1 ? '🥈' : '🥉'}</div>
@@ -75,7 +70,7 @@ export function WeeklyMVPCard({ mvpData }: WeeklyMVPCardProps) {
                 </div>
 
                 <div className="text-right">
-                  <div className="font-bold text-2xl text-yellow-600">#{mvp.rank}</div>
+                  <div className="font-bold text-2xl text-[var(--color-warning)]">#{mvp.rank}</div>
                 </div>
               </div>
 

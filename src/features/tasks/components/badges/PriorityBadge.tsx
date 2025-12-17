@@ -21,10 +21,10 @@ export const PriorityBadge = memo(function PriorityBadge({
 
   const priorityStyles = {
     urgent:
-      'bg-rose-50 text-rose-700 border-rose-300 dark:bg-rose-950/50 dark:text-rose-400 dark:border-rose-800 ring-1 ring-rose-200 dark:ring-rose-900 hover:bg-rose-100 dark:hover:bg-rose-900/50',
-    high: 'bg-orange-50 text-orange-700 border-orange-200 dark:bg-orange-950/50 dark:text-orange-400 dark:border-orange-800 hover:bg-orange-100 dark:hover:bg-orange-900/50',
+      'bg-[var(--color-error)]/10 text-[var(--color-error)] border-[var(--color-error)]/30 dark:bg-[var(--color-error)]/20 dark:text-[var(--color-error)] dark:border-[var(--color-error)]/40 ring-1 ring-[var(--color-error)]/20 dark:ring-[var(--color-error)]/30 hover:bg-[var(--color-error)]/20 dark:hover:bg-[var(--color-error)]/30',
+    high: 'bg-[var(--color-warning)]/10 text-[var(--color-warning)] border-[var(--color-warning)]/20 dark:bg-[var(--color-warning)]/20 dark:text-[var(--color-warning)] dark:border-[var(--color-warning)]/30 hover:bg-[var(--color-warning)]/20 dark:hover:bg-[var(--color-warning)]/30',
     medium:
-      'bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-950/50 dark:text-sky-400 dark:border-sky-800 hover:bg-sky-100 dark:hover:bg-sky-900/50',
+      'bg-[var(--color-info)]/10 text-[var(--color-info)] border-[var(--color-info)]/20 dark:bg-[var(--color-info)]/20 dark:text-[var(--color-info)] dark:border-[var(--color-info)]/30 hover:bg-[var(--color-info)]/20 dark:hover:bg-[var(--color-info)]/30',
     low: 'bg-slate-50 text-slate-600 border-slate-200 dark:bg-slate-950/50 dark:text-slate-400 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900/50',
   };
 

@@ -62,6 +62,7 @@
 	/* sidebar specific (light) */
 	--sidebar-bg: rgba(255, 255, 255, 1);
 	--sidebar-foreground: var(--label);
+	/* These will be overridden by theme customization CSS variables */
 	--sidebar-primary: var(--system-blue);
 	--sidebar-primary-foreground: #fff;
 	--sidebar-accent: rgba(245, 245, 247, 1);
@@ -129,6 +130,7 @@
 	/* sidebar dark vibrancy */
 	--sidebar-bg: rgba(255, 255, 255, 0.03);
 	--sidebar-foreground: var(--label);
+	/* These will be overridden by theme customization CSS variables */
 	--sidebar-primary: var(--system-blue);
 	--sidebar-primary-foreground: #fff;
 	--sidebar-accent: var(--control-ghost-bg);

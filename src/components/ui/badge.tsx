@@ -10,16 +10,16 @@ const badgeVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800 hover:bg-blue-100 dark:hover:bg-blue-900/40',
+          'bg-[var(--color-primary-light)] dark:bg-[var(--color-primary)]/10 text-[var(--color-primary)] dark:text-[var(--color-primary-light)] border-[var(--color-primary)]/20 dark:border-[var(--color-primary)]/30 hover:bg-[var(--color-primary-light)]/80 dark:hover:bg-[var(--color-primary)]/20',
         secondary:
           'bg-gray-100 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-800',
         destructive:
-          'bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400 border-red-200 dark:border-red-800 hover:bg-red-100 dark:hover:bg-red-900/40',
+          'bg-[var(--color-error)]/10 dark:bg-[var(--color-error)]/20 text-[var(--color-error)] border-[var(--color-error)]/20 dark:border-[var(--color-error)]/30 hover:bg-[var(--color-error)]/20 dark:hover:bg-[var(--color-error)]/30',
         success:
-          'bg-green-200 dark:bg-green-950/50 text-green-800 dark:text-green-300 border-green-300 dark:border-green-700 hover:bg-green-300 cursor-pointer dark:hover:bg-green-900/60',
+          'bg-[var(--color-success)]/10 dark:bg-[var(--color-success)]/20 text-[var(--color-success)] border-[var(--color-success)]/20 dark:border-[var(--color-success)]/30 hover:bg-[var(--color-success)]/20 cursor-pointer dark:hover:bg-[var(--color-success)]/30',
         warning:
-          'bg-yellow-50 dark:bg-yellow-950/30 text-yellow-700 dark:text-yellow-400 border-yellow-200 dark:border-yellow-800 hover:bg-yellow-100 dark:hover:bg-yellow-900/40',
-        info: 'bg-cyan-50 dark:bg-cyan-950/30 text-cyan-700 dark:text-cyan-400 border-cyan-200 dark:border-cyan-800 hover:bg-cyan-100 dark:hover:bg-cyan-900/40',
+          'bg-[var(--color-warning)]/10 dark:bg-[var(--color-warning)]/20 text-[var(--color-warning)] border-[var(--color-warning)]/20 dark:border-[var(--color-warning)]/30 hover:bg-[var(--color-warning)]/20 dark:hover:bg-[var(--color-warning)]/30',
+        info: 'bg-[var(--color-info)]/10 dark:bg-[var(--color-info)]/20 text-[var(--color-info)] border-[var(--color-info)]/20 dark:border-[var(--color-info)]/30 hover:bg-[var(--color-info)]/20 dark:hover:bg-[var(--color-info)]/30',
         outline:
           'text-[var(--label)] border-[var(--border)] bg-transparent hover:bg-[var(--control-ghost-bg)]',
         purple:

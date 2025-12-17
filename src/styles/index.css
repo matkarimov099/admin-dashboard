@@ -1,6 +1,7 @@
 @import "tw-animate-css";
 @import "tailwindcss";
 @import "./theme.css";
+@import "./theme-colors.css";
 
 /* Configure Tailwind v4 dark mode */
 @variant dark (.dark &);

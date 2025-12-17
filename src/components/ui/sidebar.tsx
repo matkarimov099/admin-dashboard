@@ -474,9 +474,9 @@ const sidebarMenuButtonVariants = cva(
     variants: {
       variant: {
         default:
-          'rounded-[var(--radius-md)] hover:bg-[color-mix(in_srgb,var(--sidebar-bg)_85%,var(--background)_15%)] hover:text-[var(--sidebar-accent-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--system-blue)] data-[active=true]:bg-[var(--system-blue)] data-[active=true]:text-white data-[active=true]:font-medium data-[active=true]:shadow-sm data-[state=open]:hover:bg-[color-mix(in_srgb,var(--sidebar-bg)_85%,var(--background)_15%)]',
+          'rounded-[var(--radius-md)] hover:!bg-[var(--sidebar-accent)] hover:!text-[var(--sidebar-accent-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--sidebar-ring)] data-[active=true]:!bg-[var(--sidebar-primary)] data-[active=true]:!text-[var(--sidebar-primary-foreground)] data-[active=true]:!font-medium data-[active=true]:!shadow-sm data-[state=open]:hover:bg-[var(--sidebar-accent)]',
         outline:
-          'bg-background shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:bg-[color-mix(in_srgb,var(--sidebar-bg)_85%,var(--background)_15%)] hover:shadow-[0_0_0_1px_hsl(var(--system-blue))] hover:text-[var(--sidebar-accent-foreground)] rounded-[var(--radius-md)]',
+          'bg-background shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:!bg-[var(--sidebar-accent)] hover:shadow-[0_0_0_1px_hsl(var(--sidebar-primary))] hover:!text-[var(--sidebar-accent-foreground)] rounded-[var(--radius-md)]',
       },
       size: {
         default: 'h-8 text-sm',
@@ -666,10 +666,10 @@ function SidebarMenuSubButton({
       data-size={size}
       className={cn(
         '-translate-x-px flex h-7 min-w-0 items-center gap-2 overflow-hidden rounded-[var(--radius-sm)] px-2 text-sidebar-foreground outline-hidden transition-all duration-200 ease-out disabled:pointer-events-none disabled:text-muted-foreground aria-disabled:pointer-events-none aria-disabled:text-muted-foreground [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0',
-        'hover:bg-[color-mix(in_srgb,var(--sidebar-bg)_85%,var(--background)_15%)] hover:text-[var(--sidebar-accent-foreground)]',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--system-blue)]',
-        'data-[active=true]:bg-[var(--system-blue)] data-[active=true]:font-medium data-[active=true]:text-white',
-        '[&>svg]:text-sidebar-foreground hover:[&>svg]:text-[var(--sidebar-accent-foreground)] data-[active=true]:[&>svg]:text-white',
+        'hover:!bg-[var(--sidebar-accent)] hover:!text-[var(--sidebar-accent-foreground)]',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--sidebar-ring)]',
+        'data-[active=true]:!bg-[var(--sidebar-primary)] data-[active=true]:!font-medium data-[active=true]:!text-[var(--sidebar-primary-foreground)]',
+        '[&>svg]:text-sidebar-foreground hover:[&>svg]:text-[var(--sidebar-accent-foreground)] data-[active=true]:[&>svg]:text-[var(--sidebar-primary-foreground)]',
         size === 'sm' && 'text-xs',
         size === 'md' && 'text-sm',
         'group-data-[collapsible=icon]:hidden',
