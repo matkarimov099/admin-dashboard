@@ -23,7 +23,7 @@ const RadiusPreview = ({ radius, isSelected }: { radius: string; isSelected: boo
         className="h-5 w-5 border-2 bg-muted transition-all duration-200"
         style={{
           borderRadius: previewRadius,
-          borderColor: isSelected ? 'var(--color-primary)' : undefined
+          borderColor: isSelected ? 'var(--color-primary)' : undefined,
         }}
       />
     </div>
@@ -34,7 +34,7 @@ export function RadiusPicker() {
   const { config, setBorderRadius } = useThemeConfig();
 
   return (
-    <div className="grid grid-cols-3 gap-2">
+    <div className="isolate grid grid-cols-3 gap-2 py-1">
       {BORDER_RADIUS_OPTIONS.map(radius => (
         <PickerItem
           key={radius.value}

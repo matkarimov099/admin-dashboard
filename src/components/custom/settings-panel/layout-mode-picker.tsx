@@ -26,7 +26,7 @@ export function LayoutModePicker() {
   };
 
   return (
-    <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+    <div className="isolate grid grid-cols-1 gap-2 py-1 sm:grid-cols-3">
       {LAYOUT_MODES.map(mode => (
         <PickerItem
           key={mode.value}

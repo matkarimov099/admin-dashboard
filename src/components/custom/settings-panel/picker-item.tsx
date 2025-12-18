@@ -37,16 +37,14 @@ export const PickerItem = forwardRef<HTMLButtonElement, PickerItemProps>(
         ref={ref}
         type="button"
         className={cn(
-          'group relative rounded-md border-2 transition-colors duration-200',
+          'group relative z-10 rounded-md border transition-colors duration-200',
           'bg-card',
           isTextOnly
             ? 'flex-col items-start justify-start px-3 py-2 text-left'
             : hasVisualContent
               ? 'flex-col items-center justify-center p-2.5'
               : 'flex-col items-center justify-center p-2.5',
-          isSelected
-            ? 'border-(--color-primary)'
-            : 'border-border hover:border-(--color-primary)/60',
+          isSelected ? 'border-(--color-primary)!' : 'border hover:border-(--color-primary)/60',
           className
         )}
         {...props}

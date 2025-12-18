@@ -10,7 +10,7 @@ export function StyleVariantPicker() {
   const { config, setStyleVariant } = useThemeConfig();
 
   return (
-    <div className="grid grid-cols-2 gap-2">
+    <div className="isolate grid grid-cols-2 gap-2 py-1">
       {STYLE_VARIANTS.map(variant => (
         <PickerItem
           key={variant.value}

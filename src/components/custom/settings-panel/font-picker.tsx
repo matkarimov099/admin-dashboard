@@ -10,7 +10,7 @@ export function FontPicker() {
   const { config, setFontFamily } = useThemeConfig();
 
   return (
-    <div className="grid grid-cols-2 gap-2">
+    <div className="isolate grid grid-cols-2 gap-2 py-1">
       {FONT_FAMILIES.map(font => (
         <PickerItem
           key={font.value}

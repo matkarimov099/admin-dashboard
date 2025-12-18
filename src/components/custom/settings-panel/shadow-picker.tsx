@@ -36,7 +36,7 @@ export function ShadowPicker() {
   const { config, setShadow } = useThemeConfig();
 
   return (
-    <div className="grid grid-cols-3 gap-2">
+    <div className="isolate grid grid-cols-3 gap-2 py-1">
       {SHADOW_OPTIONS.map(shadow => (
         <PickerItem
           key={shadow.value}
