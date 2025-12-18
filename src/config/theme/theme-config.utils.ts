@@ -10,7 +10,7 @@ import {
   THEME_COLOR_HSL,
   THEME_COLORS,
 } from './theme-config.constants';
-import type { ThemeConfig, LayoutMode } from './theme-config.types';
+import type { ThemeConfig } from './theme-config.types';
 
 // ============================
 // CSS Variable Generation

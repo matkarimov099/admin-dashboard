@@ -2,6 +2,8 @@ import { AnimatePresence, motion } from 'motion/react';
 import { Suspense, useId } from 'react';
 import { NavLink, Outlet } from 'react-router';
 import { AppSidebar } from '@/components/common/app-sidebar.tsx';
+import { LanguageSwitcher } from '@/components/common/language-switcher.tsx';
+import { NotificationPopover } from '@/components/common/notification-popover.tsx';
 import { ModeToggle } from '@/components/custom/mode-toggle.tsx';
 import { SettingsPanel } from '@/components/custom/settings-panel.tsx';
 import {
@@ -79,7 +81,9 @@ export const CompactLayout = () => {
               </div>
 
               {/* Right section - Actions */}
-              <div className="flex shrink-0 items-center px-2">
+              <div className="flex shrink-0 items-center gap-1 px-2">
+                <NotificationPopover />
+                <LanguageSwitcher />
                 <SettingsPanel />
                 <ModeToggle />
               </div>

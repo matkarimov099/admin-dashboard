@@ -1,0 +1,257 @@
+{
+  "autoTransport": {
+    "title": "Avtotransport deklaratsiyasi",
+    "subtitle": "Avtotransport orqali import-tranzit deklaratsiyalarini yaratish",
+
+    "steps": {
+      "generalInformation": "Umumiy ma'lumotlar",
+      "vehicleInformation": "Transport to'g'risida ma'lumot",
+      "cargoInformation": "Yuk to'g'risida ma'lumot",
+      "guaranteesAndFees": "Kafolatlar va yig'imlar",
+      "documentGeneration": "Hujjatlarni generatsiyalash"
+    },
+
+    "form": {
+      "transportType": "Transport turi",
+      "senderCustomsPost": "Jo'natuvchi bojxona posti",
+      "cargoShipmentStartCountry": "Yuk tashish boshlangan mamlakat",
+      "cargoShipmentEndCountry": "Yuk tashish tugallanadigan mamlakat",
+      "isTransportWithCargo": "Transport yuk bilanmi?",
+      "isTransportAsGoods": "Transport tovar sifatidami?",
+      "isTransportWeightCompliant": "Transport vazn va gabaritlari me'yorlarga mosmi?",
+      "isTransportWindowTinted": "Transport oynasi tusi o'zgartirilganmi?",
+      "isCargoReloadedToAnotherTransport": "Tovar boshqa transportga qayta yuklanadimi?",
+      "isCargoAlreadyDeclared": "Tovarga avval deklaratsiya rasmiylashtirilganmi?",
+      "declarantType": "Deklaratsiyalovchi shaxs",
+      "entityType": "Shaxs turi",
+      "carrier": "Tashuvchi",
+      "driver": "Haydovchi",
+      "broker": "Broker",
+      "legalEntity": "Yuridik shaxs",
+      "individualPerson": "Jismoniy shaxs",
+      "carrierInformation": "Tashuvchi ma'lumotlari",
+      "transportInformation": "Transport to'g'risida ma'lumotlar",
+      "driverInformation": "Haydovchi ma'lumotlari",
+      "brokerInformation": "Broker ma'lumotlari",
+      "fullName": "F.I.O",
+      "lastName": "Familiyasi",
+      "firstName": "Ismi",
+      "citizenship": "Fuqaroligi",
+      "tin": "INN",
+      "pin": "JSHSHIR",
+      "passport": "Pasport",
+      "phone": "Telefon raqami",
+      "email": "Elektron pochta",
+      "passportSeries": "Pasport seriyasi va raqami",
+      "companyName": "Tashkilot nomi",
+      "address": "Manzil",
+      "vehicleRegistrationNumber": "Davlat raqami",
+      "vehicleRegistrationCountry": "Ro'yxatdan o'tgan mamlakat",
+      "vehicleModel": "Modeli va markasi",
+      "vinNumber": "VIN raqami",
+      "unladenWeight": "Yuksiz vazni (kg)",
+      "enginePower": "Dvigatel quvvati (ot kuchi)",
+      "vehicleYear": "Ishlab chiqarilgan yili",
+      "trailerRegistrationNumber": "Tirkama va konteyner raqami"
+    },
+
+    "placeholder": {
+      "fullName": "Familiya Ism Sharif",
+      "lastName": "KHOZHABEKOV",
+      "firstName": "ARMAN",
+      "citizenship": "Mamlakatni tanlang",
+      "passport": "AB1234567",
+      "pin": "12345678901234",
+      "phone": "998901234567",
+      "email": "email@example.com",
+      "companyName": "\"BOJXONA-SERVIS\" DM",
+      "address": "Fayzli MFY, Qilchaq, 2 proezd ko'chasi"
+    },
+
+    "validation": {
+      "transportType": {
+        "required": "Transport turi tanlanishi shart"
+      },
+      "senderCustomsPost": {
+        "required": "Jo'natuvchi bojxona posti tanlanishi shart"
+      },
+      "cargoShipmentStartCountry": {
+        "required": "Yuk tashish boshlangan mamlakat tanlanishi shart"
+      },
+      "cargoShipmentEndCountry": {
+        "required": "Yuk tashish tugallanadigan mamlakat tanlanishi shart"
+      },
+      "isTransportWithCargo": {
+        "required": "Transport yuk bilanmi yoki yo'qmi tanlanishi shart"
+      },
+      "isTransportAsGoods": {
+        "required": "Transport tovar sifatidami yoki yo'qmi tanlanishi shart"
+      },
+      "isCargoReloadedToAnotherTransport": {
+        "required": "Tovar boshqa transportga qayta yuklanadimi yoki yo'qmi tanlanishi shart"
+      },
+      "isCargoAlreadyDeclared": {
+        "required": "Tovarga avval deklaratsiya rasmiylashtirilganmi yoki yo'qmi tanlanishi shart"
+      },
+      "declarantType": {
+        "required": "Deklaratsiyalovchi shaxs tanlanishi shart"
+      },
+      "carrierEntityType": {
+        "required": "Tashuvchi shaxs turi tanlanishi shart"
+      },
+      "carrierFullName": {
+        "required": "Tashuvchi F.I.O. kiritilishi shart"
+      },
+      "carrierCitizenship": {
+        "required": "Tashuvchi fuqaroligi tanlanishi shart"
+      },
+      "carrierTin": {
+        "required": "Tashuvchi JSHSHIR kiritilishi shart"
+      },
+      "carrierPhone": {
+        "required": "Tashuvchi telefon raqami kiritilishi shart",
+        "invalid": "Telefon raqami formati noto'g'ri"
+      },
+      "carrierEmail": {
+        "required": "Tashuvchi elektron pochta kiritilishi shart",
+        "invalid": "Elektron pochta formati noto'g'ri"
+      },
+      "carrierPassportSeries": {
+        "required": "Tashuvchi pasport seriyasi va raqami kiritilishi shart"
+      },
+      "vehicleRegistrationNumber": {
+        "required": "Transport raqami kiritilishi shart"
+      },
+      "vehicleBrand": {
+        "required": "Transport markasi kiritilishi shart"
+      },
+      "vehicleModel": {
+        "required": "Transport modeli kiritilishi shart"
+      },
+      "vehicleYear": {
+        "required": "Transport ishlab chiqarilgan yili kiritilishi shart",
+        "invalid": "Yil formati noto'g'ri (4 raqam bo'lishi kerak)"
+      },
+      "vehicleColor": {
+        "required": "Transport rangi kiritilishi shart"
+      },
+      "vehicleRegistrationCountry": {
+        "required": "Transport ro'yxatdan o'tgan mamlakat tanlanishi shart"
+      },
+      "driverEntityType": {
+        "required": "Haydovchi shaxs turi tanlanishi shart"
+      },
+      "driverLastName": {
+        "required": "Haydovchi familiyasi kiritilishi shart"
+      },
+      "driverFirstName": {
+        "required": "Haydovchi ismi kiritilishi shart"
+      },
+      "driverCitizenship": {
+        "required": "Haydovchi fuqaroligi tanlanishi shart"
+      },
+      "driverTin": {
+        "required": "Haydovchi JSHSHIR kiritilishi shart"
+      },
+      "driverPhone": {
+        "required": "Haydovchi telefon raqami kiritilishi shart",
+        "invalid": "Telefon raqami formati noto'g'ri"
+      },
+      "driverEmail": {
+        "required": "Haydovchi elektron pochta kiritilishi shart",
+        "invalid": "Elektron pochta formati noto'g'ri"
+      },
+      "driverPassportSeries": {
+        "required": "Haydovchi pasport seriyasi va raqami kiritilishi shart"
+      },
+      "brokerTin": {
+        "required": "Broker INN kiritilishi shart"
+      },
+      "brokerCompanyName": {
+        "required": "Broker tashkilot nomi kiritilishi shart"
+      },
+      "brokerAddress": {
+        "required": "Broker manzili kiritilishi shart"
+      }
+    },
+
+    "help": {
+      "transportType": "Yuklarni tashish uchun foydalaniladigan transport turini tanlang (avtomobil, temir yo'l, havo, dengiz).",
+      "senderCustomsPost": "Yukning jo'natilishi amalga oshiriladigan bojxona postini belgilang.",
+      "cargoShipmentStartCountry": "Yuk tashish boshlanadigan mamlakatni tanlang.",
+      "cargoShipmentEndCountry": "Yuk tashish yakunlanadigan mamlakatni tanlang.",
+      "isTransportWithCargo": "Transport vositasi yuk bilan yuklanganligini yoki bo'shligini belgilang.",
+      "isTransportAsGoods": "Transport vositasining o'zi tovar sifatida sotilishi yoki sotilmasligini ko'rsating.",
+      "isTransportWeightCompliant": "Transport vositasining vazni va gabaritlari belgilangan me'yorlarga mos kelishini tasdiqlang.",
+      "isTransportWindowTinted": "Transport vositasi oynalarining tonirovka qilinganligini yoki qilinmaganligini bildiring.",
+      "isCargoReloadedToAnotherTransport": "Yuk yo'lda boshqa transport vositasiga o'tkazilishi yoki o'tkazilmasligini ko'rsating.",
+      "isCargoAlreadyDeclared": "Yukka avval bojxona deklaratsiyasi rasmiylashtirilganligini yoki rasmiylashtirilmaganligini belgilang.",
+      "declarantType": "Deklaratsiyani kim to'ldirayotganini tanlang: transport egasi (tashuvchi) yoki haydovchi.",
+      "entityType": "Shaxs turini tanlang: yuridik yoki jismoniy shaxs.",
+      "carrierEntityType": "Tashuvchi yuridik yoki jismoniy shaxsligini belgilang.",
+      "carrierFullName": "Tashuvchining to'liq familiya, ism va sharifini kiriting.",
+      "carrierCitizenship": "Tashuvchi fuqarosi bo'lgan mamlakatni tanlang.",
+      "carrierTin": "Tashuvchining JSHSHIR (Jismoniy shaxsning shaxsiy identifikatsiya raqami) yoki STIR raqamini kiriting.",
+      "carrierPhone": "Tashuvchi bilan bog'lanish uchun telefon raqamini kiriting.",
+      "carrierEmail": "Tashuvchining elektron pochta manzilini kiriting.",
+      "carrierPassportSeries": "Tashuvchining pasport seriyasi va raqamini kiriting.",
+      "vehicleRegistrationNumber": "Transport vositasining davlat ro'yxatdan o'tish raqamini kiriting.",
+      "vehicleBrand": "Transport vositasining markasini kiriting (masalan: MAN, Mercedes, Volvo).",
+      "vehicleModel": "Transport vositasining modelini kiriting.",
+      "vehicleYear": "Transport vositasi ishlab chiqarilgan yilini kiriting (4 raqamli format).",
+      "vehicleColor": "Transport vositasining rangini kiriting.",
+      "vehicleRegistrationCountry": "Transport vositasi ro'yxatdan o'tgan mamlakatni tanlang.",
+      "trailerRegistrationNumber": "Agar tirkama bo'lsa, uning ro'yxatdan o'tish raqamini kiriting.",
+      "trailerRegistrationCountry": "Agar tirkama bo'lsa, u ro'yxatdan o'tgan mamlakatni tanlang.",
+      "driverEntityType": "Haydovchi yuridik yoki jismoniy shaxsligini belgilang.",
+      "driverFullName": "Haydovchining to'liq familiya, ism va sharifini kiriting.",
+      "driverLastName": "Haydovchining familiyasini kiriting.",
+      "driverFirstName": "Haydovchining ismini kiriting.",
+      "driverCitizenship": "Haydovchi fuqarosi bo'lgan mamlakatni tanlang.",
+      "driverTin": "Haydovchining JSHSHIR (Jismoniy shaxsning shaxsiy identifikatsiya raqami) yoki STIR raqamini kiriting.",
+      "driverPhone": "Haydovchi bilan bog'lanish uchun telefon raqamini kiriting.",
+      "driverEmail": "Haydovchining elektron pochta manzilini kiriting.",
+      "driverPassportSeries": "Haydovchining pasport seriyasi va raqamini kiriting.",
+      "brokerTin": "Broker tashkilotning STIR (Soliq to'lovchining identifikatsiya raqami) raqamini kiriting. 9 raqamdan iborat bo'lishi kerak.",
+      "brokerCompanyName": "Broker tashkilotning to'liq nomini kiriting.",
+      "brokerAddress": "Broker tashkilotning manzilini kiriting (MFY, ko'cha, uy raqami)."
+    },
+
+    "vehicleLicenseUpload": {
+      "title": "Transport guvohnomasi yuklash",
+      "description": "Transport guvohnomasi (texpassport) rasmini yoki skan nusxasini yuklang."
+    },
+
+    "previousDeclarationModal": {
+      "title": "Avvalgi deklaratsiya ma'lumotlari",
+      "operationTypeSection": "QAYTA YUKLASH OPERATSIYASI",
+      "operationType": {
+        "autoTransport": "Avtotransport",
+        "railway": "Temir yo'l transporti",
+        "customsDeclaration": "Bojxona yuk deklaratsiyasi orqali shakllantirish"
+      },
+      "graph7Placeholder": "Deklaratsiyanig 7-grafasi raqami",
+      "rowsCount": "qatorlar soni",
+      "table": {
+        "no": "№",
+        "declarationId": "Deklaratsiya ID raqami",
+        "graph7Number": "Deklaratsiyanig 7-grafasi raqami (partiyaning raqami)",
+        "transportType": "Transport turi",
+        "vehicleNumber": "Avtotransport raqami",
+        "consignor": "Yuk jo'natuvchi",
+        "consignee": "Yuk qabul qiluvchi",
+        "totalWeight": "Tovarning umumiy vazni",
+        "delete": "O'chirish"
+      },
+      "emptyState": {
+        "title": "Jadval bo'sh",
+        "message": "ma'lumot topilmadi"
+      },
+      "pagination": {
+        "previous": "Avvalgi",
+        "next": "Keyingi"
+      },
+      "submit": "Shakllantirish"
+    }
+  }
+}

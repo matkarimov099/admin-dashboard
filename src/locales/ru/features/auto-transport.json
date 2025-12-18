@@ -1,0 +1,257 @@
+{
+  "autoTransport": {
+    "title": "Декларация автотранспорта",
+    "subtitle": "Создание деклараций импорт-транзит через автотранспорт",
+
+    "steps": {
+      "generalInformation": "Общая информация",
+      "vehicleInformation": "Информация о транспорте",
+      "cargoInformation": "Информация о грузе",
+      "guaranteesAndFees": "Гарантии и сборы",
+      "documentGeneration": "Генерация документов"
+    },
+
+    "form": {
+      "transportType": "Тип транспорта",
+      "senderCustomsPost": "Отправляющий таможенный пост",
+      "cargoShipmentStartCountry": "Страна начала перевозки груза",
+      "cargoShipmentEndCountry": "Страна окончания перевозки груза",
+      "isTransportWithCargo": "Транспорт с грузом?",
+      "isTransportAsGoods": "Транспорт как товар?",
+      "isTransportWeightCompliant": "Вес и габариты транспорта соответствуют нормам?",
+      "isTransportWindowTinted": "Окна транспорта тонированы?",
+      "isCargoReloadedToAnotherTransport": "Груз перегружается на другой транспорт?",
+      "isCargoAlreadyDeclared": "Груз уже задекларирован?",
+      "declarantType": "Тип декларанта",
+      "entityType": "Тип лица",
+      "carrier": "Перевозчик",
+      "driver": "Водитель",
+      "broker": "Брокер",
+      "legalEntity": "Юридическое лицо",
+      "individualPerson": "Физическое лицо",
+      "carrierInformation": "Информация о перевозчике",
+      "transportInformation": "Информация о транспорте",
+      "driverInformation": "Информация о водителе",
+      "brokerInformation": "Информация о брокере",
+      "fullName": "Ф.И.О",
+      "lastName": "Фамилия",
+      "firstName": "Имя",
+      "citizenship": "Гражданство",
+      "tin": "ИНН",
+      "pin": "ПИНФЛ",
+      "passport": "Паспорт",
+      "phone": "Номер телефона",
+      "email": "Электронная почта",
+      "passportSeries": "Серия и номер паспорта",
+      "companyName": "Название организации",
+      "address": "Адрес",
+      "vehicleRegistrationNumber": "Государственный номер",
+      "vehicleRegistrationCountry": "Страна регистрации",
+      "vehicleModel": "Модель и марка",
+      "vinNumber": "VIN номер",
+      "unladenWeight": "Вес без нагрузки (кг)",
+      "enginePower": "Мощность двигателя (л.с.)",
+      "vehicleYear": "Год выпуска",
+      "trailerRegistrationNumber": "Номер прицепа и контейнера"
+    },
+
+    "placeholder": {
+      "fullName": "Фамилия Имя Отчество",
+      "lastName": "ХОЖАБЕКОВ",
+      "firstName": "АРМАН",
+      "citizenship": "Выберите страну",
+      "passport": "AB1234567",
+      "pin": "12345678901234",
+      "phone": "998901234567",
+      "email": "email@example.com",
+      "companyName": "\"BOJXONA-SERVIS\" DM",
+      "address": "Файзли МФЙ, Қилчақ, 2 проезд кучаси"
+    },
+
+    "validation": {
+      "transportType": {
+        "required": "Необходимо выбрать тип транспорта"
+      },
+      "senderCustomsPost": {
+        "required": "Необходимо выбрать отправляющий таможенный пост"
+      },
+      "cargoShipmentStartCountry": {
+        "required": "Необходимо выбрать страну начала перевозки груза"
+      },
+      "cargoShipmentEndCountry": {
+        "required": "Необходимо выбрать страну окончания перевозки груза"
+      },
+      "isTransportWithCargo": {
+        "required": "Необходимо выбрать с грузом транспорт или нет"
+      },
+      "isTransportAsGoods": {
+        "required": "Необходимо выбрать является ли транспорт товаром или нет"
+      },
+      "isCargoReloadedToAnotherTransport": {
+        "required": "Необходимо выбрать будет ли груз перегружен на другой транспорт или нет"
+      },
+      "isCargoAlreadyDeclared": {
+        "required": "Необходимо выбрать был ли груз задекларирован ранее или нет"
+      },
+      "declarantType": {
+        "required": "Необходимо выбрать тип декларанта"
+      },
+      "carrierEntityType": {
+        "required": "Необходимо выбрать тип лица перевозчика"
+      },
+      "carrierFullName": {
+        "required": "Необходимо указать Ф.И.О. перевозчика"
+      },
+      "carrierCitizenship": {
+        "required": "Необходимо выбрать гражданство перевозчика"
+      },
+      "carrierTin": {
+        "required": "Необходимо указать ИНН перевозчика"
+      },
+      "carrierPhone": {
+        "required": "Необходимо указать номер телефона перевозчика",
+        "invalid": "Неверный формат номера телефона"
+      },
+      "carrierEmail": {
+        "required": "Необходимо указать электронную почту перевозчика",
+        "invalid": "Неверный формат электронной почты"
+      },
+      "carrierPassportSeries": {
+        "required": "Необходимо указать серию и номер паспорта перевозчика"
+      },
+      "vehicleRegistrationNumber": {
+        "required": "Необходимо указать номер транспорта"
+      },
+      "vehicleBrand": {
+        "required": "Необходимо указать марку транспорта"
+      },
+      "vehicleModel": {
+        "required": "Необходимо указать модель транспорта"
+      },
+      "vehicleYear": {
+        "required": "Необходимо указать год выпуска транспорта",
+        "invalid": "Неверный формат года (должно быть 4 цифры)"
+      },
+      "vehicleColor": {
+        "required": "Необходимо указать цвет транспорта"
+      },
+      "vehicleRegistrationCountry": {
+        "required": "Необходимо выбрать страну регистрации транспорта"
+      },
+      "driverEntityType": {
+        "required": "Необходимо выбрать тип лица водителя"
+      },
+      "driverLastName": {
+        "required": "Необходимо указать фамилию водителя"
+      },
+      "driverFirstName": {
+        "required": "Необходимо указать имя водителя"
+      },
+      "driverCitizenship": {
+        "required": "Необходимо выбрать гражданство водителя"
+      },
+      "driverTin": {
+        "required": "Необходимо указать ИНН водителя"
+      },
+      "driverPhone": {
+        "required": "Необходимо указать номер телефона водителя",
+        "invalid": "Неверный формат номера телефона"
+      },
+      "driverEmail": {
+        "required": "Необходимо указать электронную почту водителя",
+        "invalid": "Неверный формат электронной почты"
+      },
+      "driverPassportSeries": {
+        "required": "Необходимо указать серию и номер паспорта водителя"
+      },
+      "brokerTin": {
+        "required": "Необходимо указать ИНН брокера"
+      },
+      "brokerCompanyName": {
+        "required": "Необходимо указать название организации брокера"
+      },
+      "brokerAddress": {
+        "required": "Необходимо указать адрес брокера"
+      }
+    },
+
+    "help": {
+      "transportType": "Выберите тип транспорта, используемого для перевозки грузов (автомобильный, железнодорожный, воздушный, морской).",
+      "senderCustomsPost": "Укажите таможенный пост, через который осуществляется отправка груза.",
+      "cargoShipmentStartCountry": "Выберите страну начала перевозки груза.",
+      "cargoShipmentEndCountry": "Выберите страну окончания перевозки груза.",
+      "isTransportWithCargo": "Укажите, загружено транспортное средство грузом или пустое.",
+      "isTransportAsGoods": "Укажите, является ли само транспортное средство товаром для продажи.",
+      "isTransportWeightCompliant": "Подтвердите соответствие веса и габаритов транспортного средства установленным нормам.",
+      "isTransportWindowTinted": "Укажите, тонированы ли окна транспортного средства.",
+      "isCargoReloadedToAnotherTransport": "Укажите, будет ли груз перегружен на другое транспортное средство в пути.",
+      "isCargoAlreadyDeclared": "Укажите, была ли оформлена таможенная декларация на груз ранее.",
+      "declarantType": "Выберите, кто заполняет декларацию: владелец транспорта (перевозчик) или водитель.",
+      "entityType": "Выберите тип лица: юридическое или физическое лицо.",
+      "carrierEntityType": "Укажите, является ли перевозчик юридическим или физическим лицом.",
+      "carrierFullName": "Введите полную фамилию, имя и отчество перевозчика.",
+      "carrierCitizenship": "Выберите страну гражданства перевозчика.",
+      "carrierTin": "Введите ИНН (Идентификационный номер налогоплательщика) или ПИНФЛ перевозчика.",
+      "carrierPhone": "Введите номер телефона для связи с перевозчиком.",
+      "carrierEmail": "Введите адрес электронной почты перевозчика.",
+      "carrierPassportSeries": "Введите серию и номер паспорта перевозчика.",
+      "vehicleRegistrationNumber": "Введите государственный регистрационный номер транспортного средства.",
+      "vehicleBrand": "Введите марку транспортного средства (например: MAN, Mercedes, Volvo).",
+      "vehicleModel": "Введите модель транспортного средства.",
+      "vehicleYear": "Введите год выпуска транспортного средства (4-значный формат).",
+      "vehicleColor": "Введите цвет транспортного средства.",
+      "vehicleRegistrationCountry": "Выберите страну регистрации транспортного средства.",
+      "trailerRegistrationNumber": "Если есть прицеп, введите его регистрационный номер.",
+      "trailerRegistrationCountry": "Если есть прицеп, выберите страну его регистрации.",
+      "driverEntityType": "Укажите, является ли водитель юридическим или физическим лицом.",
+      "driverFullName": "Введите полную фамилию, имя и отчество водителя.",
+      "driverLastName": "Введите фамилию водителя.",
+      "driverFirstName": "Введите имя водителя.",
+      "driverCitizenship": "Выберите страну гражданства водителя.",
+      "driverTin": "Введите ИНН (Идентификационный номер налогоплательщика) или ПИНФЛ водителя.",
+      "driverPhone": "Введите номер телефона для связи с водителем.",
+      "driverEmail": "Введите адрес электронной почты водителя.",
+      "driverPassportSeries": "Введите серию и номер паспорта водителя.",
+      "brokerTin": "Введите ИНН (Идентификационный номер налогоплательщика) организации брокера. Должен состоять из 9 цифр.",
+      "brokerCompanyName": "Введите полное название организации брокера.",
+      "brokerAddress": "Введите адрес организации брокера (МФЙ, улица, номер дома)."
+    },
+
+    "vehicleLicenseUpload": {
+      "title": "Загрузка свидетельства транспортного средства",
+      "description": "Загрузите изображение или скан свидетельства транспортного средства (техпаспорта)."
+    },
+
+    "previousDeclarationModal": {
+      "title": "Информация о предыдущей декларации",
+      "operationTypeSection": "ОПЕРАЦИЯ ПЕРЕГРУЗКИ",
+      "operationType": {
+        "autoTransport": "Автотранспорт",
+        "railway": "Железнодорожный транспорт",
+        "customsDeclaration": "Формировать через грузовую таможенную декларацию"
+      },
+      "graph7Placeholder": "Номер графы 7 декларации",
+      "rowsCount": "количество строк",
+      "table": {
+        "no": "№",
+        "declarationId": "Номер ID декларации",
+        "graph7Number": "Номер графы 7 декларации (номер партии)",
+        "transportType": "Тип транспорта",
+        "vehicleNumber": "Номер автотранспорта",
+        "consignor": "Грузоотправитель",
+        "consignee": "Грузополучатель",
+        "totalWeight": "Общий вес товара",
+        "delete": "Удалить"
+      },
+      "emptyState": {
+        "title": "Таблица пуста",
+        "message": "Данные не найдены"
+      },
+      "pagination": {
+        "previous": "Предыдущий",
+        "next": "Следующий"
+      },
+      "submit": "Сформировать"
+    }
+  }
+}

@@ -2,6 +2,7 @@ import { StrictMode, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import '@/styles/index.css';
 import 'react-photo-view/dist/react-photo-view.css';
+import '@/i18n';
 import { App } from '@/App.tsx';
 import { AppLoader } from '@/components/common/app-loader.tsx';
 import { PageTitleProvider } from '@/providers/page-title-provider.tsx';

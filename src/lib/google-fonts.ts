@@ -17,7 +17,7 @@ const loadingFonts = new Set<string>();
  * @param fontFamily - The font family to load
  */
 export function loadGoogleFont(fontFamily: FontFamily): void {
-  // Check if font is already loaded or loading
+  // Check if the font is already loaded or loading
   if (loadedFonts.has(fontFamily) || loadingFonts.has(fontFamily)) {
     return;
   }
@@ -30,7 +30,7 @@ export function loadGoogleFont(fontFamily: FontFamily): void {
     ? `${baseUrl}&display=swap`
     : `${baseUrl}?display=swap`;
 
-  // Create link element with proper attributes
+  // Create a link element with proper attributes
   const link = document.createElement('link');
   link.rel = 'stylesheet';
   link.href = optimizedUrl;
@@ -48,7 +48,7 @@ export function loadGoogleFont(fontFamily: FontFamily): void {
     console.warn(`Failed to load font: ${fontFamily}`);
   };
 
-  // Remove existing font link for the same font (if any)
+  // Remove the existing font link for the same font (if any)
   const existing = document.querySelector(`[data-font-family="${fontFamily}"]`);
   if (existing && existing !== link) {
     existing.remove();
@@ -70,7 +70,7 @@ export function preloadGoogleFont(fontFamily: FontFamily): void {
     return;
   }
 
-  // Create preload link with proper attributes
+  // Create a preload link with proper attributes
   const preloadLink = document.createElement('link');
   preloadLink.rel = 'preload';
   preloadLink.as = 'font';
@@ -96,8 +96,10 @@ export function preloadGoogleFont(fontFamily: FontFamily): void {
  * Should be called on app initialization
  */
 export function preloadCriticalFonts(): void {
-  const criticalFonts: FontFamily[] = ['Inter', 'Noto Sans'];
-  criticalFonts.forEach(font => preloadGoogleFont(font));
+  const criticalFonts: FontFamily[] = ['inter', 'noto-sans'];
+  criticalFonts.forEach(font => {
+    preloadGoogleFont(font);
+  });
 }
 
 /**
@@ -110,7 +112,7 @@ export function isFontLoaded(fontFamily: FontFamily): boolean {
 }
 
 /**
- * Gets list of all loaded fonts
+ * Gets a list of all loaded fonts
  */
 export function getLoadedFonts(): string[] {
   return Array.from(loadedFonts);

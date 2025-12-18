@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/sheet';
 import { useThemeConfig } from '@/hooks/use-theme-config.ts';
 import { FontPicker } from './settings-panel/font-picker';
+import { LayoutModePicker } from './settings-panel/layout-mode-picker';
 import { RadiusPicker } from './settings-panel/radius-picker';
 import { SettingsActions } from './settings-panel/settings-actions';
 import { SettingsSection } from './settings-panel/settings-section';
@@ -19,7 +20,6 @@ import { ShadowPicker } from './settings-panel/shadow-picker';
 import { StyleVariantPicker } from './settings-panel/style-variant-picker';
 import { ThemeColorPicker } from './settings-panel/theme-color-picker';
 import { ThemeModeToggle } from './settings-panel/theme-mode-toggle';
-import { LayoutModePicker } from './settings-panel/layout-mode-picker';
 
 // ============================
 // Settings Trigger Button
@@ -31,7 +31,7 @@ export function SettingsTrigger() {
       <Button
         variant="ghost"
         size="sm"
-        className="group relative mr-2 h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-colors duration-200 hover:border-[var(--color-primary)]/30 hover:bg-muted/50"
+        className="group relative mr-2 h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-colors duration-200 hover:border-(--color-primary)/30 hover:bg-muted/50"
       >
         <PaletteIcon className="h-5! w-5! text-muted-foreground transition-transform duration-200 group-hover:scale-110 group-hover:text-foreground" />
         <span className="sr-only">Customize theme</span>

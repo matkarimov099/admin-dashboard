@@ -1,0 +1,257 @@
+{
+  "autoTransport": {
+    "title": "Auto Transport Declaration",
+    "subtitle": "Create import-transit declarations via auto transport",
+
+    "steps": {
+      "generalInformation": "General Information",
+      "vehicleInformation": "Vehicle Information",
+      "cargoInformation": "Cargo Information",
+      "guaranteesAndFees": "Guarantees and Fees",
+      "documentGeneration": "Document Generation"
+    },
+
+    "form": {
+      "transportType": "Transport Type",
+      "senderCustomsPost": "Sender Customs Post",
+      "cargoShipmentStartCountry": "Cargo Shipment Start Country",
+      "cargoShipmentEndCountry": "Cargo Shipment End Country",
+      "isTransportWithCargo": "Is Transport With Cargo?",
+      "isTransportAsGoods": "Is Transport As Goods?",
+      "isTransportWeightCompliant": "Is Transport Weight and Dimensions Compliant?",
+      "isTransportWindowTinted": "Is Transport Window Tinted?",
+      "isCargoReloadedToAnotherTransport": "Is Cargo Reloaded To Another Transport?",
+      "isCargoAlreadyDeclared": "Is Cargo Already Declared?",
+      "declarantType": "Declarant Type",
+      "entityType": "Entity Type",
+      "carrier": "Carrier",
+      "driver": "Driver",
+      "broker": "Broker",
+      "legalEntity": "Legal Entity",
+      "individualPerson": "Individual Person",
+      "carrierInformation": "Carrier Information",
+      "transportInformation": "Transport Information",
+      "driverInformation": "Driver Information",
+      "brokerInformation": "Broker Information",
+      "fullName": "Full Name",
+      "lastName": "Last Name",
+      "firstName": "First Name",
+      "citizenship": "Citizenship",
+      "tin": "TIN",
+      "pin": "PIN",
+      "passport": "Passport",
+      "phone": "Phone Number",
+      "email": "Email",
+      "passportSeries": "Passport Series and Number",
+      "companyName": "Company Name",
+      "address": "Address",
+      "vehicleRegistrationNumber": "State Number",
+      "vehicleRegistrationCountry": "Country of Registration",
+      "vehicleModel": "Model and Brand",
+      "vinNumber": "VIN Number",
+      "unladenWeight": "Unladen Weight (kg)",
+      "enginePower": "Engine Power (hp)",
+      "vehicleYear": "Year of Manufacture",
+      "trailerRegistrationNumber": "Trailer and Container Number"
+    },
+
+    "placeholder": {
+      "fullName": "Last Name First Name Middle Name",
+      "lastName": "KHOZHABEKOV",
+      "firstName": "ARMAN",
+      "citizenship": "Select country",
+      "passport": "AB1234567",
+      "pin": "12345678901234",
+      "phone": "998901234567",
+      "email": "email@example.com",
+      "companyName": "\"BOJXONA-SERVIS\" DM",
+      "address": "Fayzli MFY, Qilchaq, 2 proezd street"
+    },
+
+    "validation": {
+      "transportType": {
+        "required": "Transport type is required"
+      },
+      "senderCustomsPost": {
+        "required": "Sender customs post is required"
+      },
+      "cargoShipmentStartCountry": {
+        "required": "Cargo shipment start country is required"
+      },
+      "cargoShipmentEndCountry": {
+        "required": "Cargo shipment end country is required"
+      },
+      "isTransportWithCargo": {
+        "required": "Please select whether transport is with cargo or not"
+      },
+      "isTransportAsGoods": {
+        "required": "Please select whether transport is as goods or not"
+      },
+      "isCargoReloadedToAnotherTransport": {
+        "required": "Please select whether cargo will be reloaded to another transport or not"
+      },
+      "isCargoAlreadyDeclared": {
+        "required": "Please select whether cargo was already declared or not"
+      },
+      "declarantType": {
+        "required": "Declarant type is required"
+      },
+      "carrierEntityType": {
+        "required": "Carrier entity type is required"
+      },
+      "carrierFullName": {
+        "required": "Carrier full name is required"
+      },
+      "carrierCitizenship": {
+        "required": "Carrier citizenship is required"
+      },
+      "carrierTin": {
+        "required": "Carrier TIN is required"
+      },
+      "carrierPhone": {
+        "required": "Carrier phone number is required",
+        "invalid": "Phone number format is invalid"
+      },
+      "carrierEmail": {
+        "required": "Carrier email is required",
+        "invalid": "Email format is invalid"
+      },
+      "carrierPassportSeries": {
+        "required": "Carrier passport series and number is required"
+      },
+      "vehicleRegistrationNumber": {
+        "required": "Vehicle registration number is required"
+      },
+      "vehicleBrand": {
+        "required": "Vehicle brand is required"
+      },
+      "vehicleModel": {
+        "required": "Vehicle model is required"
+      },
+      "vehicleYear": {
+        "required": "Vehicle year of manufacture is required",
+        "invalid": "Year format is invalid (must be 4 digits)"
+      },
+      "vehicleColor": {
+        "required": "Vehicle color is required"
+      },
+      "vehicleRegistrationCountry": {
+        "required": "Vehicle registration country is required"
+      },
+      "driverEntityType": {
+        "required": "Driver entity type is required"
+      },
+      "driverLastName": {
+        "required": "Driver last name is required"
+      },
+      "driverFirstName": {
+        "required": "Driver first name is required"
+      },
+      "driverCitizenship": {
+        "required": "Driver citizenship is required"
+      },
+      "driverTin": {
+        "required": "Driver TIN is required"
+      },
+      "driverPhone": {
+        "required": "Driver phone number is required",
+        "invalid": "Phone number format is invalid"
+      },
+      "driverEmail": {
+        "required": "Driver email is required",
+        "invalid": "Email format is invalid"
+      },
+      "driverPassportSeries": {
+        "required": "Driver passport series and number is required"
+      },
+      "brokerTin": {
+        "required": "Broker TIN is required"
+      },
+      "brokerCompanyName": {
+        "required": "Broker company name is required"
+      },
+      "brokerAddress": {
+        "required": "Broker address is required"
+      }
+    },
+
+    "help": {
+      "transportType": "Select the type of transport used for cargo shipment (road, railway, air, sea).",
+      "senderCustomsPost": "Specify the customs post through which the cargo is dispatched.",
+      "cargoShipmentStartCountry": "Select the country where cargo shipment begins.",
+      "cargoShipmentEndCountry": "Select the country where cargo shipment ends.",
+      "isTransportWithCargo": "Indicate whether the vehicle is loaded with cargo or empty.",
+      "isTransportAsGoods": "Indicate whether the vehicle itself is goods for sale.",
+      "isTransportWeightCompliant": "Confirm that the vehicle's weight and dimensions comply with established standards.",
+      "isTransportWindowTinted": "Indicate whether the vehicle's windows are tinted.",
+      "isCargoReloadedToAnotherTransport": "Indicate whether the cargo will be reloaded to another vehicle en route.",
+      "isCargoAlreadyDeclared": "Indicate whether a customs declaration was previously issued for the cargo.",
+      "declarantType": "Select who is filling out the declaration: vehicle owner (carrier) or driver.",
+      "entityType": "Select the entity type: legal entity or individual person.",
+      "carrierEntityType": "Indicate whether the carrier is a legal entity or an individual person.",
+      "carrierFullName": "Enter the full last name, first name and middle name of the carrier.",
+      "carrierCitizenship": "Select the country of citizenship of the carrier.",
+      "carrierTin": "Enter the carrier's PIN (Personal Identification Number) or TIN (Tax Identification Number).",
+      "carrierPhone": "Enter the phone number to contact the carrier.",
+      "carrierEmail": "Enter the carrier's email address.",
+      "carrierPassportSeries": "Enter the carrier's passport series and number.",
+      "vehicleRegistrationNumber": "Enter the state registration number of the vehicle.",
+      "vehicleBrand": "Enter the vehicle brand (e.g.: MAN, Mercedes, Volvo).",
+      "vehicleModel": "Enter the vehicle model.",
+      "vehicleYear": "Enter the year the vehicle was manufactured (4-digit format).",
+      "vehicleColor": "Enter the vehicle color.",
+      "vehicleRegistrationCountry": "Select the country of vehicle registration.",
+      "trailerRegistrationNumber": "If there is a trailer, enter its registration number.",
+      "trailerRegistrationCountry": "If there is a trailer, select the country of its registration.",
+      "driverEntityType": "Indicate whether the driver is a legal entity or an individual person.",
+      "driverFullName": "Enter the full last name, first name and middle name of the driver.",
+      "driverLastName": "Enter the driver's last name.",
+      "driverFirstName": "Enter the driver's first name.",
+      "driverCitizenship": "Select the country of citizenship of the driver.",
+      "driverTin": "Enter the driver's PIN (Personal Identification Number) or TIN (Tax Identification Number).",
+      "driverPhone": "Enter the phone number to contact the driver.",
+      "driverEmail": "Enter the driver's email address.",
+      "driverPassportSeries": "Enter the driver's passport series and number.",
+      "brokerTin": "Enter the broker company's TIN (Tax Identification Number). Must consist of 9 digits.",
+      "brokerCompanyName": "Enter the full name of the broker company.",
+      "brokerAddress": "Enter the address of the broker company (MFY, street, house number)."
+    },
+
+    "vehicleLicenseUpload": {
+      "title": "Upload Vehicle License",
+      "description": "Upload an image or scan of the vehicle registration certificate (technical passport)."
+    },
+
+    "previousDeclarationModal": {
+      "title": "Previous Declaration Information",
+      "operationTypeSection": "RELOADING OPERATION",
+      "operationType": {
+        "autoTransport": "Auto Transport",
+        "railway": "Railway Transport",
+        "customsDeclaration": "Form via Customs Cargo Declaration"
+      },
+      "graph7Placeholder": "Declaration graph 7 number",
+      "rowsCount": "rows count",
+      "table": {
+        "no": "No.",
+        "declarationId": "Declaration ID Number",
+        "graph7Number": "Declaration Graph 7 Number (Batch Number)",
+        "transportType": "Transport Type",
+        "vehicleNumber": "Vehicle Number",
+        "consignor": "Consignor",
+        "consignee": "Consignee",
+        "totalWeight": "Total Cargo Weight",
+        "delete": "Delete"
+      },
+      "emptyState": {
+        "title": "Table is empty",
+        "message": "No data found"
+      },
+      "pagination": {
+        "previous": "Previous",
+        "next": "Next"
+      },
+      "submit": "Submit"
+    }
+  }
+}

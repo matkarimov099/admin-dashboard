@@ -1,0 +1,260 @@
+{
+  "autoTransport": {
+    "title": "Автотранспорт декларацияси",
+    "subtitle": "Автотранспорт орқали импорт-транзит декларацияларини яратиш",
+
+    "steps": {
+      "generalInformation": "Умумий маълумотлар",
+      "vehicleInformation": "Транспорт тўғрисида маълумот",
+      "cargoInformation": "Юк тўғрисида маълумот",
+      "guaranteesAndFees": "Кафолатлар ва йиғимлар",
+      "documentGeneration": "Ҳужжатларни генерациялаш"
+    },
+
+    "form": {
+      "transportType": "Транспорт тури",
+      "senderCustomsPost": "Жўнатувчи божхона пости",
+      "cargoShipmentStartCountry": "Юк ташиш бошланган мамлакат",
+      "cargoShipmentEndCountry": "Юк ташиш тугалланадиган мамлакат",
+      "isTransportWithCargo": "Транспорт юк биланми?",
+      "isTransportAsGoods": "Транспорт товар сифатидами?",
+      "isTransportWeightCompliant": "Транспорт вазн ва габаритлари меърларга мосми?",
+      "isTransportWindowTinted": "Транспорт ойнаси туси ўзгартирилганми?",
+      "isCargoReloadedToAnotherTransport": "Товар бошқа транспортга қайта юкланадими?",
+      "isCargoAlreadyDeclared": "Товарга аввал декларация расмийлаштирилганми?",
+      "declarantType": "Декларациялувчи шахс",
+      "entityType": "Шахс тури",
+      "carrier": "Ташувчи",
+      "driver": "Ҳайдовчи",
+      "broker": "Брокер",
+      "legalEntity": "Юридик шахс",
+      "individualPerson": "Жисмоний шахс",
+      "carrierInformation": "Ташувчи маълумотлари",
+      "transportInformation": "Транспорт тўғрисида маълумотлар",
+      "driverInformation": "Ҳайдовчи маълумотлари",
+      "brokerInformation": "Брокер маълумотлари",
+      "fullName": "Ф.И.О",
+      "lastName": "Фамилияси",
+      "firstName": "Исми",
+      "citizenship": "Фуқаролиги",
+      "tin": "ИНН",
+      "pin": "ЖШШШИР",
+      "passport": "Паспорт",
+      "phone": "Телефон рақами",
+      "email": "Электрон почта",
+      "passportSeries": "Паспорт серияси ва рақами",
+      "companyName": "Ташкилот номи",
+      "address": "Манзил",
+      "vehicleRegistrationNumber": "Давлат рақами",
+      "vehicleRegistrationCountry": "Рўйхатдан ўтган мамлакат",
+      "vehicleModel": "Модели ва маркаси",
+      "vinNumber": "VIN рақами",
+      "unladenWeight": "Юксиз вазни (kg)",
+      "enginePower": "Двигател қуввати (от кучи)",
+      "vehicleYear": "Ишлаб чиқарилган йили",
+      "trailerRegistrationNumber": "Тиркама ва контейнер рақами"
+    },
+
+    "placeholder": {
+      "fullName": "Фамилия Исм Шариф",
+      "lastName": "KHOZHABEKOV",
+      "firstName": "ARMAN",
+      "citizenship": "Мамлакатни танланг",
+      "passport": "AB1234567",
+      "pin": "12345678901234",
+      "phone": "998901234567",
+      "email": "email@example.com",
+      "companyName": "\"BOJXONA-SERVIS\" DM",
+      "address": "Файзли МФЙ, Қилчақ, 2 проезд кўчаси"
+    },
+
+    "validation": {
+      "transportType": {
+        "required": "Транспорт тури танланиши шарт"
+      },
+      "senderCustomsPost": {
+        "required": "Жўнатувчи божхона пости танланиши шарт"
+      },
+      "cargoShipmentStartCountry": {
+        "required": "Юк ташиш бошланган мамлакат танланиши шарт"
+      },
+      "cargoShipmentEndCountry": {
+        "required": "Юк ташиш тугалланадиган мамлакат танланиши шарт"
+      },
+      "isTransportWithCargo": {
+        "required": "Транспорт юк биланми ёки йўқми танланиши шарт"
+      },
+      "isTransportAsGoods": {
+        "required": "Транспорт товар сифатидами ёки йўқми танланиши шарт"
+      },
+      "isCargoReloadedToAnotherTransport": {
+        "required": "Товар бошқа транспортга қайта юкланадими ёки йўқми танланиши шарт"
+      },
+      "isCargoAlreadyDeclared": {
+        "required": "Товарга аввал декларация расмийлаштирилганми ёки йўқми танланиши шарт"
+      },
+      "declarantType": {
+        "required": "Декларациялувчи шахс танланиши шарт"
+      },
+      "carrierEntityType": {
+        "required": "Ташувчи шахс тури танланиши шарт"
+      },
+      "carrierFullName": {
+        "required": "Ташувчи Ф.И.О. киритилиши шарт"
+      },
+      "carrierCitizenship": {
+        "required": "Ташувчи фуқаролиги танланиши шарт"
+      },
+      "carrierTin": {
+        "required": "Ташувчи ЖШШШИР киритилиши шарт"
+      },
+      "carrierPhone": {
+        "required": "Ташувчи телефон рақами киритилиши шарт",
+        "invalid": "Телефон рақами формати нотўғри"
+      },
+      "carrierEmail": {
+        "required": "Ташувчи электрон почта киритилиши шарт",
+        "invalid": "Электрон почта формати нотўғри"
+      },
+      "carrierPassportSeries": {
+        "required": "Ташувчи паспорт серияси ва рақами киритилиши шарт"
+      },
+      "vehicleRegistrationNumber": {
+        "required": "Давлат рақами киритилиши шарт"
+      },
+      "vehicleRegistrationCountry": {
+        "required": "Рўйхатдан ўтган мамлакат танланиши шарт"
+      },
+      "vehicleModel": {
+        "required": "Модели ва маркаси киритилиши шарт"
+      },
+      "vinNumber": {
+        "required": "VIN рақами киритилиши шарт"
+      },
+      "unladenWeight": {
+        "required": "Юксиз вазни киритилиши шарт"
+      },
+      "enginePower": {
+        "required": "Двигател қуввати киритилиши шарт"
+      },
+      "vehicleYear": {
+        "required": "Ишлаб чиқарилган йили танланиши шарт",
+        "invalid": "Йил формати нотўғри (4 рақам бўлиши керак)"
+      },
+      "driverEntityType": {
+        "required": "Ҳайдовчи шахс тури танланиши шарт"
+      },
+      "driverLastName": {
+        "required": "Ҳайдовчи фамилияси киритилиши шарт"
+      },
+      "driverFirstName": {
+        "required": "Ҳайдовчи исми киритилиши шарт"
+      },
+      "driverCitizenship": {
+        "required": "Ҳайдовчи фуқаролиги танланиши шарт"
+      },
+      "driverTin": {
+        "required": "Ҳайдовчи ЖШШШИР киритилиши шарт"
+      },
+      "driverPhone": {
+        "required": "Ҳайдовчи телефон рақами киритилиши шарт",
+        "invalid": "Телефон рақами формати нотўғри"
+      },
+      "driverEmail": {
+        "required": "Ҳайдовчи электрон почта киритилиши шарт",
+        "invalid": "Электрон почта формати нотўғри"
+      },
+      "driverPassportSeries": {
+        "required": "Ҳайдовчи паспорт серияси ва рақами киритилиши шарт"
+      },
+      "brokerTin": {
+        "required": "Брокер ИНН киритилиши шарт"
+      },
+      "brokerCompanyName": {
+        "required": "Брокер ташкилот номи киритилиши шарт"
+      },
+      "brokerAddress": {
+        "required": "Брокер манзили киритилиши шарт"
+      }
+    },
+
+    "help": {
+      "transportType": "Юкларни ташиш учун фойдаланиладиган транспорт турини танланг (автомобил, темир йўл, ҳаво, денгиз).",
+      "senderCustomsPost": "Юкнинг жўнатилиши амалга ошириладиган божхона постини белгиланг.",
+      "cargoShipmentStartCountry": "Юк ташиш бошланадиган мамлакатни танланг.",
+      "cargoShipmentEndCountry": "Юк ташиш якунланадиган мамлакатни танланг.",
+      "isTransportWithCargo": "Транспорт воситаси юк билан юкланганлигини ёки бўшлигини белгиланг.",
+      "isTransportAsGoods": "Транспорт воситасининг ўзи товар сифатида сотилиши ёки сотилмаслигини кўрсатинг.",
+      "isTransportWeightCompliant": "Транспорт воситасининг вазни ва габаритлари белгиланган меърларга мос келишини тасдиқланг.",
+      "isTransportWindowTinted": "Транспорт воситаси ойналарининг тонировка қилинганлигини ёки қилинмаганлигини билдиринг.",
+      "isCargoReloadedToAnotherTransport": "Юк йўлда бошқа транспорт воситасига ўтказилиши ёки ўтказилмаслигини кўрсатинг.",
+      "isCargoAlreadyDeclared": "Юкка аввал божхона декларацияси расмийлаштирилганлигини ёки расмийлаштирилмаганлигини белгиланг.",
+      "declarantType": "Декларацияни ким тўлдираётганини танланг: транспорт эгаси (ташувчи) ёки ҳайдовчи.",
+      "entityType": "Шахс турини танланг: юридик ёки жисмоний шахс.",
+      "carrierEntityType": "Ташувчи юридик ёки жисмоний шахслигини белгиланг.",
+      "carrierFullName": "Ташувчининг тўлиқ фамилия, исм ва шарифини киритинг.",
+      "carrierCitizenship": "Ташувчи фуқароси бўлган мамлакатни танланг.",
+      "carrierTin": "Ташувчининг ЖШШШИР (Жисмоний шахснинг шахсий идентификация рақами) ёки СТИР рақамини киритинг.",
+      "carrierPhone": "Ташувчи билан боғланиш учун телефон рақамини киритинг.",
+      "carrierEmail": "Ташувчининг электрон почта манзилини киритинг.",
+      "carrierPassportSeries": "Ташувчининг паспорт серияси ва рақамини киритинг.",
+      "vehicleRegistrationNumber": "Транспорт воситасининг давлат рақамини киритинг.",
+      "vehicleRegistrationCountry": "Транспорт воситаси рўйхатдан ўтган мамлакатни танланг.",
+      "vehicleModel": "Транспорт воситасининг модели ва маркасини киритинг (масалан: MAN TGX, Mercedes Actros, Volvo FH16).",
+      "vinNumber": "Транспорт воситасининг VIN (Vehicle Identification Number) рақамини киритинг.",
+      "unladenWeight": "Транспорт воситасининг юксиз вазнини килограммда киритинг.",
+      "enginePower": "Транспорт воситаси двигателининг қувватини от кучида (hp) киритинг.",
+      "vehicleYear": "Транспорт воситаси ишлаб чиқарилган йилини танланг.",
+      "trailerRegistrationNumber": "Агар тиркама ёки контейнер бўлса, унинг рақамини киритинг.",
+      "driverEntityType": "Ҳайдовчи юридик ёки жисмоний шахслигини белгиланг.",
+      "driverFullName": "Ҳайдовчининг тўлиқ фамилия, исм ва шарифини киритинг.",
+      "driverLastName": "Ҳайдовчининг фамилиясини киритинг.",
+      "driverFirstName": "Ҳайдовчининг исмини киритинг.",
+      "driverCitizenship": "Ҳайдовчи фуқароси бўлган мамлакатни танланг.",
+      "driverTin": "Ҳайдовчининг ЖШШШИР (Жисмоний шахснинг шахсий идентификация рақами) ёки СТИР рақамини киритинг.",
+      "driverPhone": "Ҳайдовчи билан боғланиш учун телефон рақамини киритинг.",
+      "driverEmail": "Ҳайдовчининг электрон почта манзилини киритинг.",
+      "driverPassportSeries": "Ҳайдовчининг паспорт серияси ва рақамини киритинг.",
+      "brokerTin": "Брокер ташкилотнинг СТИР (Солиқ тўловчининг идентификация рақами) рақамини киритинг. 9 рақамдан иборат бўлиши керак.",
+      "brokerCompanyName": "Брокер ташкилотнинг тўлиқ номини киритинг.",
+      "brokerAddress": "Брокер ташкилотнинг манзилини киритинг (МФЙ, кўча, уй рақами)."
+    },
+
+    "vehicleLicenseUpload": {
+      "title": "Транспорт гувоҳномасини юклаш",
+      "description": "Транспорт гувоҳномаси (техпаспорт) расмини ёки скан нусхасини юкланг."
+    },
+
+    "previousDeclarationModal": {
+      "title": "Аввалги декларация маълумотлари",
+      "operationTypeSection": "ҚАЙТА ЮКЛАШ ОПЕРАЦИЯСИ",
+      "operationType": {
+        "autoTransport": "Автотранспорт",
+        "railway": "Темир йўл транспорти",
+        "customsDeclaration": "Божхона юк декларацияси орқали шакллантириш"
+      },
+      "graph7Placeholder": "Декларациянинг 7-графаси рақами",
+      "rowsCount": "қаторлар сони",
+      "table": {
+        "no": "№",
+        "declarationId": "Декларация ID рақами",
+        "graph7Number": "Декларациянинг 7-графаси рақами (партиянинг рақами)",
+        "transportType": "Транспорт тури",
+        "vehicleNumber": "Автотранспорт рақами",
+        "consignor": "Юк жўнатувчи",
+        "consignee": "Юк қабул қилувчи",
+        "totalWeight": "Товарнинг умумий вазни",
+        "delete": "Ўчириш"
+      },
+      "emptyState": {
+        "title": "Жадвал бўш",
+        "message": "маълумот топилмади"
+      },
+      "pagination": {
+        "previous": "Аввалги",
+        "next": "Кейинги"
+      },
+      "submit": "Шакллантириш"
+    }
+  }
+}

@@ -1,15 +1,15 @@
 import type { ReactNode } from 'react';
 import { Navigate } from 'react-router';
 import { AuthGuard } from '@/components/common/auth-guard.tsx';
-import { useThemeConfig } from '@/hooks/use-theme-config';
 import { useAuthContext } from '@/hooks/use-auth-context';
+import { useThemeConfig } from '@/hooks/use-theme-config';
+import { CompactLayout, DefaultLayout, HorizontalLayout } from '@/layouts';
 import { AuthLayout } from '@/layouts/AuthLayout.tsx';
-import { DefaultLayout, CompactLayout, HorizontalLayout } from '@/layouts/index';
 import AuthContextProvider from '@/providers/auth-context-provider.tsx';
 import type { Role } from '@/types/common.ts';
 
 /**
- * LayoutSelector component to choose layout based on theme configuration
+ * LayoutSelector component to choose a layout based on theme configuration
  */
 function LayoutSelector() {
   const { config } = useThemeConfig();
@@ -19,7 +19,6 @@ function LayoutSelector() {
       return <HorizontalLayout />;
     case 'compact':
       return <CompactLayout />;
-    case 'vertical':
     default:
       return <DefaultLayout />;
   }
@@ -57,24 +56,24 @@ export function AuthLayoutWrapper() {
 export function RootRedirect() {
   const { isLoading, currentUser } = useAuthContext();
 
-  // Wait for auth state to load before redirecting
+  // Wait for the auth state to load before redirecting
   if (isLoading || !currentUser) {
     return null;
   }
 
-  // Redirect guest users to tasks board
+  // Redirect guest users to the tasks board
   if (currentUser.role === 'guest') {
     return <Navigate to="/tasks/board" replace />;
   }
 
-  // Redirect all other users to dashboard
+  // Redirect all other users to the dashboard
   return <Navigate to="/dashboard" replace />;
 }
 
 /**
  * ProtectedRoute component with role-based access control
- * - Checks if user has required roles
- * - Redirects to /not-access if user doesn't have permission
+ * - Checks if the user has required roles
+ * - Redirects to /not-access if the user doesn't have permission
  */
 interface ProtectedRouteProps {
   children: ReactNode;
@@ -84,8 +83,8 @@ interface ProtectedRouteProps {
 export function ProtectedRoute({ children, roles }: ProtectedRouteProps) {
   const { hasRole, isLoading, currentUser } = useAuthContext();
 
-  // Wait for auth state to load before checking permissions
-  // This prevents false negatives during page refresh when currentUser is still null
+  // Wait for the auth state to load before checking permissions
+  // This prevents false negatives during page refresh when the currentUser is still null
   if (isLoading || !currentUser) {
     return null; // Or you can return a loading spinner
   }
@@ -95,7 +94,7 @@ export function ProtectedRoute({ children, roles }: ProtectedRouteProps) {
     return <>{children}</>;
   }
 
-  // Check if user has any of the required roles
+  // Check if a user has any of the required roles
   if (!hasRole(roles)) {
     return <Navigate to="/not-access" replace />;
   }

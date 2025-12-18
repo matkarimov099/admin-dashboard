@@ -7,7 +7,7 @@ export type StyleVariant = 'vega' | 'nova' | 'maia' | 'mira';
 
 // Theme Colors (accent colors for interactive elements)
 export type ThemeColor =
-  | 'amber'
+  | 'gray'
   | 'blue'
   | 'indigo'
   | 'orange'

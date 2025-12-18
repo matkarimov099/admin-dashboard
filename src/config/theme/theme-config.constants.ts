@@ -64,9 +64,9 @@ export const STYLE_VARIANTS: ThemeOption<StyleVariant>[] = [
 
 export const THEME_COLORS: ThemeOption<ThemeColor>[] = [
   {
-    value: 'amber',
-    label: 'Amber',
-    previewColor: '#b45309',
+    value: 'gray',
+    label: 'Gray',
+    previewColor: '#374151',
   },
   {
     value: 'blue',
@@ -278,18 +278,18 @@ export const GOOGLE_FONTS_MAP = {
 // ============================
 
 export const THEME_COLOR_HSL = {
-  amber: {
-    50: '38 92% 96%',
-    100: '38 84% 90%',
-    200: '37 79% 77%',
-    300: '36 73% 62%',
-    400: '35 69% 46%',
-    500: '35 70% 33%',
-    600: '32 63% 26%',
-    700: '30 58% 20%',
-    800: '29 54% 15%',
-    900: '28 50% 11%',
-    950: '20 51% 6%',
+  gray: {
+    50: '220 13% 91%',
+    100: '220 13% 86%',
+    200: '220 13% 81%',
+    300: '220 12% 71%',
+    400: '220 11% 56%',
+    500: '220 11% 46%',
+    600: '220 10% 33%',
+    700: '220 10% 25%',
+    800: '220 9% 15%',
+    900: '220 9% 9%',
+    950: '220 10% 3%',
   },
   blue: {
     50: '214 95% 97%',

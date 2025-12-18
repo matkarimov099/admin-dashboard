@@ -27,7 +27,7 @@ function loadInitialConfig(): ThemeConfig {
       const parsed = JSON.parse(stored);
 
       // Clean up old properties
-      const { baseColor, ...configWithoutBaseColor } = parsed;
+      const { ...configWithoutBaseColor } = parsed;
 
       // Clean up old theme colors
       const validThemeColors = ['amber', 'blue', 'indigo', 'orange', 'purple', 'rose', 'teal'];
@@ -68,10 +68,8 @@ interface ThemeConfigProviderProps {
   defaultConfig?: ThemeConfig;
 }
 
-export function ThemeConfigProvider({
-  children,
-}: ThemeConfigProviderProps) {
-  // Initialize with synchronous load
+export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
+  // Initialize with a synchronous load
   const [config, setConfig] = useState<ThemeConfig>(() => {
     const initialConfig = loadInitialConfig();
 

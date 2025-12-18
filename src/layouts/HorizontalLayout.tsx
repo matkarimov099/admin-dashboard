@@ -2,6 +2,9 @@ import { AnimatePresence, motion } from 'motion/react';
 import { Suspense, useId } from 'react';
 import { NavLink, Outlet } from 'react-router';
 import { HorizontalNav } from '@/components/common/horizontal-nav';
+import { LanguageSwitcher } from '@/components/common/language-switcher.tsx';
+import { NotificationPopover } from '@/components/common/notification-popover.tsx';
+import { ProfileDropdown } from '@/components/common/profile-dropdown.tsx';
 import { ModeToggle } from '@/components/custom/mode-toggle.tsx';
 import { SettingsPanel } from '@/components/custom/settings-panel.tsx';
 import {
@@ -29,11 +32,12 @@ export const HorizontalLayout = () => {
               <div className="flex items-center gap-2">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-(--color-primary)">
                   <svg className="h-4 w-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <title>logo</title>
                     <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
                   </svg>
                 </div>
                 <div className="hidden sm:block">
-                  <h1 className="text-lg font-semibold text-(--color-primary)">Cargo Customs</h1>
+                  <h1 className="font-semibold text-(--color-primary) text-lg">Cargo Customs</h1>
                 </div>
               </div>
 
@@ -42,9 +46,12 @@ export const HorizontalLayout = () => {
             </div>
 
             {/* Right Section - Actions */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1">
+              <NotificationPopover />
+              <LanguageSwitcher />
               <SettingsPanel />
               <ModeToggle />
+              <ProfileDropdown />
             </div>
           </div>
         </div>
