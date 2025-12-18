@@ -39,26 +39,30 @@ export function ThemeModeToggle() {
             type="button"
             onClick={() => setTheme(option.value as 'light' | 'dark' | 'system')}
             className={cn(
-              'group relative flex flex-col items-center gap-1 rounded-md border p-2 transition-all duration-200',
-              'hover:bg-muted/50',
+              'group relative flex flex-col items-center gap-1.5 rounded-md border-2 p-2.5 transition-colors duration-200',
+              'bg-card',
               isSelected
-                ? 'border-primary bg-primary text-primary-foreground shadow-sm ring-1 ring-primary/50'
-                : 'border-border bg-card'
+                ? 'border-(--color-primary)'
+                : 'border-border hover:border-(--color-primary)/60'
             )}
           >
             {/* Icon */}
-            <Icon
+            <div
               className={cn(
-                'h-4 w-4',
-                isSelected ? 'text-primary' : 'text-muted-foreground group-hover:text-foreground'
+                'flex h-5 w-5 items-center justify-center rounded-lg transition-colors duration-200',
+                isSelected
+                  ? 'bg-(--color-primary) text-white'
+                  : 'bg-muted-foreground/80 text-muted-foreground'
               )}
-            />
+            >
+              <Icon className="h-4 w-4" />
+            </div>
 
             {/* Label */}
             <span
               className={cn(
-                'font-medium text-[11px]',
-                isSelected ? 'text-primary-foreground' : 'text-foreground'
+                'font-medium text-xs transition-colors duration-200',
+                isSelected ? 'text-[var(--color-primary)] font-semibold' : 'text-foreground'
               )}
             >
               {option.label}
@@ -66,8 +70,8 @@ export function ThemeModeToggle() {
 
             {/* Check Icon */}
             {isSelected && (
-              <div className="absolute -top-0.5 -right-0.5 flex h-5 w-5 items-center justify-center">
-                <CheckIcon className="h-3 w-3 text-foreground" />
+              <div className="absolute -top-1.5 -right-1.5 bg-[var(--color-primary)] rounded-full p-0.5 shadow-md border border-white">
+                <CheckIcon className="h-3 w-3 text-white" />
               </div>
             )}
           </button>

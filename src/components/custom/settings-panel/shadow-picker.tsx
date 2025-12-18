@@ -11,18 +11,23 @@ export function ShadowPicker() {
   const { config, setShadow } = useThemeConfig();
 
   return (
-    <div className="grid grid-cols-2 gap-1.5">
+    <div className="grid grid-cols-3 gap-2">
       {SHADOW_OPTIONS.map(shadow => {
         const isSelected = config.shadow === shadow.value;
 
-        // Visual preview shadow mapping - using explicit colors for better visibility
-        const previewShadow = {
-          none: 'none',
-          small: '0 1px 3px rgba(0, 0, 0, 0.3)',
-          default: '0 4px 6px rgba(0, 0, 0, 0.3)',
-          medium: '0 8px 16px rgba(0, 0, 0, 0.4)',
-          large: '0 16px 32px rgba(0, 0, 0, 0.5)',
-        }[shadow.value];
+        // Visual preview shadow mapping - using theme color for selected state
+        const getPreviewShadow = () => {
+          if (isSelected) {
+            return `0 4px 8px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--color-primary)`;
+          }
+          return {
+            none: 'none',
+            small: '0 1px 3px rgba(0, 0, 0, 0.3)',
+            default: '0 4px 6px rgba(0, 0, 0, 0.3)',
+            medium: '0 8px 16px rgba(0, 0, 0, 0.4)',
+            large: '0 16px 32px rgba(0, 0, 0, 0.5)',
+          }[shadow.value];
+        };
 
         return (
           <button
@@ -30,26 +35,32 @@ export function ShadowPicker() {
             type="button"
             onClick={() => setShadow(shadow.value)}
             className={cn(
-              'group relative flex flex-col items-center gap-1 rounded-md border p-1.5 text-center transition-all duration-200',
-              'hover:border-primary/50 hover:bg-muted/50',
-              isSelected ? 'border-primary bg-primary/5' : 'border-border bg-card'
+              'group relative flex flex-col items-center gap-1.5 rounded-md border-2 p-2 transition-all duration-200',
+              'hover:border-[var(--color-primary)]/60 hover:bg-[var(--color-primary)]/5',
+              isSelected
+                ? 'border-[var(--color-primary)] bg-[var(--color-primary)]/10 shadow-sm'
+                : 'border-border bg-card hover:shadow-sm'
             )}
           >
-            {/* Check Icon */}
-            {isSelected && (
-              <div className="absolute -top-0.5 -right-0.5 flex h-5 w-5 items-center justify-center">
-                <CheckIcon className="h-3 w-3 text-foreground" />
-              </div>
-            )}
-
             {/* Visual Preview */}
-            <div className="h-6 w-6 rounded-md bg-muted" style={{ boxShadow: previewShadow }} />
+            <div className="relative">
+              <div
+                className="h-6 w-6 rounded-md bg-muted transition-all duration-200"
+                style={{ boxShadow: getPreviewShadow() }}
+              />
+              {/* Check Icon - positioned inside preview */}
+              {isSelected && (
+                <div className="absolute -top-1 -right-1 bg-[var(--color-primary)] rounded-full p-0.5 shadow-sm border border-white">
+                  <CheckIcon className="h-3 w-3 text-white" />
+                </div>
+              )}
+            </div>
 
             {/* Label */}
             <span
               className={cn(
-                'font-medium text-[10px]',
-                isSelected ? 'text-primary' : 'text-foreground'
+                'text-xs font-medium whitespace-nowrap transition-colors duration-200',
+                isSelected ? 'text-[var(--color-primary)]' : 'text-foreground'
               )}
             >
               {shadow.label}

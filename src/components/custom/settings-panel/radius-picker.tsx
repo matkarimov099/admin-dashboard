@@ -11,7 +11,7 @@ export function RadiusPicker() {
   const { config, setBorderRadius } = useThemeConfig();
 
   return (
-    <div className="grid grid-cols-2 gap-1.5">
+    <div className="grid grid-cols-3 gap-2">
       {BORDER_RADIUS_OPTIONS.map(radius => {
         const isSelected = config.borderRadius === radius.value;
 
@@ -30,29 +30,35 @@ export function RadiusPicker() {
             type="button"
             onClick={() => setBorderRadius(radius.value)}
             className={cn(
-              'group relative flex flex-col items-center gap-1 rounded-md border p-1.5 text-center transition-all duration-200',
-              'hover:border-primary/50 hover:bg-muted/50',
-              isSelected ? 'border-primary bg-primary/5' : 'border-border bg-card'
+              'group relative flex flex-col items-center gap-1.5 rounded-md border-2 p-2 transition-all duration-200',
+              'hover:border-[var(--color-primary)]/60 hover:bg-[var(--color-primary)]/5',
+              isSelected
+                ? 'border-[var(--color-primary)] bg-[var(--color-primary)]/10 shadow-sm'
+                : 'border-border bg-card hover:shadow-sm'
             )}
           >
-            {/* Check Icon */}
-            {isSelected && (
-              <div className="absolute -top-0.5 -right-0.5 flex h-5 w-5 items-center justify-center">
-                <CheckIcon className="h-3 w-3 text-foreground" />
-              </div>
-            )}
-
             {/* Visual Preview */}
-            <div
-              className="h-6 w-6 border-2 border-foreground/20 bg-muted"
-              style={{ borderRadius: previewRadius }}
-            />
+            <div className="relative">
+              <div
+                className="h-6 w-6 border-2 border-foreground/20 bg-muted transition-all duration-200"
+                style={{
+                  borderRadius: previewRadius,
+                  borderColor: isSelected ? 'var(--color-primary)' : undefined
+                }}
+              />
+              {/* Check Icon - positioned inside preview */}
+              {isSelected && (
+                <div className="absolute -top-1 -right-1 bg-[var(--color-primary)] rounded-full p-0.5 shadow-sm border border-white">
+                  <CheckIcon className="h-3 w-3 text-white" />
+                </div>
+              )}
+            </div>
 
             {/* Label */}
             <span
               className={cn(
-                'font-medium text-[10px]',
-                isSelected ? 'text-primary' : 'text-foreground'
+                'text-xs font-medium whitespace-nowrap transition-colors duration-200',
+                isSelected ? 'text-[var(--color-primary)]' : 'text-foreground'
               )}
             >
               {radius.label}

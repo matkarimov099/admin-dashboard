@@ -11,7 +11,7 @@ export function FontPicker() {
   const { config, setFontFamily } = useThemeConfig();
 
   return (
-    <div className="grid grid-cols-2 gap-1.5">
+    <div className="grid grid-cols-2 gap-2">
       {FONT_FAMILIES.map(font => {
         const isSelected = config.fontFamily === font.value;
 
@@ -21,31 +21,29 @@ export function FontPicker() {
             type="button"
             onClick={() => setFontFamily(font.value)}
             className={cn(
-              'group relative flex flex-col items-center gap-1 rounded-md border p-2 text-center transition-all duration-200',
-              'hover:border-primary/50 hover:bg-muted/50',
-              isSelected ? 'border-primary bg-primary/5' : 'border-border bg-card'
+              'group relative flex items-center justify-between rounded-md border-2 px-3 py-2 transition-all duration-200',
+              'hover:border-(--color-primary)/60 hover:bg-(--color-primary)/5',
+              isSelected
+                ? 'border-(--color-primary) bg-(--color-primary)/10 shadow-sm'
+                : 'border-border bg-card hover:shadow-sm'
             )}
           >
-            {/* Check Icon */}
-            {isSelected && (
-              <div className="absolute -top-0.5 -right-0.5 flex h-5 w-5 items-center justify-center">
-                <CheckIcon className="h-3 w-3 text-foreground" />
-              </div>
-            )}
-
             {/* Font Name */}
             <span
-              className={cn('font-medium text-sm', isSelected ? 'text-primary' : 'text-foreground')}
+              className={cn(
+                'truncate font-medium text-sm transition-colors duration-200',
+                isSelected ? 'text-(--color-primary)' : 'text-foreground'
+              )}
               style={{ fontFamily: font.previewFont }}
             >
               {font.label}
             </span>
 
-            {/* Description */}
-            {font.description && (
-              <span className="text-[10px] text-muted-foreground leading-tight">
-                {font.description}
-              </span>
+            {/* Check Icon */}
+            {isSelected && (
+              <div className="rounded-full border border-white bg-(--color-primary) p-0.5 shadow-sm">
+                <CheckIcon className="h-3 w-3 text-white" />
+              </div>
             )}
           </button>
         );
