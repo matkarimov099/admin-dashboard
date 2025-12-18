@@ -1,6 +1,7 @@
 import type {
   BorderRadius,
   FontFamily,
+  LayoutMode,
   Shadow,
   StyleVariant,
   ThemeColor,
@@ -10,6 +11,28 @@ import type {
 // ============================
 // Style Variant Options
 // ============================
+
+// ============================
+// Layout Mode Options
+// ============================
+
+export const LAYOUT_MODES: ThemeOption<LayoutMode>[] = [
+  {
+    value: 'vertical',
+    label: 'Vertical',
+    description: 'Sidebar with vertical navigation',
+  },
+  {
+    value: 'horizontal',
+    label: 'Horizontal',
+    description: 'Navigation in top header bar',
+  },
+  {
+    value: 'compact',
+    label: 'Compact',
+    description: 'Collapsed sidebar with icons only',
+  },
+];
 
 export const STYLE_VARIANTS: ThemeOption<StyleVariant>[] = [
   {

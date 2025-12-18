@@ -10,4 +10,5 @@ export const DEFAULT_THEME_CONFIG: ThemeConfig = {
   fontFamily: 'inter',
   borderRadius: 'default',
   shadow: 'default',
+  layoutMode: 'vertical',
 };

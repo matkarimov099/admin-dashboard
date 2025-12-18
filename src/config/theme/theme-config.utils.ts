@@ -3,13 +3,14 @@ import {
   BORDER_RADIUS_VALUES,
   CSS_FONT_FAMILIES,
   FONT_FAMILIES,
+  LAYOUT_MODES,
   SHADOW_OPTIONS,
   SHADOW_VALUES,
   STYLE_VARIANTS,
   THEME_COLOR_HSL,
   THEME_COLORS,
 } from './theme-config.constants';
-import type { ThemeConfig } from './theme-config.types';
+import type { ThemeConfig, LayoutMode } from './theme-config.types';
 
 // ============================
 // CSS Variable Generation
@@ -137,5 +138,6 @@ export function randomizeConfig(): ThemeConfig {
     fontFamily: getRandomItem(FONT_FAMILIES),
     borderRadius: getRandomItem(BORDER_RADIUS_OPTIONS),
     shadow: getRandomItem(SHADOW_OPTIONS),
+    layoutMode: getRandomItem(LAYOUT_MODES),
   };
 }

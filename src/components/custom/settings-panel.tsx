@@ -19,6 +19,7 @@ import { ShadowPicker } from './settings-panel/shadow-picker';
 import { StyleVariantPicker } from './settings-panel/style-variant-picker';
 import { ThemeColorPicker } from './settings-panel/theme-color-picker';
 import { ThemeModeToggle } from './settings-panel/theme-mode-toggle';
+import { LayoutModePicker } from './settings-panel/layout-mode-picker';
 
 // ============================
 // Settings Trigger Button
@@ -78,6 +79,11 @@ export function SettingsPanel() {
             {/* Theme Mode */}
             <SettingsSection title="Theme Mode" description="Choose your appearance preference">
               <ThemeModeToggle />
+            </SettingsSection>
+
+            {/* Layout Mode */}
+            <SettingsSection title="Layout Mode" description="Choose your dashboard layout">
+              <LayoutModePicker />
             </SettingsSection>
 
             {/* Style Variant */}

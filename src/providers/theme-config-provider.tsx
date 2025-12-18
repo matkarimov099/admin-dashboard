@@ -3,6 +3,7 @@ import { DEFAULT_THEME_CONFIG } from '@/config/theme/theme-config.defaults';
 import type {
   BorderRadius,
   FontFamily,
+  LayoutMode,
   Shadow,
   StyleVariant,
   ThemeColor,
@@ -55,6 +56,7 @@ const initialContextValue: ThemeConfigContextValue = {
   setFontFamily: () => null,
   setBorderRadius: () => null,
   setShadow: () => null,
+  setLayoutMode: () => null,
   randomize: () => null,
   reset: () => null,
 };
@@ -131,6 +133,10 @@ export function ThemeConfigProvider({
     setConfig(prev => ({ ...prev, shadow: shadow }));
   };
 
+  const setLayoutMode = (mode: LayoutMode) => {
+    setConfig(prev => ({ ...prev, layoutMode: mode }));
+  };
+
   const randomize = () => {
     const randomConfig = randomizeConfig();
     setConfig(randomConfig);
@@ -147,6 +153,7 @@ export function ThemeConfigProvider({
     setFontFamily,
     setBorderRadius,
     setShadow,
+    setLayoutMode,
     randomize,
     reset,
   };

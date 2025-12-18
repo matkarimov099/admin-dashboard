@@ -68,7 +68,7 @@ export function DataTableToolbar<TData>({
 
   return (
     <div className="data-table-toolbar mb-2">
-      {/* Desktop layout */}
+      {/* Desktop layouts */}
       <div className="toolbar-desktop hidden lg:flex lg:items-center lg:justify-between lg:gap-4">
         {/* Left side - Search or Custom Left Section */}
         <div className="toolbar-left flex items-center gap-2">
@@ -201,10 +201,10 @@ export function DataTableToolbar<TData>({
         </div>
       </div>
 
-      {/* Mobile layout */}
+      {/* Mobile layouts */}
       <div className="toolbar-mobile flex flex-col gap-2 lg:hidden">
         {toolbarSections ? (
-          // If ToolbarSections, render mobile stacked layout
+          // If ToolbarSections, render mobile stacked layouts
           <>
             {toolbarSections.left && <div className="w-full">{toolbarSections.left}</div>}
             {/* Right section (filters) */}
@@ -285,7 +285,7 @@ export function DataTableToolbar<TData>({
             </div>
           </>
         ) : (
-          // Default mobile layout
+          // Default mobile layouts
           <>
             {/* First row - Search and table controls */}
             <div className="flex flex-wrap items-center gap-2">

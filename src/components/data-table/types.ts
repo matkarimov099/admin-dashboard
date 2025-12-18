@@ -18,7 +18,7 @@ export interface ToolbarRenderProps<T> {
   resetSelection: () => void;
 }
 
-// Toolbar sections for left/right layout
+// Toolbar sections for left/right layouts
 export interface ToolbarSections {
   left?: ReactNode;
   right?: ReactNode;

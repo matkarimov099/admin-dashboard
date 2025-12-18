@@ -24,6 +24,9 @@ export type BorderRadius = 'none' | 'small' | 'default' | 'medium' | 'large';
 // Shadow Options
 export type Shadow = 'none' | 'small' | 'default' | 'medium' | 'large';
 
+// Layout Mode Options
+export type LayoutMode = 'vertical' | 'horizontal' | 'compact';
+
 // ============================
 // Configuration Interfaces
 // ============================
@@ -35,6 +38,7 @@ export interface ThemeConfig {
   fontFamily: FontFamily;
   borderRadius: BorderRadius;
   shadow: Shadow;
+  layoutMode: LayoutMode;
 }
 
 // Context value interface
@@ -45,6 +49,7 @@ export interface ThemeConfigContextValue {
   setFontFamily: (font: FontFamily) => void;
   setBorderRadius: (radius: BorderRadius) => void;
   setShadow: (shadow: Shadow) => void;
+  setLayoutMode: (mode: LayoutMode) => void;
   randomize: () => void;
   reset: () => void;
 }

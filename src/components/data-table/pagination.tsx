@@ -45,7 +45,7 @@ export function DataTablePagination<TData>({
   const selectSize = size === 'lg' ? 'default' : size;
 
   return (
-    <div className="data-table-pagination">
+    <div className="data-table-pagination py-2">
       <div className="pagination-info text-muted-foreground text-sm">
         {totalSelectedItems} of {totalItems} row(s) selected
       </div>

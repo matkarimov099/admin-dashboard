@@ -1,27 +1,45 @@
 import type { ReactNode } from 'react';
 import { Navigate } from 'react-router';
 import { AuthGuard } from '@/components/common/auth-guard.tsx';
+import { useThemeConfig } from '@/hooks/use-theme-config';
 import { useAuthContext } from '@/hooks/use-auth-context';
-import { AuthLayout } from '@/layout/AuthLayout.tsx';
-import { DefaultLayout } from '@/layout/DefaultLayout.tsx';
+import { AuthLayout } from '@/layouts/AuthLayout.tsx';
+import { DefaultLayout, CompactLayout, HorizontalLayout } from '@/layouts/index';
 import AuthContextProvider from '@/providers/auth-context-provider.tsx';
 import type { Role } from '@/types/common.ts';
 
 /**
- * MainLayoutWrapper component with auth context and default layout
+ * LayoutSelector component to choose layout based on theme configuration
+ */
+function LayoutSelector() {
+  const { config } = useThemeConfig();
+
+  switch (config.layoutMode) {
+    case 'horizontal':
+      return <HorizontalLayout />;
+    case 'compact':
+      return <CompactLayout />;
+    case 'vertical':
+    default:
+      return <DefaultLayout />;
+  }
+}
+
+/**
+ * MainLayoutWrapper component with auth context and dynamic layouts
  */
 export function MainLayoutWrapper() {
   return (
     <AuthContextProvider>
       <AuthGuard>
-        <DefaultLayout />
+        <LayoutSelector />
       </AuthGuard>
     </AuthContextProvider>
   );
 }
 
 /**
- * AuthLayoutWrapper component with auth context and auth layout
+ * AuthLayoutWrapper component with auth context and auth layouts
  */
 export function AuthLayoutWrapper() {
   return (
