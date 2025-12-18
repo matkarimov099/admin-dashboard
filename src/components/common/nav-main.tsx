@@ -100,8 +100,8 @@ export function NavMain() {
                         tooltip={item.title}
                         className={cn(
                           'relative h-9 w-9 rounded-lg p-0 transition-all duration-200',
-                          'hover:!bg-blue-500 hover:!text-white text-gray-800 dark:text-gray-200',
-                          isParentActive && '!text-blue-500 !font-semibold hover:!bg-blue-600'
+                          'hover:!bg-[var(--color-primary)] hover:!text-white text-gray-800 dark:text-gray-200',
+                          isParentActive && '!text-[var(--color-primary)] !font-semibold hover:!bg-[var(--color-primary-hover)]'
                         )}
                       >
                         <div className="flex items-center justify-center">{item.icon}</div>
@@ -136,8 +136,8 @@ export function NavMain() {
                                 <div
                                   className={cn(
                                     'flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors duration-200',
-                                    'text-gray-700 hover:bg-blue-500 hover:text-white dark:text-gray-200',
-                                    isSubActive && 'font-semibold text-blue-500'
+                                    'text-gray-700 hover:bg-[var(--color-primary)] hover:text-white dark:text-gray-200',
+                                    isSubActive && 'font-semibold text-[var(--color-primary)]'
                                   )}
                                 >
                                   {subItem.title}
@@ -173,8 +173,8 @@ export function NavMain() {
                       tooltip={isCollapsed ? item.title : undefined}
                       className={cn(
                         'relative h-9 w-full rounded-lg px-2 transition-all duration-200',
-                        'hover:!bg-blue-500 hover:!text-white text-gray-700 dark:text-gray-200',
-                        isDirectlyActive && '!text-blue-500 !font-semibold hover:!bg-blue-600',
+                        'hover:!bg-[var(--color-primary)] hover:!text-white text-gray-700 dark:text-gray-200',
+                        isDirectlyActive && '!text-[var(--color-primary)] !font-semibold hover:!bg-[var(--color-primary-hover)]',
                         isCollapsed && 'w-9 justify-center p-0'
                       )}
                     >
@@ -193,8 +193,8 @@ export function NavMain() {
                     tooltip={isCollapsed ? item.title : undefined}
                     className={cn(
                       'relative h-9 w-full rounded-lg px-2 transition-all duration-200',
-                      'hover:!bg-blue-500 hover:!text-white text-gray-700 dark:text-gray-200',
-                      isParentActive && '!text-blue-500 !font-semibold hover:!bg-blue-600',
+                      'hover:!bg-[var(--color-primary)] hover:!text-white text-gray-700 dark:text-gray-200',
+                      isParentActive && '!text-[var(--color-primary)] !font-semibold hover:!bg-[var(--color-primary-hover)]',
                       isCollapsed && 'w-9 justify-center p-0'
                     )}
                   >
@@ -239,8 +239,8 @@ export function NavMain() {
                                 asChild
                                 className={cn(
                                   'h-8 w-full rounded-md px-2 transition-colors duration-200',
-                                  'hover:!bg-blue-500 hover:!text-white text-gray-800 dark:text-gray-200',
-                                  isSubActive && '!text-blue-500 !font-semibold hover:!bg-blue-600'
+                                  'hover:!bg-[var(--color-primary)] hover:!text-white text-gray-800 dark:text-gray-200',
+                                  isSubActive && '!text-[var(--color-primary)] !font-semibold hover:!bg-[var(--color-primary-hover)]'
                                 )}
                               >
                                 <LocalizedNavLink to={subItem.url}>

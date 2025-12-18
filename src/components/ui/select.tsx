@@ -24,7 +24,7 @@ const selectTriggerVariants = cva(
       variant: {
         default: [
           'bg-control border-control text-primary',
-          'hover:bg-gray-50 dark:hover:bg-gray-800',
+          'hover:bg-[color-mix(in_srgb,var(--color-primary)_4%,transparent)]',
           'focus:focus-ring',
           'data-[placeholder]:text-secondary data-[placeholder]:text-sm',
           "[&_svg:not([class*='text-'])]:text-secondary",
@@ -127,9 +127,9 @@ function SelectItem({
       className={cn(
         'relative flex w-full cursor-default select-none items-center gap-2 rounded-[var(--radius-sm)] py-1.5 pr-8 pl-2 text-sm outline-none',
         "text-[var(--label)] [&_svg:not([class*='text-'])]:text-[var(--secondaryLabel)]",
-        'hover:bg-[color-mix(in_srgb,var(--system-blue)_8%,transparent)] hover:text-[var(--label)]',
-        'focus:bg-[color-mix(in_srgb,var(--system-blue)_12%,transparent)] focus:text-[var(--label)]',
-        'data-[highlighted]:bg-[color-mix(in_srgb,var(--system-blue)_12%,transparent)] data-[highlighted]:text-[var(--label)]',
+        'hover:bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)] hover:text-[var(--label)]',
+        'focus:bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)] focus:text-[var(--label)]',
+        'data-[highlighted]:bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)] data-[highlighted]:text-[var(--label)]',
         'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
         "[&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
         'transition-colors duration-150',
@@ -139,7 +139,7 @@ function SelectItem({
     >
       <span className="absolute right-2 flex size-3.5 items-center justify-center">
         <SelectPrimitive.ItemIndicator>
-          <CheckIcon className="size-4 text-[var(--system-blue)]" />
+          <CheckIcon className="size-4 text-[var(--color-primary)]" />
         </SelectPrimitive.ItemIndicator>
       </span>
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>

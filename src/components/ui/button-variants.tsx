@@ -23,7 +23,7 @@ const buttonVariants = cva(
 
         // Outline/Ghost - Uses global theme color
         outline:
-          'bg-control border-control text-primary hover:bg-gray-50 dark:hover:bg-gray-800 focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2',
+          'bg-control border-control text-primary hover:bg-[color-mix(in_srgb,var(--color-primary)_4%,transparent)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2',
         ghost:
           'bg-transparent text-foreground hover:bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)] hover:text-foreground focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2',
 

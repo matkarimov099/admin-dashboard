@@ -44,7 +44,7 @@ export function ModeToggle() {
           <Button
             variant="ghost"
             size="sm"
-            className="group relative mr-2 h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-colors duration-200 hover:border-[var(--system-blue)]/30 hover:bg-muted/50"
+            className="group relative mr-2 h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-colors duration-200 hover:border-[var(--color-primary)]/30 hover:bg-muted/50"
           >
             <div className="relative flex h-full w-full items-center justify-center">
               {/* Icon with rotation animation */}
@@ -70,7 +70,7 @@ export function ModeToggle() {
                 onClick={() => setTheme(option.value as 'light' | 'dark' | 'system')}
                 className={cn(
                   'group relative mx-1 my-0.5 flex cursor-pointer items-center gap-3 rounded-[var(--radius-sm)] px-3 py-2 transition-colors duration-200 hover:bg-muted/80',
-                  isSelected && 'bg-[var(--system-blue)]/10 text-foreground'
+                  isSelected && 'bg-[var(--color-primary)]/10 text-foreground'
                 )}
               >
                 <div className="flex flex-1 items-center gap-3">

@@ -32,7 +32,19 @@ export const DefaultLayout = () => {
                 <SidebarTrigger className="h-7 w-7 shrink-0 p-0 sm:h-8 sm:w-8" />
 
                 <Breadcrumb className="min-w-0 flex-1">
-                  <BreadcrumbList className="flex-wrap gap-1">
+                  {/* Mobile: Show only last item */}
+                  <BreadcrumbList className="flex flex-wrap gap-1 sm:hidden">
+                    {breadcrumbItems.slice(-1).map((item) => (
+                      <BreadcrumbItem key={`item-${item.url || item.title}`} className="min-w-0">
+                        <BreadcrumbPage className="max-w-37.5 truncate font-semibold text-primary">
+                          {item.title}
+                        </BreadcrumbPage>
+                      </BreadcrumbItem>
+                    ))}
+                  </BreadcrumbList>
+
+                  {/* Desktop: Show all items */}
+                  <BreadcrumbList className="hidden flex-wrap gap-1 sm:flex">
                     {breadcrumbItems.flatMap((item, index) =>
                       [
                         <BreadcrumbItem key={`item-${item.url || item.title}`} className="min-w-0">

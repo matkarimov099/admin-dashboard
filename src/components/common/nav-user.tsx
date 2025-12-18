@@ -39,8 +39,8 @@ export function NavUser({ user, logout }: NavUserProps) {
                 size={isCollapsed ? 'sm' : 'lg'}
                 className={cn(
                   'group relative cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
-                  'hover:border-[var(--system-blue)]/30',
-                  'data-[state=open]:border-[var(--system-blue)]/40 data-[state=open]:bg-[var(--control-ghost-bg)]',
+                  'hover:border-[var(--color-primary)]/30',
+                  'data-[state=open]:border-[var(--color-primary)]/40 data-[state=open]:bg-[var(--control-ghost-bg)]',
                   isCollapsed && 'h-9 w-9 justify-center p-0'
                 )}
               >
@@ -54,7 +54,7 @@ export function NavUser({ user, logout }: NavUserProps) {
                     <AvatarImage src={user?.avatarUrl} alt={user?.firstName} />
                     <AvatarFallback
                       className={cn(
-                        'flex items-center justify-center rounded-lg bg-gradient-to-br from-[var(--system-blue)]/10 to-[var(--system-blue)]/5 font-semibold text-[var(--system-blue)]',
+                        'flex items-center justify-center rounded-lg bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-primary)]/5 font-semibold text-[var(--color-primary)]',
                         isCollapsed && 'text-xs'
                       )}
                     >
@@ -79,7 +79,7 @@ export function NavUser({ user, logout }: NavUserProps) {
               </SidebarMenuButton>
             </DropdownMenuTrigger>
             <DropdownMenuContent
-              className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
+              className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-56 rounded-lg"
               side={isMobile ? 'bottom' : 'right'}
               align="end"
               sideOffset={4}

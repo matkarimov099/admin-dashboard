@@ -6,7 +6,7 @@ import type { ThemeConfig } from './theme-config.types';
 
 export const DEFAULT_THEME_CONFIG: ThemeConfig = {
   styleVariant: 'vega',
-  baseColor: 'neutral',
+  baseColor: 'slate',
   themeColor: 'blue',
   fontFamily: 'inter',
   borderRadius: 'default',

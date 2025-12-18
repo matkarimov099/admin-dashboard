@@ -54,7 +54,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   className={cn(
                     'relative flex items-center justify-center rounded-lg transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
                     isCollapsed ? 'size-8' : 'size-8',
-                    'bg-blue-500',
+                    'bg-[var(--color-primary)]',
                     'shadow-lg group-hover:scale-105 group-hover:shadow-xl'
                   )}
                 >
@@ -68,7 +68,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
                 {!isCollapsed && (
                   <div className="grid flex-1 text-left text-sm leading-tight transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]">
-                    <span className="truncate font-bold font-sans text-blue-500 text-lg tracking-wide">
+                    <span className="truncate font-bold font-sans text-[var(--color-primary)] text-lg tracking-wide">
                       Cargo Customs
                     </span>
                     <span className="truncate font-medium font-sans text-[var(--secondaryLabel)] text-xs opacity-80">

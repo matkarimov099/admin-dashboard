@@ -78,7 +78,7 @@ const SwirlingSpinner = ({ size, className }: SwirlingSpinnerProps) => {
       >
         <title id="spinnerTitle">Loading Spinner</title>
         <circle
-          className="spinner stroke-[var(--system-blue)]"
+          className="spinner stroke-[var(--color-primary)]"
           cx="400"
           cy="400"
           fill="none"

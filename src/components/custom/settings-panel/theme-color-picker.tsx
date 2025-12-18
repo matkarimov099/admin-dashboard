@@ -11,7 +11,7 @@ export function ThemeColorPicker() {
   const { config, setThemeColor } = useThemeConfig();
 
   return (
-    <div className="grid grid-cols-4 justify-items-start gap-2 sm:grid-cols-5">
+    <div className="grid grid-cols-4 justify-items-start gap-1.5 sm:grid-cols-5">
       {THEME_COLORS.map(color => {
         const isSelected = config.themeColor === color.value;
 

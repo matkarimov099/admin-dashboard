@@ -614,7 +614,7 @@ export function DataTable<TData>({
                     aria-selected={row.getIsSelected()}
                     className={`transition-colors duration-[var(--motion-short)] hover:bg-[var(--control-ghost-bg)] ${
                       row.getIsSelected()
-                        ? 'bg-[color-mix(in_srgb,var(--system-blue)_10%,transparent)]'
+                        ? 'bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)]'
                         : ''
                     }`}
                     onClick={

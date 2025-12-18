@@ -14,8 +14,8 @@ const checkboxVariants = cva(
           'bg-[var(--control-bg)] border-[var(--control-border)] text-white',
           'hover:border-[var(--border)]',
           'focus:border-[var(--ring)] focus:ring-[6px] focus:ring-[color-mix(in_srgb,var(--ring)_10%,transparent)]',
-          'data-[state=checked]:bg-[var(--system-blue)] data-[state=checked]:border-[var(--system-blue)]',
-          'data-[state=indeterminate]:bg-[var(--system-blue)] data-[state=indeterminate]:border-[var(--system-blue)]',
+          'data-[state=checked]:bg-[var(--color-primary)] data-[state=checked]:border-[var(--color-primary)]',
+          'data-[state=indeterminate]:bg-[var(--color-primary)] data-[state=indeterminate]:border-[var(--color-primary)]',
         ],
         destructive: [
           'bg-[var(--control-bg)] border-[var(--control-border)] text-white',

@@ -48,7 +48,7 @@ export function DataTableColumnHeader<TData, TValue>({
           <Button
             variant="ghost"
             size="sm"
-            className="h-3 text-foreground transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--system-blue)_8%,transparent)] focus-visible:ring-2 focus-visible:ring-blue-500 data-[state=open]:bg-[color-mix(in_srgb,var(--system-blue)_8%,transparent)]"
+            className="h-3 text-foreground transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] data-[state=open]:bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)]"
           >
             <span>{title}</span>
             {currentDirection === 'desc' ? (

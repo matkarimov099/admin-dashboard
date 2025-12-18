@@ -41,7 +41,7 @@
 	/* border / ring */
 	--border: rgba(60, 60, 67, 0.12);
 	--control-border: rgba(60, 60, 67, 0.1);
-	--ring: var(--system-blue);
+	--ring: var(--color-primary);
 
 	/* Input / control BG */
 	--control-bg: rgba(255, 255, 255, 1);
@@ -63,12 +63,12 @@
 	--sidebar-bg: rgba(255, 255, 255, 1);
 	--sidebar-foreground: var(--label);
 	/* These will be overridden by theme customization CSS variables */
-	--sidebar-primary: var(--system-blue);
+	--sidebar-primary: var(--color-primary);
 	--sidebar-primary-foreground: #fff;
 	--sidebar-accent: rgba(245, 245, 247, 1);
 	--sidebar-accent-foreground: var(--label);
 	--sidebar-border: rgba(60, 60, 67, 0.1);
-	--sidebar-ring: var(--system-blue);
+	--sidebar-ring: var(--color-primary);
 
 	/* Mapping to existing shadcn variables for compatibility */
 	--foreground: var(--label);
@@ -112,7 +112,7 @@
 
 	--border: rgba(255, 255, 255, 0.06);
 	--control-border: rgba(255, 255, 255, 0.06);
-	--ring: var(--system-blue);
+	--ring: var(--color-primary);
 
 	--control-bg: rgba(255, 255, 255, 0.02);
 	--control-ghost-bg: rgba(255, 255, 255, 0.03);
@@ -131,12 +131,12 @@
 	--sidebar-bg: rgba(255, 255, 255, 0.03);
 	--sidebar-foreground: var(--label);
 	/* These will be overridden by theme customization CSS variables */
-	--sidebar-primary: var(--system-blue);
+	--sidebar-primary: var(--color-primary);
 	--sidebar-primary-foreground: #fff;
 	--sidebar-accent: var(--control-ghost-bg);
 	--sidebar-accent-foreground: var(--label);
 	--sidebar-border: rgba(255, 255, 255, 0.06);
-	--sidebar-ring: var(--system-blue);
+	--sidebar-ring: var(--color-primary);
 
 	/* Update shadcn compatibility variables for dark mode */
 	--foreground: var(--label);
