@@ -42,13 +42,13 @@ export function DataTableColumnHeader<TData, TValue>({
   };
 
   return (
-    <div className={cn('flex items-center space-x-2', className)}>
+    <div className={cn('flex items-center space-x-2 py-0.5', className)}>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
             size="sm"
-            className="h-3 text-foreground transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] data-[state=open]:bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)]"
+            className="w-fit text-foreground transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)] focus-visible:ring-(--color-primary) focus-visible:ring-2 data-[state=open]:bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)]"
           >
             <span>{title}</span>
             {currentDirection === 'desc' ? (

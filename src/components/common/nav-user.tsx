@@ -28,7 +28,7 @@ export function NavUser({ user, logout }: NavUserProps) {
     <div
       className={cn(
         'relative',
-        'before:-top-3 before:absolute before:inset-x-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-[var(--border)]/50 before:to-transparent'
+        'before:-top-3 before:absolute before:inset-x-0 before:h-px before:bg-linear-to-r before:from-transparent before:via-(--border)/50 before:to-transparent'
       )}
     >
       <SidebarMenu>
@@ -38,23 +38,23 @@ export function NavUser({ user, logout }: NavUserProps) {
               <SidebarMenuButton
                 size={isCollapsed ? 'sm' : 'lg'}
                 className={cn(
-                  'group relative cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
-                  'hover:border-[var(--color-primary)]/30',
-                  'data-[state=open]:border-[var(--color-primary)]/40 data-[state=open]:bg-[var(--control-ghost-bg)]',
+                  'group relative cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)] hover:bg-(--color-primary)/10!',
+                  'hover:border-(--color-primary)/30',
+                  'data-[state=open]:border-(--color-primary)/40 data-[state=open]:bg-(--control-ghost-bg)',
                   isCollapsed && 'h-9 w-9 justify-center p-0'
                 )}
               >
                 <div className="relative">
                   <Avatar
                     className={cn(
-                      'h-9 w-9 rounded-lg border border-[var(--border)]/30 transition-all duration-200',
+                      'h-9 w-9 rounded-lg border border-(--border)/30 transition-all duration-200',
                       isCollapsed && 'h-8 w-8'
                     )}
                   >
                     <AvatarImage src={user?.avatarUrl} alt={user?.firstName} />
                     <AvatarFallback
                       className={cn(
-                        'flex items-center justify-center rounded-lg bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-primary)]/5 font-semibold text-[var(--color-primary)]',
+                        'flex items-center justify-center rounded-lg bg-linear-to-br from-(--color-primary)/10 to-(--color-primary)/5 font-semibold text-(--color-primary)',
                         isCollapsed && 'text-xs'
                       )}
                     >
@@ -66,20 +66,20 @@ export function NavUser({ user, logout }: NavUserProps) {
                 {!isCollapsed && (
                   <>
                     <div className="grid flex-1 text-left font-sans text-sm leading-tight transition-all duration-300">
-                      <span className="truncate font-medium text-[var(--label)]">
+                      <span className="truncate font-medium text-(--label)">
                         {user?.firstName || 'First Name'}
                       </span>
-                      <span className="truncate text-[var(--secondaryLabel)] text-xs">
+                      <span className="truncate text-(--secondaryLabel) text-xs">
                         {user?.lastName || 'Last Name'}
                       </span>
                     </div>
-                    <ChevronsUpDown className="ml-auto size-4 text-[var(--tertiaryLabel)] transition-colors group-hover:text-[var(--secondaryLabel)]" />
+                    <ChevronsUpDown className="ml-auto size-4 text-(--tertiaryLabel) transition-colors group-hover:text-(--secondaryLabel)" />
                   </>
                 )}
               </SidebarMenuButton>
             </DropdownMenuTrigger>
             <DropdownMenuContent
-              className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-56 rounded-lg"
+              className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
               side={isMobile ? 'bottom' : 'right'}
               align="end"
               sideOffset={4}

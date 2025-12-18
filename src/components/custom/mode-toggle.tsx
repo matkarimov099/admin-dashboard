@@ -50,7 +50,7 @@ export function ModeToggle() {
               {/* Icon with rotation animation */}
               <CurrentIcon
                 className={cn(
-                  '!h-5 !w-5 transition-transform duration-200 group-hover:scale-110',
+                  'h-5! w-5! transition-transform duration-200 group-hover:scale-110',
                   currentTheme?.iconColor,
                   theme === 'system' && 'animate-pulse'
                 )}
@@ -69,8 +69,8 @@ export function ModeToggle() {
                 key={option.value}
                 onClick={() => setTheme(option.value as 'light' | 'dark' | 'system')}
                 className={cn(
-                  'group relative mx-1 my-0.5 flex cursor-pointer items-center gap-3 rounded-[var(--radius-sm)] px-3 py-2 transition-colors duration-200 hover:bg-muted/80',
-                  isSelected && 'bg-[var(--color-primary)]/10 text-foreground'
+                  'group relative mx-1 my-0.5 flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors duration-200 hover:bg-muted/80',
+                  isSelected && 'bg-(--color-primary)/10 text-foreground'
                 )}
               >
                 <div className="flex flex-1 items-center gap-3">

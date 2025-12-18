@@ -5,23 +5,15 @@
 // Style Variants
 export type StyleVariant = 'vega' | 'nova' | 'maia' | 'mira';
 
-// Base Colors (neutral tones for backgrounds, borders)
-export type BaseColor = 'neutral' | 'zinc' | 'gray' | 'slate';
-
 // Theme Colors (accent colors for interactive elements)
 export type ThemeColor =
   | 'amber'
   | 'blue'
-  | 'cyan'
-  | 'emerald'
-  | 'green'
   | 'indigo'
   | 'orange'
   | 'purple'
-  | 'red'
   | 'rose'
-  | 'teal'
-  | 'yellow';
+  | 'teal';
 
 // Font Families
 export type FontFamily = 'inter' | 'noto-sans' | 'nunito-sans' | 'figtree';
@@ -39,7 +31,6 @@ export type Shadow = 'none' | 'small' | 'default' | 'medium' | 'large';
 // Main theme configuration
 export interface ThemeConfig {
   styleVariant: StyleVariant;
-  baseColor: BaseColor;
   themeColor: ThemeColor;
   fontFamily: FontFamily;
   borderRadius: BorderRadius;
@@ -50,7 +41,6 @@ export interface ThemeConfig {
 export interface ThemeConfigContextValue {
   config: ThemeConfig;
   setStyleVariant: (variant: StyleVariant) => void;
-  setBaseColor: (color: BaseColor) => void;
   setThemeColor: (color: ThemeColor) => void;
   setFontFamily: (font: FontFamily) => void;
   setBorderRadius: (radius: BorderRadius) => void;

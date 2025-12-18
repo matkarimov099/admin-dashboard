@@ -128,14 +128,14 @@
 	--chart-5: var(--system-cyan);
 
 	/* sidebar dark vibrancy */
-	--sidebar-bg: rgba(255, 255, 255, 0.03);
+	--sidebar-bg: var(--content-bg);
 	--sidebar-foreground: var(--label);
 	/* These will be overridden by theme customization CSS variables */
 	--sidebar-primary: var(--color-primary);
 	--sidebar-primary-foreground: #fff;
 	--sidebar-accent: var(--control-ghost-bg);
 	--sidebar-accent-foreground: var(--label);
-	--sidebar-border: rgba(255, 255, 255, 0.06);
+	--sidebar-border: var(--border);
 	--sidebar-ring: var(--color-primary);
 
 	/* Update shadcn compatibility variables for dark mode */

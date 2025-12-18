@@ -34,8 +34,8 @@ Professional theme color application with minimal, targeted styling
 
 /* Force sidebar menu colors to use dynamic theme colors */
 [data-sidebar="menu-button"]:hover {
-  background-color: color-mix(in srgb, var(--color-primary) 8%, transparent) !important;
-  color: var(--label) !important;
+  background-color: var(--color-primary) !important;
+  color: white !important;
 }
 
 [data-sidebar="menu-button"][data-active="true"] {
@@ -44,8 +44,8 @@ Professional theme color application with minimal, targeted styling
 }
 
 [data-sidebar="menu-sub-button"]:hover {
-  background-color: color-mix(in srgb, var(--color-primary) 8%, transparent) !important;
-  color: var(--label) !important;
+  background-color: var(--color-primary) !important;
+  color: white !important;
 }
 
 [data-sidebar="menu-sub-button"][data-active="true"] {

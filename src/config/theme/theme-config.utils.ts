@@ -6,11 +6,9 @@ import {
   SHADOW_OPTIONS,
   SHADOW_VALUES,
   STYLE_VARIANTS,
-  THEME_COLORS,
-  BASE_COLORS,
   THEME_COLOR_HSL,
+  THEME_COLORS,
 } from './theme-config.constants';
-import { DEFAULT_THEME_CONFIG, STORAGE_KEY } from './theme-config.defaults';
 import type { ThemeConfig } from './theme-config.types';
 
 // ============================
@@ -55,20 +53,34 @@ export function generateCSSVariables(config: ThemeConfig): Record<string, string
     const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
     const m = l - c / 2;
 
-    let r = 0, g = 0, b = 0;
+    let r = 0,
+      g = 0,
+      b = 0;
 
     if (0 <= h && h < 60) {
-      r = c; g = x; b = 0;
+      r = c;
+      g = x;
+      b = 0;
     } else if (60 <= h && h < 120) {
-      r = x; g = c; b = 0;
+      r = x;
+      g = c;
+      b = 0;
     } else if (120 <= h && h < 180) {
-      r = 0; g = c; b = x;
+      r = 0;
+      g = c;
+      b = x;
     } else if (180 <= h && h < 240) {
-      r = 0; g = x; b = c;
+      r = 0;
+      g = x;
+      b = c;
     } else if (240 <= h && h < 300) {
-      r = x; g = 0; b = c;
+      r = x;
+      g = 0;
+      b = c;
     } else if (300 <= h && h < 360) {
-      r = c; g = 0; b = x;
+      r = c;
+      g = 0;
+      b = x;
     }
 
     r = Math.round((r + m) * 255);
@@ -113,9 +125,6 @@ export function generateCSSVariables(config: ThemeConfig): Record<string, string
 // Randomization
 // ============================
 
-/**
- * Generates a random theme configuration
- */
 export function randomizeConfig(): ThemeConfig {
   const getRandomItem = <T>(array: readonly { value: T }[]): T => {
     const randomIndex = Math.floor(Math.random() * array.length);
@@ -124,92 +133,9 @@ export function randomizeConfig(): ThemeConfig {
 
   return {
     styleVariant: getRandomItem(STYLE_VARIANTS),
-    baseColor: getRandomItem(BASE_COLORS),
     themeColor: getRandomItem(THEME_COLORS),
     fontFamily: getRandomItem(FONT_FAMILIES),
     borderRadius: getRandomItem(BORDER_RADIUS_OPTIONS),
     shadow: getRandomItem(SHADOW_OPTIONS),
   };
-}
-
-// ============================
-// localStorage Persistence
-// ============================
-
-/**
- * Validates if object is a valid ThemeConfig
- */
-function isValidThemeConfig(obj: unknown): obj is ThemeConfig {
-  if (!obj || typeof obj !== 'object') return false;
-
-  const config = obj as Partial<ThemeConfig>;
-
-  const validStyleVariants: readonly string[] = STYLE_VARIANTS.map(v => v.value);
-  const validBaseColors: readonly string[] = BASE_COLORS.map(v => v.value);
-  const validThemeColors: readonly string[] = THEME_COLORS.map(v => v.value);
-  const validFonts: readonly string[] = FONT_FAMILIES.map(v => v.value);
-  const validRadii: readonly string[] = BORDER_RADIUS_OPTIONS.map(v => v.value);
-  const validShadows: readonly string[] = SHADOW_OPTIONS.map(v => v.value);
-
-  return (
-    typeof config.styleVariant === 'string' &&
-    validStyleVariants.includes(config.styleVariant) &&
-    typeof config.baseColor === 'string' &&
-    validBaseColors.includes(config.baseColor) &&
-    typeof config.themeColor === 'string' &&
-    validThemeColors.includes(config.themeColor) &&
-    typeof config.fontFamily === 'string' &&
-    validFonts.includes(config.fontFamily) &&
-    typeof config.borderRadius === 'string' &&
-    validRadii.includes(config.borderRadius) &&
-    typeof config.shadow === 'string' &&
-    validShadows.includes(config.shadow)
-  );
-}
-
-/**
- * Loads theme config from localStorage
- * Returns null if not found or invalid
- */
-export function loadConfigFromStorage(): ThemeConfig | null {
-  try {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (!stored) return null;
-
-    const parsed = JSON.parse(stored);
-    if (isValidThemeConfig(parsed)) {
-      return parsed;
-    }
-
-    // Invalid data, clear it
-    localStorage.removeItem(STORAGE_KEY);
-    return null;
-  } catch (error) {
-    // localStorage unavailable or JSON parse error
-    console.warn('Failed to load theme config from localStorage:', error);
-    return null;
-  }
-}
-
-/**
- * Saves theme config to localStorage
- */
-export function saveConfigToStorage(config: ThemeConfig): void {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
-  } catch (error) {
-    // localStorage unavailable (SSR, private mode, quota exceeded)
-    console.warn('Failed to save theme config to localStorage:', error);
-  }
-}
-
-/**
- * Resets config to defaults in localStorage
- */
-export function resetConfigInStorage(): void {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_THEME_CONFIG));
-  } catch (error) {
-    console.warn('Failed to reset theme config in localStorage:', error);
-  }
 }

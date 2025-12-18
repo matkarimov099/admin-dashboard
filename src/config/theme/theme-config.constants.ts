@@ -1,5 +1,4 @@
 import type {
-  BaseColor,
   BorderRadius,
   FontFamily,
   Shadow,
@@ -35,32 +34,6 @@ export const STYLE_VARIANTS: ThemeOption<StyleVariant>[] = [
   },
 ];
 
-// ============================
-// Base Color Options
-// ============================
-
-export const BASE_COLORS: ThemeOption<BaseColor>[] = [
-  {
-    value: 'neutral',
-    label: 'Neutral',
-    previewColor: '#737373',
-  },
-  {
-    value: 'zinc',
-    label: 'Zinc',
-    previewColor: '#71717a',
-  },
-  {
-    value: 'gray',
-    label: 'Gray',
-    previewColor: '#6b7280',
-  },
-  {
-    value: 'slate',
-    label: 'Slate',
-    previewColor: '#64748b',
-  },
-];
 
 // ============================
 // Theme Color Options
@@ -112,25 +85,25 @@ export const FONT_FAMILIES: ThemeOption<FontFamily>[] = [
   {
     value: 'inter',
     label: 'Inter',
-    previewFont: 'Inter, system-ui, sans-serif',
+    previewFont: 'Inter, ui-sans-serif, system-ui, sans-serif',
     description: 'Modern & professional',
   },
   {
     value: 'noto-sans',
     label: 'Noto Sans',
-    previewFont: 'Noto Sans, system-ui, sans-serif',
+    previewFont: 'Noto Sans, ui-sans-serif, system-ui, sans-serif',
     description: 'Multi-language support',
   },
   {
     value: 'nunito-sans',
     label: 'Nunito Sans',
-    previewFont: 'Nunito Sans, system-ui, sans-serif',
+    previewFont: 'Nunito Sans, ui-sans-serif, system-ui, sans-serif',
     description: 'Friendly & rounded',
   },
   {
     value: 'figtree',
     label: 'Figtree',
-    previewFont: 'Figtree, system-ui, sans-serif',
+    previewFont: 'Figtree, ui-sans-serif, system-ui, sans-serif',
     description: 'Geometric & clean',
   },
 ];
