@@ -62,7 +62,7 @@ export const HorizontalLayout = () => {
             <BreadcrumbList className="flex flex-wrap gap-1">
               {breadcrumbItems.flatMap((item, index) =>
                 [
-                  <BreadcrumbItem key={`item-${item.url || item.title}`} className="min-w-0">
+                  <BreadcrumbItem key={`item-${index}`} className="min-w-0">
                     {item.isActive ? (
                       <BreadcrumbPage className="max-w-37.5 truncate font-semibold text-primary sm:max-w-50">
                         {item.title}
@@ -81,10 +81,7 @@ export const HorizontalLayout = () => {
                     )}
                   </BreadcrumbItem>,
                   index < breadcrumbItems.length - 1 && (
-                    <BreadcrumbSeparator
-                      key={`separator-${item.url || item.title}`}
-                      className="text-secondary"
-                    />
+                    <BreadcrumbSeparator key={`separator-${index}`} className="text-secondary" />
                   ),
                 ].filter(Boolean)
               )}
@@ -93,7 +90,7 @@ export const HorizontalLayout = () => {
         </div>
 
         {/* Main Content Area */}
-        <div className="flex min-h-0 min-w-0 flex-1 flex-col p-2 sm:p-4 sm:gap-4">
+        <div className="flex min-h-0 min-w-0 flex-1 flex-col p-2 sm:gap-4 sm:p-4">
           <Suspense
             fallback={
               <div className="flex h-full items-center justify-center bg-background">

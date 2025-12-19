@@ -83,7 +83,7 @@ export function ToolbarOptions({
             onPriorityChange(value === 'all' ? undefined : (value as TaskPriority))
           }
         >
-          <SelectTrigger className="w-full sm:w-auto sm:min-w-35">
+          <SelectTrigger className="w-full sm:w-auto sm:min-w-35" aria-label="Filter by priority">
             <SelectValue placeholder="All Priorities" />
           </SelectTrigger>
           <SelectContent>
@@ -100,7 +100,7 @@ export function ToolbarOptions({
           value={selectedAssigneeId ?? 'all'}
           onValueChange={value => onAssigneeChange(value === 'all' ? undefined : value)}
         >
-          <SelectTrigger className="w-full sm:w-auto sm:min-w-40">
+          <SelectTrigger className="w-full sm:w-auto sm:min-w-40" aria-label="Filter by assignee">
             <SelectValue placeholder="All Assignees" />
           </SelectTrigger>
           <SelectContent>

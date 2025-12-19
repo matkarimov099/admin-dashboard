@@ -76,7 +76,7 @@ export function KanbanToolbar({
           value={selectedAssigneeId ?? 'all'}
           onValueChange={value => onAssigneeChange(value === 'all' ? undefined : value)}
         >
-          <SelectTrigger className="w-full sm:w-fit">
+          <SelectTrigger className="w-full sm:w-fit" aria-label="Filter by assignee">
             <SelectValue placeholder="All Assignees" />
           </SelectTrigger>
           <SelectContent>
@@ -97,7 +97,7 @@ export function KanbanToolbar({
             onPriorityChange(value === 'all' ? undefined : (value as TaskPriority))
           }
         >
-          <SelectTrigger className="w-full sm:w-fit">
+          <SelectTrigger className="w-full sm:w-fit" aria-label="Filter by priority">
             <SelectValue placeholder="All Priorities" />
           </SelectTrigger>
           <SelectContent>
