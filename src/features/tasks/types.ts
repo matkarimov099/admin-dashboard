@@ -1,4 +1,3 @@
-import type { Project } from '@/features/projects/types.ts';
 import type { User } from '@/features/users/types.ts';
 import type { Asset, PaginationFilter } from '@/types/common.ts';
 
@@ -84,7 +83,7 @@ export interface Task {
   assignee: User;
   creator: User;
   creatorId: string;
-  project: Project;
+  project: { id: string; name: string; url: string };
   projectId: string;
   linkedTasks?: LinkedTask[];
   assets?: TaskAsset[];

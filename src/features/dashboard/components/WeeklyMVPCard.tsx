@@ -5,7 +5,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Progress } from '@/components/ui/progress';
 import { Typography } from '@/components/ui/typography';
 import type { MVPResponse } from '@/features/dashboard/types';
-import { cn } from '@/utils/utils';
 
 interface WeeklyMVPCardProps {
   mvpData?: MVPResponse;
@@ -46,10 +45,7 @@ export function WeeklyMVPCard({ mvpData }: WeeklyMVPCardProps) {
       <CardContent>
         <div className="space-y-4">
           {safeTopPerformers.slice(0, 3).map((mvp, index) => (
-            <div
-              key={mvp.userId}
-              className="mb-4 rounded-lg border bg-white p-4 dark:bg-gray-900"
-            >
+            <div key={mvp.userId} className="mb-4 rounded-lg border bg-white p-4 dark:bg-gray-900">
               <div className="mb-3 flex items-center gap-4">
                 <div className="text-3xl">{index === 0 ? '🥇' : index === 1 ? '🥈' : '🥉'}</div>
 

@@ -2,7 +2,6 @@
 export * from './column-sizing';
 export * from './conditional-state';
 export * from './date-format';
-export * from './deep-utils';
 export * from './export-utils';
 export * from './keyboard-navigation';
 export * from './search';

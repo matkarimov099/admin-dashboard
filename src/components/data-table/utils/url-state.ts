@@ -1,6 +1,50 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router';
-import { isDeepEqual } from './deep-utils';
+
+// Simple deep equality check for objects and arrays
+function isDeepStrictEqual(a: unknown, b: unknown): boolean {
+  if (a === b) return true;
+
+  if (a == null || b == null) return a === b;
+
+  if (typeof a !== typeof b) return false;
+
+  if (typeof a !== 'object') return false;
+
+  if (Array.isArray(a)) {
+    if (!Array.isArray(b) || a.length !== b.length) return false;
+    for (let i = 0; i < a.length; i++) {
+      if (!isDeepStrictEqual(a[i], b[i])) return false;
+    }
+    return true;
+  }
+
+  if (a instanceof Date && b instanceof Date) {
+    return a.getTime() === b.getTime();
+  }
+
+  if (ArrayBuffer.isView(a) && ArrayBuffer.isView(b)) {
+    const aView = a as { buffer: ArrayBuffer; byteLength: number };
+    const bView = b as { buffer: ArrayBuffer; byteLength: number };
+    if (aView.byteLength !== bView.byteLength) return false;
+    return aView.buffer === bView.buffer;
+  }
+
+  const keysA = Object.keys(a as object);
+  const keysB = Object.keys(b as object);
+
+  if (keysA.length !== keysB.length) return false;
+
+  for (const key of keysA) {
+    if (!Object.hasOwn(b, key)) return false;
+    if (
+      !isDeepStrictEqual((a as Record<string, unknown>)[key], (b as Record<string, unknown>)[key])
+    )
+      return false;
+  }
+
+  return true;
+}
 
 // Flag to track if we're currently in a batch update
 let isInBatchUpdate = false;
@@ -130,8 +174,8 @@ export function useUrlState<T>(
   // Deep compare objects/arrays before updating the state
   const areEqual = useMemo(() => {
     return (a: T, b: T): boolean => {
-      if (typeof a === 'object' && typeof b === 'object') {
-        return isDeepEqual(a, b);
+      if (typeof a === 'object' && typeof b === 'object' && a !== null && b !== null) {
+        return isDeepStrictEqual(a, b);
       }
       return a === b;
     };

@@ -8,7 +8,7 @@ export type ExportableData = Record<string, string | number | boolean | null | u
 export type AnyRecord = Record<string, unknown>;
 
 /**
- * Convert array of objects to CSV string
+ * Convert an array of objects to CSV string
  */
 function convertToCSV<T extends ExportableData>(
   data: T[],
@@ -19,7 +19,7 @@ function convertToCSV<T extends ExportableData>(
     throw new Error('No data to export');
   }
 
-  // Create CSV header row with column mapping if provided
+  // Create a CSV header row with column mapping if provided
   let csvContent: string;
 
   if (columnMapping) {
@@ -58,7 +58,7 @@ function convertToCSV<T extends ExportableData>(
 }
 
 /**
- * Download blob as file
+ * Download blob as a file
  */
 function downloadFile(blob: Blob, filename: string) {
   const link = document.createElement('a');
@@ -186,7 +186,7 @@ export async function exportToExcel<T extends AnyRecord>(
     // Generate Excel buffer
     const excelBuffer = await workbook.xlsx.writeBuffer();
 
-    // Create blob and download
+    // Create a blob and download
     const blob = new Blob([excelBuffer], {
       type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
     });
