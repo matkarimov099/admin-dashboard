@@ -42,7 +42,7 @@ export function useKanbanColumnVisibility() {
     });
   }, []);
 
-  // Check if column is visible
+  // Check if a column is visible
   const isColumnVisible = useCallback(
     (status: TaskStatus) => visibleColumns.includes(status),
     [visibleColumns]

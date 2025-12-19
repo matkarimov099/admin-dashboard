@@ -1,8 +1,8 @@
 import { lazy } from 'react';
-import { LazyComponent } from '@/components/common/lazy-component';
+import { LazyComponent } from '@/components/common/LazyComponent';
 
 // Lazy load the heavy tasks table component
-const TasksTable = lazy(() => import('@/features/tasks/components/tasks-table'));
+const TasksTable = lazy(() => import('@/features/tasks/components/TasksTable'));
 
 const TasksTablePage = () => {
   return (

@@ -142,7 +142,7 @@ export function KanbanToolbar({
               </Button>
             }
           >
-            <CreateTask purpose="board" />
+            <CreateTask />
           </Suspense>
         </div>
       </div>

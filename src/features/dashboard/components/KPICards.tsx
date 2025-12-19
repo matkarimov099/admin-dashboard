@@ -1,6 +1,7 @@
 import { Activity, Clock, FolderKanban, TrendingUp, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Typography } from '@/components/ui/typography';
+import { useTranslation } from 'react-i18next';
 import type { DashboardKPIs } from '@/features/dashboard/types';
 
 interface KPICardsProps {
@@ -8,6 +9,8 @@ interface KPICardsProps {
 }
 
 export function KPICards({ kpis }: KPICardsProps) {
+  const { t } = useTranslation();
+
   // Provide default values when kpis is undefined (empty database)
   const safeKpis: DashboardKPIs = kpis ?? {
     todayHours: 0,
@@ -19,35 +22,35 @@ export function KPICards({ kpis }: KPICardsProps) {
 
   const cards = [
     {
-      title: 'Today Hours',
+      title: t('dashboard.cards.todayHours'),
       value: `${safeKpis.todayHours.toFixed(1)}h`,
       icon: Clock,
       color: 'text-[var(--color-primary)]',
       bgColor: 'bg-[var(--color-primary-light)] dark:bg-[var(--color-primary)]/10',
     },
     {
-      title: 'Weekly Hours',
+      title: t('dashboard.cards.thisMonth'),
       value: `${safeKpis.weeklyHours.toFixed(1)}h`,
       icon: Activity,
       color: 'text-foreground',
       bgColor: 'bg-muted/50',
     },
     {
-      title: 'Productivity',
+      title: t('dashboard.cards.productivity'),
       value: `${safeKpis.productivity.toFixed(0)}%`,
       icon: TrendingUp,
       color: 'text-foreground',
       bgColor: 'bg-muted/50',
     },
     {
-      title: 'Active Projects',
+      title: t('dashboard.cards.activeProjects'),
       value: safeKpis.activeProjects.toString(),
       icon: FolderKanban,
       color: 'text-foreground',
       bgColor: 'bg-muted/50',
     },
     {
-      title: 'Team Size',
+      title: t('dashboard.cards.teamMembers'),
       value: safeKpis.teamSize.toString(),
       icon: Users,
       color: 'text-foreground',

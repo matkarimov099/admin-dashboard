@@ -124,7 +124,7 @@ export function useTasksData() {
     const newSorting =
       typeof updaterOrValue === 'function' ? updaterOrValue(sorting) : updaterOrValue;
     setSorting(newSorting);
-    setPagination(prev => ({ ...prev, pageIndex: 0 })); // Reset to first page
+    setPagination(prev => ({ ...prev, pageIndex: 0 })); // Reset to the first page
   };
 
   const handleSearchChange = (searchValue: string) => {

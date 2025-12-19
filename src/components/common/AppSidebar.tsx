@@ -1,10 +1,10 @@
 import { Network, Zap } from 'lucide-react';
 import type * as React from 'react';
 
-import { LocalizedNavLink } from '@/components/common/localized-nav-link';
-import { NavMain } from '@/components/common/nav-main.tsx';
-import { NavSecondary } from '@/components/common/nav-secondary.tsx';
-import { NavUser } from '@/components/common/nav-user.tsx';
+import { LocalizedNavLink } from '@/components/common/LocalizedNavLink';
+import { NavMain } from '@/components/common/NavMain.tsx';
+import { NavSecondary } from '@/components/common/NavSecondary.tsx';
+import { NavUser } from '@/components/common/NavUser.tsx';
 import {
   Sidebar,
   SidebarContent,

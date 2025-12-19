@@ -1,10 +1,10 @@
 import { DataTable } from '@/components/data-table/data-table';
+import { getColumns } from '@/features/tasks/components/Columns.tsx';
 import type { Task } from '../types';
 import { useExportConfig } from '../utils/config';
 import { useTasksData } from '../utils/data-fetching';
 import { tasksTableConfig } from '../utils/table-config';
-import { getColumns } from './columns';
-import { ToolbarOptions } from './toolbar-options';
+import { ToolbarOptions } from './ToolbarOptions.tsx';
 
 const TasksTable = () => {
   const {

@@ -53,7 +53,7 @@ export function ToolbarOptions({
   return {
     left: (
       <Suspense fallback={<div className="h-10 w-32 animate-pulse rounded-md bg-muted" />}>
-        <CreateTask purpose="table" />
+        <CreateTask />
       </Suspense>
     ),
     right: (

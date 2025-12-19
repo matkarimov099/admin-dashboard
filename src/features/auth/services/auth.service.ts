@@ -1,16 +1,21 @@
-import type { AxiosResponse } from 'axios';
 import axiosClient, { publicAxiosClient } from '@/plugins/axios.ts';
-import type { ServerError } from '@/types/common.ts';
-import type { CurrentUser, LoginCredentials } from '../types.ts';
+import type { CurrentUser, LoginCredentials, LoginResponse } from '../types.ts';
 
-export async function login<T>(data: LoginCredentials) {
-  return await publicAxiosClient.post<T, AxiosResponse<T, ServerError>>('/auth/login', data);
-}
+export const authService = {
+  // POST - Login
+  login: async (data: LoginCredentials): Promise<LoginResponse> => {
+    const { data: response } = await publicAxiosClient.post<LoginResponse>('/auth/login', data);
+    return response;
+  },
 
-export async function logout() {
-  return await axiosClient.get('/auth/logout');
-}
+  // POST - Logout
+  logout: async (): Promise<void> => {
+    await axiosClient.post('/auth/logout');
+  },
 
-export async function currentUser() {
-  return await axiosClient.get<CurrentUser>('/auth/me');
-}
+  // GET - Current user
+  currentUser: async (): Promise<CurrentUser> => {
+    const { data } = await axiosClient.get<CurrentUser>('/auth/me');
+    return data;
+  }
+};

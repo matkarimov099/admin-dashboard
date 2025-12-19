@@ -1,7 +1,7 @@
 import { ChevronDown, ChevronRightIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
-import { LocalizedNavLink } from '@/components/common/localized-nav-link';
+import { LocalizedNavLink } from '@/components/common/LocalizedNavLink';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import {
   SidebarGroup,

@@ -6,13 +6,13 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Typography } from '@/components/ui/typography';
+import { DataTableRowActions } from '@/features/tasks/components/RowActions.tsx';
 import { humanizeDateTime } from '@/utils/humanize';
 import { cn } from '@/utils/utils.ts';
 import type { Task } from '../types';
 import { PriorityBadge } from './badges/PriorityBadge.tsx';
 import { StatusBadge } from './badges/StatusBadge.tsx';
 import { WorkTypeBadge } from './badges/WorkTypeBadge.tsx';
-import { DataTableRowActions } from './row-actions';
 
 export const getColumns = (
   handleRowDeselection: ((rowId: string) => void) | null | undefined

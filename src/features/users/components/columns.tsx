@@ -1,9 +1,9 @@
 import type { ColumnDef } from '@tanstack/react-table';
 import { DataTableColumnHeader } from '@/components/data-table/column-header';
 import { Checkbox } from '@/components/ui/checkbox.tsx';
+import { DataTableRowActions } from '@/features/users/components/RowActions.tsx';
 import type { User } from '@/features/users/types.ts';
 import { humanizeDateTime } from '@/utils/humanize.ts';
-import { DataTableRowActions } from './row-actions';
 
 export const getColumns = (
   handleRowDeselection: ((rowId: string) => void) | null | undefined

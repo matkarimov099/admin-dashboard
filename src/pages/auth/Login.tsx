@@ -1,6 +1,7 @@
 import { KeyRound } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from 'react-router';
 import {
   CustomCard,
@@ -12,6 +13,7 @@ import { LoginForm } from '@/features/auth/components/LoginForm.tsx';
 import { isAuthenticated } from '@/lib/auth';
 
 const Login = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [isChecking, setIsChecking] = useState(true);
 
@@ -55,21 +57,21 @@ const Login = () => {
             <KeyRound className="h-8 w-8 text-white" />
           </motion.div>
           <Typography variant="large" align="center">
-            Welcome Back
+            {t('auth.login.welcomeBack')}
           </Typography>
         </div>
-        <CustomCardTitle className="mb-2 text-center font-semibold text-[var(--label)] text-xl">
-          Sign in to your account
+        <CustomCardTitle className="mb-2 text-center font-semibold text-[var(--label)]">
+          {t('auth.login.subtitle')}
         </CustomCardTitle>
         <LoginForm />
         <CustomCardDescription>
           <div className="mt-2 border-[var(--border)]/30 border-t pt-4 text-center text-sm">
-            <span className="text-[var(--secondaryLabel)]">Don't have an account? </span>
+            <span className="text-[var(--secondaryLabel)]">{t('auth.info.dontHaveAccount')} </span>
             <NavLink
               to="/register"
               className="font-medium text-[var(--system-blue)] transition-colors duration-200 hover:text-[var(--system-blue)]/80"
             >
-              Sign up
+              {t('auth.actions.register')}
             </NavLink>
           </div>
         </CustomCardDescription>

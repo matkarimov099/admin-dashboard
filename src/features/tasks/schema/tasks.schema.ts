@@ -1,42 +1,43 @@
+import type { TFunction } from 'i18next';
 import { z } from 'zod';
 import { TaskPriority, TaskStatus, TaskWorkType } from '../types.ts';
 
 // ==================== CREATE SCHEMA ====================
-export const taskCreateSchema = () => {
+export const taskCreateSchema = (t: TFunction) => {
   return z
     .object({
       title: z
         .string()
-        .min(3, 'Title must be at least 3 characters')
-        .max(200, 'Title must be 200 characters or less'),
+        .min(3, t('tasks.validation.title.minLength', { min: 3 }))
+        .max(200, t('tasks.validation.title.maxLength', { max: 200 })),
       description: z
         .string()
-        .max(3000, 'Description must be 2000 characters or less')
+        .max(3000, t('tasks.validation.description.maxLength', { max: 3000 }))
         .optional()
         .transform(val => (val === '' ? undefined : val)),
-      status: z.nativeEnum(TaskStatus, { message: 'Status is required' }),
-      priority: z.nativeEnum(TaskPriority, { message: 'Priority is required' }),
-      workType: z.nativeEnum(TaskWorkType, { message: 'Work type is required' }),
-      projectId: z.string().min(1, 'Project is required'),
+      status: z.nativeEnum(TaskStatus, { message: t('tasks.validation.status.required') }),
+      priority: z.nativeEnum(TaskPriority, { message: t('tasks.validation.priority.required') }),
+      workType: z.nativeEnum(TaskWorkType, { message: t('tasks.validation.workType.required') }),
+      projectId: z.string().min(1, t('tasks.validation.projectId.required')),
       assigneeId: z
         .string()
-        .min(1, 'Assignee is required')
+        .min(1, t('tasks.validation.assigneeId.required'))
         .optional()
         .transform(val => (val === '' ? undefined : val)),
       linkedTaskUrls: z
-        .array(z.string().url('Invalid URL format'))
-        .max(20, 'Maximum 20 linked tasks allowed')
+        .array(z.string().url(t('tasks.validation.linkedTaskUrls.invalid')))
+        .max(20, t('tasks.validation.linkedTaskUrls.max', { max: 20 }))
         .optional()
         .transform(val => (val?.length === 0 ? undefined : val)),
       assetIds: z
         .array(z.string())
-        .max(50, 'Maximum 50 assets allowed')
+        .max(50, t('tasks.validation.assetIds.max', { max: 50 }))
         .optional()
         .transform(val => (val?.length === 0 ? undefined : val)),
       estimate: z
         .number()
-        .positive('Estimate must be positive')
-        .max(999.99, 'Estimate must be less than 1000 hours')
+        .positive(t('tasks.validation.estimatedHours.positive'))
+        .max(999.99, t('tasks.validation.estimatedHours.max', { max: 1000 }))
         .optional(),
       deadline: z
         .string()
@@ -53,7 +54,7 @@ export const taskCreateSchema = () => {
         return true;
       },
       {
-        message: 'Deadline must be in the future',
+        message: t('tasks.validation.deadline.future'),
         path: ['deadline'],
       }
     );
@@ -62,24 +63,24 @@ export const taskCreateSchema = () => {
 export type TaskCreateSchema = z.infer<ReturnType<typeof taskCreateSchema>>;
 
 // ==================== UPDATE SCHEMA ====================
-export const taskUpdateSchema = () => {
+export const taskUpdateSchema = (t: TFunction) => {
   return z.object({
     title: z
       .string()
-      .min(3, 'Title must be at least 3 characters')
-      .max(200, 'Title must be 200 characters or less')
+      .min(3, t('tasks.validation.title.minLength', { min: 3 }))
+      .max(200, t('tasks.validation.title.maxLength', { max: 200 }))
       .optional(),
     description: z
       .string()
-      .max(3000, 'Description must be 2000 characters or less')
+      .max(3000, t('tasks.validation.description.maxLength', { max: 3000 }))
       .optional()
       .transform(val => (val === '' ? undefined : val)),
     status: z.nativeEnum(TaskStatus).optional(),
     priority: z.nativeEnum(TaskPriority).optional(),
-    workType: z.nativeEnum(TaskWorkType, { message: 'Work type is required' }),
+    workType: z.nativeEnum(TaskWorkType, { message: t('tasks.validation.workType.required') }),
     projectId: z
       .string()
-      .min(1, 'Project is required')
+      .min(1, t('tasks.validation.projectId.required'))
       .optional()
       .transform(val => (val === '' ? undefined : val)),
     assigneeId: z
@@ -87,24 +88,24 @@ export const taskUpdateSchema = () => {
       .optional()
       .transform(val => (val === '' ? undefined : val)),
     linkedTaskUrls: z
-      .array(z.string().url('Invalid URL format'))
-      .max(20, 'Maximum 20 linked tasks allowed')
+      .array(z.string().url(t('tasks.validation.linkedTaskUrls.invalid')))
+      .max(20, t('tasks.validation.linkedTaskUrls.max', { max: 20 }))
       .optional()
       .transform(val => (val?.length === 0 ? undefined : val)),
     addAssetIds: z
       .array(z.string())
-      .max(50, 'Maximum 50 assets allowed')
+      .max(50, t('tasks.validation.assetIds.max', { max: 50 }))
       .optional()
       .transform(val => (val?.length === 0 ? undefined : val)),
     removeAssetIds: z
       .array(z.string())
-      .max(50, 'Maximum 50 assets allowed')
+      .max(50, t('tasks.validation.assetIds.max', { max: 50 }))
       .optional()
       .transform(val => (val?.length === 0 ? undefined : val)),
     estimate: z
       .number()
-      .positive('Estimate must be positive')
-      .max(999.99, 'Estimate must be less than 1000 hours')
+      .positive(t('tasks.validation.estimatedHours.positive'))
+      .max(999.99, t('tasks.validation.estimatedHours.max', { max: 1000 }))
       .optional(),
     deadline: z
       .string()

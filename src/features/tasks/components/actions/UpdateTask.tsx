@@ -47,11 +47,10 @@ interface UpdateTaskProps {
   task: Task;
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  purpose?: string; // 'table' or 'board' to refetch only specific queries
 }
 
-function UpdateTask({ task, open, onOpenChange, purpose }: UpdateTaskProps) {
-  const { mutate: updateTask, isPending } = useUpdateTask(purpose);
+function UpdateTask({ task, open, onOpenChange }: UpdateTaskProps) {
+  const { mutate: updateTask, isPending } = useUpdateTask();
   const { mutate: deleteAsset, isPending: isDeletingAsset } = useDeleteTaskAsset();
   const [addAssetIds, setAddAssetIds] = useState<string[]>([]);
 

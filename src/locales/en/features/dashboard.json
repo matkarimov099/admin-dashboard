@@ -1,0 +1,79 @@
+{
+  "dashboard": {
+    "title": "Boshqaruv paneli",
+    "welcome": "Xush kelibsiz",
+    "overview": "Umumiy ko'rish",
+    "statistics": "Statistika",
+    "recentActivity": "So'nggi faoliyat",
+    "quickActions": "Tezkor amallar",
+    "upcomingTasks": "Yaqinlashayotgan vazifalar",
+    "tasksSummary": "Vazifalar xulosasi",
+    "workTypeComparison": "Ish turlar taqqoslanishi",
+    "dayPerformance": "Kunlik samaradorlik",
+    "burnoutRisk": "Charchash riski",
+    "teamPerformance": "Jamoaning ishlashi",
+    "projects": "Loyihalar",
+    "myTasks": "Mening vazifalarim",
+    "notifications": "Bildirishnomalar",
+    "calendar": "Kalendar",
+    "reports": "Hisobotlar",
+    "settings": "Sozlamalar",
+    "cards": {
+      "totalTasks": "Jami vazifalar",
+      "completedTasks": "Bajarilgan vazifalar",
+      "pendingTasks": "Kutilayotgan vazifalar",
+      "overdueTasks": "Muddati o'tgan vazifalar",
+      "totalHours": "Jami soatlar",
+      "activeProjects": "Faol loyihalar",
+      "teamMembers": "Jamo a'zolari",
+      "todayHours": "Bugungi soatlar",
+      "thisWeek": "Shu hafta",
+      "thisMonth": "Shu oy",
+      "lastWeek": "O'tgan hafta",
+      "lastMonth": "O'tgan oy"
+    },
+    "charts": {
+      "tasksByStatus": "Holat bo'yicha vazifalar",
+      "tasksByPriority": "Prioritet bo'yicha vazifalar",
+      "hoursByProject": "Loyiha bo'yicha soatlar",
+      "performanceTrend": "Samaradorlik tendentsiyasi",
+      "workDistribution": "Ish taqsimoti",
+      "productivityMetrics": "Mahsuldorlik ko'rsatkichlari"
+    },
+    "actions": {
+      "createTask": "Yangi vazifa",
+      "viewAllTasks": "Barcha vazifalarni ko'rish",
+      "createProject": "Yangi loyiha",
+      "viewAllProjects": "Barcha loyihalarni ko'rish",
+      "addTeamMember": "Jamoa a'zosini qo'shish",
+      "generateReport": "Hisobot yaratish",
+      "exportData": "Ma'lumotlarni eksport qilish"
+    },
+    "filters": {
+      "dateRange": "Sanalar oralig'i",
+      "today": "Bugun",
+      "yesterday": "Kecha",
+      "thisWeek": "Shu hafta",
+      "lastWeek": "O'tgan hafta",
+      "thisMonth": "Shu oy",
+      "lastMonth": "O'tgan oy",
+      "thisYear": "Shu yil",
+      "custom": "Maxsus"
+    },
+    "messages": {
+      "noData": "Ma'lumotlar mavjud emas",
+      "loading": "Yuklanmoqda...",
+      "error": "Ma'lumotlarni yuklashda xatolik",
+      "success": "Muvaffaqiyatli",
+      "lastUpdated": "Oxgi yangilanish"
+    },
+    "widgets": {
+      "welcomeMessage": "Kun bo'sin, {name}!",
+      "taskProgress": "Vazifa progressi",
+      "quickStats": "Tezkor statistika",
+      "recentActivity": "So'nggi faoliyatlar",
+      "upcomingDeadlines": "Yaqinlashayotgan muddatlar",
+      "teamOverview": "Jamoaga umumiy ko'rish"
+    }
+  }
+}

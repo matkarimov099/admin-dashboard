@@ -10,6 +10,15 @@ export interface LoginCredentials {
   password: string;
 }
 
+export interface LoginResponse {
+  data: {
+    accessToken: string;
+    refreshToken: string;
+    user: CurrentUser;
+  };
+  message?: string;
+}
+
 export interface CurrentUser {
   id: string;
   createdAt: string;

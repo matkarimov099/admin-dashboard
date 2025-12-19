@@ -5,222 +5,174 @@ import {
   useQuery,
   useQueryClient,
 } from '@tanstack/react-query';
-import type { ApiResponse, ServerError } from '@/types/common.ts';
-import {
-  assignToMe,
-  createTask,
-  deleteTask,
-  deleteTaskAsset,
-  getMyTasks,
-  getTaskById,
-  getTaskByKey,
-  getTasks,
-  unassignFromMe,
-  updateTask,
-  updateTaskStatus,
-} from '../services/tasks.service.ts';
-import type { TaskCreate, TaskFilter, TaskUpdate, UpdateTaskStatus } from '../types.ts';
+import { useMemo } from 'react';
+import { taskService } from '../services/tasks.service.ts';
+import type { TaskFilter, TaskUpdate } from '../types.ts';
 
-const QUERY_KEYS = {
-  TASKS: 'tasks',
-  MY_TASKS: 'my-tasks',
-  TASKS_DETAIL: 'tasks-detail',
-  TASKS_BY_KEY: 'tasks-by-key',
+// ============ QUERY KEYS ============
+export const taskKeys = {
+  all: ['tasks'] as const,
+  lists: () => [...taskKeys.all, 'list'] as const,
+  list: (filter: TaskFilter) => [...taskKeys.lists(), filter] as const,
+  details: () => [...taskKeys.all, 'detail'] as const,
+  detail: (id: string) => [...taskKeys.details(), id] as const,
+  byKey: () => [...taskKeys.all, 'by-key'] as const,
+  byKeyDetail: (taskKey: string) => [...taskKeys.byKey(), taskKey] as const,
+  my: () => [...taskKeys.all, 'my'] as const,
+  myList: (filter: TaskFilter) => [...taskKeys.my(), filter] as const,
 };
 
 // ==================== QUERIES ====================
 
-/**
- * Get tasks with optional purpose for query key differentiation
- * @param filter - Task filter parameters
- * @param purpose - Purpose of the query (table, dropdown, etc.) to differentiate cache keys
- */
-export function useGetTasks(filter?: TaskFilter, purpose?: string) {
-  return useQuery({
-    queryKey: purpose ? [QUERY_KEYS.TASKS, purpose, filter] : [QUERY_KEYS.TASKS, filter],
-    queryFn: filter ? () => getTasks(filter) : skipToken,
+// ============ QUERIES ============
+export function useTaskList(filter: TaskFilter | undefined) {
+  const { data, isLoading, isFetching, error, isRefetching } = useQuery({
+    queryKey: filter ? taskKeys.list(filter) : taskKeys.lists(),
+    queryFn: filter ? () => taskService.getList(filter) : skipToken,
     placeholderData: keepPreviousData,
   });
-}
-useGetTasks.isQueryHook = true;
 
-export function useGetMyTasks(filter?: TaskFilter) {
-  return useQuery({
-    queryKey: [QUERY_KEYS.MY_TASKS, filter],
-    queryFn: () => getMyTasks(filter),
+  return useMemo(
+    () => ({
+      items: data?.data ?? [],
+      total: data?.total ?? 0,
+      isLoading,
+      isFetching,
+      error,
+      isRefetching,
+      isEmpty: !isLoading && !data?.data?.length,
+    }),
+    [data, isLoading, isFetching, error, isRefetching]
+  );
+}
+
+export function useMyTasks(filter?: TaskFilter) {
+  const { data, isLoading, isFetching, error, isRefetching } = useQuery({
+    queryKey: filter ? taskKeys.myList(filter) : taskKeys.my(),
+    queryFn: () => taskService.getMyTasks(filter),
     placeholderData: keepPreviousData,
   });
-}
-useGetMyTasks.isQueryHook = true;
 
-export function useGetTaskById(id: string | undefined) {
+  return useMemo(
+    () => ({
+      items: data?.data ?? [],
+      total: data?.total ?? 0,
+      isLoading,
+      isFetching,
+      error,
+      isRefetching,
+      isEmpty: !isLoading && !data?.data?.length,
+    }),
+    [data, isLoading, isFetching, error, isRefetching]
+  );
+}
+
+export function useTask(id: string | undefined) {
   return useQuery({
-    queryKey: [QUERY_KEYS.TASKS_DETAIL, id],
-    queryFn: id ? () => getTaskById(id) : skipToken,
+    queryKey: id ? taskKeys.detail(id) : taskKeys.details(),
+    queryFn: id ? () => taskService.getById(id) : skipToken,
+    enabled: !!id,
   });
 }
-useGetTaskById.isQueryHook = true;
 
-export function useGetTaskByKey(taskKey: string | undefined) {
+export function useTaskByKey(taskKey: string | undefined) {
   return useQuery({
-    queryKey: [QUERY_KEYS.TASKS_BY_KEY, taskKey],
-    queryFn: taskKey ? () => getTaskByKey(taskKey) : skipToken,
+    queryKey: taskKey ? taskKeys.byKeyDetail(taskKey) : taskKeys.byKey(),
+    queryFn: taskKey ? () => taskService.getByKey(taskKey) : skipToken,
+    enabled: !!taskKey,
   });
 }
-useGetTaskByKey.isQueryHook = true;
 
-// ==================== MUTATIONS ====================
-
-export function useCreateTask(purpose?: string) {
+// ============ MUTATIONS ============
+export function useCreateTask() {
   const queryClient = useQueryClient();
-  return useMutation<ApiResponse, ServerError, TaskCreate>({
-    mutationFn: createTask,
+
+  return useMutation({
+    mutationFn: taskService.create,
     onSuccess: () => {
-      // Invalidate only the specific purpose query (table or board)
-      if (purpose) {
-        void queryClient.invalidateQueries({
-          queryKey: [QUERY_KEYS.TASKS, purpose],
-        });
-      }
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.MY_TASKS],
-      });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.lists() });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.my() });
     },
   });
 }
 
-export function useUpdateTask(purpose?: string) {
+export function useUpdateTask() {
   const queryClient = useQueryClient();
-  return useMutation<ApiResponse, ServerError, { id: string; data: TaskUpdate }>({
-    mutationFn: ({ id, data }) => updateTask(id, data),
+
+  return useMutation({
+    mutationFn: ({ id, data }: { id: string; data: TaskUpdate }) => taskService.update(id, data),
     onSuccess: () => {
-      // Invalidate only the specific purpose query (table or board)
-      if (purpose) {
-        void queryClient.invalidateQueries({
-          queryKey: [QUERY_KEYS.TASKS, purpose],
-        });
-      }
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.MY_TASKS],
-      });
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.TASKS_DETAIL],
-      });
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.TASKS_BY_KEY],
-      });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.lists() });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.details() });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.byKey() });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.my() });
     },
   });
 }
 
 export function useUpdateTaskStatus() {
   const queryClient = useQueryClient();
-  return useMutation<ApiResponse, ServerError, UpdateTaskStatus>({
-    mutationFn: updateTaskStatus,
+
+  return useMutation({
+    mutationFn: taskService.updateStatus,
     onSuccess: () => {
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.TASKS, 'board'],
-      });
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.MY_TASKS],
-      });
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.TASKS_DETAIL],
-      });
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.TASKS_BY_KEY],
-      });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.lists() });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.details() });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.byKey() });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.my() });
     },
   });
 }
 
-export function useDeleteTask(purpose?: string) {
+export function useDeleteTask() {
   const queryClient = useQueryClient();
-  return useMutation<ApiResponse, ServerError, string>({
-    mutationFn: (id: string) => deleteTask(id),
+
+  return useMutation({
+    mutationFn: taskService.delete,
     onSuccess: () => {
-      // Invalidate the specific purpose query if provided
-      if (purpose) {
-        void queryClient.invalidateQueries({
-          queryKey: [QUERY_KEYS.TASKS, purpose],
-        });
-      }
-      // Also invalidate detail queries
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.TASKS_DETAIL],
-      });
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.TASKS_BY_KEY],
-      });
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.MY_TASKS],
-      });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.lists() });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.details() });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.byKey() });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.my() });
     },
   });
 }
 
 export function useAssignToMe() {
   const queryClient = useQueryClient();
-  return useMutation<ApiResponse, ServerError, string>({
-    mutationFn: (taskId: string) => assignToMe(taskId),
+
+  return useMutation({
+    mutationFn: taskService.assignToMe,
     onSuccess: () => {
-      // Invalidate queries to refetch updated data
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.TASKS_DETAIL],
-      });
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.TASKS_BY_KEY],
-      });
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.TASKS, 'table'],
-      });
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.TASKS, 'board'],
-      });
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.MY_TASKS],
-      });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.lists() });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.details() });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.my() });
     },
   });
 }
 
 export function useUnassignFromMe() {
   const queryClient = useQueryClient();
-  return useMutation<ApiResponse, ServerError, string>({
-    mutationFn: (taskId: string) => unassignFromMe(taskId),
+
+  return useMutation({
+    mutationFn: taskService.unassignFromMe,
     onSuccess: () => {
-      // Invalidate queries to refetch updated data
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.TASKS_DETAIL],
-      });
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.TASKS_BY_KEY],
-      });
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.TASKS, 'table'],
-      });
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.TASKS, 'board'],
-      });
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.MY_TASKS],
-      });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.lists() });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.details() });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.my() });
     },
   });
 }
 
 export function useDeleteTaskAsset() {
   const queryClient = useQueryClient();
-  return useMutation<ApiResponse, ServerError, { assetId: string }>({
-    mutationFn: ({ assetId }) => deleteTaskAsset(assetId),
+
+  return useMutation({
+    mutationFn: taskService.deleteAsset,
     onSuccess: () => {
-      // Invalidate queries to refetch updated task data with new assets
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.TASKS_DETAIL],
-      });
-      void queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.TASKS_BY_KEY],
-      });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.lists() });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.details() });
+      void queryClient.invalidateQueries({ queryKey: taskKeys.my() });
     },
   });
 }

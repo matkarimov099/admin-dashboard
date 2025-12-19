@@ -1,6 +1,6 @@
 import type * as React from 'react';
 import { useLocation } from 'react-router';
-import { LocalizedNavLink } from '@/components/common/localized-nav-link';
+import { LocalizedNavLink } from '@/components/common/LocalizedNavLink';
 import {
   SidebarGroup,
   SidebarGroupContent,

@@ -15,7 +15,7 @@ import type { User } from '@/features/users/types.ts';
 import { TaskPriority, TaskStatus } from '../types.ts';
 
 /**
- * Get user initials from first and last name
+ * Get user initials from the first and last name
  */
 export function getUserInitials(user: User): string {
   const firstInitial = user.firstName?.[0] || '';
@@ -31,7 +31,7 @@ export function getUserFullName(user: User): string {
 }
 
 /**
- * Check if a file is an image based on extension
+ * Check if a file is an image based on an extension
  */
 export function isImageFile(fileName: string): boolean {
   const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp', '.svg'];

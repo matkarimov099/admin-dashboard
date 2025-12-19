@@ -29,7 +29,7 @@ export const CustomCardTitle = ({
   className?: string;
 }) => {
   return (
-    <Typography variant="h3" className={cn('py-2 text-primary', className)}>
+    <Typography variant="h6" className={cn('py-2 text-primary', className)}>
       {children}
     </Typography>
   );

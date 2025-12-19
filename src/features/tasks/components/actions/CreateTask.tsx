@@ -52,14 +52,13 @@ import {
 
 interface CreateTaskProps {
   className?: string;
-  purpose?: string; // 'table' or 'board' to refetch only specific queries
   initialStatus?: TaskStatus; // Initial status to pre-select
   triggerButton?: ReactNode; // Custom trigger button
 }
 
-function CreateTask({ className, purpose, initialStatus, triggerButton }: CreateTaskProps) {
+function CreateTask({ className, initialStatus, triggerButton }: CreateTaskProps) {
   const { isOpen, onClose, onOpenChange } = useDisclosure();
-  const { mutate: createTask, isPending } = useCreateTask(purpose);
+  const { mutate: createTask, isPending } = useCreateTask();
   const [assetIds, setAssetIds] = useState<string[]>([]);
 
   const { data: users } = useGetUsers(isOpen ? { page: 1, limit: 100 } : undefined);
@@ -76,8 +75,7 @@ function CreateTask({ className, purpose, initialStatus, triggerButton }: Create
   const [taskSearch, setTaskSearch] = useState('');
 
   const { data: tasksResponse, isFetching: isFetchingTasks } = useGetTasks(
-    isOpen ? { page: 1, limit: 20, title: taskSearch || undefined } : undefined,
-    'dropdown'
+    isOpen ? { page: 1, limit: 20, title: taskSearch || undefined } : undefined
   );
   const taskOptions = useMemo(
     () =>

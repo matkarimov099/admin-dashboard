@@ -1,9 +1,9 @@
 import { AnimatePresence, motion } from 'motion/react';
 import { Suspense, useId } from 'react';
 import { NavLink, Outlet } from 'react-router';
-import { AppSidebar } from '@/components/common/app-sidebar.tsx';
-import { LanguageSwitcher } from '@/components/common/language-switcher.tsx';
-import { NotificationPopover } from '@/components/common/notification-popover.tsx';
+import { AppSidebar } from '@/components/common/AppSidebar.tsx';
+import { LanguageSwitcher } from '@/components/common/LanguageSwitcher.tsx';
+import { NotificationPopover } from '@/components/common/NotificationPopover.tsx';
 import { ModeToggle } from '@/components/custom/mode-toggle.tsx';
 import { SettingsPanel } from '@/components/custom/settings-panel.tsx';
 import {

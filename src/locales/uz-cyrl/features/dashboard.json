@@ -1,0 +1,79 @@
+{
+  "dashboard": {
+    "title": "Бошқарув панели",
+    "welcome": "Хуш келибсиз",
+    "overview": "Умумий кўриш",
+    "statistics": "Статистика",
+    "recentActivity": "Сўнгги фаолият",
+    "quickActions": "Тезкор амаллар",
+    "upcomingTasks": "Яқинлашиб бораётган вазифалар",
+    "tasksSummary": "Вазифалар хулосаси",
+    "workTypeComparison": "Иш турлари таққосланishi",
+    "dayPerformance": "Кунлик самарадорлик",
+    "burnoutRisk": "Чаршаш риски",
+    "teamPerformance": "Жамонинг ишлаши",
+    "projects": "Лойиҳалар",
+    "myTasks": "Менинг вазифаларим",
+    "notifications": "Билдиришномалар",
+    "calendar": "Календар",
+    "reports": "Ҳисоботлар",
+    "settings": "Созламалар",
+    "cards": {
+      "totalTasks": "Жами вазифалар",
+      "completedTasks": "Бажарилган вазифалар",
+      "pendingTasks": "Кутилаяотган вазифалар",
+      "overdueTasks": "Муддати ўтган вазифалар",
+      "totalHours": "Жами соатлар",
+      "activeProjects": "Фаол лойиҳалар",
+      "teamMembers": "Жамо аъзолари",
+      "todayHours": "Бугунги соатлар",
+      "thisWeek": "Шу ҳафта",
+      "thisMonth": "Шу ой",
+      "lastWeek": "Ўтган ҳафта",
+      "lastMonth": "Ўтган ой"
+    },
+    "charts": {
+      "tasksByStatus": "Ҳолат бўйича вазифалар",
+      "tasksByPriority": "Приоритет бўйича вазифалар",
+      "hoursByProject": "Лойиҳа бўйича соатлар",
+      "performanceTrend": "Самарадорлик тенденцияси",
+      "workDistribution": "Иш тақсимоти",
+      "productivityMetrics": "Маҳсуддорлик кўрсаткичлари"
+    },
+    "actions": {
+      "createTask": " Янги вазифа",
+      "viewAllTasks": "Барча вазифаларни кўриш",
+      "createProject": " Янги лойиҳа",
+      "viewAllProjects": "Барча лойиҳаларни кўриш",
+      "addTeamMember": "Жамо аъзосини қўшиш",
+      "generateReport": "Ҳисобот яратиш",
+      "exportData": "Маълумотларни eksport қилиш"
+    },
+    "filters": {
+      "dateRange": "Санар оралиғи",
+      "today": "Бугун",
+      "yesterday": "Кеча",
+      "thisWeek": "Шу ҳафта",
+      "lastWeek": "Ўтган ҳафта",
+      "thisMonth": "Шу ой",
+      "lastMonth": "Ўтган ой",
+      "thisYear": "Шу йил",
+      "custom": "Махсус"
+    },
+    "messages": {
+      "noData": "Маълумотлар мавжуд эмас",
+      "loading": "Юкланмоқда...",
+      "error": "Маълумотларни юклашда хатолик",
+      "success": "Муваффақиятли",
+      "lastUpdated": "Охги янгиланиш"
+    },
+    "widgets": {
+      "welcomeMessage": "Кун бўсин, {name}!",
+      "taskProgress": "Вазифа прогресси",
+      "quickStats": "Тезкор статистика",
+      "recentActivity": "Сўнгги фаолиятлар",
+      "upcomingDeadlines": "Яқинлашиб бораётган муддатлар",
+      "teamOverview": "Жамоага умумий кўриш"
+    }
+  }
+}

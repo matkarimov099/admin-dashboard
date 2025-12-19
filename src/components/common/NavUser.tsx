@@ -1,6 +1,6 @@
 import { BadgeCheck, Bell, ChevronsUpDown, CreditCard, LogOut, Sparkles } from 'lucide-react';
 
-import { LocalizedNavLink } from '@/components/common/localized-nav-link';
+import { LocalizedNavLink } from '@/components/common/LocalizedNavLink';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar.tsx';
 import {
   DropdownMenu,

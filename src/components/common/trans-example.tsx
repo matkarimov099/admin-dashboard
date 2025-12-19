@@ -15,7 +15,7 @@ export function TransExample() {
         components={{
           // Komponentdagi HTML teglariga mos keladigan elementlar
           1: <strong />,
-          2: <em />
+          2: <em />,
         }}
       />
 
@@ -24,7 +24,7 @@ export function TransExample() {
         i18nKey="user.welcome"
         values={{
           name: 'John Doe',
-          count: 5
+          count: 5,
         }}
         components={{
           1: <strong />,
@@ -34,10 +34,10 @@ export function TransExample() {
       {/* Link bilan */}
       <Trans
         i18nKey="terms.termsAndPrivacy"
-        components={{
-          1: <a href="/terms" className="text-blue-500 hover:underline" />,
-          2: <a href="/privacy" className="text-blue-500 hover:underline" />
-        }}
+        // components={{
+        //   1: <a href="/terms" className="text-blue-500 hover:underline" />,
+        //   2: <a href="/privacy" className="text-blue-500 hover:underline" />
+        // }}
       />
     </div>
   );

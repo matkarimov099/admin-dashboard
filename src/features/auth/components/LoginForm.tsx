@@ -2,6 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { isAxiosError } from 'axios';
 import { ChevronRightIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { NavLink, useLocation, useNavigate } from 'react-router';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button.tsx';
@@ -21,12 +22,13 @@ import type { ServerError } from '@/types/common';
 import { useLogin } from '../hooks/use-auth';
 
 export const LoginForm = () => {
+  const { t } = useTranslation();
   const { mutate: login, isPending } = useLogin();
   const navigate = useNavigate();
   const location = useLocation();
 
   const form = useForm<LoginSchema>({
-    resolver: zodResolver(createLoginSchema()),
+    resolver: zodResolver(createLoginSchema(t)),
     defaultValues: {
       username: '',
       password: '',
@@ -51,7 +53,7 @@ export const LoginForm = () => {
         if (isAxiosError<ServerError>(error)) {
           toast.error(error.response?.data?.message);
         } else {
-          toast.error('An error occurred during login!');
+          toast.error(t('auth.error.login'));
         }
       },
     });
@@ -67,10 +69,10 @@ export const LoginForm = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-foreground/70 dark:text-foreground/80">
-                  Username
+                  {t('auth.username.label')}
                 </FormLabel>
                 <FormControl>
-                  <Input inputSize="xl" placeholder="senior_promax" {...field} />
+                  <Input inputSize="xl" placeholder={t('auth.username.placeholder')} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -83,17 +85,21 @@ export const LoginForm = () => {
               <FormItem>
                 <div className="flex items-center">
                   <FormLabel className="text-foreground/70 dark:text-foreground/80">
-                    Parol
+                    {t('auth.password.label')}
                   </FormLabel>
                   <NavLink
                     to="/forgot-password"
                     className="ml-auto text-muted-foreground text-sm underline-offset-2 hover:text-foreground hover:underline"
                   >
-                    Forgot your password?
+                    {t('auth.forgotPassword')}
                   </NavLink>
                 </div>
                 <FormControl>
-                  <PasswordInput inputSize="xl" placeholder="Enter your password" {...field} />
+                  <PasswordInput
+                    inputSize="xl"
+                    placeholder={t('auth.password.placeholder')}
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -107,7 +113,7 @@ export const LoginForm = () => {
             size="xl"
             className="w-full"
           >
-            Login
+            {t('auth.actions.login')}
           </Button>
         </div>
       </form>

@@ -17,19 +17,16 @@ export function ModeToggle() {
       value: 'light',
       label: 'Light',
       icon: SunIcon,
-      iconColor: 'text-amber-800 dark:text-amber-400',
     },
     {
       value: 'dark',
       label: 'Dark',
       icon: MoonIcon,
-      iconColor: 'text-slate-600 dark:text-slate-400',
     },
     {
       value: 'system',
       label: 'System',
       icon: MonitorIcon,
-      iconColor: 'text-blue-600 dark:text-blue-400',
     },
   ];
 
@@ -49,11 +46,7 @@ export function ModeToggle() {
             <div className="relative flex h-full w-full items-center justify-center">
               {/* Icon with rotation animation */}
               <CurrentIcon
-                className={cn(
-                  'h-5! w-5! transition-transform duration-200 group-hover:scale-110',
-                  currentTheme?.iconColor,
-                  theme === 'system' && 'animate-pulse'
-                )}
+                className={cn('h-5! w-5! transition-transform duration-200 group-hover:scale-110')}
               />
             </div>
             <span className="sr-only">Toggle theme</span>
@@ -74,7 +67,7 @@ export function ModeToggle() {
                 )}
               >
                 <div className="flex flex-1 items-center gap-3">
-                  <Icon className={cn('!h-4 !w-4', option.iconColor)} />
+                  <Icon className="!h-4 !w-4" />
                   <span className="font-medium text-sm">{option.label}</span>
                 </div>
                 {isSelected && <CheckIcon className="h-4 w-4" />}

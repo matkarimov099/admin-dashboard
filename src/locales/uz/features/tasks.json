@@ -1,0 +1,497 @@
+{
+  "meta": {
+    "version": "2.0.0",
+    "lastUpdated": "2025-12-19",
+    "description": "Professional task management translations with advanced patterns"
+  },
+  "tasks": {
+    "title": "Vazifalar",
+    "subtitle": "Loyiha vazifalarini boshqarish",
+    "description": "Barcha loyiha vazifalari, ularning holatlari va belgilangan muddatlari",
+    "emptyState": {
+      "title": "Hali vazifalar yo'q",
+      "description": "Birinchi vazifani yarating va jamoa bilan ish boshlang",
+      "createButton": "Birinchi vazifani yarating"
+    },
+    "actions": {
+      "create": "Yangi vazifa",
+      "createFromTemplate": "Shablondan yaratish",
+      "bulkCreate": "Ko'p vazifa yaratish",
+      "edit": "Vazifani tahrirlash",
+      "duplicate": "Nusxalash",
+      "delete": "Vazifani o'chirish",
+      "bulkDelete": "Tanlanganlarni o'chirish",
+      "archive": "Arxivlash",
+      "restore": "Qayta tiklash",
+      "assign": "Mas'ul etib tayinlash",
+      "unassign": "Mas'uliyatdan ozod qilish",
+      "start": "Boshlash",
+      "pause": "Pauza qilish",
+      "resume": "Davom ettirish",
+      "complete": "Tugatish",
+      "reopen": "Qayta ochish",
+      "approve": "Tasdiqlash",
+      "reject": "Rad etish",
+      "comment": "Izoh qoldirish",
+      "attachFiles": "Fayllar biriktirish",
+      "export": "Eksport qilish",
+      "import": "Import qilish",
+      "print": "Chop etish",
+      "share": "Ulashish",
+      "viewHistory": "Tarixni ko'rish",
+      "viewDetails": "Tafsilotlarni ko'rish",
+      "viewOnBoard": "Doskada ko'rish",
+      "viewInTable": "Jadvalda ko'rish",
+      "markAsImportant": "Muhim deb belgilash",
+      "removeImportance": "Muhim belgisini olib tashlash",
+      "setReminder": "Eslatma o'rnatish",
+      "removeReminder": "Eslatmani olib tashlash",
+      "createSubtask": "Sub-vazifa yaratish",
+      "linkTask": "Vazifani bog'lash",
+      "unlinkTask": "Bog'lashni bekor qilish",
+      "moveToProject": "Loyihaga ko'chirish",
+      "copyLink": "Havolani nusxalash"
+    },
+    "states": {
+      "todo": "Bajarilishi kerak",
+      "inProgress": "Jarayonda",
+      "review": "Tekshirilmoqda",
+      "testing": "Testlanmoqda",
+      "done": "Bajarildi",
+      "cancelled": "Bekor qilindi",
+      "blocked": "Bloklangan",
+      "onHold": "Kutish rejimida"
+    },
+    "priorities": {
+      "low": "Past",
+      "medium": "O'rtacha",
+      "high": "Yuqori",
+      "urgent": "Shoshilinch",
+      "critical": "Kritik"
+    },
+    "workTypes": {
+      "task": "Vazifa",
+      "bug": "Xato",
+      "feature": "Xususiyat",
+      "improvement": "Yaxshilash",
+      "epic": "Epik",
+      "story": "Hikoya",
+      "subtask": "Sub-vazifa",
+      "maintenance": "Texnik xizmat",
+      "research": "Tadqiqot",
+      "documentation": "Hujjatlashtirish",
+      "testing": "Testlash",
+      "deployment": "Jadvallashtirish",
+      "meeting": "Uchrashuv",
+      "review": "Tekshiruv",
+      "planning": "Rejalashtirish",
+      "other": "Boshqa"
+    },
+    "table": {
+      "title": "Vazifalar jadvali",
+      "subtitle": "{{count}} ta vazifa",
+      "columns": {
+        "taskKey": "Kalit",
+        "title": "Sarlavha",
+        "description": "Tavsif",
+        "status": "Holati",
+        "priority": "Prioritet",
+        "assignee": "Mas'uli",
+        "creator": "Yaratuvchi",
+        "project": "Loyiha",
+        "workType": "Ish turi",
+        "estimatedHours": "Taxminiy soat",
+        "actualHours": "Haqiqiy soat",
+        "dueDate": "Muddati",
+        "createdAt": "Yaratilgan",
+        "updatedAt": "Yangilangan",
+        "completedAt": "Tugatilgan",
+        "progress": "Jarayon",
+        "tags": "Teglar",
+        "attachments": "Qo'shimchalar",
+        "comments": "Izohlar",
+        "subtasks": "Sub-vazifalar",
+        "linkedTasks": "Bog'liq vazifalar",
+        "timeSpent": "Sarflangan vaqt",
+        "timeRemaining": "Qolgan vaqt",
+        "actions": "Amallar"
+      },
+      "view": {
+        "list": "Ro'yxat",
+        "board": "Doska",
+        "calendar": "Kalendar",
+        "timeline": "Vaqt chizig'i",
+        "gantt": "Gantt diagrammasi",
+        "kanban": "Kanban",
+        "grid": "Jadval"
+      },
+      "grouping": {
+        "none": "Guruhlash yo'q",
+        "status": "Holat bo'yicha",
+        "priority": "Prioritet bo'yicha",
+        "assignee": "Mas'ul bo'yicha",
+        "project": "Loyiha bo'yicha",
+        "workType": "Ish turi bo'yicha",
+        "dueDate": "Muddat bo'yicha",
+        "createdAt": "Yaratilgan sana bo'yicha"
+      },
+      "sorting": {
+        "title_asc": "Sarlavha (A-Z)",
+        "title_desc": "Sarlavha (Z-A)",
+        "dueDate_asc": "Muddat (eng yaqin)",
+        "dueDate_desc": "Muddat (eng uzoq)",
+        "priority_asc": "Prioritet (past → yuqori)",
+        "priority_desc": "Prioritet (yuqori → past)",
+        "status_asc": "Holat (alfavit bo'yicha)",
+        "status_desc": "Holat (teskari)",
+        "created_asc": "Yaratilgan (eng qadimgi)",
+        "created_desc": "Yaratilgan (eng yangi)",
+        "updated_asc": "Yangilangan (eng qadimgi)",
+        "updated_desc": "Yangilangan (eng yangi)"
+      }
+    },
+    "board": {
+      "title": "Vazifalar doskasi",
+      "subtitle": "{{count}} ta vazifa doskada",
+      "columns": {
+        "todo": "Bajarilishi kerak",
+        "inProgress": "Jarayonda",
+        "review": "Tekshirilmoqda",
+        "testing": "Testlanmoqda",
+        "done": "Bajarildi"
+      },
+      "quickActions": {
+        "addCard": "Karta qo'shish",
+        "addColumn": "Ustun qo'shish",
+        "editColumn": "Ustunni tahrirlash",
+        "deleteColumn": "Ustunni o'chirish",
+        "moveColumn": "Ustunni ko'chirish",
+        "resizeColumn": "Ustun hajmini o'zgartirish",
+        "hideColumn": "Ustunni yashirish",
+        "showColumn": "Ustunni ko'rsatish"
+      },
+      "emptyColumn": {
+        "title": "Bu ustun bo'sh",
+        "description": "Vazifalarni shu yerga olib o'tishingiz mumkin",
+        "dragHere": "Vazifalarni shu yerga torting"
+      }
+    },
+    "form": {
+      "sections": {
+        "basic": "Asosiy ma'lumotlar",
+        "assignment": "Mas'uliyatlar",
+        "planning": "Rejalashtirish",
+        "relations": "Bog'liqliklar",
+        "attachments": "Qo'shimchalar",
+        "time": "Vaqt kuzatuvi",
+        "notifications": "Bildirishnomalar"
+      },
+      "fields": {
+        "title": {
+          "label": "Sarlavha",
+          "placeholder": "Vazifa sarlavhasini kiriting",
+          "help": "Qisqa va aniq sarlavha yozing"
+        },
+        "description": {
+          "label": "Tavsif",
+          "placeholder": "Vazifa tavsifini batafsil kiriting",
+          "help": "Vazifa maqsadi, talablari va qilinishi kerak bo'lgan ishlar"
+        },
+        "status": {
+          "label": "Holati",
+          "placeholder": "Holatni tanlang",
+          "help": "Vazifaning joriy holati"
+        },
+        "priority": {
+          "label": "Prioritet",
+          "placeholder": "Prioritetni tanlang",
+          "help": "Vazifaning muhimlik darajasi"
+        },
+        "workType": {
+          "label": "Ish turi",
+          "placeholder": "Ish turini tanlang",
+          "help": "Vazifa turini aniqlang"
+        },
+        "assigneeId": {
+          "label": "Mas'ul shaxs",
+          "placeholder": "Mas'ul shaxsni tanlang",
+          "help": "Bu vazifani kim bajarganligi",
+          "unassigned": "Mas'ul belgilanmagan"
+        },
+        "projectId": {
+          "label": "Loyiha",
+          "placeholder": "Loyihani tanlang",
+          "help": "Vazifa qaysi loyihaga tegishli"
+        },
+        "estimatedHours": {
+          "label": "Taxminiy soatlar",
+          "placeholder": "Masalan: 8.5",
+          "help": "Vazifani bajarish uchun taxmin qilingan vaqt"
+        },
+        "dueDate": {
+          "label": "Muddati",
+          "placeholder": "Muddatni tanlang",
+          "help": "Vazifani tugatish oxirgi muddati"
+        },
+        "tags": {
+          "label": "Teglar",
+          "placeholder": "Teg kiriting va Enter bosing",
+          "help": "Vazifalarni tez topish uchun teglar qo'shing"
+        },
+        "linkedTaskUrls": {
+          "label": "Bog'liq vazifalar",
+          "placeholder": "URL yoki vazifa nomi",
+          "help": "Bog'liq bo'lgan boshqa vazifalarni ko'rsating"
+        },
+        "assetIds": {
+          "label": "Fayllar",
+          "placeholder": "Fayllarni tanlang",
+          "help": "Vazifaga tegishli fayllarni biriktiring"
+        }
+      },
+      "actions": {
+        "create": "Vazifani yaratish",
+        "update": "Vazifani yangilash",
+        "saveDraft": "Qoralama sifatida saqlash",
+        "cancel": "Bekor qilish",
+        "reset": "Formani tozalash",
+        "saveAndCreate": "Saqlab yangisini yaratish",
+        "saveAndClose": "Saqlab yopish"
+      },
+      "states": {
+        "creating": "Vazifa yaratilmoqda...",
+        "updating": "Vazifa yangilanmoqda...",
+        "saving": "Saqlanmoqda...",
+        "validating": "Tekshirilmoqda..."
+      }
+    },
+    "validation": {
+      "title": {
+        "required": "Sarlavha kiritilishi shart",
+        "minLength": "Sarlavha kamida {{min}} ta belgidan iborat bo'lishi kerak",
+        "maxLength": "Sarlavha maksimal {{max}} ta belgidan iborat bo'lishi kerak"
+      },
+      "description": {
+        "maxLength": "Tavsif maksimal {{max}} ta belgidan iborat bo'lishi kerak"
+      },
+      "estimatedHours": {
+        "min": "Taxminiy vaqt 0 dan katta bo'lishi kerak",
+        "max": "Taxminiy vaqt {{max}} soatdan oshmasligi kerak",
+        "invalid": "Noto'g'ri vaqt formati"
+      },
+      "dueDate": {
+        "future": "Muddat kelajakda bo'lishi kerak",
+        "invalid": "Noto'g'ri sana formati"
+      },
+      "linkedTaskUrls": {
+        "invalid": "Noto'g'ri URL formati",
+        "maxUrls": "Maksimal {{max}} ta URL kiritish mumkin",
+        "duplicate": "Bu URL allaqachon qo'shilgan"
+      },
+      "assetIds": {
+        "max": "Maksimal {{max}} ta fayl ruxsat etiladi",
+        "invalidType": "Qo'llab-quvvatlanmaydigan fayl turi",
+        "tooLarge": "Fayl hajmi {{maxSize}} dan oshmasligi kerak"
+      },
+      "assigneeId": {
+        "required": "Mas'ul shaxs tanlanishi shart"
+      },
+      "projectId": {
+        "required": "Loyiha tanlanishi shart"
+      },
+      "workType": {
+        "required": "Ish turi tanlanishi shart"
+      },
+      "status": {
+        "required": "Holat tanlanishi shart"
+      },
+      "priority": {
+        "required": "Prioritet tanlanishi shart"
+      }
+    },
+    "filters": {
+      "title": "Vazifalarni filtrlash",
+      "search": {
+        "label": "Qidiruv",
+        "placeholder": "Vazifalarni qidirish...",
+        "help": "Sarlavha, tavsif yoki teglar bo'yicha qidirish"
+      },
+      "status": {
+        "label": "Holat",
+        "all": "Barcha holatlar",
+        "multiple": "Bir nechta holat"
+      },
+      "priority": {
+        "label": "Prioritet",
+        "all": "Barcha prioritetlar",
+        "higher": "Yuqori va undan yuqorilar",
+        "lower": "Past va undan pastroqlar"
+      },
+      "assignee": {
+        "label": "Mas'ul shaxs",
+        "all": "Barcha mas'ullar",
+        "me": "Faqat mening vazifalarim",
+        "unassigned": "Mas'ulsiz vazifalar",
+        "multiple": "Bir nechta mas'ul"
+      },
+      "project": {
+        "label": "Loyiha",
+        "all": "Barcha loyihalar",
+        "multiple": "Bir nechta loyiha"
+      },
+      "workType": {
+        "label": "Ish turi",
+        "all": "Barcha turlar",
+        "multiple": "Bir nechta tur"
+      },
+      "dateRange": {
+        "label": "Sana oralig'i",
+        "dueDate": "Muddat bo'yicha",
+        "createdDate": "Yaratilgan sana bo'yicha",
+        "completedDate": "Tugatilgan sana bo'yicha",
+        "custom": "Shaxsan tanlash",
+        "presets": {
+          "today": "Bugun",
+          "yesterday": "Kecha",
+          "thisWeek": "Shu hafta",
+          "lastWeek": "O'tgan hafta",
+          "thisMonth": "Shu oy",
+          "lastMonth": "O'tgan oy",
+          "thisYear": "Shu yil",
+          "lastYear": "O'tgan yil"
+        }
+      },
+      "tags": {
+        "label": "Teglar",
+        "placeholder": "Teglar",
+        "help": "Teglar bo'yicha filtrlang"
+      },
+      "actions": {
+        "clear": "Filtrlarni tozalash",
+        "apply": "Filtrlarni qo'llash",
+        "reset": "Standartga qaytarish",
+        "save": "Filtrni saqlash",
+        "saved": "Saqlangan filtrlar"
+      }
+    },
+    "detail": {
+      "title": "Vazifa tafsilotlari",
+      "sections": {
+        "overview": "Umumiy ma'lumotlar",
+        "description": "Tavsif",
+        "assignment": "Mas'uliyatlar",
+        "timeline": "Vaqt jadvali",
+        "tracking": "Vaqt kuzatuvi",
+        "attachments": "Qo'shimchalar",
+        "comments": "Izohlar",
+        "history": "O'zgarishlar tarixi",
+        "subtasks": "Sub-vazifalar",
+        "dependencies": "Bog'liqliklar",
+        "links": "Havolalar"
+      },
+      "overview": {
+        "basicInfo": "Asosiy ma'lumotlar",
+        "metadata": "Meta ma'lumotlar",
+        "statistics": "Statistika"
+      },
+      "timeTracking": {
+        "title": "Vaqt kuzatuvi",
+        "estimated": "Taxminiy",
+        "actual": "Haqiqiy",
+        "remaining": "Qolgan",
+        "percentage": "Foiz",
+        "noTimeLogged": "Vaqt yozilmagan",
+        "logTime": "Vaqt qo'shish",
+        "editTime": "Vaqtni tahrirlash",
+        "viewLogs": "Yozuvlarni ko'rish"
+      },
+      "attachments": {
+        "title": "Qo'shimchalar",
+        "addFile": "Fayl qo'shish",
+        "uploadProgress": "{{percent}% yuklandi",
+        "noAttachments": "Qo'shimchalar yo'q",
+        "fileTypes": "Qo'llab-quvvatlanadigan fayl turlari: {{types}}",
+        "maxSize": "Maksimal fayl hajmi: {{size}}"
+      },
+      "comments": {
+        "title": "Izohlar ({{count}})",
+        "addComment": "Izoh qo'shish",
+        "placeholder": "Izohni kiriting...",
+        "noComments": "Izohlar yo'q",
+        "editComment": "Izohni tahrirlash",
+        "deleteComment": "Izohni o'chirish",
+        "reply": "Javob berish"
+      },
+      "subtasks": {
+        "title": "Sub-vazifalar ({{completed}}/{{total}})",
+        "addSubtask": "Sub-vazifa qo'shish",
+        "noSubtasks": "Sub-vazifalar yo'q",
+        "progress": "{{completed}} dan {{total}} tugatildi"
+      },
+      "dependencies": {
+        "title": "Bog'liqliklar",
+        "blocking": "Bloklanayotgan vazifalar",
+        "blockedBy": "Bloklash",
+        "noDependencies": "Bog'liqliklar yo'q",
+        "addDependency": "Bog'liqlik qo'shish"
+      }
+    },
+    "messages": {
+      "success": {
+        "created": "Vazifa muvaffaqiyatli yaratildi",
+        "updated": "Vazifa muvaffaqiyatli yangilandi",
+        "deleted": "Vazifa muvaffaqiyatli o'chirildi",
+        "archived": "Vazifa arxivlandi",
+        "restored": "Vazifa qayta tiklandi",
+        "assigned": "Vazifa mas'ulga tayinlandi",
+        "unassigned": "Mas'uliyatdan ozod qilindi",
+        "completed": "Vazifa muvaffaqiyatli tugatildi",
+        "timeLogged": "Vaqt muvaffaqiyatli yozildi",
+        "commentAdded": "Izoh muvaffaqiyatli qo'shildi",
+        "attachmentUploaded": "Fayl muvaffaqiyatli yuklandi",
+        "statusChanged": "Holat muvaffaqiyatli o'zgartirildi"
+      },
+      "error": {
+        "createFailed": "Vazifani yaratishda xatolik yuz berdi",
+        "updateFailed": "Vazifani yangilashda xatolik yuz berdi",
+        "deleteFailed": "Vazifani o'chirishda xatolik yuz berdi",
+        "uploadFailed": "Faylni yuklashda xatolik yuz berdi",
+        "invalidStatus": "Noto'g'ri holat",
+        "invalidPriority": "Noto'g'ri prioritet",
+        "invalidAssignee": "Noto'g'ri mas'ul shaxs",
+        "duplicateTitle": "Bu sarlavha bilan vazifa allaqachon mavjud",
+        "dependencyError": "Bog'liqlikni o'rnatib bo'lmadi",
+        "permissionDenied": "Bu amalni bajarish uchun ruxsat yo'q"
+      },
+      "confirm": {
+        "delete": "Haqiqatan ham bu vazifani o'chirmoqchimisiz?",
+        "deleteMultiple": "Haqiqatan ham {{count}} ta vazifani o'chirmoqchimisiz?",
+        "deleteWithSubtasks": "Sub-vazifalar bilan birgalikda o'chirilsinmi?",
+        "archive": "Vazifani arxivlashga ishonchingiz komilmi?",
+        "complete": "Vazifani tugatilgan deb belgilashga ishonchingiz komilmi?",
+        "reassign": "Vazifani boshqa mas'ulga tayinlashga ishonchingiz komilmi?",
+        "statusChange": "Holatni o'zgartirishga ishonchingiz komilmi?"
+      },
+      "info": {
+        "noTasks": "Vazifalar topilmadi",
+        "loading": "Vazifalar yuklanmoqda...",
+        "noSearchResults": "Sizning qidiruvingiz bo'yicha vazifalar topilmadi",
+        "dragToReorder": "Tartibni o'zgartirish uchun torting",
+        "clickToEdit": "Tahrirlash uchun bosing",
+        "doubleClickToOpen": "Ochish uchun ikki marta bosing"
+      }
+    },
+    "shortcuts": {
+      "createTask": "Vazifa yaratish (Ctrl+N)",
+      "search": "Qidirish (Ctrl+F)",
+      "save": "Saqlash (Ctrl+S)",
+      "delete": "O'chirish (Delete)",
+      "undo": "Bekor qilish (Ctrl+Z)",
+      "redo": "Qaytarish (Ctrl+Y)",
+      "nextTask": "Keyingi vazifa (Ctrl+↓)",
+      "previousTask": "Oldingi vazifa (Ctrl+↑)",
+      "toggleComplete": "Tugatish tugmasi (Space)",
+      "assignToMe": "O'zimga tayinlash (Ctrl+M)"
+    }
+  }
+}

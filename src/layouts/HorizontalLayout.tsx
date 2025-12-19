@@ -1,10 +1,10 @@
 import { AnimatePresence, motion } from 'motion/react';
 import { Suspense, useId } from 'react';
 import { NavLink, Outlet } from 'react-router';
-import { HorizontalNav } from '@/components/common/horizontal-nav';
-import { LanguageSwitcher } from '@/components/common/language-switcher.tsx';
-import { NotificationPopover } from '@/components/common/notification-popover.tsx';
-import { ProfileDropdown } from '@/components/common/profile-dropdown.tsx';
+import { HorizontalNav } from '@/components/common/HorizontalNav.tsx';
+import { LanguageSwitcher } from '@/components/common/LanguageSwitcher.tsx';
+import { NotificationPopover } from '@/components/common/NotificationPopover.tsx';
+import { ProfileDropdown } from '@/components/common/ProfileDropdown.tsx';
 import { ModeToggle } from '@/components/custom/mode-toggle.tsx';
 import { SettingsPanel } from '@/components/custom/settings-panel.tsx';
 import {
