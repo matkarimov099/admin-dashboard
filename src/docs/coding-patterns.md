@@ -69,7 +69,7 @@ src/features/new-menu/transit-at/
 │   ├── transit-at-table.tsx
 │   ├── transit-filter.tsx
 │   ├── row-actions.tsx
-│   ├── columns.tsx
+│   ├── Columns.tsx
 │   ├── actions/
 │   │   ├── DeclarationDetails.tsx
 │   │   ├── ViewImages.tsx
@@ -645,7 +645,7 @@ export interface [Feature]Filter {
 ❌ login-form.tsx
 ❌ transit-at-table.tsx
 ❌ row-actions.tsx
-❌ columns.tsx
+❌ Columns.tsx
 ```
 
 **Pages (har doim PascalCase):**

@@ -28,7 +28,7 @@ const UsersTable = () => {
   return (
     <DataTable<User>
       getColumns={getColumns}
-      data={users}
+      data={users || []}
       totalItems={total}
       isLoading={isFetching}
       currentPage={currentPage}

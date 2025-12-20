@@ -29,7 +29,10 @@
         "useTemplate": "off"
       },
       "nursery": {
-        "useSortedClasses": "on"
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "warn"
+        }
       },
       "a11y": {
         "noStaticElementInteractions": "off",
@@ -59,6 +62,9 @@
   "json": {
     "formatter": {
       "trailingCommas": "none"
+    },
+    "parser": {
+      "allowComments": true
     }
   },
   "css": {

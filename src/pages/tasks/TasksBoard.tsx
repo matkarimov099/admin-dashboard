@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { KanbanBoard } from '@/features/tasks/components/board/KanbanBoard';
-import { useGetTasks } from '@/features/tasks/hooks/use-tasks';
 import type { TaskFilter } from '@/features/tasks/types';
 
 // LocalStorage key for board filters (shared with table)
@@ -54,21 +53,9 @@ const TasksBoard = () => {
     }
   }, [filters.projectIds, filters.priority, filters.assigneeId]);
 
-  const { data: tasksResponse, isFetching } = useGetTasks(filters, 'board');
-
-  const tasks = tasksResponse?.data.data ?? [];
-
-  if (isFetching && tasks.length === 0) {
-    return (
-      <div className="flex h-full items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-      </div>
-    );
-  }
-
   return (
     <div className="flex h-full w-full min-w-0 flex-col">
-      <KanbanBoard tasks={tasks} filters={filters} onFiltersChange={setFilters} />
+      <KanbanBoard tasks={[]} filters={filters} onFiltersChange={setFilters} />
     </div>
   );
 };
