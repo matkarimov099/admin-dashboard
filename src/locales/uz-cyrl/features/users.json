@@ -1,48 +1,39 @@
 {
   "users": {
     "title": "Фойдаланувчилар",
-    "create": " Янги фойдаланувчи",
-    "edit": "Фойдаланувчини таҳрирлаш",
-    "delete": "Фойдаланувчини ўчириш",
-    "fullName": "Тўлиқ исми",
-    "email": "Email",
-    "role": "Роли",
-    "status": "Ҳолати",
-    "department": "Бўлим",
-    "position": "Лавозим",
-    "phone": "Телефон",
-    "address": "Манзил",
-    "avatar": "Аватар",
-    "createdAt": "Яратилган вақти",
-    "updatedAt": "Янгилangan вақти",
-    "lastLogin": "Охирги кириш",
-    "filter": {
-      "title": "Филтер",
-      "search": "Фойдаланувчиларни қидирув...",
+    "labels": {
+      "fullName": "Тўлиқ исми",
+      "email": "Email",
       "role": "Роли",
       "status": "Ҳолати",
       "department": "Бўлим",
-      "clearFilters": "Филтерларни тозалаш"
+      "position": "Лавозим",
+      "phone": "Телефон",
+      "address": "Манзил",
+      "avatar": "Аватар",
+      "createdAt": "Яратилган вақти",
+      "updatedAt": "Янгиланган вақти",
+      "lastLogin": "Охирги кириш"
     },
-    "role": {
+    "roles": {
       "admin": "Администратор",
       "manager": "Менежер",
       "user": "Фойдаланувчи",
       "guest": "Меҳмон"
     },
-    "status": {
+    "statuses": {
       "active": "Фаол",
       "inactive": "Фаол эмас",
       "suspended": "Блокланган",
       "pending": "Кутилмоқда"
     },
+    "filter": {
+      "title": "Филтер",
+      "search": "Фойдаланувчиларни қидирув...",
+      "clearFilters": "Филтерларни тозалаш"
+    },
     "table": {
       "title": "Фойдаланувчилар жадвали",
-      "viewProfile": "Профилни кўриш",
-      "edit": "Таҳрирлаш",
-      "delete": "Ўчириш",
-      "suspend": "Блоклаш",
-      "activate": "Фаоллаштириш",
       "noUsers": "Фойдаланувчилар топилмади",
       "columns": {
         "id": "ID",
@@ -56,33 +47,48 @@
         "lastLogin": "Охирги кириш",
         "createdAt": "Яратилган",
         "actions": "Амаллар"
+      },
+      "actions": {
+        "viewProfile": "Профилни кўриш",
+        "edit": "Таҳрирлаш",
+        "delete": "Ўчириш",
+        "suspend": "Блоклаш",
+        "activate": "Фаоллаштириш"
       }
     },
     "form": {
-      "title": "Тўлиқ исм",
-      "title.placeholder": "Тўлиқ исмингизни киритинг",
-      "email": "Email",
-      "email.placeholder": "Email манзилингизни киритинг",
-      "password": "Парол",
-      "password.placeholder": "Паролни киритинг",
-      "confirmPassword": "Паролни тасдиқланг",
-      "confirmPassword.placeholder": "Паролни қайта киритинг",
-      "role": "Роли",
-      "status": "Ҳолати",
-      "department": "Бўлим",
-      "department.placeholder": "Бўлимни танланг",
-      "position": "Лавозим",
-      "position.placeholder": "Лавозимни киритинг",
-      "phone": "Телефон",
-      "phone.placeholder": "Телефон рақамини киритинг",
-      "address": "Манзил",
-      "address.placeholder": "Манзилни киритинг",
-      "avatar": "Аватар",
-      "create": "Фойдаланувчини яратиш",
-      "update": "Фойдаланувчини янгилаш",
-      "cancel": "Бекор қилиш",
-      "creating": "Фойдаланувчи яратилмоқда...",
-      "updating": "Фойдаланувчи янгиланмоқда..."
+      "createTitle": "Янги фойдаланувчи яратиш",
+      "editTitle": "Фойдаланувчини таҳрирлаш",
+      "placeholders": {
+        "fullName": "Тўлиқ исмингизни киритинг",
+        "email": "Email манзилингизни киритинг",
+        "password": "Паролни киритинг",
+        "confirmPassword": "Паролни қайта киритинг",
+        "department": "Бўлимни танланг",
+        "position": "Лавозимни киритинг",
+        "phone": "Телефон рақамини киритинг",
+        "address": "Манзилни киритинг"
+      },
+      "fields": {
+        "fullName": "Тўлиқ исми",
+        "email": "Email",
+        "password": "Парол",
+        "confirmPassword": "Паролни тасдиқланг",
+        "role": "Роли",
+        "status": "Ҳолати",
+        "department": "Бўлим",
+        "position": "Лавозим",
+        "phone": "Телефон",
+        "address": "Манзил",
+        "avatar": "Аватар"
+      },
+      "actions": {
+        "create": "Фойдаланувчини яратиш",
+        "update": "Фойдаланувчини янгилаш",
+        "cancel": "Бекор қилиш",
+        "creating": "Фойдаланувчи яратилмоқда...",
+        "updating": "Фойдаланувчи янгиланмоқда..."
+      }
     },
     "validation": {
       "fullName": {
@@ -119,21 +125,27 @@
       "deleteSuccess": "Фойдаланувчи муваффақиятли ўчирилди",
       "suspendSuccess": "Фойдаланувчи блокланди",
       "activateSuccess": "Фойдаланувчи фаоллаштирилди",
-      "deleteConfirm": "Ҳақиқатан ҳам бу фойдаланувчини ўчирмоқчимисиз?",
-      "suspendConfirm": "Ҳақиқатан ҳам бу фойдаланувчини блокламоқчимисиз?",
-      "activateConfirm": "Ҳақиқатан ҳам бу фойдаланувчини фаоллаштирмоқчимисиз?",
       "error": "Хатолик юз берди",
-      "loading": "Юкланмоқда..."
+      "loading": "Юкланмоқда...",
+      "confirmations": {
+        "delete": "Ҳақиқатан ҳам бу фойдаланувчини ўчирмоқчимисиз?",
+        "suspend": "Ҳақиқатан ҳам бу фойдаланувчини блокламоқчимисиз?",
+        "activate": "Ҳақиқатан ҳам бу фойдаланувчини фаоллаштирмоқчимисиз?"
+      }
     },
     "profile": {
       "title": "Фойдаланувчи профили",
-      "personalInfo": "Шахсий маълумотлар",
-      "contactInfo": "Алоқа маълумотлари",
-      "workInfo": "Иш маълумотлари",
-      "settings": "Созламалар",
-      "changePassword": "Паролни ўзгартириш",
-      "uploadAvatar": "Аватар юклаш",
-      "removeAvatar": "Аватарни олиб ташлаш"
+      "sections": {
+        "personalInfo": "Шахсий маълумотлар",
+        "contactInfo": "Алоқа маълумотлари",
+        "workInfo": "Иш маълумотлари",
+        "settings": "Созламалар"
+      },
+      "actions": {
+        "changePassword": "Паролни ўзгартириш",
+        "uploadAvatar": "Аватар юклаш",
+        "removeAvatar": "Аватарни олиб ташлаш"
+      }
     }
   }
 }

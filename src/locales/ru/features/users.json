@@ -1,139 +1,151 @@
 {
   "users": {
-    "title": "Foydalanuvchilar",
-    "create": "Yangi foydalanuvchi",
-    "edit": "Foydalanuvchini tahrirlash",
-    "delete": "Foydalanuvchini o'chirish",
-    "fullName": "To'liq ismi",
-    "email": "Email",
-    "role": "Roli",
-    "status": "Holati",
-    "department": "Bo'lim",
-    "position": "Lavozim",
-    "phone": "Telefon",
-    "address": "Manzil",
-    "avatar": "Avatar",
-    "createdAt": "Yaratilgan vaqti",
-    "updatedAt": "Yangilangan vaqti",
-    "lastLogin": "Oxirgi kirish",
+    "title": "Пользователи",
+    "labels": {
+      "fullName": "Полное имя",
+      "email": "Email",
+      "role": "Роль",
+      "status": "Статус",
+      "department": "Отдел",
+      "position": "Должность",
+      "phone": "Телефон",
+      "address": "Адрес",
+      "avatar": "Аватар",
+      "createdAt": "Дата создания",
+      "updatedAt": "Дата обновления",
+      "lastLogin": "Последний вход"
+    },
+    "roles": {
+      "admin": "Администратор",
+      "manager": "Менеджер",
+      "user": "Пользователь",
+      "guest": "Гость"
+    },
+    "statuses": {
+      "active": "Активен",
+      "inactive": "Неактивен",
+      "suspended": "Заблокирован",
+      "pending": "В ожидании"
+    },
     "filter": {
-      "title": "Filter",
-      "search": "Foydalanuvchilarni qidirish...",
-      "role": "Roli",
-      "status": "Holati",
-      "department": "Bo'lim",
-      "clearFilters": "Filterlarni tozalash"
-    },
-    "role": {
-      "admin": "Administrator",
-      "manager": "Menejer",
-      "user": "Foydalanuvchi",
-      "guest": "Mehmon"
-    },
-    "status": {
-      "active": "Faol",
-      "inactive": "Faol emas",
-      "suspended": "Bloklangan",
-      "pending": "Kutilmoqda"
+      "title": "Фильтр",
+      "search": "Поиск пользователей...",
+      "clearFilters": "Очистить фильтры"
     },
     "table": {
-      "title": "Foydalanuvchilar jadvali",
-      "viewProfile": "Profilni ko'rish",
-      "edit": "Tahrirlash",
-      "delete": "O'chirish",
-      "suspend": "Bloklash",
-      "activate": "Faollashtirish",
-      "noUsers": "Foydalanuvchilar topilmadi",
+      "title": "Таблица пользователей",
+      "noUsers": "Пользователи не найдены",
       "columns": {
         "id": "ID",
-        "fullName": "To'liq ismi",
+        "fullName": "Полное имя",
         "email": "Email",
-        "role": "Roli",
-        "status": "Holati",
-        "department": "Bo'lim",
-        "position": "Lavozim",
-        "phone": "Telefon",
-        "lastLogin": "Oxirgi kirish",
-        "createdAt": "Yaratilgan",
-        "actions": "Amallar"
+        "role": "Роль",
+        "status": "Статус",
+        "department": "Отдел",
+        "position": "Должность",
+        "phone": "Телефон",
+        "lastLogin": "Последний вход",
+        "createdAt": "Создан",
+        "actions": "Действия"
+      },
+      "actions": {
+        "viewProfile": "Просмотр профиля",
+        "edit": "Редактировать",
+        "delete": "Удалить",
+        "suspend": "Заблокировать",
+        "activate": "Активировать"
       }
     },
     "form": {
-      "title": "To'liq ism",
-      "title.placeholder": "To'liq ismingizni kiriting",
-      "email": "Email",
-      "email.placeholder": "Email manzilingizni kiriting",
-      "password": "Parol",
-      "password.placeholder": "Parolni kiriting",
-      "confirmPassword": "Parolni tasdiqlang",
-      "confirmPassword.placeholder": "Parolni qayta kiriting",
-      "role": "Roli",
-      "status": "Holati",
-      "department": "Bo'lim",
-      "department.placeholder": "Bo'limni tanlang",
-      "position": "Lavozim",
-      "position.placeholder": "Lavozimni kiriting",
-      "phone": "Telefon",
-      "phone.placeholder": "Telefon raqamini kiriting",
-      "address": "Manzil",
-      "address.placeholder": "Manzilni kiriting",
-      "avatar": "Avatar",
-      "create": "Foydalanuvchini yaratish",
-      "update": "Foydalanuvchini yangilash",
-      "cancel": "Bekor qilish",
-      "creating": "Foydalanuvchi yaratilmoqda...",
-      "updating": "Foydalanuvchi yangilanmoqda..."
+      "createTitle": "Создание нового пользователя",
+      "editTitle": "Редактирование пользователя",
+      "placeholders": {
+        "fullName": "Введите полное имя",
+        "email": "Введите email адрес",
+        "password": "Введите пароль",
+        "confirmPassword": "Подтвердите пароль",
+        "department": "Выберите отдел",
+        "position": "Введите должность",
+        "phone": "Введите номер телефона",
+        "address": "Введите адрес"
+      },
+      "fields": {
+        "fullName": "Полное имя",
+        "email": "Email",
+        "password": "Пароль",
+        "confirmPassword": "Подтверждение пароля",
+        "role": "Роль",
+        "status": "Статус",
+        "department": "Отдел",
+        "position": "Должность",
+        "phone": "Телефон",
+        "address": "Адрес",
+        "avatar": "Аватар"
+      },
+      "actions": {
+        "create": "Создать пользователя",
+        "update": "Обновить пользователя",
+        "cancel": "Отмена",
+        "creating": "Создание пользователя...",
+        "updating": "Обновление пользователя..."
+      }
     },
     "validation": {
       "fullName": {
-        "required": "To'liq ism kiritilishi shart",
-        "minLength": "Ism kamida {min} ta belgidan iborat bo'lishi kerak",
-        "maxLength": "Ism maksimal {max} ta belgidan iborat bo'lishi kerak"
+        "required": "Полное имя обязательно",
+        "minLength": "Полное имя должно содержать минимум {{min}} символов",
+        "maxLength": "Полное имя не должно превышать {{max}} символов"
       },
       "email": {
-        "required": "Email kiritilishi shart",
-        "invalid": "Email formati noto'g'ri"
+        "required": "Email обязателен",
+        "invalid": "Неверный формат email"
       },
       "password": {
-        "required": "Parol kiritilishi shart",
-        "minLength": "Parol kamida {min} ta belgidan iborat bo'lishi kerak",
-        "maxLength": "Parol maksimal {max} ta belgidan iborat bo'lishi kerak"
+        "required": "Пароль обязателен",
+        "minLength": "Пароль должен содержать минимум {{min}} символов",
+        "maxLength": "Пароль не должен превышать {{max}} символов"
       },
       "confirmPassword": {
-        "required": "Parolni tasdiqlash shart",
-        "match": "Parollar mos kelmayapti"
+        "required": "Подтверждение пароля обязательно",
+        "match": "Пароли не совпадают"
       },
       "role": {
-        "required": "Rol tanlanishi shart"
+        "required": "Роль обязательна"
       },
       "status": {
-        "required": "Holat tanlanishi shart"
+        "required": "Статус обязателен"
       },
       "phone": {
-        "invalid": "Telefon raqami formati noto'g'ri"
+        "invalid": "Неверный формат номера телефона"
       }
     },
     "actions": {
-      "createSuccess": "Foydalanuvchi muvaffaqiyatli yaratildi",
-      "updateSuccess": "Foydalanuvchi muvaffaqiyatli yangilandi",
-      "deleteSuccess": "Foydalanuvchi muvaffaqiyatli o'chirildi",
-      "suspendSuccess": "Foydalanuvchi bloklandi",
-      "activateSuccess": "Foydalanuvchi faollashtirildi",
-      "deleteConfirm": "Haqiqatan ham bu foydalanuvchini o'chirmoqchimisiz?",
-      "suspendConfirm": "Haqiqatan ham bu foydalanuvchini bloklamoqchimisiz?",
-      "activateConfirm": "Haqiqatan ham bu foydalanuvchini faollashtirmoqchimisiz?",
-      "error": "Xatolik yuz berdi",
-      "loading": "Yuklanmoqda..."
+      "createSuccess": "Пользователь успешно создан",
+      "updateSuccess": "Пользователь успешно обновлен",
+      "deleteSuccess": "Пользователь успешно удален",
+      "suspendSuccess": "Пользователь успешно заблокирован",
+      "activateSuccess": "Пользователь успешно активирован",
+      "error": "Произошла ошибка",
+      "loading": "Загрузка...",
+      "confirmations": {
+        "delete": "Вы уверены, что хотите удалить этого пользователя?",
+        "suspend": "Вы уверены, что хотите заблокировать этого пользователя?",
+        "activate": "Вы уверены, что хотите активировать этого пользователя?"
+      }
     },
     "profile": {
-      "title": "Foydalanuvchi profili",
-      "personalInfo": "Shaxsiy ma'lumotlar",
-      "contactInfo": "Aloqa ma'lumotlari",
-      "workInfo": "Ish ma'lumotlari",
-      "settings": "Sozlamalar",
-      "changePassword": "Parolni o'zgartirish",
-      "uploadAvatar": "Avatar yuklash",
-      "removeAvatar": "Avatarni olib tashlash"
+      "title": "Профиль пользователя",
+      "sections": {
+        "personalInfo": "Личная информация",
+        "contactInfo": "Контактная информация",
+        "workInfo": "Рабочая информация",
+        "settings": "Настройки"
+      },
+      "actions": {
+        "changePassword": "Изменить пароль",
+        "uploadAvatar": "Загрузить аватар",
+        "removeAvatar": "Удалить аватар"
+      }
     }
   }
 }

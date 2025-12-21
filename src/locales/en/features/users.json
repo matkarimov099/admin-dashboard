@@ -1,139 +1,151 @@
 {
   "users": {
-    "title": "Foydalanuvchilar",
-    "create": "Yangi foydalanuvchi",
-    "edit": "Foydalanuvchini tahrirlash",
-    "delete": "Foydalanuvchini o'chirish",
-    "fullName": "To'liq ismi",
-    "email": "Email",
-    "role": "Roli",
-    "status": "Holati",
-    "department": "Bo'lim",
-    "position": "Lavozim",
-    "phone": "Telefon",
-    "address": "Manzil",
-    "avatar": "Avatar",
-    "createdAt": "Yaratilgan vaqti",
-    "updatedAt": "Yangilangan vaqti",
-    "lastLogin": "Oxirgi kirish",
+    "title": "Users",
+    "labels": {
+      "fullName": "Full Name",
+      "email": "Email",
+      "role": "Role",
+      "status": "Status",
+      "department": "Department",
+      "position": "Position",
+      "phone": "Phone",
+      "address": "Address",
+      "avatar": "Avatar",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "lastLogin": "Last Login"
+    },
+    "roles": {
+      "admin": "Administrator",
+      "manager": "Manager",
+      "user": "User",
+      "guest": "Guest"
+    },
+    "statuses": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "suspended": "Suspended",
+      "pending": "Pending"
+    },
     "filter": {
       "title": "Filter",
-      "search": "Foydalanuvchilarni qidirish...",
-      "role": "Roli",
-      "status": "Holati",
-      "department": "Bo'lim",
-      "clearFilters": "Filterlarni tozalash"
-    },
-    "role": {
-      "admin": "Administrator",
-      "manager": "Menejer",
-      "user": "Foydalanuvchi",
-      "guest": "Mehmon"
-    },
-    "status": {
-      "active": "Faol",
-      "inactive": "Faol emas",
-      "suspended": "Bloklangan",
-      "pending": "Kutilmoqda"
+      "search": "Search users...",
+      "clearFilters": "Clear Filters"
     },
     "table": {
-      "title": "Foydalanuvchilar jadvali",
-      "viewProfile": "Profilni ko'rish",
-      "edit": "Tahrirlash",
-      "delete": "O'chirish",
-      "suspend": "Bloklash",
-      "activate": "Faollashtirish",
-      "noUsers": "Foydalanuvchilar topilmadi",
+      "title": "Users Table",
+      "noUsers": "No users found",
       "columns": {
         "id": "ID",
-        "fullName": "To'liq ismi",
+        "fullName": "Full Name",
         "email": "Email",
-        "role": "Roli",
-        "status": "Holati",
-        "department": "Bo'lim",
-        "position": "Lavozim",
-        "phone": "Telefon",
-        "lastLogin": "Oxirgi kirish",
-        "createdAt": "Yaratilgan",
-        "actions": "Amallar"
+        "role": "Role",
+        "status": "Status",
+        "department": "Department",
+        "position": "Position",
+        "phone": "Phone",
+        "lastLogin": "Last Login",
+        "createdAt": "Created",
+        "actions": "Actions"
+      },
+      "actions": {
+        "viewProfile": "View Profile",
+        "edit": "Edit",
+        "delete": "Delete",
+        "suspend": "Suspend",
+        "activate": "Activate"
       }
     },
     "form": {
-      "title": "To'liq ism",
-      "title.placeholder": "To'liq ismingizni kiriting",
-      "email": "Email",
-      "email.placeholder": "Email manzilingizni kiriting",
-      "password": "Parol",
-      "password.placeholder": "Parolni kiriting",
-      "confirmPassword": "Parolni tasdiqlang",
-      "confirmPassword.placeholder": "Parolni qayta kiriting",
-      "role": "Roli",
-      "status": "Holati",
-      "department": "Bo'lim",
-      "department.placeholder": "Bo'limni tanlang",
-      "position": "Lavozim",
-      "position.placeholder": "Lavozimni kiriting",
-      "phone": "Telefon",
-      "phone.placeholder": "Telefon raqamini kiriting",
-      "address": "Manzil",
-      "address.placeholder": "Manzilni kiriting",
-      "avatar": "Avatar",
-      "create": "Foydalanuvchini yaratish",
-      "update": "Foydalanuvchini yangilash",
-      "cancel": "Bekor qilish",
-      "creating": "Foydalanuvchi yaratilmoqda...",
-      "updating": "Foydalanuvchi yangilanmoqda..."
+      "createTitle": "Create New User",
+      "editTitle": "Edit User",
+      "placeholders": {
+        "fullName": "Enter full name",
+        "email": "Enter email address",
+        "password": "Enter password",
+        "confirmPassword": "Confirm password",
+        "department": "Select department",
+        "position": "Enter position",
+        "phone": "Enter phone number",
+        "address": "Enter address"
+      },
+      "fields": {
+        "fullName": "Full Name",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "role": "Role",
+        "status": "Status",
+        "department": "Department",
+        "position": "Position",
+        "phone": "Phone",
+        "address": "Address",
+        "avatar": "Avatar"
+      },
+      "actions": {
+        "create": "Create User",
+        "update": "Update User",
+        "cancel": "Cancel",
+        "creating": "Creating user...",
+        "updating": "Updating user..."
+      }
     },
     "validation": {
       "fullName": {
-        "required": "To'liq ism kiritilishi shart",
-        "minLength": "Ism kamida {min} ta belgidan iborat bo'lishi kerak",
-        "maxLength": "Ism maksimal {max} ta belgidan iborat bo'lishi kerak"
+        "required": "Full name is required",
+        "minLength": "Full name must be at least {{min}} characters",
+        "maxLength": "Full name must not exceed {{max}} characters"
       },
       "email": {
-        "required": "Email kiritilishi shart",
-        "invalid": "Email formati noto'g'ri"
+        "required": "Email is required",
+        "invalid": "Invalid email format"
       },
       "password": {
-        "required": "Parol kiritilishi shart",
-        "minLength": "Parol kamida {min} ta belgidan iborat bo'lishi kerak",
-        "maxLength": "Parol maksimal {max} ta belgidan iborat bo'lishi kerak"
+        "required": "Password is required",
+        "minLength": "Password must be at least {{min}} characters",
+        "maxLength": "Password must not exceed {{max}} characters"
       },
       "confirmPassword": {
-        "required": "Parolni tasdiqlash shart",
-        "match": "Parollar mos kelmayapti"
+        "required": "Password confirmation is required",
+        "match": "Passwords do not match"
       },
       "role": {
-        "required": "Rol tanlanishi shart"
+        "required": "Role is required"
       },
       "status": {
-        "required": "Holat tanlanishi shart"
+        "required": "Status is required"
       },
       "phone": {
-        "invalid": "Telefon raqami formati noto'g'ri"
+        "invalid": "Invalid phone number format"
       }
     },
     "actions": {
-      "createSuccess": "Foydalanuvchi muvaffaqiyatli yaratildi",
-      "updateSuccess": "Foydalanuvchi muvaffaqiyatli yangilandi",
-      "deleteSuccess": "Foydalanuvchi muvaffaqiyatli o'chirildi",
-      "suspendSuccess": "Foydalanuvchi bloklandi",
-      "activateSuccess": "Foydalanuvchi faollashtirildi",
-      "deleteConfirm": "Haqiqatan ham bu foydalanuvchini o'chirmoqchimisiz?",
-      "suspendConfirm": "Haqiqatan ham bu foydalanuvchini bloklamoqchimisiz?",
-      "activateConfirm": "Haqiqatan ham bu foydalanuvchini faollashtirmoqchimisiz?",
-      "error": "Xatolik yuz berdi",
-      "loading": "Yuklanmoqda..."
+      "createSuccess": "User created successfully",
+      "updateSuccess": "User updated successfully",
+      "deleteSuccess": "User deleted successfully",
+      "suspendSuccess": "User suspended successfully",
+      "activateSuccess": "User activated successfully",
+      "error": "An error occurred",
+      "loading": "Loading...",
+      "confirmations": {
+        "delete": "Are you sure you want to delete this user?",
+        "suspend": "Are you sure you want to suspend this user?",
+        "activate": "Are you sure you want to activate this user?"
+      }
     },
     "profile": {
-      "title": "Foydalanuvchi profili",
-      "personalInfo": "Shaxsiy ma'lumotlar",
-      "contactInfo": "Aloqa ma'lumotlari",
-      "workInfo": "Ish ma'lumotlari",
-      "settings": "Sozlamalar",
-      "changePassword": "Parolni o'zgartirish",
-      "uploadAvatar": "Avatar yuklash",
-      "removeAvatar": "Avatarni olib tashlash"
+      "title": "User Profile",
+      "sections": {
+        "personalInfo": "Personal Information",
+        "contactInfo": "Contact Information",
+        "workInfo": "Work Information",
+        "settings": "Settings"
+      },
+      "actions": {
+        "changePassword": "Change Password",
+        "uploadAvatar": "Upload Avatar",
+        "removeAvatar": "Remove Avatar"
+      }
     }
   }
 }

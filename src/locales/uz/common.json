@@ -1,9 +1,4 @@
 {
-  "meta": {
-    "version": "2.0.0",
-    "lastUpdated": "2025-12-19",
-    "description": "Professional-level i18n structure with interpolation and nesting patterns"
-  },
   "app": {
     "name": "Admin Dashboard",
     "description": "Professional administration panel with advanced features"
@@ -204,99 +199,6 @@
       "goToTop": "Yuqoriga chiqish",
       "goToBottom": "Pastga tushish"
     },
-    "forms": {
-      "requiredField": "{{field}} maydoni majburiy",
-      "invalidField": "{{field}} maydoni noto'g'ri",
-      "fieldTooShort": "{{field}} maydoni kamida {{min}} ta belgidan iborat bo'lishi kerak",
-      "fieldTooLong": "{{field}} maydoni {{max}} ta belgidan oshmasligi kerak",
-      "fieldMinValue": "{{field}} maydoni {{min}} dan kam bo'lmasligi kerak",
-      "fieldMaxValue": "{{field}} maydoni {{max}} dan oshmasligi kerak",
-      "fieldMustMatch": "{{field1}} va {{field2}} mos kelishi kerak",
-      "invalidEmail": "Email manzili noto'g'ri formatda",
-      "invalidPhone": "Telefon raqami noto'g'ri formatda",
-      "invalidUrl": "URL manzili noto'g'ri formatda",
-      "invalidDate": "Sana noto'g'ri formatda",
-      "invalidTime": "Vaqt noto'g'ri formatda",
-      "invalidNumber": "Raqam noto'g'ri formatda",
-      "invalidFile": "Fayl noto'g'ri formatda",
-      "fileTooLarge": "Fayl hajmi {{maxSize}} dan katta",
-      "invalidFileType": "Fayl turi noto'g'ri",
-      "selectOption": "Tanlash",
-      "noOptions": "Variantlar mavjud emas",
-      "placeholder": {
-        "select": "Tanlang...",
-        "search": "Qidirish...",
-        "type": "Kiriting...",
-        "date": "Sanani tanlang...",
-        "time": "Vaqtni tanlang...",
-        "file": "Faylni tanlang..."
-      }
-    },
-    "messages": {
-      "success": {
-        "saved": "{{entity}} muvaffaqiyatli saqlandi",
-        "updated": "{{entity}} muvaffaqiyatli yangilandi",
-        "deleted": "{{entity}} muvaffaqiyatli o'chirildi",
-        "created": "{{entity}} muvaffaqiyatli yaratildi",
-        "uploaded": "{{entity}} muvaffaqiyatli yuklandi",
-        "downloaded": "{{entity}} muvaffaqiyatli yuklab olindi",
-        "imported": "{{entity}} muvaffaqiyatli import qilindi",
-        "exported": "{{entity}} muvaffaqiyatli eksport qilindi",
-        "sent": "{{entity}} muvaffaqiyatli yuborildi",
-        "received": "{{entity}} muvaffaqiyatli qabul qilindi",
-        "approved": "{{entity}} muvaffaqiyatli tasdiqlandi",
-        "rejected": "{{entity}} muvaffaqiyatli rad etildi",
-        "completed": "{{entity}} muvaffaqiyatli yakunlandi",
-        "cancelled": "{{entity}} muvaffaqiyatli bekor qilindi",
-        "processed": "{{entity}} muvaffaqiyatli qayta ishlandi",
-        "verified": "{{entity}} muvaffaqiyatli tekshirildi"
-      },
-      "error": {
-        "default": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring.",
-        "network": "Tarmoq xatosi. Iltimos, internet ulanishini tekshiring.",
-        "server": "Server xatosi. Iltimos, keyinroq qayta urinib ko'ring.",
-        "unauthorized": "Sizda bu amalni bajarish uchun ruxsat yo'q.",
-        "forbidden": "Bu resursga kirish taqiqlangan.",
-        "notFound": "So'ralgan resurs topilmadi.",
-        "timeout": "So'rov vaqt tugashi sababli bekor qilindi.",
-        "validation": "Ma'lumotlarni tekshirishda xatoliklar topildi.",
-        "duplicate": "Ushbu ma'lumot allaqachon mavjud.",
-        "fileNotSupported": "Qo'llab-quvvatlanmaydigan fayl formati.",
-        "fileTooLarge": "Fayl hajmi ruxsat etilgan maksimal hajmdan oshadi.",
-        "invalidCredentials": "Login yoki parol noto'g'ri.",
-        "sessionExpired": "Sessiya muddati tugagan. Iltimos, qayta kirishingiz kerak.",
-        "accessDenied": "Kirish rad etilgan.",
-        "pageNotFound": "Sahifa topilmadi.",
-        "serverError": "Server ichki xatosi.",
-        "serviceUnavailable": "Xizmat vaqtinchalik mavjud emas."
-      },
-      "confirm": {
-        "delete": "Haqiqatan ham {{entity}} ni o'chirmoqchimisiz?",
-        "deleteMultiple": "Haqiqatan ham {{count}} ta {{entity}} ni o'chirmoqchimisiz?",
-        "delete irreversible": "Ushbu amalni qaytarib bo'lmaydi.",
-        "unsavedChanges": "Saqlanmagan o'zgarishlar mavjud. Sahifani tark etishga ishonchingiz komilmi?",
-        "logout": "Haqiqatan ham tizimdan chiqmoqchimisiz?",
-        "reset": "Barcha sozlamalarni tiklamoqchimisiz?",
-        "approve": "{{entity}} ni tasdiqlaysizmi?",
-        "reject": "{{entity}} ni rad etasizmi?",
-        "cancel": "{{entity}} ni bekor qilasizmi?",
-        "submit": "{{entity}} ni yuborishga ishonchingiz komilmi?",
-        "publish": "{{entity}} ni nashr qilishga ishonchingiz komilmi?"
-      },
-      "info": {
-        "loading": "Ma'lumotlar yuklanmoqda...",
-        "noChanges": "Hech qanday o'zgarishlar topilmadi.",
-        "upToDate": "Barcha ma'lumotlar yangi.",
-        "autoSave": "O'zgarishlar avtomatik saqlanadi.",
-        "processing": "So'rov qayta ishlanmoqda, iltimos kuting...",
-        "pleaseWait": "Iltimos, kuting...",
-        "almostDone": "Juda yaqinlashdi...",
-        "almostThere": "Deyarli tayyor...",
-        "takeYourTime": "Vaqtingiz bor, o'zingiz xohlagancha yarating.",
-        "welcome": "Tizimga xush kelibsiz!",
-        "goodbye": "Siz tizimdan muvaffaqiyatli chiqdingiz."
-      }
-    },
     "table": {
       "actions": "Amallar",
       "selectAll": "Barchasini tanlash",
@@ -332,26 +234,6 @@
         "items": "elementlar",
         "per_page": "sahifada"
       }
-    },
-    "charts": {
-      "noData": "Grafik uchun ma'lumotlar mavjud emas",
-      "loading": "Grafik yuklanmoqda...",
-      "error": "Grafikni yuklashda xatolik",
-      "xAxis": "X o'qi",
-      "yAxis": "Y o'qi",
-      "legend": "Afsona",
-      "tooltip": "Maslahat",
-      "zoom": "Kattalashtirish",
-      "reset": "Qayta tiklash",
-      "fullscreen": "To'liq ekran",
-      "download": "Yuklab olish",
-      "print": "Chop etish",
-      "data": "Ma'lumotlar",
-      "comparison": "Taqqoslash",
-      "trend": "Trend",
-      "performance": "Ishlash",
-      "statistics": "Statistika",
-      "analytics": "Analitika"
     }
   }
 }

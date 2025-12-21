@@ -1,48 +1,39 @@
 {
   "users": {
     "title": "Foydalanuvchilar",
-    "create": "Yangi foydalanuvchi",
-    "edit": "Foydalanuvchini tahrirlash",
-    "delete": "Foydalanuvchini o'chirish",
-    "fullName": "To'liq ismi",
-    "email": "Email",
-    "role": "Roli",
-    "status": "Holati",
-    "department": "Bo'lim",
-    "position": "Lavozim",
-    "phone": "Telefon",
-    "address": "Manzil",
-    "avatar": "Avatar",
-    "createdAt": "Yaratilgan vaqti",
-    "updatedAt": "Yangilangan vaqti",
-    "lastLogin": "Oxirgi kirish",
-    "filter": {
-      "title": "Filter",
-      "search": "Foydalanuvchilarni qidirish...",
+    "labels": {
+      "fullName": "To'liq ismi",
+      "email": "Email",
       "role": "Roli",
       "status": "Holati",
       "department": "Bo'lim",
-      "clearFilters": "Filterlarni tozalash"
+      "position": "Lavozim",
+      "phone": "Telefon",
+      "address": "Manzil",
+      "avatar": "Avatar",
+      "createdAt": "Yaratilgan vaqti",
+      "updatedAt": "Yangilangan vaqti",
+      "lastLogin": "Oxirgi kirish"
     },
-    "role": {
+    "roles": {
       "admin": "Administrator",
       "manager": "Menejer",
       "user": "Foydalanuvchi",
       "guest": "Mehmon"
     },
-    "status": {
+    "statuses": {
       "active": "Faol",
       "inactive": "Faol emas",
       "suspended": "Bloklangan",
       "pending": "Kutilmoqda"
     },
+    "filter": {
+      "title": "Filter",
+      "search": "Foydalanuvchilarni qidirish...",
+      "clearFilters": "Filterlarni tozalash"
+    },
     "table": {
       "title": "Foydalanuvchilar jadvali",
-      "viewProfile": "Profilni ko'rish",
-      "edit": "Tahrirlash",
-      "delete": "O'chirish",
-      "suspend": "Bloklash",
-      "activate": "Faollashtirish",
       "noUsers": "Foydalanuvchilar topilmadi",
       "columns": {
         "id": "ID",
@@ -56,39 +47,54 @@
         "lastLogin": "Oxirgi kirish",
         "createdAt": "Yaratilgan",
         "actions": "Amallar"
+      },
+      "actions": {
+        "viewProfile": "Profilni ko'rish",
+        "edit": "Tahrirlash",
+        "delete": "O'chirish",
+        "suspend": "Bloklash",
+        "activate": "Faollashtirish"
       }
     },
     "form": {
-      "title": "To'liq ism",
-      "title.placeholder": "To'liq ismingizni kiriting",
-      "email": "Email",
-      "email.placeholder": "Email manzilingizni kiriting",
-      "password": "Parol",
-      "password.placeholder": "Parolni kiriting",
-      "confirmPassword": "Parolni tasdiqlang",
-      "confirmPassword.placeholder": "Parolni qayta kiriting",
-      "role": "Roli",
-      "status": "Holati",
-      "department": "Bo'lim",
-      "department.placeholder": "Bo'limni tanlang",
-      "position": "Lavozim",
-      "position.placeholder": "Lavozimni kiriting",
-      "phone": "Telefon",
-      "phone.placeholder": "Telefon raqamini kiriting",
-      "address": "Manzil",
-      "address.placeholder": "Manzilni kiriting",
-      "avatar": "Avatar",
-      "create": "Foydalanuvchini yaratish",
-      "update": "Foydalanuvchini yangilash",
-      "cancel": "Bekor qilish",
-      "creating": "Foydalanuvchi yaratilmoqda...",
-      "updating": "Foydalanuvchi yangilanmoqda..."
+      "createTitle": "Yangi foydalanuvchi yaratish",
+      "editTitle": "Foydalanuvchini tahrirlash",
+      "placeholders": {
+        "fullName": "To'liq ismingizni kiriting",
+        "email": "Email manzilingizni kiriting",
+        "password": "Parolni kiriting",
+        "confirmPassword": "Parolni qayta kiriting",
+        "department": "Bo'limni tanlang",
+        "position": "Lavozimni kiriting",
+        "phone": "Telefon raqamini kiriting",
+        "address": "Manzilni kiriting"
+      },
+      "fields": {
+        "fullName": "To'liq ismi",
+        "email": "Email",
+        "password": "Parol",
+        "confirmPassword": "Parolni tasdiqlang",
+        "role": "Roli",
+        "status": "Holati",
+        "department": "Bo'lim",
+        "position": "Lavozim",
+        "phone": "Telefon",
+        "address": "Manzil",
+        "avatar": "Avatar"
+      },
+      "actions": {
+        "create": "Foydalanuvchini yaratish",
+        "update": "Foydalanuvchini yangilash",
+        "cancel": "Bekor qilish",
+        "creating": "Foydalanuvchi yaratilmoqda...",
+        "updating": "Foydalanuvchi yangilanmoqda..."
+      }
     },
     "validation": {
       "fullName": {
         "required": "To'liq ism kiritilishi shart",
-        "minLength": "Ism kamida {min} ta belgidan iborat bo'lishi kerak",
-        "maxLength": "Ism maksimal {max} ta belgidan iborat bo'lishi kerak"
+        "minLength": "Ism kamida {{min}} ta belgidan iborat bo'lishi kerak",
+        "maxLength": "Ism maksimal {{max}} ta belgidan iborat bo'lishi kerak"
       },
       "email": {
         "required": "Email kiritilishi shart",
@@ -96,8 +102,8 @@
       },
       "password": {
         "required": "Parol kiritilishi shart",
-        "minLength": "Parol kamida {min} ta belgidan iborat bo'lishi kerak",
-        "maxLength": "Parol maksimal {max} ta belgidan iborat bo'lishi kerak"
+        "minLength": "Parol kamida {{min}} ta belgidan iborat bo'lishi kerak",
+        "maxLength": "Parol maksimal {{max}} ta belgidan iborat bo'lishi kerak"
       },
       "confirmPassword": {
         "required": "Parolni tasdiqlash shart",
@@ -119,21 +125,27 @@
       "deleteSuccess": "Foydalanuvchi muvaffaqiyatli o'chirildi",
       "suspendSuccess": "Foydalanuvchi bloklandi",
       "activateSuccess": "Foydalanuvchi faollashtirildi",
-      "deleteConfirm": "Haqiqatan ham bu foydalanuvchini o'chirmoqchimisiz?",
-      "suspendConfirm": "Haqiqatan ham bu foydalanuvchini bloklamoqchimisiz?",
-      "activateConfirm": "Haqiqatan ham bu foydalanuvchini faollashtirmoqchimisiz?",
       "error": "Xatolik yuz berdi",
-      "loading": "Yuklanmoqda..."
+      "loading": "Yuklanmoqda...",
+      "confirmations": {
+        "delete": "Haqiqatan ham bu foydalanuvchini o'chirmoqchimisiz?",
+        "suspend": "Haqiqatan ham bu foydalanuvchini bloklamoqchimisiz?",
+        "activate": "Haqiqatan ham bu foydalanuvchini faollashtirmoqchimisiz?"
+      }
     },
     "profile": {
       "title": "Foydalanuvchi profili",
-      "personalInfo": "Shaxsiy ma'lumotlar",
-      "contactInfo": "Aloqa ma'lumotlari",
-      "workInfo": "Ish ma'lumotlari",
-      "settings": "Sozlamalar",
-      "changePassword": "Parolni o'zgartirish",
-      "uploadAvatar": "Avatar yuklash",
-      "removeAvatar": "Avatarni olib tashlash"
+      "sections": {
+        "personalInfo": "Shaxsiy ma'lumotlar",
+        "contactInfo": "Aloqa ma'lumotlari",
+        "workInfo": "Ish ma'lumotlari",
+        "settings": "Sozlamalar"
+      },
+      "actions": {
+        "changePassword": "Parolni o'zgartirish",
+        "uploadAvatar": "Avatar yuklash",
+        "removeAvatar": "Avatarni olib tashlash"
+      }
     }
   }
 }
