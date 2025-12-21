@@ -1,4 +1,5 @@
 import { MonitorIcon, MoonIcon, SunIcon } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/hooks/use-theme.ts';
 import { PickerItem } from './picker-item';
 
@@ -7,22 +8,23 @@ import { PickerItem } from './picker-item';
 // ============================
 
 export function ThemeModeToggle() {
+  const { t } = useTranslation();
   const { theme, setTheme } = useTheme();
 
   const themeOptions = [
     {
       value: 'light',
-      label: 'Light',
+      label: t('settingsPanel.variants.themeMode.light'),
       icon: SunIcon,
     },
     {
       value: 'dark',
-      label: 'Dark',
+      label: t('settingsPanel.variants.themeMode.dark'),
       icon: MoonIcon,
     },
     {
       value: 'system',
-      label: 'System',
+      label: t('settingsPanel.variants.themeMode.system'),
       icon: MonitorIcon,
     },
   ];

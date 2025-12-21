@@ -16,13 +16,14 @@ const languages = [
   { code: 'en', name: 'English', nativeName: 'English', flag: enFlag },
   { code: 'ru', name: 'Russian', nativeName: 'Русский', flag: ruFlag },
   { code: 'uz', name: 'Uzbek (Latin)', nativeName: "O'zbekcha", flag: uzFlag },
-  { code: 'uz-cyrl', name: 'Uzbek (Cyrillic)', nativeName: 'Ўзбекча', flag: uzFlag },
+  { code: 'uzcyrl', name: 'Uzbek (Cyrillic)', nativeName: 'Ўзбекча', flag: uzFlag },
 ];
 
 export function LanguageSwitcher() {
   const { i18n } = useTranslation();
 
-  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
+  const currentLanguage =
+    languages.find(lang => lang.code === (i18n.resolvedLanguage || i18n.language)) || languages[0];
 
   const changeLanguage = (langCode: string) => {
     i18n.changeLanguage(langCode).then();
@@ -59,7 +60,8 @@ export function LanguageSwitcher() {
               onClick={() => changeLanguage(language.code)}
               className={cn(
                 'group relative mx-1 my-0.5 flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors duration-200 hover:bg-muted/80',
-                i18n.language === language.code && 'bg-(--color-primary)/10 text-foreground'
+                (i18n.resolvedLanguage || i18n.language) === language.code &&
+                  'bg-(--color-primary)/10 text-foreground'
               )}
             >
               <div className="flex flex-1 items-center gap-3">
@@ -70,7 +72,9 @@ export function LanguageSwitcher() {
                 />
                 <span className="font-medium text-sm">{language.nativeName}</span>
               </div>
-              {i18n.language === language.code && <CheckIcon className="h-4 w-4" />}
+              {(i18n.resolvedLanguage || i18n.language) === language.code && (
+                <CheckIcon className="h-4 w-4" />
+              )}
             </DropdownMenuItem>
           ))}
         </DropdownMenuContent>

@@ -1,7 +1,7 @@
 {
   "app": {
-    "name": "Admin Dashboard",
-    "description": "Professional administration panel with advanced features"
+    "name": "Cargo Customs",
+    "description": "Professional customs and cargo management system"
   },
   "common": {
     "actions": {
@@ -43,7 +43,9 @@
       "print": "Print",
       "share": "Share",
       "settings": "Settings",
-      "configure": "Configure"
+      "configure": "Configure",
+      "hide": "Hide",
+      "logout": "Log out"
     },
     "states": {
       "loading": "Loading...",
@@ -107,7 +109,9 @@
       "advanced": "Advanced",
       "basic": "Basic",
       "simple": "Simple",
-      "complex": "Complex"
+      "complex": "Complex",
+      "asc": "Asc",
+      "desc": "Desc"
     },
     "time": {
       "now": "Now",
@@ -218,21 +222,150 @@
       "showColumns": "Show columns",
       "hideColumns": "Hide columns",
       "resetColumns": "Reset columns",
+      "resetColumnSizes": "Reset column sizes",
       "export": "Export",
       "import": "Import",
       "print": "Print",
-      "pagination": {
-        "previous": "Previous",
-        "next": "Next",
-        "first": "First",
-        "last": "Last",
-        "page": "Page",
-        "of": "of",
-        "showing": "Showing",
-        "to": "to",
-        "of_total": "of",
-        "items": "items",
-        "per_page": "per page"
+      "settings": "Table Settings",
+      "settingsDescription": "Manage table layout and column settings",
+      "exportSelectedCSV": "Export Selected as CSV",
+      "exportSelectedExcel": "Export Selected as Excel",
+      "exportCurrentPageCSV": "Export Current Page as CSV",
+      "exportCurrentPageExcel": "Export Current Page as Excel",
+      "exportAllPagesCSV": "Export All Pages as CSV",
+      "exportAllPagesExcel": "Export All Pages as Excel",
+      "billing": "Billing",
+      "upgradePro": "Upgrade to Pro"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "first": "First",
+      "last": "Last",
+      "page": "Page",
+      "of": "of",
+      "showing": "Showing",
+      "to": "to",
+      "of_total": "of",
+      "items": "items",
+      "per_page": "per page",
+      "selectPage": "Select page",
+      "searchColumns": "Search columns",
+      "noColumns": "No columns found",
+      "clearFilters": "Clear filters"
+    }
+  },
+  "tasks": {
+    "title": "Tasks",
+    "table": "Table",
+    "board": "Board",
+    "details": "Details"
+  },
+  "profile": {
+    "title": "Profile"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "markAllAsRead": "Mark all as read",
+    "noNotifications": "No notifications"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "toggle": "Toggle theme"
+  },
+  "settingsPanel": {
+    "title": "Customize Theme",
+    "description": "Personalize your dashboard appearance",
+    "themeMode": "Theme Mode",
+    "themeModeDescription": "Choose your appearance preference",
+    "layoutMode": "Layout Mode",
+    "layoutModeDescription": "Choose your dashboard layout",
+    "styleVariant": "Style Variant",
+    "themeColor": "Theme Color",
+    "font": "Font",
+    "radius": "Radius",
+    "shadow": "Shadow",
+    "shuffle": "Shuffle",
+    "reset": "Reset",
+    "customizeTheme": "Customize theme",
+    "variants": {
+      "themeMode": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+      },
+      "layoutMode": {
+        "vertical": "Vertical",
+        "horizontal": "Horizontal",
+        "compact": "Compact"
+      },
+      "layoutDescriptions": {
+        "vertical": "Sidebar with vertical navigation",
+        "horizontal": "Navigation in top header bar",
+        "compact": "Collapsed sidebar with icons only"
+      },
+      "styleVariant": {
+        "vega": "Vega",
+        "nova": "Nova",
+        "maia": "Maia",
+        "mira": "Mira"
+      },
+      "styleDescriptions": {
+        "vega": "Modern and clean design",
+        "nova": "Bold and vibrant style",
+        "maia": "Soft and elegant look",
+        "mira": "Professional appearance"
+      },
+      "colors": {
+        "gray": "Gray",
+        "blue": "Blue",
+        "indigo": "Indigo",
+        "orange": "Orange",
+        "purple": "Purple",
+        "rose": "Rose",
+        "teal": "Teal"
+      },
+      "fonts": {
+        "inter": "Inter",
+        "noto-sans": "Noto Sans",
+        "nunito-sans": "Nunito Sans",
+        "figtree": "Figtree"
+      },
+      "fontDescriptions": {
+        "inter": "Modern & professional",
+        "noto-sans": "Multi-language support",
+        "nunito-sans": "Friendly & rounded",
+        "figtree": "Geometric & clean"
+      },
+      "radius": {
+        "none": "None",
+        "small": "Small",
+        "default": "Default",
+        "medium": "Medium",
+        "large": "Large"
+      },
+      "radiusDescriptions": {
+        "none": "No border radius",
+        "small": "Subtle rounding",
+        "default": "Medium rounding",
+        "medium": "Noticeable rounding",
+        "large": "Heavy rounding"
+      },
+      "shadow": {
+        "none": "None",
+        "small": "Small",
+        "default": "Default",
+        "medium": "Medium",
+        "large": "Large"
+      },
+      "shadowDescriptions": {
+        "none": "No shadow",
+        "small": "Subtle shadow",
+        "default": "Balanced shadow",
+        "medium": "Prominent shadow",
+        "large": "Strong shadow"
       }
     }
   }

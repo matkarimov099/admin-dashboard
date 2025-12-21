@@ -13,6 +13,7 @@ import {
 } from '@tanstack/react-table';
 import type * as React from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { DataTableToolbar } from '@/components/data-table/toolbar.tsx';
 import { Skeleton } from '@/components/ui/skeleton';
 import {
@@ -107,6 +108,8 @@ export function DataTable<TData>({
   searchValue: externalSearchValue = '',
   onSearchChange,
 }: DataTableProps<TData>) {
+  const { t } = useTranslation();
+
   // Load table configuration with any overrides
   const tableConfig = useTableConfig(config);
 
@@ -652,7 +655,7 @@ export function DataTable<TData>({
                   colSpan={table.getVisibleLeafColumns().length}
                   className="h-24 text-center text-muted-foreground"
                 >
-                  No results.
+                  {t('common.ui.noResults')}
                 </TableCell>
               </TableRow>
             )}

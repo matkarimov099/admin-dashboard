@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 import { LazyComponent } from '@/components/common/lazy-component.tsx';
 import { DataTable } from '@/components/data-table/data-table.tsx';
-import { getColumns } from '@/features/users/components/Columns.tsx';
+import { useGetColumns } from '@/features/users/components/Columns.tsx';
 import type { User } from '@/features/users/types.ts';
 import { useExportConfig } from '@/features/users/utils/config.ts';
 import { usersTableConfig } from '@/features/users/utils/table-config.ts';
@@ -24,10 +24,11 @@ const UsersTable = () => {
   } = useUsersData();
 
   const exportConfig = useExportConfig();
+  const columns = useGetColumns(null);
 
   return (
     <DataTable<User>
-      getColumns={getColumns}
+      getColumns={() => columns}
       data={users || []}
       totalItems={total}
       isLoading={isFetching}

@@ -1,5 +1,6 @@
 import { BellRing, CheckCircle, Clock, Info, X, XCircle } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -76,6 +77,7 @@ const getNotificationBg = (type: Notification['type']) => {
 };
 
 export function NotificationPopover() {
+  const { t } = useTranslation();
   const [notifications, setNotifications] = useState<Notification[]>(mockNotifications);
   const unreadCount = notifications.filter(n => !n.read).length;
 
@@ -108,15 +110,15 @@ export function NotificationPopover() {
               </span>
             )}
           </div>
-          <span className="sr-only">Notifications</span>
+          <span className="sr-only">{t('common.notifications.title')}</span>
         </Button>
       </PopoverTrigger>
       <PopoverContent align="end" className="w-80 p-0" sideOffset={4}>
         <div className="flex items-center justify-between border-b p-3">
-          <h4 className="font-semibold">Notifications</h4>
+          <h4 className="font-semibold">{t('common.notifications.title')}</h4>
           {unreadCount > 0 && (
             <Button variant="ghost" size="sm" onClick={markAllAsRead} className="text-xs">
-              Mark all as read
+              {t('common.notifications.markAllAsRead')}
             </Button>
           )}
         </div>
@@ -125,7 +127,7 @@ export function NotificationPopover() {
           {notifications.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-8 text-muted-foreground">
               <BellRing className="mb-2 h-8 w-8" />
-              <p className="text-sm">No notifications</p>
+              <p className="text-sm">{t('common.notifications.noNotifications')}</p>
             </div>
           ) : (
             <div className="space-y-1 p-2">

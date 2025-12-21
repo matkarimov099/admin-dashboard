@@ -1,5 +1,6 @@
 import { BadgeCheck, CreditCard, LogOut, Sparkles, User } from 'lucide-react';
 import { NavLink } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
@@ -14,6 +15,7 @@ import {
 import { useAuthContext } from '@/hooks/use-auth-context';
 
 export function ProfileDropdown() {
+  const { t } = useTranslation();
   const { currentUser: user, logout } = useAuthContext();
 
   return (
@@ -27,7 +29,7 @@ export function ProfileDropdown() {
             <div className="relative flex h-full w-full items-center justify-center">
               <User className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" />
             </div>
-            <span className="sr-only">Profile menu</span>
+            <span className="sr-only">{t('common.entities.profile')} {t('common.ui.menu')}</span>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-56" sideOffset={4}>
@@ -55,23 +57,23 @@ export function ProfileDropdown() {
                 className="flex w-full cursor-pointer items-center gap-3 px-3 py-2"
               >
                 <User className="h-4 w-4" />
-                Profile
+                {t('profile.title')}
               </NavLink>
             </DropdownMenuItem>
             <DropdownMenuItem className="flex cursor-pointer items-center gap-3 px-3 py-2">
               <BadgeCheck className="h-4 w-4" />
-              Account
+              {t('common.entities.account')}
             </DropdownMenuItem>
             <DropdownMenuItem className="flex cursor-pointer items-center gap-3 px-3 py-2">
               <CreditCard className="h-4 w-4" />
-              Billing
+              {t('common.table.billing')}
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem className="flex cursor-pointer items-center gap-3 px-3 py-2">
               <Sparkles className="h-4 w-4" />
-              Upgrade to Pro
+              {t('common.table.upgradePro')}
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
@@ -80,7 +82,7 @@ export function ProfileDropdown() {
             className="flex cursor-pointer items-center gap-3 px-3 py-2"
           >
             <LogOut className="h-4 w-4" />
-            Log out
+            {t('common.actions.logout')}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

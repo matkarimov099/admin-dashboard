@@ -1,5 +1,6 @@
 import { ChevronDown, Menu } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router';
 import { Button } from '@/components/ui/button';
 import {
@@ -16,6 +17,7 @@ import { useCurrentPath } from '@/hooks/use-current-path.ts';
 import { cn } from '@/utils/utils';
 
 export function HorizontalNav() {
+  const { t } = useTranslation();
   const currentPath = useCurrentPath();
   const { hasRole } = useAuthContext();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -72,7 +74,7 @@ export function HorizontalNav() {
                   >
                     <div className="flex items-center gap-2">
                       {item.icon}
-                      <span>{item.title}</span>
+                      <span>{t(item.title)}</span>
                     </div>
                     <ChevronDown className="h-4 w-4" />
                   </Button>
@@ -95,7 +97,7 @@ export function HorizontalNav() {
                                 'bg-(--color-primary)/10 font-semibold text-(--color-primary)'
                             )}
                           >
-                            <span>{subItem.title}</span>
+                            <span>{t(subItem.title)}</span>
                           </NavLink>
                         </DropdownMenuItem>
                       );
@@ -120,7 +122,7 @@ export function HorizontalNav() {
               <NavLink to={item.url || '#'}>
                 <div className="flex items-center gap-2">
                   {item.icon}
-                  <span>{item.title}</span>
+                  <span>{t(item.title)}</span>
                 </div>
               </NavLink>
             </Button>
@@ -133,14 +135,14 @@ export function HorizontalNav() {
         <SheetTrigger asChild className="md:hidden">
           <Button variant="ghost" size="sm" className="h-9 w-9 p-0">
             <Menu className="h-5 w-5" />
-            <span className="sr-only">Toggle menu</span>
+            <span className="sr-only">{t('common.navigation.menu')}</span>
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="w-64 p-0">
           <div className="flex h-full flex-col">
             {/* Header */}
             <div className="flex items-center justify-between border-b p-4">
-              <h2 className="font-semibold text-lg">Menu</h2>
+              <h2 className="font-semibold text-lg">{t('common.navigation.menu')}</h2>
             </div>
 
             {/* Navigation Items */}
@@ -162,7 +164,7 @@ export function HorizontalNav() {
                           )}
                         >
                           {item.icon}
-                          <span>{item.title}</span>
+                          <span>{t(item.title)}</span>
                         </div>
                         <div className="mt-1 ml-6 space-y-1">
                           {item.items
@@ -183,7 +185,7 @@ export function HorizontalNav() {
                                       : 'text-muted-foreground hover:bg-accent hover:text-foreground'
                                   )}
                                 >
-                                  {subItem.title}
+                                  {t(subItem.title)}
                                 </NavLink>
                               );
                             })}
@@ -205,7 +207,7 @@ export function HorizontalNav() {
                       )}
                     >
                       {item.icon}
-                      <span>{item.title}</span>
+                      <span>{t(item.title)}</span>
                     </NavLink>
                   );
                 })}

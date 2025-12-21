@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { BORDER_RADIUS_OPTIONS } from '@/config/theme/theme-config.constants';
 import { useThemeConfig } from '@/hooks/use-theme-config';
 import { PickerItem } from './picker-item';
@@ -31,11 +32,19 @@ const RadiusPreview = ({ radius, isSelected }: { radius: string; isSelected: boo
 };
 
 export function RadiusPicker() {
+  const { t } = useTranslation();
   const { config, setBorderRadius } = useThemeConfig();
+
+  // Create translated border radius options map
+  const translatedRadiusOptions = BORDER_RADIUS_OPTIONS.map(radius => ({
+    ...radius,
+    label: t(`settingsPanel.variants.radius.${radius.value}`),
+    description: t(`settingsPanel.variants.radiusDescriptions.${radius.value}`)
+  }));
 
   return (
     <div className="isolate grid grid-cols-3 gap-2 py-1">
-      {BORDER_RADIUS_OPTIONS.map(radius => (
+      {translatedRadiusOptions.map(radius => (
         <PickerItem
           key={radius.value}
           isSelected={config.borderRadius === radius.value}

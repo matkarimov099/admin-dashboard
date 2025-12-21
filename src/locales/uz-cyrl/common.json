@@ -1,7 +1,7 @@
 {
   "app": {
-    "name": "Admin Dashboard",
-    "description": "Professional administration panel with advanced features"
+    "name": "Cargo Customs",
+    "description": "Professional customs and cargo management system"
   },
   "common": {
     "actions": {
@@ -43,7 +43,9 @@
       "print": "Чоп этиш",
       "share": "Улашиш",
       "settings": "Созламалар",
-      "configure": "Конфигурация қилиш"
+      "configure": "Конфигурация қилиш",
+      "hide": "Яшириш",
+      "logout": "Чиқиш"
     },
     "states": {
       "loading": "Юкланмоқда...",
@@ -107,7 +109,9 @@
       "advanced": "Илғор",
       "basic": "Асосий",
       "simple": "Содда",
-      "complex": "Мурakkаб"
+      "complex": "Мурakkаб",
+      "asc": "Ўшиш",
+      "desc": "Камайиш"
     },
     "time": {
       "now": "Ҳозир",
@@ -206,11 +210,11 @@
       "selectRow": "Қаторни танлаш",
       "selectedRows": "Танланган қаторлар",
       "noData": "Маълумотлар мавжуд эмас",
-      "noResults": "Маълумотлар топилмади",
+      "noResults": "Нажиталар топилмади",
       "search": "Қидирув...",
-      "filter": "Филтр",
+      "filter": "Филтер",
       "sort": "Саралаш",
-      "groupBy": "Бўлиш",
+      "groupBy": "Гуруҳлаш",
       "expand": "Ёйиш",
       "collapse": "Йиғиш",
       "refresh": "Янгилаш",
@@ -218,21 +222,150 @@
       "showColumns": "Устунларни кўрсатиш",
       "hideColumns": "Устунларни яшириш",
       "resetColumns": "Устунларни тиклаш",
+      "resetColumnSizes": "Устун ўлчамларини тиклаш",
       "export": "Экспорт қилиш",
       "import": "Импорт қилиш",
       "print": "Чоп этиш",
-      "pagination": {
-        "previous": "Олдинги",
-        "next": "Кейинги",
-        "first": "Биринчи",
-        "last": "Охирги",
-        "page": "Саҳифа",
-        "of": "/",
-        "showing": "Кўрсатилмоқда",
-        "to": "гача",
-        "of_total": "жами дан",
-        "items": "элементлар",
-        "per_page": "саҳифада"
+      "settings": "Жадвал созламалари",
+      "settingsDescription": "Жадвал тузилиши ва устун созламаларини бошқариш",
+      "exportSelectedCSV": "Танланганларни CSV сифатида экспорт қилиш",
+      "exportSelectedExcel": "Танланганларни Excel сифатида экспорт қилиш",
+      "exportCurrentPageCSV": "Жорий саҳифани CSV сифатида экспорт қилиш",
+      "exportCurrentPageExcel": "Жорий саҳифани Excel сифатида экспорт қилиш",
+      "exportAllPagesCSV": "Барча саҳифаларни CSV сифатида экспорт қилиш",
+      "exportAllPagesExcel": "Барча саҳифаларни Excel сифатида экспорт қилиш",
+      "billing": "Тўловлар",
+      "upgradePro": "Pro версиясига янгилаш"
+    },
+    "pagination": {
+      "previous": "Олдинги",
+      "next": "Кейинги",
+      "first": "Биринчи",
+      "last": "Охирги",
+      "page": "Саҳифа",
+      "of": "/",
+      "showing": "Кўрсатилмоқда",
+      "to": "гача",
+      "of_total": "жами дан",
+      "items": "элементлар",
+      "per_page": "саҳифада",
+      "selectPage": "Саҳифани танланг",
+      "searchColumns": "Устунларни қидириш",
+      "noColumns": "Устунлар топилмади",
+      "clearFilters": "Филтерларни тозалаш"
+    }
+  },
+  "tasks": {
+    "title": "Вазифалар",
+    "table": "Жадвал",
+    "board": "Тахта",
+    "details": "Тафсилотлар"
+  },
+  "profile": {
+    "title": "Профил"
+  },
+  "notifications": {
+    "title": "Билдиришномалар",
+    "markAllAsRead": "Барчасини ўқилган деб белгилаш",
+    "noNotifications": "Билдиришномалар йўқ"
+  },
+  "theme": {
+    "light": "Ёруқин",
+    "dark": "Қоронғиу",
+    "system": "Тизим",
+    "toggle": "Тема алмасhtiриш"
+  },
+  "settingsPanel": {
+    "title": "Темани созлаш",
+    "description": "Бошқарув панелингизнинг кўринишини шахсилаштиринг",
+    "themeMode": "Тема режими",
+    "themeModeDescription": "Кўриниш афзалликларини танланг",
+    "layoutMode": "Layout режими",
+    "layoutModeDescription": "Бошқарув панелингиз layoutини танланг",
+    "styleVariant": "Услуб варианти",
+    "themeColor": "Тема ранги",
+    "font": "Шрифт",
+    "radius": "Радиус",
+    "shadow": "Соя",
+    "shuffle": "Аралаштириш",
+    "reset": "Тиклаш",
+    "customizeTheme": "Темани созлаш",
+    "variants": {
+      "themeMode": {
+        "light": "Ёруқин",
+        "dark": "Қоронғиу",
+        "system": "Тизим"
+      },
+      "layoutMode": {
+        "vertical": "Вертикал",
+        "horizontal": "Горизонтал",
+        "compact": "Компакт"
+      },
+      "layoutDescriptions": {
+        "vertical": "Вертикал навигацияли sidebar",
+        "horizontal": "Юқори header баридаги навигация",
+        "compact": "Фақат иконали ёпилган sidebar"
+      },
+      "styleVariant": {
+        "vega": "Vega",
+        "nova": "Nova",
+        "maia": "Maia",
+        "mira": "Mira"
+      },
+      "styleDescriptions": {
+        "vega": "Замонавий ва тоза dizайн",
+        "nova": "Живали ва ҳонли услуб",
+        "maia": "Юмшоқ ва нафис кўриниш",
+        "mira": "Professional кўриниш"
+      },
+      "colors": {
+        "gray": "Кулранг",
+        "blue": "Мовий",
+        "indigo": "Индиго",
+        "orange": "Тўқ сариқ",
+        "purple": "Бинафша",
+        "rose": "Гулранг",
+        "teal": "Мов-яшил"
+      },
+      "fonts": {
+        "inter": "Inter",
+        "noto-sans": "Noto Sans",
+        "nunito-sans": "Nunito Sans",
+        "figtree": "Figtree"
+      },
+      "fontDescriptions": {
+        "inter": "Замонавий ва профессионал",
+        "noto-sans": "Кўп тилли қўллаб-қувватлаш",
+        "nunito-sans": "Дўстонаона ваyumалоқ",
+        "figtree": "Геометрик ва тоза"
+      },
+      "radius": {
+        "none": "Йўқ",
+        "small": "Кичик",
+        "default": "Стандарт",
+        "medium": "Ўртача",
+        "large": "Катта"
+      },
+      "radiusDescriptions": {
+        "none": "Чегара радиуси йўқ",
+        "small": "Енгил yumалоқлаш",
+        "default": "Ўртача yumалоқлаш",
+        "medium": "Аниқ yumалоқлаш",
+        "large": "Қалин yumалоқлаш"
+      },
+      "shadow": {
+        "none": "Йўқ",
+        "small": "Кичик",
+        "default": "Стандарт",
+        "medium": "Ўртача",
+        "large": "Катта"
+      },
+      "shadowDescriptions": {
+        "none": "Соя йўқ",
+        "small": "Енгил сўя",
+        "default": "Мувозанатли сўя",
+        "medium": "Ажралиб турадиган сўя",
+        "large": "Кучли сўя"
       }
     }
   }

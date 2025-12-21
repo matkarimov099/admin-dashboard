@@ -1,7 +1,7 @@
 {
   "app": {
-    "name": "Admin Dashboard",
-    "description": "Professional administration panel with advanced features"
+    "name": "Cargo Customs",
+    "description": "Professional customs and cargo management system"
   },
   "common": {
     "actions": {
@@ -43,7 +43,9 @@
       "print": "Печать",
       "share": "Поделиться",
       "settings": "Настройки",
-      "configure": "Настроить"
+      "configure": "Настроить",
+      "hide": "Скрыть",
+      "logout": "Выйти"
     },
     "states": {
       "loading": "Загрузка...",
@@ -107,7 +109,9 @@
       "advanced": "Расширенный",
       "basic": "Базовый",
       "simple": "Простой",
-      "complex": "Сложный"
+      "complex": "Сложный",
+      "asc": "По возрастанию",
+      "desc": "По убыванию"
     },
     "time": {
       "now": "Сейчас",
@@ -205,7 +209,7 @@
       "selectNone": "Ничего не выбирать",
       "selectRow": "Выбрать строку",
       "selectedRows": "Выбранные строки",
-      "noData": "Нет данных",
+      "noData": "Данные недоступны",
       "noResults": "Результаты не найдены",
       "search": "Поиск...",
       "filter": "Фильтр",
@@ -218,21 +222,150 @@
       "showColumns": "Показать столбцы",
       "hideColumns": "Скрыть столбцы",
       "resetColumns": "Сбросить столбцы",
+      "resetColumnSizes": "Сбросить размеры столбцов",
       "export": "Экспорт",
       "import": "Импорт",
       "print": "Печать",
-      "pagination": {
-        "previous": "Предыдущий",
-        "next": "Следующий",
-        "first": "Первый",
-        "last": "Последний",
-        "page": "Страница",
-        "of": "из",
-        "showing": "Показано",
-        "to": "по",
-        "of_total": "из",
-        "items": "элементов",
-        "per_page": "на странице"
+      "settings": "Настройки таблицы",
+      "settingsDescription": "Управление структурой таблицы и настройками столбцов",
+      "exportSelectedCSV": "Экспортировать выбранное в CSV",
+      "exportSelectedExcel": "Экспортировать выбранное в Excel",
+      "exportCurrentPageCSV": "Экспортировать текущую страницу в CSV",
+      "exportCurrentPageExcel": "Экспортировать текущую страницу в Excel",
+      "exportAllPagesCSV": "Экспортировать все страницы в CSV",
+      "exportAllPagesExcel": "Экспортировать все страницы в Excel",
+      "billing": "Биллинг",
+      "upgradePro": "Обновить до Pro"
+    },
+    "pagination": {
+      "previous": "Предыдущий",
+      "next": "Следующий",
+      "first": "Первый",
+      "last": "Последний",
+      "page": "Страница",
+      "of": "из",
+      "showing": "Показано",
+      "to": "по",
+      "of_total": "из",
+      "items": "элементов",
+      "per_page": "на странице",
+      "selectPage": "Выберите страницу",
+      "searchColumns": "Поиск столбцов",
+      "noColumns": "Столбцы не найдены",
+      "clearFilters": "Очистить фильтры"
+    }
+  },
+  "tasks": {
+    "title": "Задачи",
+    "table": "Таблица",
+    "board": "Доска",
+    "details": "Детали"
+  },
+  "profile": {
+    "title": "Профиль"
+  },
+  "notifications": {
+    "title": "Уведомления",
+    "markAllAsRead": "Отметить все как прочитанные",
+    "noNotifications": "Нет уведомлений"
+  },
+  "theme": {
+    "light": "Светлая",
+    "dark": "Темная",
+    "system": "Системная",
+    "toggle": "Переключить тему"
+  },
+  "settingsPanel": {
+    "title": "Настроить тему",
+    "description": "Персонализируйте внешний вид вашей панели управления",
+    "themeMode": "Режим темы",
+    "themeModeDescription": "Выберите предпочтения внешнего вида",
+    "layoutMode": "Режим макета",
+    "layoutModeDescription": "Выберите макет вашей панели управления",
+    "styleVariant": "Вариант стиля",
+    "themeColor": "Цвет темы",
+    "font": "Шрифт",
+    "radius": "Радиус",
+    "shadow": "Тень",
+    "shuffle": "Перемешать",
+    "reset": "Сбросить",
+    "customizeTheme": "Настроить тему",
+    "variants": {
+      "themeMode": {
+        "light": "Светлая",
+        "dark": "Темная",
+        "system": "Системная"
+      },
+      "layoutMode": {
+        "vertical": "Вертикальная",
+        "horizontal": "Горизонтальная",
+        "compact": "Компактная"
+      },
+      "layoutDescriptions": {
+        "vertical": "Боковая панель с вертикальной навигацией",
+        "horizontal": "Навигация в верхней панели",
+        "compact": "Свернутая боковая панель с иконками"
+      },
+      "styleVariant": {
+        "vega": "Vega",
+        "nova": "Nova",
+        "maia": "Maia",
+        "mira": "Mira"
+      },
+      "styleDescriptions": {
+        "vega": "Современный и чистый дизайн",
+        "nova": "Смелый и яркий стиль",
+        "maia": "Мягкий и элегантный вид",
+        "mira": "Профессиональный вид"
+      },
+      "colors": {
+        "gray": "Серый",
+        "blue": "Синий",
+        "indigo": "Индиго",
+        "orange": "Оранжевый",
+        "purple": "Фиолетовый",
+        "rose": "Розовый",
+        "teal": "Бирюзовый"
+      },
+      "fonts": {
+        "inter": "Inter",
+        "noto-sans": "Noto Sans",
+        "nunito-sans": "Nunito Sans",
+        "figtree": "Figtree"
+      },
+      "fontDescriptions": {
+        "inter": "Современный и профессиональный",
+        "noto-sans": "Поддержка многих языков",
+        "nunito-sans": "Дружелюбный и скруглый",
+        "figtree": "Геометрический и чистый"
+      },
+      "radius": {
+        "none": "Нет",
+        "small": "Маленький",
+        "default": "По умолчанию",
+        "medium": "Средний",
+        "large": "Большой"
+      },
+      "radiusDescriptions": {
+        "none": "Без скругления углов",
+        "small": "Легкое скругление",
+        "default": "Среднее скругление",
+        "medium": "Заметное скругление",
+        "large": "Сильное скругление"
+      },
+      "shadow": {
+        "none": "Нет",
+        "small": "Маленькая",
+        "default": "По умолчанию",
+        "medium": "Средняя",
+        "large": "Большая"
+      },
+      "shadowDescriptions": {
+        "none": "Без тени",
+        "small": "Легкая тень",
+        "default": "Сбалансированная тень",
+        "medium": "Заметная тень",
+        "large": "Сильная тень"
       }
     }
   }

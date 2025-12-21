@@ -1,4 +1,5 @@
 import { RotateCcwIcon, ShuffleIcon } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { useThemeConfig } from '@/hooks/use-theme-config';
 
@@ -7,6 +8,7 @@ import { useThemeConfig } from '@/hooks/use-theme-config';
 // ============================
 
 export function SettingsActions() {
+  const { t } = useTranslation();
   const { randomize, reset } = useThemeConfig();
 
   return (
@@ -20,7 +22,7 @@ export function SettingsActions() {
         className="flex-1 gap-1.5 text-xs"
       >
         <ShuffleIcon className="h-3.5 w-3.5" />
-        Shuffle
+        {t('settingsPanel.shuffle')}
       </Button>
 
       {/* Reset Button */}
@@ -32,7 +34,7 @@ export function SettingsActions() {
         className="flex-1 gap-1.5 text-xs"
       >
         <RotateCcwIcon className="h-3.5 w-3.5" />
-        Reset
+        {t('settingsPanel.reset')}
       </Button>
     </div>
   );

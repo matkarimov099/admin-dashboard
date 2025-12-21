@@ -3,6 +3,7 @@
     "title": "Foydalanuvchilar",
     "labels": {
       "fullName": "To'liq ismi",
+      "username": "Foydalanuvchi nomi",
       "email": "Email",
       "role": "Roli",
       "status": "Holati",

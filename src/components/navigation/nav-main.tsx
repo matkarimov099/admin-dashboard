@@ -1,5 +1,6 @@
 import { ChevronDown, ChevronRightIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { LocalizedNavLink } from '@/components/layout/localized-nav-link.tsx';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import {
@@ -19,6 +20,7 @@ import { useSidebar } from '@/hooks/use-sidebar';
 import { cn } from '@/utils/utils';
 
 export function NavMain() {
+  const { t } = useTranslation();
   const currentPath = useCurrentPath();
   const { state } = useSidebar();
   const { hasRole } = useAuthContext();
@@ -54,7 +56,7 @@ export function NavMain() {
           isCollapsed ? 'text-transparent' : 'text-gray-600 dark:text-gray-400'
         )}
       >
-        Menu
+        {t('common.navigation.menu')}
       </SidebarGroupLabel>
 
       <SidebarMenu className="space-y-1">
@@ -95,7 +97,7 @@ export function NavMain() {
                   <Popover>
                     <PopoverTrigger asChild>
                       <SidebarMenuButton
-                        tooltip={item.title}
+                        tooltip={t(item.title)}
                         className={cn(
                           'relative h-9 w-9 rounded-lg p-0 transition-all duration-200',
                           'text-gray-800 hover:bg-(--color-primary)! hover:text-white! dark:text-gray-200',
@@ -113,7 +115,7 @@ export function NavMain() {
                     >
                       <div className="mb-2 border-(--sidebar-border) border-b pb-2">
                         <div className="flex items-center gap-2 px-1 font-medium text-gray-800 text-sm dark:text-gray-200">
-                          {item.title}
+                          {t(item.title)}
                         </div>
                       </div>
                       <div className="space-y-1">
@@ -139,7 +141,7 @@ export function NavMain() {
                                     isSubActive && 'font-semibold text-(--color-primary)'
                                   )}
                                 >
-                                  {subItem.title}
+                                  {t(subItem.title)}
                                 </div>
                               </LocalizedNavLink>
                             );
@@ -169,7 +171,7 @@ export function NavMain() {
                   // Item with direct URL
                   <LocalizedNavLink to={item.url} className="block">
                     <SidebarMenuButton
-                      tooltip={isCollapsed ? item.title : undefined}
+                      tooltip={isCollapsed ? t(item.title) : undefined}
                       className={cn(
                         'relative h-9 w-full rounded-lg px-2 transition-all duration-200',
                         'text-gray-700 hover:bg-(--color-primary)! hover:text-white! dark:text-gray-200',
@@ -182,7 +184,7 @@ export function NavMain() {
                         className={cn('flex items-center gap-2', isCollapsed && 'justify-center')}
                       >
                         {item.icon}
-                        {!isCollapsed && <span className="font-medium">{item.title}</span>}
+                        {!isCollapsed && <span className="font-medium">{t(item.title)}</span>}
                       </div>
                     </SidebarMenuButton>
                   </LocalizedNavLink>
@@ -190,7 +192,7 @@ export function NavMain() {
                   // Item without direct URL (parent only) - acts as a toggle
                   <SidebarMenuButton
                     onClick={hasSubItems ? toggleOpen : undefined}
-                    tooltip={isCollapsed ? item.title : undefined}
+                    tooltip={isCollapsed ? t(item.title) : undefined}
                     className={cn(
                       'relative h-9 w-full rounded-lg px-2 transition-all duration-200',
                       'text-gray-700 hover:bg-(--color-primary)! hover:text-white! dark:text-gray-200',
@@ -207,7 +209,7 @@ export function NavMain() {
                     >
                       <div className="flex items-center gap-2">
                         {item.icon}
-                        {!isCollapsed && <span className="font-medium">{item.title}</span>}
+                        {!isCollapsed && <span className="font-medium">{t(item.title)}</span>}
                       </div>
                       {!isCollapsed && hasSubItems && (
                         <ChevronDown
@@ -248,7 +250,7 @@ export function NavMain() {
                                 <LocalizedNavLink to={subItem.url}>
                                   <span className="flex items-center gap-0.5 text-sm">
                                     <ChevronRightIcon className="size-4" />
-                                    {subItem.title}
+                                    {t(subItem.title)}
                                   </span>
                                 </LocalizedNavLink>
                               </SidebarMenuSubButton>

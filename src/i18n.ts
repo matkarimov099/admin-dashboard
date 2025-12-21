@@ -17,7 +17,7 @@ const resources = {
   uz: {
     translation: uz,
   },
-  'uz-cyrl': {
+  uzcyrl: {
     translation: uzCyrl,
   },
 };
@@ -27,19 +27,22 @@ const savedLanguage = localStorage.getItem('lang');
 const browserLanguage = navigator.language.split('-')[0];
 const defaultLanguage =
   savedLanguage ||
-  (['en', 'ru', 'uz', 'uz-cyrl'].includes(browserLanguage) ? browserLanguage : 'en');
+  (['en', 'ru', 'uz', 'uzcyrl'].includes(browserLanguage) ? browserLanguage : 'uz');
 
 i18n
   .use(initReactI18next)
   .init({
     resources,
     lng: defaultLanguage, // Use saved or browser language
-    fallbackLng: 'en', // Fallback language if translation is missing
+    fallbackLng: ['en', 'ru'], // Fallback languages if translation is missing
     interpolation: {
       escapeValue: false, // React already escapes by default
     },
     // Debug mode in development
     debug: import.meta.env.DEV,
+    // Do not fallback to 'uz' when using 'uz-cyrl'
+    returnEmptyString: false,
+    returnObjects: false,
   })
   .then();
 

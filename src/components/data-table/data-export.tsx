@@ -1,6 +1,7 @@
 import type { Table } from '@tanstack/react-table';
 import { DownloadIcon, Loader2 } from 'lucide-react';
 import { type JSX, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import {
@@ -36,6 +37,7 @@ export function DataTableExport<TData>({
   // headers,
   size = 'default',
 }: DataTableExportProps<TData>): JSX.Element {
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleExport = async (type: 'csv' | 'excel') => {
@@ -311,10 +313,10 @@ export function DataTableExport<TData>({
         {hasSelection ? (
           <>
             <DropdownMenuItem onClick={() => handleExport('csv')} disabled={isLoading}>
-              {'Export Selected as CSV'}
+              {t('common.table.exportSelectedCSV')}
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => handleExport('excel')} disabled={isLoading}>
-              {'Export Selected as Excel'}
+              {t('common.table.exportSelectedExcel')}
             </DropdownMenuItem>
           </>
         ) : (
@@ -324,14 +326,14 @@ export function DataTableExport<TData>({
               onClick={() => handleExport('csv')}
               disabled={isLoading}
             >
-              {'Export Current Page as CSV'}
+              {t('common.table.exportCurrentPageCSV')}
             </DropdownMenuItem>
             <DropdownMenuItem
               className="px-2"
               onClick={() => handleExport('excel')}
               disabled={isLoading}
             >
-              {'Export Current Page as Excel'}
+              {t('common.table.exportCurrentPageExcel')}
             </DropdownMenuItem>
             {getAllItems && (
               <>
@@ -340,14 +342,14 @@ export function DataTableExport<TData>({
                   onClick={() => exportAllPages('csv')}
                   disabled={isLoading}
                 >
-                  {'Export All Pages as CSV'}
+                  {t('common.table.exportAllPagesCSV')}
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   className="px-2"
                   onClick={() => exportAllPages('excel')}
                   disabled={isLoading}
                 >
-                  {'Export All Pages as Excel'}
+                  {t('common.table.exportAllPagesExcel')}
                 </DropdownMenuItem>
               </>
             )}

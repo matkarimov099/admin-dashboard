@@ -1,4 +1,5 @@
 import { CheckIcon, MonitorIcon, MoonIcon, SunIcon } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button.tsx';
 import {
   DropdownMenu,
@@ -10,22 +11,23 @@ import { useTheme } from '@/hooks/use-theme.ts';
 import { cn } from '@/utils/utils';
 
 export function ModeToggle() {
+  const { t } = useTranslation();
   const { theme, setTheme } = useTheme();
 
   const themeOptions = [
     {
       value: 'light',
-      label: 'Light',
+      label: t('theme.light'),
       icon: SunIcon,
     },
     {
       value: 'dark',
-      label: 'Dark',
+      label: t('theme.dark'),
       icon: MoonIcon,
     },
     {
       value: 'system',
-      label: 'System',
+      label: t('theme.system'),
       icon: MonitorIcon,
     },
   ];
@@ -41,7 +43,7 @@ export function ModeToggle() {
           <Button
             variant="ghost"
             size="sm"
-            className="group relative mr-2 h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-colors duration-200 hover:border-[var(--color-primary)]/30 hover:bg-muted/50"
+            className="group relative mr-2 h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-colors duration-200 hover:border-(--color-primary)/30 hover:bg-muted/50"
           >
             <div className="relative flex h-full w-full items-center justify-center">
               {/* Icon with rotation animation */}
@@ -49,7 +51,7 @@ export function ModeToggle() {
                 className={cn('h-5! w-5! transition-transform duration-200 group-hover:scale-110')}
               />
             </div>
-            <span className="sr-only">Toggle theme</span>
+            <span className="sr-only">{t('theme.toggle')}</span>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-40">
@@ -67,7 +69,7 @@ export function ModeToggle() {
                 )}
               >
                 <div className="flex flex-1 items-center gap-3">
-                  <Icon className="!h-4 !w-4" />
+                  <Icon className="h-4! w-4!" />
                   <span className="font-medium text-sm">{option.label}</span>
                 </div>
                 {isSelected && <CheckIcon className="h-4 w-4" />}

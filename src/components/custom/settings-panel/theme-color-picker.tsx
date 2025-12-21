@@ -1,4 +1,5 @@
 import { CheckIcon } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { THEME_COLORS } from '@/config/theme/theme-config.constants';
 import { useThemeConfig } from '@/hooks/use-theme-config';
 import { cn } from '@/utils/utils';
@@ -8,6 +9,7 @@ import { cn } from '@/utils/utils';
 // ============================
 
 export function ThemeColorPicker() {
+  const { t } = useTranslation();
   const { config, setThemeColor } = useThemeConfig();
 
   return (
@@ -43,7 +45,7 @@ export function ThemeColorPicker() {
                 isSelected ? 'font-medium text-foreground' : 'text-muted-foreground'
               )}
             >
-              {color.label}
+              {t(`settingsPanel.variants.colors.${color.value}`)}
             </span>
           </button>
         );

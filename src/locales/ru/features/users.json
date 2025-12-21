@@ -3,6 +3,7 @@
     "title": "Пользователи",
     "labels": {
       "fullName": "Полное имя",
+      "username": "Имя пользователя",
       "email": "Email",
       "role": "Роль",
       "status": "Статус",

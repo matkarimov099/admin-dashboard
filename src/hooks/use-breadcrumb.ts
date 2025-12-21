@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import type {
   SidebarFooterItem,
   SidebarMenuItem,
@@ -14,6 +15,7 @@ interface BreadcrumbItem {
 }
 
 export const useBreadcrumb = () => {
+  const { t } = useTranslation();
   const currentPath = useCurrentPath();
   const breadcrumbItems = useMemo(() => {
     // Get the current path
@@ -21,7 +23,7 @@ export const useBreadcrumb = () => {
 
     // Always start with "Project"
     items.push({
-      title: 'Cargo',
+      title: t('app.name'),
       url: '/',
       isActive: false,
     });
@@ -82,7 +84,7 @@ export const useBreadcrumb = () => {
 
       // Add current page
       items.push({
-        title: foundItem.title,
+        title: t(foundItem.title),
         isActive: true,
       });
     } else {
@@ -100,14 +102,14 @@ export const useBreadcrumb = () => {
       } else {
         // Root path - show Dashboard
         items.push({
-          title: 'Dashboard',
+          title: t('common.navigation.dashboard'),
           isActive: true,
         });
       }
     }
 
     return items;
-  }, [currentPath]);
+  }, [currentPath, t]);
 
   return { breadcrumbItems };
 };

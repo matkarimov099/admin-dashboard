@@ -1,4 +1,5 @@
 import { PaletteIcon } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import {
@@ -26,6 +27,8 @@ import { ThemeModeToggle } from './settings-panel/theme-mode-toggle';
 // ============================
 
 export function SettingsTrigger() {
+  const { t } = useTranslation();
+
   return (
     <SheetTrigger asChild>
       <Button
@@ -34,7 +37,7 @@ export function SettingsTrigger() {
         className="group relative mr-2 h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-colors duration-200 hover:border-(--color-primary)/30 hover:bg-muted/50"
       >
         <PaletteIcon className="h-5! w-5! text-muted-foreground transition-transform duration-200 group-hover:scale-110 group-hover:text-foreground" />
-        <span className="sr-only">Customize theme</span>
+        <span className="sr-only">{t('settingsPanel.customizeTheme')}</span>
       </Button>
     </SheetTrigger>
   );
@@ -45,6 +48,7 @@ export function SettingsTrigger() {
 // ============================
 
 export function SettingsPanel() {
+  const { t } = useTranslation();
   const { config } = useThemeConfig();
 
   // Get border radius value for styling (only left side corners)
@@ -67,9 +71,9 @@ export function SettingsPanel() {
       >
         {/* Header */}
         <SheetHeader className="space-y-1 border-b px-4 py-3">
-          <SheetTitle className="text-base">Customize Theme</SheetTitle>
+          <SheetTitle className="text-base">{t('settingsPanel.title')}</SheetTitle>
           <SheetDescription className="text-xs">
-            Personalize your dashboard appearance
+            {t('settingsPanel.description')}
           </SheetDescription>
         </SheetHeader>
 
@@ -77,37 +81,37 @@ export function SettingsPanel() {
         <ScrollArea className="h-[calc(100vh-10.5rem)]">
           <div className="space-y-4 px-4 py-2">
             {/* Theme Mode */}
-            <SettingsSection title="Theme Mode" description="Choose your appearance preference">
+            <SettingsSection title={t('settingsPanel.themeMode')} description={t('settingsPanel.themeModeDescription')}>
               <ThemeModeToggle />
             </SettingsSection>
 
             {/* Layout Mode */}
-            <SettingsSection title="Layout Mode" description="Choose your dashboard layout">
+            <SettingsSection title={t('settingsPanel.layoutMode')} description={t('settingsPanel.layoutModeDescription')}>
               <LayoutModePicker />
             </SettingsSection>
 
             {/* Style Variant */}
-            <SettingsSection title="Style Variant">
+            <SettingsSection title={t('settingsPanel.styleVariant')}>
               <StyleVariantPicker />
             </SettingsSection>
 
             {/* Theme Color */}
-            <SettingsSection title="Theme Color">
+            <SettingsSection title={t('settingsPanel.themeColor')}>
               <ThemeColorPicker />
             </SettingsSection>
 
             {/* Font Family */}
-            <SettingsSection title="Font">
+            <SettingsSection title={t('settingsPanel.font')}>
               <FontPicker />
             </SettingsSection>
 
             {/* Border Radius */}
-            <SettingsSection title="Radius">
+            <SettingsSection title={t('settingsPanel.radius')}>
               <RadiusPicker />
             </SettingsSection>
 
             {/* Shadow */}
-            <SettingsSection title="Shadow">
+            <SettingsSection title={t('settingsPanel.shadow')}>
               <ShadowPicker />
             </SettingsSection>
           </div>

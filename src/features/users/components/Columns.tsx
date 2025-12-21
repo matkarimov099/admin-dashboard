@@ -1,24 +1,27 @@
 import type { ColumnDef } from '@tanstack/react-table';
+import { useTranslation } from 'react-i18next';
 import { DataTableColumnHeader } from '@/components/data-table/column-header';
 import { Checkbox } from '@/components/ui/checkbox.tsx';
 import { DataTableRowActions } from '@/features/users/components/RowActions.tsx';
 import type { User } from '@/features/users/types.ts';
 import { humanizeDateTime } from '@/utils/humanize.ts';
 
-export const getColumns = (
+export const useGetColumns = (
   handleRowDeselection: ((rowId: string) => void) | null | undefined
 ): ColumnDef<User>[] => {
+  const { t } = useTranslation();
+
   // Base columns without the select column
   const baseColumns: ColumnDef<User>[] = [
     {
       id: 'rowNumber',
-      header: ({ column }) => <DataTableColumnHeader column={column} title="№" />,
+      header: ({ column }) => <DataTableColumnHeader column={column} title="#" />,
       cell: ({ row }) => row.index + 1,
       size: 70,
     },
     {
       accessorKey: 'fullName',
-      header: ({ column }) => <DataTableColumnHeader column={column} title="Full Name" />,
+      header: ({ column }) => <DataTableColumnHeader column={column} title={t('users.labels.fullName')} />,
       cell: ({ row }) => (
         <div className="truncate text-left font-medium">
           {`${row.original.firstName} ${row.original.lastName}`}
@@ -28,7 +31,7 @@ export const getColumns = (
     },
     {
       accessorKey: 'email',
-      header: ({ column }) => <DataTableColumnHeader column={column} title="Email" />,
+      header: ({ column }) => <DataTableColumnHeader column={column} title={t('users.labels.email')} />,
       cell: ({ row }) => {
         return (
           <div className="flex space-x-2 truncate">
@@ -40,7 +43,7 @@ export const getColumns = (
     },
     {
       accessorKey: 'username',
-      header: ({ column }) => <DataTableColumnHeader column={column} title="User Name" />,
+      header: ({ column }) => <DataTableColumnHeader column={column} title={t('users.labels.username')} />,
       cell: ({ row }) => {
         return (
           <div className="flex items-center truncate">
@@ -52,7 +55,7 @@ export const getColumns = (
     },
     {
       accessorKey: 'position',
-      header: ({ column }) => <DataTableColumnHeader column={column} title="Position" />,
+      header: ({ column }) => <DataTableColumnHeader column={column} title={t('users.labels.position')} />,
       cell: ({ row }) => {
         return <div className="max-w-full truncate text-left">{row.original?.position}</div>;
       },
@@ -60,7 +63,7 @@ export const getColumns = (
     },
     {
       accessorKey: 'role',
-      header: ({ column }) => <DataTableColumnHeader column={column} title="Role" />,
+      header: ({ column }) => <DataTableColumnHeader column={column} title={t('users.labels.role')} />,
       cell: ({ row }) => {
         return <div className="max-w-full truncate text-left">{row.original.role}</div>;
       },
@@ -68,7 +71,7 @@ export const getColumns = (
     },
     {
       accessorKey: 'createdAt',
-      header: ({ column }) => <DataTableColumnHeader column={column} title="Created At" />,
+      header: ({ column }) => <DataTableColumnHeader column={column} title={t('users.labels.createdAt')} />,
       cell: ({ row }) => {
         return (
           <div className="max-w-full truncate text-left">
@@ -80,7 +83,7 @@ export const getColumns = (
     },
     {
       id: 'actions',
-      header: ({ column }) => <DataTableColumnHeader column={column} title="Actions" />,
+      header: ({ column }) => <DataTableColumnHeader column={column} title={t('common.table.actions')} />,
       cell: ({ row, table }) => <DataTableRowActions row={row} table={table} />,
       size: 100,
     },
@@ -99,7 +102,7 @@ export const getColumns = (
                 (table.getIsSomePageRowsSelected() && 'indeterminate')
               }
               onCheckedChange={value => table.toggleAllPageRowsSelected(!!value)}
-              aria-label="Select all"
+              aria-label={t('common.table.selectAll')}
               className="translate-y-0.5 cursor-pointer"
             />
           </div>
@@ -119,7 +122,7 @@ export const getColumns = (
                   }
                 }
               }}
-              aria-label="Select row"
+              aria-label={t('common.table.selectRow')}
               className="translate-y-0.5 cursor-pointer"
             />
           </div>

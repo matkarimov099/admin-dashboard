@@ -6,7 +6,7 @@ import type { Role } from '@/types/common.ts';
  * Menu item configuration interface
  */
 export interface MenuItemConfig {
-  title: string;
+  title: string; // Translation key
   path: string;
   icon?: ReactNode;
   roles?: Role[];
@@ -19,7 +19,7 @@ export interface MenuItemConfig {
  * Sub-menu item configuration interface
  */
 export interface MenuSubItemConfig {
-  title: string;
+  title: string; // Translation key
   path: string;
   icon?: ReactNode;
   roles?: Role[];
@@ -29,34 +29,34 @@ export interface MenuSubItemConfig {
 
 export const menuConfig: MenuItemConfig[] = [
   {
-    title: 'Dashboard',
+    title: 'common.navigation.dashboard',
     path: '/dashboard',
     icon: <ChartNoAxesCombinedIcon />,
     roles: [], // Accessible to all authenticated users
     component: lazy(() => import('@/pages/dashboard/Dashboard.tsx')),
   },
   {
-    title: 'Users',
+    title: 'users.title',
     path: '/users',
     icon: <UsersIcon />,
     roles: [],
     component: lazy(() => import('@/pages/users/Users.tsx')),
   },
   {
-    title: 'Task Management',
+    title: 'tasks.title', // Use tasks title from root level
     path: '', // Parent-only menu (no direct route)
     icon: <CheckSquareIcon />,
     roles: [], // Accessible to all authenticated users
     items: [
       {
-        title: 'Tasks Table',
+        title: 'tasks.table',
         path: '/tasks/table',
         icon: <LayoutListIcon />,
         roles: [],
         component: lazy(() => import('@/pages/tasks/TasksTable.tsx')),
       },
       {
-        title: 'Tasks Board',
+        title: 'tasks.board',
         path: '/tasks/board',
         icon: <CheckSquareIcon />,
         roles: [],
@@ -79,13 +79,13 @@ export const footerMenuConfig: MenuItemConfig[] = [];
  */
 export const hiddenRoutes: MenuItemConfig[] = [
   {
-    title: 'Profile',
+    title: 'profile.title',
     path: '/profile',
     roles: [],
     component: lazy(() => import('@/pages/profile/Profile.tsx')),
   },
   {
-    title: 'Task Details',
+    title: 'tasks.details',
     path: '/tasks/:taskKey',
     roles: [], // Accessible to all authenticated users
     component: lazy(() => import('@/pages/tasks/TaskDetail.tsx')),

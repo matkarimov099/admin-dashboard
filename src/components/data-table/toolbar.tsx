@@ -1,9 +1,10 @@
 import type { Table } from '@tanstack/react-table';
 import { Settings, Undo2, X } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
+import { SearchInput } from '@/components/custom/search-input.tsx';
 import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { SearchInput } from '@/components/custom/search-input.tsx';
 import { Typography } from '@/components/ui/typography';
 import { DataTableExport } from './data-export';
 import type { ExportConfig, ToolbarSections } from './types';
@@ -53,6 +54,7 @@ export function DataTableToolbar<TData>({
   searchValue,
   onSearchChange,
 }: Omit<DataTableToolbarProps<TData>, 'totalSelectedItems' | 'deleteSelection'>) {
+  const { t } = useTranslation();
   const isFiltered =
     table.getState().columnFilters.length > 0 ||
     table.getState().globalFilter ||
@@ -80,7 +82,7 @@ export function DataTableToolbar<TData>({
             <>
               {config.enableSearch && (
                 <SearchInput
-                  placeholder="Search..."
+                  placeholder={t('common.actions.search')}
                   value={
                     config.manualSearching
                       ? (searchValue ?? '')
@@ -111,7 +113,7 @@ export function DataTableToolbar<TData>({
                   leftIcon={<X className="h-4 w-4" />}
                   hideIcon={false}
                   className="h-8 px-2"
-                  aria-label="Clear all filters"
+                  aria-label={t('common.table.clearFilters')}
                 />
               )}
             </>
@@ -160,15 +162,15 @@ export function DataTableToolbar<TData>({
                 leftIcon={<Settings className="h-4 w-4" />}
                 hideIcon={false}
                 className={`${getButtonSizeClass(config.size)}`}
-                aria-label="Open table settings"
+                aria-label={t('common.table.settings')}
               />
             </PopoverTrigger>
             <PopoverContent align="end" className="w-fit">
               <div className="grid gap-4">
-                <div className="space-y-2">
-                  <Typography variant="h4">Table Settings</Typography>
+                <div>
+                  <Typography variant="h5">{t('common.table.settings')}</Typography>
                   <Typography variant="small" className="text-muted-foreground">
-                    Manage table layout and column settings
+                    {t('common.table.settingsDescription')}
                   </Typography>
                 </div>
                 <div className="grid gap-2">
@@ -180,7 +182,7 @@ export function DataTableToolbar<TData>({
                       className="justify-start"
                     >
                       <Undo2 className="mr-2 h-4 w-4" />
-                      Reset Column Sizes
+                      {t('common.table.resetColumnSizes')}
                     </Button>
                   )}
                   {resetColumnOrder && (
@@ -191,7 +193,7 @@ export function DataTableToolbar<TData>({
                       className="justify-start"
                     >
                       <Undo2 className="mr-2 h-4 w-4" />
-                      Reset Column Order
+                      {t('common.table.resetColumns')}
                     </Button>
                   )}
                 </div>
@@ -324,7 +326,7 @@ export function DataTableToolbar<TData>({
                   leftIcon={<X className="h-4 w-4" />}
                   hideIcon={false}
                   className="h-8 px-2"
-                  aria-label="Clear all filters"
+                  aria-label={t('common.table.clearFilters')}
                 />
               )}
 

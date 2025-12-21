@@ -2,6 +2,7 @@ import type { Column, Table } from '@tanstack/react-table';
 import { Check, GripVertical, RotateCcw, Settings2 } from 'lucide-react';
 import * as React from 'react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import {
   Command,
@@ -28,6 +29,7 @@ export function DataTableViewOptions<TData>({
   size = 'default',
   tableId = 'data-table-default',
 }: DataTableViewOptionsProps<TData>) {
+  const { t } = useTranslation();
   // Generate localStorage keys based on tableId
   const columnOrderStorageKey = `${tableId}-column-order`;
   const columnVisibilityStorageKey = `${tableId}-column-visibility`;
@@ -191,7 +193,7 @@ export function DataTableViewOptions<TData>({
     <Popover>
       <PopoverTrigger asChild>
         <Button
-          aria-label="Column visibility options"
+          aria-label={t('common.table.showColumns')}
           variant="outline"
           size={size}
           leftIcon={<Settings2 className="h-4 w-4" />}
@@ -201,9 +203,9 @@ export function DataTableViewOptions<TData>({
       </PopoverTrigger>
       <PopoverContent align="end" className="w-fit p-0">
         <Command className="bg-transparent">
-          <CommandInput placeholder="Search columns..." />
+          <CommandInput placeholder={t('common.pagination.searchColumns')} />
           <CommandList>
-            <CommandEmpty>No columns found.</CommandEmpty>
+            <CommandEmpty>{t('common.pagination.noColumns')}</CommandEmpty>
             <CommandGroup>
               {orderedColumns.map(column => (
                 <CommandItem
@@ -214,12 +216,12 @@ export function DataTableViewOptions<TData>({
                   onDragOver={handleDragOver}
                   onDrop={e => handleDrop(e, column.id)}
                   className={cn(
-                    'flex cursor-grab items-center hover:[&_svg]:text-[var(--label)]',
+                    'flex cursor-grab items-center hover:[&_svg]:text-(--label)',
                     draggedColumnId === column.id && 'bg-accent opacity-50'
                   )}
                 >
                   <GripVertical className="mr-2 h-4 w-4 cursor-grab" />
-                  <span className="flex-grow truncate capitalize">{getColumnLabel(column)}</span>
+                  <span className="grow truncate capitalize">{getColumnLabel(column)}</span>
                   <Check
                     className={cn(
                       'ml-auto h-4 w-4',
@@ -236,7 +238,7 @@ export function DataTableViewOptions<TData>({
                 className="cursor-pointer justify-center text-center"
               >
                 <RotateCcw className="mr-2 h-4 w-4" />
-                Reset Column Order
+                {t('common.table.resetColumns')}
               </CommandItem>
             </CommandGroup>
           </CommandList>

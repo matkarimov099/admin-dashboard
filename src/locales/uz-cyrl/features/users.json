@@ -3,6 +3,7 @@
     "title": "Фойдаланувчилар",
     "labels": {
       "fullName": "Тўлиқ исми",
+      "username": "Фойдаланувчи номи",
       "email": "Email",
       "role": "Роли",
       "status": "Ҳолати",

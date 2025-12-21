@@ -3,6 +3,7 @@
     "title": "Users",
     "labels": {
       "fullName": "Full Name",
+      "username": "Username",
       "email": "Email",
       "role": "Role",
       "status": "Status",

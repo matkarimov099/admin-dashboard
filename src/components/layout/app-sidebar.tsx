@@ -1,5 +1,6 @@
 import { Network, Zap } from 'lucide-react';
 import type * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { LocalizedNavLink } from '@/components/layout/localized-nav-link';
 import { NavMain } from '@/components/navigation/nav-main.tsx';
@@ -19,6 +20,7 @@ import { useSidebar } from '@/hooks/use-sidebar';
 import { cn } from '@/utils/utils';
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { t } = useTranslation();
   const { logout, currentUser } = useAuthContext();
   const { state } = useSidebar();
   const isCollapsed = state === 'collapsed';
@@ -68,7 +70,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 {!isCollapsed && (
                   <div className="text-left text-sm leading-tight transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]">
                     <span className="truncate font-bold font-sans text-(--color-primary) text-xl tracking-wide">
-                      Cargo Customs
+                      {t('app.name')}
                     </span>
                   </div>
                 )}

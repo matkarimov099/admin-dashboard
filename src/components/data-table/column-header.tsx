@@ -1,6 +1,7 @@
 import type { Column } from '@tanstack/react-table';
 import { ArrowDownIcon, ArrowUpIcon, ChevronsUpDownIcon, EyeOffIcon } from 'lucide-react';
 import type { HTMLAttributes } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -21,6 +22,8 @@ export function DataTableColumnHeader<TData, TValue>({
   title,
   className,
 }: DataTableColumnHeaderProps<TData, TValue>) {
+  const { t } = useTranslation();
+
   if (!column.getCanSort()) {
     return <div className={cn(className)}>{title}</div>;
   }
@@ -63,16 +66,16 @@ export function DataTableColumnHeader<TData, TValue>({
         <DropdownMenuContent align="start">
           <DropdownMenuItem onClick={() => setSorting('asc')}>
             <ArrowUpIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground" />
-            Asc
+            {t('common.ui.asc')}
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => setSorting('desc')}>
             <ArrowDownIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground" />
-            Desc
+            {t('common.ui.desc')}
           </DropdownMenuItem>
           <DropdownMenuSeparator className="bg-border" />
           <DropdownMenuItem onClick={() => column.toggleVisibility(false)}>
             <EyeOffIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground" />
-            Hide
+            {t('common.actions.hide')}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

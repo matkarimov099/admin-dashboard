@@ -1,4 +1,5 @@
 import { BadgeCheck, Bell, ChevronsUpDown, CreditCard, LogOut, Sparkles } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar.tsx';
 import {
@@ -21,6 +22,7 @@ interface NavUserProps {
   logout: () => void;
 }
 export function NavUser({ user, logout }: NavUserProps) {
+  const { t } = useTranslation();
   const { isMobile, state } = useSidebar();
   const isCollapsed = state === 'collapsed';
 
@@ -104,7 +106,7 @@ export function NavUser({ user, logout }: NavUserProps) {
               <DropdownMenuGroup>
                 <DropdownMenuItem>
                   <Sparkles />
-                  Upgrade to Pro
+                  {t('common.table.upgradePro')}
                 </DropdownMenuItem>
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
@@ -112,22 +114,22 @@ export function NavUser({ user, logout }: NavUserProps) {
                 <LocalizedNavLink to="/profile">
                   <DropdownMenuItem>
                     <BadgeCheck />
-                    Account
+                    {t('profile.title')}
                   </DropdownMenuItem>
                 </LocalizedNavLink>
                 <DropdownMenuItem>
                   <CreditCard />
-                  Billing
+                  {t('common.table.billing')}
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Bell />
-                  Notifications
+                  {t('notifications.title')}
                 </DropdownMenuItem>
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={logout}>
                 <LogOut />
-                Log out
+                {t('common.actions.logout')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

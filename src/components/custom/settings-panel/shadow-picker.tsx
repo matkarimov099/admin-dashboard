@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { SHADOW_OPTIONS } from '@/config/theme/theme-config.constants';
 import { useThemeConfig } from '@/hooks/use-theme-config';
 import { PickerItem } from './picker-item';
@@ -33,11 +34,19 @@ const ShadowPreview = ({ shadow, isSelected }: { shadow: string; isSelected: boo
 };
 
 export function ShadowPicker() {
+  const { t } = useTranslation();
   const { config, setShadow } = useThemeConfig();
+
+  // Create translated shadow options map
+  const translatedShadowOptions = SHADOW_OPTIONS.map(shadow => ({
+    ...shadow,
+    label: t(`settingsPanel.variants.shadow.${shadow.value}`),
+    description: t(`settingsPanel.variants.shadowDescriptions.${shadow.value}`)
+  }));
 
   return (
     <div className="isolate grid grid-cols-3 gap-2 py-1">
-      {SHADOW_OPTIONS.map(shadow => (
+      {translatedShadowOptions.map(shadow => (
         <PickerItem
           key={shadow.value}
           isSelected={config.shadow === shadow.value}

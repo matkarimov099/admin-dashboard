@@ -1,7 +1,7 @@
 {
   "app": {
-    "name": "Admin Dashboard",
-    "description": "Professional administration panel with advanced features"
+    "name": "Cargo Customs",
+    "description": "Professional customs and cargo management system"
   },
   "common": {
     "actions": {
@@ -43,7 +43,9 @@
       "print": "Chop etish",
       "share": "Ulashish",
       "settings": "Sozlamalar",
-      "configure": "Konfiguratsiya qilish"
+      "configure": "Konfiguratsiya qilish",
+      "hide": "Yashirish",
+      "logout": "Chiqish"
     },
     "states": {
       "loading": "Yuklanmoqda...",
@@ -107,7 +109,9 @@
       "advanced": "Ilg'or",
       "basic": "Asosiy",
       "simple": "Sodda",
-      "complex": "Murakkab"
+      "complex": "Murakkab",
+      "asc": "O'sish",
+      "desc": "Kamayish"
     },
     "time": {
       "now": "Hozir",
@@ -210,7 +214,7 @@
       "search": "Qidiruv...",
       "filter": "Filtr",
       "sort": "Saralash",
-      "groupBy": "Bo'lish",
+      "groupBy": "Guruhlash",
       "expand": "Yoyish",
       "collapse": "Yig'ish",
       "refresh": "Yangilash",
@@ -218,21 +222,150 @@
       "showColumns": "Ustunlarni ko'rsatish",
       "hideColumns": "Ustunlarni yashirish",
       "resetColumns": "Ustunlarni tiklash",
+      "resetColumnSizes": "Ustun o'lchamlarini tiklash",
       "export": "Eksport qilish",
       "import": "Import qilish",
       "print": "Chop etish",
-      "pagination": {
-        "previous": "Oldingi",
-        "next": "Keyingi",
-        "first": "Birinchi",
-        "last": "Oxirgi",
-        "page": "Sahifa",
-        "of": "/",
-        "showing": "Ko'rsatilmoqda",
-        "to": "gacha",
-        "of_total": "jami dan",
-        "items": "elementlar",
-        "per_page": "sahifada"
+      "settings": "Jadval sozlamalari",
+      "settingsDescription": "Jadval tuzilishi va ustun sozlamalarini boshqarish",
+      "exportSelectedCSV": "Tanlanganlarni CSV sifatida eksport qilish",
+      "exportSelectedExcel": "Tanlanganlarni Excel sifatida eksport qilish",
+      "exportCurrentPageCSV": "Joriy sahifani CSV sifatida eksport qilish",
+      "exportCurrentPageExcel": "Joriy sahifani Excel sifatida eksport qilish",
+      "exportAllPagesCSV": "Barcha sahifalarni CSV sifatida eksport qilish",
+      "exportAllPagesExcel": "Barcha sahifalarni Excel sifatida eksport qilish",
+      "billing": "To'lovlar",
+      "upgradePro": "Pro versiyasiga yangilash"
+    },
+    "pagination": {
+      "previous": "Oldingi",
+      "next": "Keyingi",
+      "first": "Birinchi",
+      "last": "Oxirgi",
+      "page": "Sahifa",
+      "of": "/",
+      "showing": "Ko'rsatilmoqda",
+      "to": "gacha",
+      "of_total": "jami dan",
+      "items": "elementlar",
+      "per_page": "sahifada",
+      "selectPage": "Sahifani tanlang",
+      "searchColumns": "Ustunlarni qidirish",
+      "noColumns": "Ustunlar topilmadi",
+      "clearFilters": "Filterlarni tozalash"
+    }
+  },
+  "tasks": {
+    "title": "Vazifalar",
+    "table": "Jadval",
+    "board": "Taxta",
+    "details": "Tafsilotlar"
+  },
+  "profile": {
+    "title": "Profil"
+  },
+  "notifications": {
+    "title": "Bildirishnomalar",
+    "markAllAsRead": "Barchasini o'qilgan deb belgilash",
+    "noNotifications": "Bildirishnomalar yo'q"
+  },
+  "theme": {
+    "light": "Yorqin",
+    "dark": "Qorong'iu",
+    "system": "Tizim",
+    "toggle": "Tema almashtirish"
+  },
+  "settingsPanel": {
+    "title": "Temani sozlash",
+    "description": "Boshqaruv panelingizning ko'rinishini shaxsiylashtiring",
+    "themeMode": "Tema rejimi",
+    "themeModeDescription": "Ko'rinish afzalliklarini tanlang",
+    "layoutMode": "Layout rejimi",
+    "layoutModeDescription": "Boshqaruv panelingiz layoutini tanlang",
+    "styleVariant": "Uslub varianti",
+    "themeColor": "Tema rangi",
+    "font": "Shrift",
+    "radius": "Radius",
+    "shadow": "Soya",
+    "shuffle": "Aralashtirish",
+    "reset": "Tiklash",
+    "customizeTheme": "Temani sozlash",
+    "variants": {
+      "themeMode": {
+        "light": "Yorqin",
+        "dark": "Qorong'iu",
+        "system": "Tizim"
+      },
+      "layoutMode": {
+        "vertical": "Vertikal",
+        "horizontal": "Gorizontal",
+        "compact": "Kompakt"
+      },
+      "layoutDescriptions": {
+        "vertical": "Vertikal navigatsiyali sidebar",
+        "horizontal": "Yuqori header baridagi navigatsiya",
+        "compact": "Faqat ikonali yopilgan sidebar"
+      },
+      "styleVariant": {
+        "vega": "Vega",
+        "nova": "Nova",
+        "maia": "Maia",
+        "mira": "Mira"
+      },
+      "styleDescriptions": {
+        "vega": "Zamonaviy va toza dizayn",
+        "nova": "Jivali va jonli uslub",
+        "maia": "Yumshoq va nafis ko'rinish",
+        "mira": "Professional ko'rinish"
+      },
+      "colors": {
+        "gray": "Kulrang",
+        "blue": "Moviy",
+        "indigo": "Indigo",
+        "orange": "To'q sariq",
+        "purple": "Binafsha",
+        "rose": "Gulrang",
+        "teal": "Mov-yashil"
+      },
+      "fonts": {
+        "inter": "Inter",
+        "noto-sans": "Noto Sans",
+        "nunito-sans": "Nunito Sans",
+        "figtree": "Figtree"
+      },
+      "fontDescriptions": {
+        "inter": "Zamonaviy va professional",
+        "noto-sans": "Ko'p tilli qo'llab-quvvatlash",
+        "nunito-sans": "Do'stonona va yumaloq",
+        "figtree": "Geometrik va toza"
+      },
+      "radius": {
+        "none": "Yo'q",
+        "small": "Kichik",
+        "default": "Standart",
+        "medium": "O'rtacha",
+        "large": "Katta"
+      },
+      "radiusDescriptions": {
+        "none": "Chegara radiusi yo'q",
+        "small": "Engil yumaloqlash",
+        "default": "O'rtacha yumaloqlash",
+        "medium": "Aniq yumaloqlash",
+        "large": "Qalin yumaloqlash"
+      },
+      "shadow": {
+        "none": "Yo'q",
+        "small": "Kichik",
+        "default": "Standart",
+        "medium": "O'rtacha",
+        "large": "Katta"
+      },
+      "shadowDescriptions": {
+        "none": "Soya yo'q",
+        "small": "Engil soya",
+        "default": "Muvozanatli soya",
+        "medium": "Ajralib turadigan soya",
+        "large": "Kuchli soya"
       }
     }
   }
