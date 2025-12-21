@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import type { RouteObject } from 'react-router';
-import { LazyComponent } from '@/components/common/LazyComponent.tsx';
-import { PageTitle } from '@/components/common/PageTitle.tsx';
-import { ProtectedRoute } from '@/components/common/RouterComponents.tsx';
+import { ProtectedRoute } from '@/components/auth/router-components.tsx';
+import { LazyComponent } from '@/components/common/lazy-component.tsx';
+import { PageTitle } from '@/components/custom/page-title.tsx';
 import type { Role } from '@/types/common.ts';
 import { footerMenuConfig, hiddenRoutes, menuConfig } from './app-menu.tsx';
 

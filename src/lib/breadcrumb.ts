@@ -1,4 +1,4 @@
-import { mainMenuItems } from '@/lib/sidebar-menu';
+import { mainMenuItems } from '@/config/navigation/sidebar-menu';
 
 export interface BreadcrumbItem {
   title: string;

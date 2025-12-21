@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { NavLink } from 'react-router';
-import { LampContainer } from '@/components/custom/lamp-container.tsx';
+import { LampContainer } from '@/components/common/lamp-container.tsx';
 import { Button } from '@/components/ui/button.tsx';
 
 export function NotFound() {

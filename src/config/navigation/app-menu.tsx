@@ -81,13 +81,13 @@ export const hiddenRoutes: MenuItemConfig[] = [
   {
     title: 'Profile',
     path: '/profile',
-    roles: ['manager', 'admin', 'developer'],
+    roles: [],
     component: lazy(() => import('@/pages/profile/Profile.tsx')),
   },
   {
     title: 'Task Details',
     path: '/tasks/:taskKey',
-    roles: ['admin', 'manager', 'developer', 'guest'], // Accessible to all authenticated users
+    roles: [], // Accessible to all authenticated users
     component: lazy(() => import('@/pages/tasks/TaskDetail.tsx')),
   },
 ];

@@ -1,5 +1,5 @@
 import { toast } from 'sonner';
-import { AlertModal } from '@/components/custom/alert-modal';
+import { AlertModal } from '@/components/common/alert-modal';
 import { useDeleteUser } from '@/features/users/hooks/use-users';
 
 interface DeleteUserProps {

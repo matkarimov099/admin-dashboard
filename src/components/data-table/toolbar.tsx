@@ -1,9 +1,9 @@
 import type { Table } from '@tanstack/react-table';
 import { Settings, Undo2, X } from 'lucide-react';
 import type { ReactNode } from 'react';
-import { SearchInput } from '@/components/custom/search-input';
 import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { SearchInput } from '@/components/custom/search-input.tsx';
 import { Typography } from '@/components/ui/typography';
 import { DataTableExport } from './data-export';
 import type { ExportConfig, ToolbarSections } from './types';

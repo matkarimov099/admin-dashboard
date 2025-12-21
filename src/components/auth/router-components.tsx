@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { Navigate } from 'react-router';
-import { AuthGuard } from '@/components/common/AuthGuard.tsx';
+import { AuthGuard } from '@/components/auth/auth-guard.tsx';
 import { useAuthContext } from '@/hooks/use-auth-context';
 import { useThemeConfig } from '@/hooks/use-theme-config';
 import { CompactLayout, DefaultLayout, HorizontalLayout } from '@/layouts';

@@ -85,14 +85,14 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
 
     return (
       <div className={cn('relative', className)}>
-        <Search className="-translate-y-1/2 pointer-events-none absolute top-1/2 left-3 h-4 w-4 text-muted-foreground" />
+        <Search className="-translate-y-1/2 pointer-events-none absolute top-1/2 left-3 h-4 w-4 opacity-50" style={{ color: 'var(--label)' }} />
         <Input
           ref={ref}
           placeholder={placeholder}
           value={localValue}
           onChange={handleChange}
           className={cn(
-            'w-[300px] rounded-md border bg-background pl-9 text-foreground placeholder:text-muted-foreground',
+            'w-75 rounded-md border bg-background pl-9 text-foreground placeholder:text-muted-foreground',
             localValue && showClearButton ? 'pr-10' : 'pr-3',
             inputClassName
           )}

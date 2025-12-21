@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 import type { RouteObject } from 'react-router';
-import { LazyComponent } from '@/components/common/LazyComponent.tsx';
+import { LazyComponent } from '@/components/common/lazy-component.tsx';
 
 const Login = lazy(() => import('@/pages/auth/Login.tsx'));
 /**

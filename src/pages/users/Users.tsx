@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { LazyComponent } from '@/components/common/LazyComponent.tsx';
+import { LazyComponent } from '@/components/common/lazy-component.tsx';
 
 // Lazy load the heavy users table component
 const UsersTable = lazy(() => import('@/features/users/components/UsersTable.tsx'));

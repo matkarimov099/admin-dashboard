@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { LazyComponent } from '@/components/common/LazyComponent.tsx';
+import { LazyComponent } from '@/components/common/lazy-component.tsx';
 import { DataTable } from '@/components/data-table/data-table.tsx';
 import { getColumns } from '@/features/users/components/Columns.tsx';
 import type { User } from '@/features/users/types.ts';

@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { LampContainer } from '@/components/custom/lamp-container.tsx';
+import { LampContainer } from '@/components/common/lamp-container.tsx';
 
 export function NotAccess() {
   return (

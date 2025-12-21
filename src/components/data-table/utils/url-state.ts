@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { useLocation, useNavigate, useSearchParams } from 'react-router';
+import { useNavigate, useSearchParams } from 'react-router';
+import { useCurrentPath } from '@/hooks/use-current-path.ts';
 
 // Simple deep equality check for objects and arrays
 function isDeepStrictEqual(a: unknown, b: unknown): boolean {
@@ -77,7 +78,7 @@ export function useUrlState<T>(
   } = {}
 ) {
   const navigate = useNavigate();
-  const location = useLocation();
+  const currentPath = useCurrentPath();
   const [searchParams] = useSearchParams();
 
   // Use ref to track if we're currently updating URL
@@ -235,7 +236,7 @@ export function useUrlState<T>(
 
       // Update the URL immediately
       const newParamsString = params.toString();
-      navigate(`${location.pathname}${newParamsString ? `?${newParamsString}` : ''}`, {
+      navigate(`${currentPath}${newParamsString ? `?${newParamsString}` : ''}`, {
         replace: true,
       });
 
@@ -245,7 +246,7 @@ export function useUrlState<T>(
       // Return the params for Promise chaining
       return Promise.resolve(params);
     },
-    [navigate, location.pathname]
+    [navigate, currentPath]
   );
 
   // Update the URL when the state changes

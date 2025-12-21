@@ -2,6 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { PlusIcon } from 'lucide-react';
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 import { DateTimePicker } from '@/components/custom/date-time-picker';
 import { FileUploader } from '@/components/custom/file-uploader';
@@ -40,7 +41,7 @@ import { PriorityBadge } from '@/features/tasks/components/badges/PriorityBadge.
 import { StatusBadge } from '@/features/tasks/components/badges/StatusBadge.tsx';
 import { useGetUsers } from '@/features/users/hooks/use-users';
 import { useDisclosure } from '@/hooks/use-disclosure';
-import { useCreateTask, useGetTasks } from '../../hooks/use-tasks';
+import { useCreateTask, useTaskList } from '../../hooks/use-tasks';
 import { type TaskCreateSchema, taskCreateSchema } from '../../schema/tasks.schema';
 import type { TaskCreate } from '../../types';
 import {
@@ -60,7 +61,7 @@ function CreateTask({ className, initialStatus, triggerButton }: CreateTaskProps
   const { isOpen, onClose, onOpenChange } = useDisclosure();
   const { mutate: createTask, isPending } = useCreateTask();
   const [assetIds, setAssetIds] = useState<string[]>([]);
-
+  const { t } = useTranslation();
   const { data: users } = useGetUsers(isOpen ? { page: 1, limit: 100 } : undefined);
   const userOptions = useMemo(
     () =>
@@ -74,21 +75,21 @@ function CreateTask({ className, initialStatus, triggerButton }: CreateTaskProps
 
   const [taskSearch, setTaskSearch] = useState('');
 
-  const { data: tasksResponse, isFetching: isFetchingTasks } = useGetTasks(
+  const { tasks, isFetching: isFetchingTasks } = useTaskList(
     isOpen ? { page: 1, limit: 20, title: taskSearch || undefined } : undefined
   );
   const taskOptions = useMemo(
     () =>
-      (tasksResponse?.data.data ?? []).map(task => ({
+      (tasks ?? []).map(task => ({
         taskKey: task.taskKey,
         title: task.title,
         id: task.id,
       })),
-    [tasksResponse?.data.data]
+    [tasks]
   );
 
   const form = useForm<TaskCreateSchema>({
-    resolver: zodResolver(taskCreateSchema()),
+    resolver: zodResolver(taskCreateSchema(t)),
     defaultValues: {
       title: '',
       description: '',

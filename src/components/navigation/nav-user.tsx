@@ -1,6 +1,5 @@
 import { BadgeCheck, Bell, ChevronsUpDown, CreditCard, LogOut, Sparkles } from 'lucide-react';
 
-import { LocalizedNavLink } from '@/components/common/LocalizedNavLink';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar.tsx';
 import {
   DropdownMenu,
@@ -15,6 +14,7 @@ import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui
 import type { CurrentUser } from '@/features/auth/types.ts';
 import { useSidebar } from '@/hooks/use-sidebar';
 import { cn } from '@/utils/utils';
+import { LocalizedNavLink } from '../layout/localized-nav-link';
 
 interface NavUserProps {
   user?: CurrentUser | null;

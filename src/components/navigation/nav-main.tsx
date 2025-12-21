@@ -1,7 +1,6 @@
 import { ChevronDown, ChevronRightIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
-import { LocalizedNavLink } from '@/components/common/LocalizedNavLink';
+import { LocalizedNavLink } from '@/components/layout/localized-nav-link.tsx';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import {
   SidebarGroup,
@@ -13,13 +12,14 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from '@/components/ui/sidebar.tsx';
+import { mainMenuItems } from '@/config/navigation/sidebar-menu.tsx';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
+import { useCurrentPath } from '@/hooks/use-current-path.ts';
 import { useSidebar } from '@/hooks/use-sidebar';
-import { mainMenuItems } from '@/lib/sidebar-menu.tsx';
 import { cn } from '@/utils/utils';
 
 export function NavMain() {
-  const location = useLocation();
+  const currentPath = useCurrentPath();
   const { state } = useSidebar();
   const { hasRole } = useAuthContext();
   const isCollapsed = state === 'collapsed';
@@ -27,7 +27,6 @@ export function NavMain() {
 
   // Auto-open a menu if it has an active subitem
   useEffect(() => {
-    const currentPath = location.pathname;
     const shouldBeOpen: string[] = [];
 
     for (const item of mainMenuItems) {
@@ -45,7 +44,7 @@ export function NavMain() {
         return [...new Set([...prev, ...shouldBeOpen])];
       });
     }
-  }, [location.pathname]);
+  }, [currentPath]);
 
   return (
     <SidebarGroup>
@@ -69,11 +68,10 @@ export function NavMain() {
               }
               // Check if any subitems are visible
               if (item.items && item.items.length > 0) {
-                const hasVisibleSubItems = item.items.some(subItem => {
+                return item.items.some(subItem => {
                   if (!subItem.roles || subItem.roles.length === 0) return true;
                   return hasRole(subItem.roles);
                 });
-                return hasVisibleSubItems;
               }
               return true;
             }
@@ -100,8 +98,9 @@ export function NavMain() {
                         tooltip={item.title}
                         className={cn(
                           'relative h-9 w-9 rounded-lg p-0 transition-all duration-200',
-                          'hover:!bg-[var(--color-primary)] hover:!text-white text-gray-800 dark:text-gray-200',
-                          isParentActive && '!text-[var(--color-primary)] !font-semibold hover:!bg-[var(--color-primary-hover)]'
+                          'text-gray-800 hover:bg-(--color-primary)! hover:text-white! dark:text-gray-200',
+                          isParentActive &&
+                            'font-semibold! text-(--color-primary)! hover:bg-(--color-primary-hover)!'
                         )}
                       >
                         <div className="flex items-center justify-center">{item.icon}</div>
@@ -112,7 +111,7 @@ export function NavMain() {
                       align="start"
                       className="w-48 rounded-lg p-2 shadow-lg"
                     >
-                      <div className="mb-2 border-[var(--sidebar-border)] border-b pb-2">
+                      <div className="mb-2 border-(--sidebar-border) border-b pb-2">
                         <div className="flex items-center gap-2 px-1 font-medium text-gray-800 text-sm dark:text-gray-200">
                           {item.title}
                         </div>
@@ -136,8 +135,8 @@ export function NavMain() {
                                 <div
                                   className={cn(
                                     'flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors duration-200',
-                                    'text-gray-700 hover:bg-[var(--color-primary)] hover:text-white dark:text-gray-200',
-                                    isSubActive && 'font-semibold text-[var(--color-primary)]'
+                                    'text-gray-700 hover:bg-(--color-primary) hover:text-white dark:text-gray-200',
+                                    isSubActive && 'font-semibold text-(--color-primary)'
                                   )}
                                 >
                                   {subItem.title}
@@ -173,8 +172,9 @@ export function NavMain() {
                       tooltip={isCollapsed ? item.title : undefined}
                       className={cn(
                         'relative h-9 w-full rounded-lg px-2 transition-all duration-200',
-                        'hover:!bg-[var(--color-primary)] hover:!text-white text-gray-700 dark:text-gray-200',
-                        isDirectlyActive && '!text-[var(--color-primary)] !font-semibold hover:!bg-[var(--color-primary-hover)]',
+                        'text-gray-700 hover:bg-(--color-primary)! hover:text-white! dark:text-gray-200',
+                        isDirectlyActive &&
+                          'font-semibold! text-(--color-primary)! hover:bg-(--color-primary-hover)!',
                         isCollapsed && 'w-9 justify-center p-0'
                       )}
                     >
@@ -193,8 +193,9 @@ export function NavMain() {
                     tooltip={isCollapsed ? item.title : undefined}
                     className={cn(
                       'relative h-9 w-full rounded-lg px-2 transition-all duration-200',
-                      'hover:!bg-[var(--color-primary)] hover:!text-white text-gray-700 dark:text-gray-200',
-                      isParentActive && '!text-[var(--color-primary)] !font-semibold hover:!bg-[var(--color-primary-hover)]',
+                      'text-gray-700 hover:bg-(--color-primary)! hover:text-white! dark:text-gray-200',
+                      isParentActive &&
+                        'font-semibold! text-(--color-primary)! hover:bg-(--color-primary-hover)!',
                       isCollapsed && 'w-9 justify-center p-0'
                     )}
                   >
@@ -223,7 +224,7 @@ export function NavMain() {
                 {/* Subitems for expanded sidebar */}
                 {!isCollapsed && hasSubItems && isOpen && (
                   <div>
-                    <SidebarMenuSub className="ml-4 space-y-1 border-[var(--sidebar-border)] border-l pl-3">
+                    <SidebarMenuSub className="ml-4 space-y-1 border-(--sidebar-border) border-l pl-3">
                       {item.items
                         ?.filter(subItem => {
                           // If no roles specified, visible to all
@@ -239,8 +240,9 @@ export function NavMain() {
                                 asChild
                                 className={cn(
                                   'h-8 w-full rounded-md px-2 transition-colors duration-200',
-                                  'hover:!bg-[var(--color-primary)] hover:!text-white text-gray-800 dark:text-gray-200',
-                                  isSubActive && '!text-[var(--color-primary)] !font-semibold hover:!bg-[var(--color-primary-hover)]'
+                                  'text-gray-800 hover:bg-(--color-primary)! hover:text-white! dark:text-gray-200',
+                                  isSubActive &&
+                                    'font-semibold! text-(--color-primary)! hover:bg-(--color-primary-hover)!'
                                 )}
                               >
                                 <LocalizedNavLink to={subItem.url}>

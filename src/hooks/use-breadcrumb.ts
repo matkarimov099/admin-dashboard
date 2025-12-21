@@ -1,7 +1,11 @@
 import { useMemo } from 'react';
-import { useLocation } from 'react-router';
-import type { SidebarFooterItem, SidebarMenuItem, SidebarSubMenuItem } from '@/lib/sidebar-menu';
-import { footerMenuItems, mainMenuItems } from '@/lib/sidebar-menu';
+import type {
+  SidebarFooterItem,
+  SidebarMenuItem,
+  SidebarSubMenuItem,
+} from '@/config/navigation/sidebar-menu';
+import { footerMenuItems, mainMenuItems } from '@/config/navigation/sidebar-menu';
+import { useCurrentPath } from '@/hooks/use-current-path.ts';
 
 interface BreadcrumbItem {
   title: string;
@@ -10,11 +14,9 @@ interface BreadcrumbItem {
 }
 
 export const useBreadcrumb = () => {
-  const location = useLocation();
-
+  const currentPath = useCurrentPath();
   const breadcrumbItems = useMemo(() => {
     // Get the current path
-    const currentPath = location.pathname;
     const items: BreadcrumbItem[] = [];
 
     // Always start with "Project"
@@ -105,7 +107,7 @@ export const useBreadcrumb = () => {
     }
 
     return items;
-  }, [location.pathname]);
+  }, [currentPath]);
 
   return { breadcrumbItems };
 };

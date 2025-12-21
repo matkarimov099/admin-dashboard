@@ -1,6 +1,6 @@
 import type * as React from 'react';
 import { useLocation } from 'react-router';
-import { LocalizedNavLink } from '@/components/common/LocalizedNavLink';
+import { LocalizedNavLink } from '@/components/layout/localized-nav-link.tsx';
 import {
   SidebarGroup,
   SidebarGroupContent,
@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/sidebar.tsx';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
 import { useSidebar } from '@/hooks/use-sidebar';
-import { footerMenuItems } from '@/lib/sidebar-menu.tsx';
+import { footerMenuItems } from '@/config/navigation/sidebar-menu.tsx';
 import { cn } from '@/utils/utils';
 
 export function NavSecondary({ ...props }: React.ComponentPropsWithoutRef<typeof SidebarGroup>) {
@@ -40,8 +40,8 @@ export function NavSecondary({ ...props }: React.ComponentPropsWithoutRef<typeof
                       tooltip={isCollapsed ? item.title : undefined}
                       className={cn(
                         'relative h-9 w-full rounded-lg px-2 transition-all duration-200',
-                        'hover:!bg-blue-500 hover:!text-white text-[var(--sidebar-foreground)]',
-                        isActive && '!text-blue-500 !font-semibold hover:!bg-blue-600',
+                        'text-(--sidebar-foreground) hover:bg-blue-500! hover:text-white!',
+                        isActive && 'font-semibold! text-blue-500! hover:bg-blue-600!',
                         isCollapsed && 'w-9 justify-center p-0'
                       )}
                     >

@@ -32,7 +32,7 @@ import {
   SIDEBAR_WIDTH,
   SIDEBAR_WIDTH_ICON,
   SIDEBAR_WIDTH_MOBILE,
-} from '@/lib/sidebar-constants';
+} from '@/config/navigation/sidebar-constants';
 import { cn } from '@/utils/utils';
 
 function SidebarProvider({

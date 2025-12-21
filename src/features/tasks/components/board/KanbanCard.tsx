@@ -4,7 +4,7 @@ import { Calendar, Clock, Copy, Link2, Paperclip, UserPlus } from 'lucide-react'
 import type * as React from 'react';
 import { useNavigate } from 'react-router';
 import { toast } from 'sonner';
-import { AvatarGroup } from '@/components/custom/avatar-group';
+import { AvatarGroup } from '@/components/common/avatar-group';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';

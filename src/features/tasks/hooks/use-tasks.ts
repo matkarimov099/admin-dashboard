@@ -25,8 +25,8 @@ export const taskKeys = {
 // ==================== QUERIES ====================
 
 // ============ QUERIES ============
-export function useTaskList(filter: TaskFilter | undefined) {
-  const { data, isLoading, isFetching, error, isRefetching } = useQuery({
+export function useTaskList(filter?: TaskFilter) {
+  const { data, isLoading, isFetching, error, isRefetching, refetch } = useQuery({
     queryKey: filter ? taskKeys.list(filter) : taskKeys.lists(),
     queryFn: filter ? () => taskService.getList(filter) : skipToken,
     placeholderData: keepPreviousData,
@@ -34,15 +34,16 @@ export function useTaskList(filter: TaskFilter | undefined) {
 
   return useMemo(
     () => ({
-      items: data?.data ?? [],
+      tasks: data?.data ?? [],
       total: data?.total ?? 0,
       isLoading,
       isFetching,
       error,
+      refetch,
       isRefetching,
       isEmpty: !isLoading && !data?.data?.length,
     }),
-    [data, isLoading, isFetching, error, isRefetching]
+    [data?.data, data?.total, isLoading, isFetching, error, refetch, isRefetching]
   );
 }
 

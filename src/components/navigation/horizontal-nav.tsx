@@ -1,6 +1,6 @@
 import { ChevronDown, Menu } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { useLocation, NavLink } from 'react-router';
+import { useState } from 'react';
+import { NavLink } from 'react-router';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -9,17 +9,16 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import type { SidebarMenuItem } from '@/config/navigation/sidebar-menu';
+import { mainMenuItems } from '@/config/navigation/sidebar-menu.tsx';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
-import { mainMenuItems } from '@/lib/sidebar-menu.tsx';
+import { useCurrentPath } from '@/hooks/use-current-path.ts';
 import { cn } from '@/utils/utils';
 
 export function HorizontalNav() {
-  const location = useLocation();
+  const currentPath = useCurrentPath();
   const { hasRole } = useAuthContext();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  // Get the current path for comparison
-  const currentPath = location.pathname;
 
   // Filter menu items based on roles
   const filteredMenuItems = mainMenuItems.filter(item => {
@@ -31,11 +30,10 @@ export function HorizontalNav() {
       }
       // Check if any subitems are visible
       if (item.items && item.items.length > 0) {
-        const hasVisibleSubItems = item.items.some(subItem => {
+        return item.items.some(subItem => {
           if (!subItem.roles || subItem.roles.length === 0) return true;
           return hasRole(subItem.roles);
         });
-        return hasVisibleSubItems;
       }
       return true;
     }
@@ -44,14 +42,9 @@ export function HorizontalNav() {
     return hasRole(item.roles);
   });
 
-  // Close mobile menu when route changes
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [currentPath]);
-
   // Check if this item or any of its subitems is active
-  const isItemActive = (item: any) => {
-    const hasActiveSubItem = item.items?.some((subItem: any) => subItem.url === currentPath);
+  const isItemActive = (item: SidebarMenuItem) => {
+    const hasActiveSubItem = item.items?.some(subItem => subItem.url === currentPath);
     const isDirectlyActive = item.url && item.url !== '' && item.url === currentPath;
     return hasActiveSubItem || isDirectlyActive;
   };
@@ -59,7 +52,7 @@ export function HorizontalNav() {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex items-center space-x-1">
+      <nav className="hidden items-center space-x-1 md:flex">
         {filteredMenuItems.map(item => {
           const hasSubItems = item.items && item.items.length > 0;
           const isActive = isItemActive(item);
@@ -97,8 +90,9 @@ export function HorizontalNav() {
                           <NavLink
                             to={subItem.url}
                             className={cn(
-                              'w-full cursor-pointer flex items-center gap-2',
-                              isSubActive && 'bg-(--color-primary)/10 text-(--color-primary) font-semibold'
+                              'flex w-full cursor-pointer items-center gap-2',
+                              isSubActive &&
+                                'bg-(--color-primary)/10 font-semibold text-(--color-primary)'
                             )}
                           >
                             <span>{subItem.title}</span>
@@ -146,7 +140,7 @@ export function HorizontalNav() {
           <div className="flex h-full flex-col">
             {/* Header */}
             <div className="flex items-center justify-between border-b p-4">
-              <h2 className="text-lg font-semibold">Menu</h2>
+              <h2 className="font-semibold text-lg">Menu</h2>
             </div>
 
             {/* Navigation Items */}
@@ -160,15 +154,17 @@ export function HorizontalNav() {
                     // Expandable section for items with subitems
                     return (
                       <div key={item.title}>
-                        <div className={cn(
-                          'flex items-center gap-3 p-3 rounded-lg font-medium transition-colors',
-                          isActive && 'bg-(--color-primary)/10 text-(--color-primary)',
-                          'text-foreground'
-                        )}>
+                        <div
+                          className={cn(
+                            'flex items-center gap-3 rounded-lg p-3 font-medium transition-colors',
+                            isActive && 'bg-(--color-primary)/10 text-(--color-primary)',
+                            'text-foreground'
+                          )}
+                        >
                           {item.icon}
                           <span>{item.title}</span>
                         </div>
-                        <div className="ml-6 mt-1 space-y-1">
+                        <div className="mt-1 ml-6 space-y-1">
                           {item.items
                             ?.filter(subItem => {
                               if (!subItem.roles || subItem.roles.length === 0) return true;
@@ -181,10 +177,10 @@ export function HorizontalNav() {
                                   key={subItem.title}
                                   to={subItem.url}
                                   className={cn(
-                                    'block p-2 text-sm rounded-md transition-colors',
+                                    'block rounded-md p-2 text-sm transition-colors',
                                     isSubActive
-                                      ? 'bg-(--color-primary)/10 text-(--color-primary) font-semibold'
-                                      : 'text-muted-foreground hover:text-foreground hover:bg-accent'
+                                      ? 'bg-(--color-primary)/10 font-semibold text-(--color-primary)'
+                                      : 'text-muted-foreground hover:bg-accent hover:text-foreground'
                                   )}
                                 >
                                   {subItem.title}
@@ -202,7 +198,7 @@ export function HorizontalNav() {
                       key={item.title}
                       to={item.url || '#'}
                       className={cn(
-                        'flex items-center gap-3 p-3 rounded-lg font-medium transition-colors',
+                        'flex items-center gap-3 rounded-lg p-3 font-medium transition-colors',
                         isActive
                           ? 'bg-(--color-primary) text-white'
                           : 'text-foreground hover:bg-accent'

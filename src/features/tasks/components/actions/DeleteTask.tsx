@@ -1,4 +1,4 @@
-import { AlertModal } from '@/components/custom/alert-modal.tsx';
+import { AlertModal } from '@/components/common/alert-modal.tsx';
 
 interface DeleteTaskProps {
   open: boolean;

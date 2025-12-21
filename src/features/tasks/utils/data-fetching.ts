@@ -1,7 +1,7 @@
 import type { PaginationState, SortingState } from '@tanstack/react-table';
 import { useEffect, useState } from 'react';
 import { useDebounce } from '@/hooks/use-debounce.tsx';
-import { useGetTasks } from '../hooks/use-tasks.ts';
+import { useTaskList } from '../hooks/use-tasks.ts';
 import type { TaskPriority, TaskStatus } from '../types.ts';
 
 // LocalStorage key for tasks filters
@@ -163,12 +163,7 @@ export function useTasksData() {
   };
 
   // ==================== FETCH DATA ====================
-  const {
-    data: tasksResponse,
-    isFetching,
-    refetch,
-  } = useGetTasks(
-    {
+  const { tasks, total, isFetching, error, refetch } = useTaskList({
       page: currentPage,
       limit: pageSize,
       ...(debouncedSearch.length >= 2 ? { title: debouncedSearch } : {}),
@@ -179,18 +174,16 @@ export function useTasksData() {
       ...(selectedCreatorId ? { creatorId: selectedCreatorId } : {}),
       ...(dateRange.from ? { fromDate: dateRange.from } : {}),
       ...(dateRange.to ? { toDate: dateRange.to } : {}),
-    },
-    'table' // Purpose to differentiate from dropdown queries
-  );
+    });
 
   // ==================== RETURN STATE & HANDLERS ====================
   return {
     // Data
-    tasks: tasksResponse?.data.data ?? [],
-    total: tasksResponse?.data.total ?? 0,
+    tasks,
+    total,
     isFetching,
+    error,
     refetch,
-
     // Pagination
     pagination,
     setPagination,
