@@ -203,6 +203,10 @@
       "goToTop": "Yuqoriga chiqish",
       "goToBottom": "Pastga tushish"
     },
+    "dashboard": {
+      "overview": "Asosiy",
+      "analytics": "Analitika"
+    },
     "table": {
       "actions": "Amallar",
       "selectAll": "Barchasini tanlash",
@@ -264,6 +268,22 @@
   "profile": {
     "title": "Profil"
   },
+  "exportImportTransit": {
+    "title": "Eksport/Import/Tranzit",
+    "caption": "Xalqaro savdo operatsiyalari",
+    "createDeclaration": "Deklaratsiya yaratish",
+    "importTransit": "Import tranzit",
+    "autoTransport": "Avtotransport",
+    "railwayTransport": "Temir yo'l transporti",
+    "energyResources": "Energiya resurslari",
+    "gasCertificate": "Gaz sertifikati",
+    "electricEnergy": "Elektr energiyasi",
+    "eCommerce": "Elektron tijorat",
+    "export": "Eksport",
+    "tollingOperations": "Tolling operatsiyalari",
+    "customsTerritory": "Bojxona hududi",
+    "outsideCustomsTerritory": "Bojxona hududidan tashqarida"
+  },
   "notifications": {
     "title": "Bildirishnomalar",
     "allAsRead": "Barchasini o'qildi",
@@ -272,7 +292,7 @@
   },
   "theme": {
     "light": "Yorqin",
-    "dark": "Qorong'iu",
+    "dark": "Qorong'i",
     "system": "Tizim",
     "toggle": "Tema almashtirish"
   },

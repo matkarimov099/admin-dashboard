@@ -203,6 +203,10 @@
       "goToTop": "Go to top",
       "goToBottom": "Go to bottom"
     },
+    "dashboard": {
+      "overview": "Overview",
+      "analytics": "Analytics"
+    },
     "table": {
       "actions": "Actions",
       "selectAll": "Select all",
@@ -263,6 +267,22 @@
   },
   "profile": {
     "title": "Profile"
+  },
+  "exportImportTransit": {
+    "title": "Export/Import/Transit",
+    "caption": "International trade operations",
+    "createDeclaration": "Create Declaration",
+    "importTransit": "Import Transit",
+    "autoTransport": "Auto Transport",
+    "railwayTransport": "Railway Transport",
+    "energyResources": "Energy Resources",
+    "gasCertificate": "Gas Certificate",
+    "electricEnergy": "Electric Energy",
+    "eCommerce": "E-Commerce",
+    "export": "Export",
+    "tollingOperations": "Tolling Operations",
+    "customsTerritory": "Customs Territory",
+    "outsideCustomsTerritory": "Outside Customs Territory"
   },
   "notifications": {
     "title": "Notifications",

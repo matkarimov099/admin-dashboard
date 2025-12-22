@@ -203,6 +203,10 @@
       "goToTop": "Наверх",
       "goToBottom": "Вниз"
     },
+    "dashboard": {
+      "overview": "Обзор",
+      "analytics": "Аналитика"
+    },
     "table": {
       "actions": "Действия",
       "selectAll": "Выбрать все",
@@ -263,6 +267,22 @@
   },
   "profile": {
     "title": "Профиль"
+  },
+  "exportImportTransit": {
+    "title": "Экспорт/Импорт/Транзит",
+    "caption": "Международные торговые операции",
+    "createDeclaration": "Создать декларацию",
+    "importTransit": "Импорт транзит",
+    "autoTransport": "Автотранспорт",
+    "railwayTransport": "Железнодорожный транспорт",
+    "energyResources": "Энергоресурсы",
+    "gasCertificate": "Газовый сертификат",
+    "electricEnergy": "Электроэнергия",
+    "eCommerce": "Электронная коммерция",
+    "export": "Экспорт",
+    "tollingOperations": "Толлинговые операции",
+    "customsTerritory": "Таможенная территория",
+    "outsideCustomsTerritory": "За пределами таможенной территории"
   },
   "notifications": {
     "title": "Уведомления",

@@ -203,6 +203,10 @@
       "goToTop": "Юқорига чиқиш",
       "goToBottom": "Пастга тушиш"
     },
+    "dashboard": {
+      "overview": "Асосий",
+      "analytics": "Аналитика"
+    },
     "table": {
       "actions": "Амаллар",
       "selectAll": "Барчасини танлаш",
@@ -264,6 +268,22 @@
   "profile": {
     "title": "Профил"
   },
+  "exportImportTransit": {
+    "title": "Экспорт/Импорт/Транзит",
+    "caption": "Халқаро савдо операциялари",
+    "createDeclaration": "Декларация яратиш",
+    "importTransit": "Импорт транзит",
+    "autoTransport": "Автотранспорт",
+    "railwayTransport": "Темир йўл транспорти",
+    "energyResources": "Энергия ресурслари",
+    "gasCertificate": "Газ сертификати",
+    "electricEnergy": "Электр энергияси",
+    "eCommerce": "Электрон тижорат",
+    "export": "Экспорт",
+    "tollingOperations": "Толлинг операциялари",
+    "customsTerritory": "Божхона ҳудуди",
+    "outsideCustomsTerritory": "Божхона ҳудудидан ташқарида"
+  },
   "notifications": {
     "title": "Билдиришномалар",
     "allAsRead": "Барчасини ўқилди",
@@ -271,10 +291,10 @@
     "noNotifications": "Билдиришномалар йўқ"
   },
   "theme": {
-    "light": "Ёруқин",
-    "dark": "Қоронғиу",
+    "light": "Ёруғ",
+    "dark": "Қоронғи",
     "system": "Тизим",
-    "toggle": "Тема алмасhtiриш"
+    "toggle": "Тема алмаштириш"
   },
   "settingsPanel": {
     "title": "Темани созлаш",

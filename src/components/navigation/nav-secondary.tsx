@@ -8,9 +8,9 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar.tsx';
+import { footerMenuItems } from '@/config/navigation/sidebar-menu.tsx';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
 import { useSidebar } from '@/hooks/use-sidebar';
-import { footerMenuItems } from '@/config/navigation/sidebar-menu.tsx';
 import { cn } from '@/utils/utils';
 
 export function NavSecondary({ ...props }: React.ComponentPropsWithoutRef<typeof SidebarGroup>) {

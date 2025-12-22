@@ -26,7 +26,7 @@ export function HorizontalNav() {
   const filteredMenuItems = mainMenuItems.filter(item => {
     // For parent items without URL, check if they have any visible subitems
     if (!item.url || item.url.trim() === '') {
-      // If item has roles restriction, check user has those roles
+      // If an item has roles restriction, check the user has those roles
       if (item.roles && item.roles.length > 0 && !hasRole(item.roles)) {
         return false;
       }
