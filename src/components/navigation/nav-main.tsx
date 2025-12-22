@@ -1,18 +1,15 @@
 import { SidebarGroup, SidebarMenu } from '@/components/ui/sidebar.tsx';
 import menuItems from '@/config/navigation/modules';
-import type { EnhancedMenuItemConfig, MenuGroupConfig } from '@/config/navigation/types/menu';
+import type { MenuGroupConfig, MenuItemConfig } from '@/config/navigation/types/menu';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
-import { useSidebar } from '@/hooks/use-sidebar';
 import { NavCollapse } from './nav-collapse';
 import { NavGroup } from './nav-group';
 import { NavItem } from './nav-item';
 
 /**
- * Enhanced NavMain component
- * Based on a cargo-customs Navigation pattern
- *
- * Features:
- * - Support for menu groups with headers
+ * NavMain component
+ * Main navigation component with support for:
+ * - Menu groups with headers
  * - Multi-level nesting (3+ levels)
  * - Collapsible menu items
  * - Role-based access control
@@ -20,10 +17,8 @@ import { NavItem } from './nav-item';
  * - Breadcrumb control
  * - Auto-expand active items
  */
-export function NavMainEnhanced() {
-  const { state } = useSidebar();
+export function NavMain() {
   const { hasRole } = useAuthContext();
-  const isCollapsed = state === 'collapsed';
 
   // Filter menu items based on roles
   const visibleItems = menuItems.items.filter(item => {
@@ -33,13 +28,13 @@ export function NavMainEnhanced() {
     return true;
   });
 
-  return <>{visibleItems.map(item => renderMenuItem(item, isCollapsed))}</>;
+  return <>{visibleItems.map(item => renderMenuItem(item))}</>;
 }
 
 /**
  * Helper function to render menu items based on type
  */
-function renderMenuItem(item: EnhancedMenuItemConfig | MenuGroupConfig, _isCollapsed: boolean) {
+function renderMenuItem(item: MenuItemConfig | MenuGroupConfig) {
   // Handle groups
   if (item.type === 'group') {
     return <NavGroup key={item.id} group={item as MenuGroupConfig} />;
@@ -50,7 +45,7 @@ function renderMenuItem(item: EnhancedMenuItemConfig | MenuGroupConfig, _isColla
   return (
     <SidebarGroup key={item.id} className="mb-0 py-0">
       <SidebarMenu className="space-y-0.5 px-0">
-        {renderMenuItemByType(item as EnhancedMenuItemConfig)}
+        {renderMenuItemByType(item as MenuItemConfig)}
       </SidebarMenu>
     </SidebarGroup>
   );
@@ -59,7 +54,7 @@ function renderMenuItem(item: EnhancedMenuItemConfig | MenuGroupConfig, _isColla
 /**
  * Helper function to render individual menu items by type
  */
-function renderMenuItemByType(item: EnhancedMenuItemConfig) {
+function renderMenuItemByType(item: MenuItemConfig) {
   switch (item.type) {
     case 'collapse':
       return <NavCollapse key={item.id} item={item} />;

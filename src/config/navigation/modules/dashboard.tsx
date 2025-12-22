@@ -1,12 +1,12 @@
 import { BarChart3, ChartNoAxesCombinedIcon, Home } from 'lucide-react';
 import { lazy } from 'react';
-import type { EnhancedMenuItemConfig } from '../types/menu';
+import type { MenuItemConfig } from '../types/menu';
 
 /**
  * Dashboard menu section
  * Main overview and analytics
  */
-const dashboard: EnhancedMenuItemConfig = {
+const dashboard: MenuItemConfig = {
   id: 'dashboard',
   title: 'common.navigation.dashboard',
   type: 'collapse',

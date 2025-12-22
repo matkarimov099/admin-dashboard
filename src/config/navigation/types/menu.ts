@@ -2,65 +2,56 @@ import type { ComponentType, ReactNode } from 'react';
 import type { Role } from '@/types/common.ts';
 
 /**
- * Menu item types - based on cargo-customs structure
+ * Menu item types
  */
 export type MenuItemType = 'group' | 'collapse' | 'item';
 
 /**
- * Enhanced menu item configuration interface
- * Inspired by cargo-customs structure with support for:
- * - Multi-level nesting (3+ levels)
- * - Breadcrumb control
- * - Menu groups
- * - Advanced features (chips, badges, actions)
+ * Menu item configuration interface
+ * Supports multi-level nesting, breadcrumb control, and advanced features
  */
-export interface EnhancedMenuItemConfig {
+export interface MenuItemConfig {
   // Core properties
-  id: string; // Unique identifier
-  title: string | ReactNode; // Translation key or React node
-  type: MenuItemType; // Type of menu item
+  id: string;
+  title: string | ReactNode;
+  type: MenuItemType;
 
   // Navigation
-  path?: string; // Route path
-  url?: string; // Alternative URL (for external links)
-  link?: string; // Alternative link property
+  path?: string;
+  url?: string;
+  link?: string;
 
   // Visual
-  icon?: ReactNode; // Icon component
-  color?: 'primary' | 'secondary' | 'default'; // Color variant
+  icon?: ReactNode;
 
   // Nesting - Supports unlimited levels
-  children?: EnhancedMenuItemConfig[]; // Nested menu items (for collapse and group)
-  items?: EnhancedMenuItemConfig[]; // Alternative children array (for backward compatibility)
+  children?: MenuItemConfig[];
+  items?: MenuItemConfig[];
 
   // Access control
-  roles?: Role[]; // Allowed roles
-  disabled?: boolean; // Disable menu item
+  roles?: Role[];
+  disabled?: boolean;
 
   // External links
-  external?: boolean; // Is external URL
-  target?: '_blank' | '_self'; // Link target
+  external?: boolean;
+  target?: '_blank' | '_self';
 
   // UI enhancements
   chip?: {
     label: string;
     color?: string;
     variant?: 'default' | 'secondary' | 'outline' | 'destructive';
-  }; // Badge/chip
-  badge?: number; // Numeric badge
+  };
+  badge?: number;
 
   // Breadcrumb control
-  breadcrumbs?: boolean; // Show/hide in breadcrumb trail (default: true)
-
-  // Dropdown behavior
-  isDropdown?: boolean; // Use dropdown menu instead of collapse
+  breadcrumbs?: boolean;
 
   // Component lazy loading
-  component?: ComponentType; // Lazy-loaded component
+  component?: ComponentType;
 
   // Additional metadata
-  caption?: ReactNode | string; // Group caption/description
-  search?: string; // Search keywords
+  caption?: ReactNode | string;
 }
 
 /**
@@ -73,7 +64,7 @@ export interface MenuGroupConfig {
   type: 'group';
   icon?: ReactNode;
   caption?: ReactNode | string;
-  children: EnhancedMenuItemConfig[];
+  children: MenuItemConfig[];
   roles?: Role[];
 }
 
@@ -81,39 +72,5 @@ export interface MenuGroupConfig {
  * Menu configuration structure
  */
 export interface MenuConfig {
-  items: (EnhancedMenuItemConfig | MenuGroupConfig)[];
+  items: (MenuItemConfig | MenuGroupConfig)[];
 }
-
-/**
- * Legacy menu item configuration (backward compatibility)
- * This is the old structure from app-menu.tsx
- */
-export interface LegacyMenuItemConfig {
-  title: string;
-  path: string;
-  icon?: ReactNode;
-  roles?: Role[];
-  component?: ComponentType;
-  items?: LegacyMenuSubItemConfig[];
-  disabled?: boolean;
-}
-
-/**
- * Legacy sub-menu item configuration
- */
-export interface LegacyMenuSubItemConfig {
-  title: string;
-  path: string;
-  icon?: ReactNode;
-  roles?: Role[];
-  component?: ComponentType;
-  disabled?: boolean;
-}
-
-/**
- * Helper type to extract nested menu items
- */
-export type FlatMenuItem = EnhancedMenuItemConfig & {
-  level: number; // Nesting level (0 = top level, 1 = first nested, etc.)
-  parentId?: string; // Parent menu item ID
-};

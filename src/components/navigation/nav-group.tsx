@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { SidebarGroup, SidebarGroupLabel, SidebarMenu } from '@/components/ui/sidebar.tsx';
-import type { EnhancedMenuItemConfig, MenuGroupConfig } from '@/config/navigation/types/menu';
+import type { MenuGroupConfig, MenuItemConfig } from '@/config/navigation/types/menu';
 import { useSidebar } from '@/hooks/use-sidebar';
 import { cn } from '@/utils/utils';
 import { NavCollapse } from './nav-collapse';
@@ -49,7 +49,7 @@ export function NavGroup({ group }: NavGroupProps) {
 /**
  * Helper function to render menu items based on type
  */
-function renderMenuItem(item: EnhancedMenuItemConfig) {
+function renderMenuItem(item: MenuItemConfig) {
   switch (item.type) {
     case 'collapse':
       return <NavCollapse key={item.id} item={item} />;

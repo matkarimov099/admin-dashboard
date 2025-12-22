@@ -3,7 +3,7 @@ import type * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { LocalizedNavLink } from '@/components/layout/localized-nav-link';
-import { NavMainEnhanced } from '@/components/navigation/nav-main.tsx';
+import { NavMain } from '@/components/navigation/nav-main.tsx';
 import { NavSecondary } from '@/components/navigation/nav-secondary.tsx';
 import { NavUser } from '@/components/navigation/nav-user.tsx';
 import {
@@ -93,7 +93,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           isCollapsed && 'px-1.5'
         )}
       >
-        <NavMainEnhanced />
+        <NavMain />
         <NavSecondary className="mt-auto" />
       </SidebarContent>
 

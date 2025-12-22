@@ -1,14 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import { LocalizedNavLink } from '@/components/layout/localized-nav-link.tsx';
 import { SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar.tsx';
-import type { EnhancedMenuItemConfig } from '@/config/navigation/types/menu';
+import type { MenuItemConfig } from '@/config/navigation/types/menu';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
 import { useCurrentPath } from '@/hooks/use-current-path.ts';
 import { useSidebar } from '@/hooks/use-sidebar';
 import { cn } from '@/utils/utils';
 
 interface NavItemProps {
-  item: EnhancedMenuItemConfig;
+  item: MenuItemConfig;
   inPopover?: boolean;
 }
 

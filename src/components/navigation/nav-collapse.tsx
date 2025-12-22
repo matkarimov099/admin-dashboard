@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { SidebarMenuButton, SidebarMenuItem, SidebarMenuSub } from '@/components/ui/sidebar.tsx';
-import type { EnhancedMenuItemConfig } from '@/config/navigation/types/menu';
+import type { MenuItemConfig } from '@/config/navigation/types/menu';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
 import { useCurrentPath } from '@/hooks/use-current-path.ts';
 import { useSidebar } from '@/hooks/use-sidebar';
@@ -11,7 +11,7 @@ import { cn } from '@/utils/utils';
 import { NavItem } from './nav-item';
 
 interface NavCollapseProps {
-  item: EnhancedMenuItemConfig;
+  item: MenuItemConfig;
 }
 
 /**
@@ -46,7 +46,7 @@ export function NavCollapse({ item }: NavCollapseProps) {
   });
 
   // Check if any child is active (recursive)
-  const hasActiveChild = (items: EnhancedMenuItemConfig[]): boolean => {
+  const hasActiveChild = (items: MenuItemConfig[]): boolean => {
     return items.some(child => {
       const childPath = child.path || child.url || child.link || '';
       if (childPath === currentPath) return true;
@@ -222,7 +222,7 @@ export function NavCollapse({ item }: NavCollapseProps) {
  * Helper function to render child items
  * Handles both collapse and item types recursively
  */
-function renderChildItem(child: EnhancedMenuItemConfig, inPopover: boolean): React.ReactNode {
+function renderChildItem(child: MenuItemConfig, inPopover: boolean): React.ReactNode {
   // Popover rendering - simplified structure
   if (inPopover) {
     // If child has nested children, show as a subgroup
