@@ -165,7 +165,7 @@ export function DataTableToolbar<TData>({
                 aria-label={t('common.table.settings')}
               />
             </PopoverTrigger>
-            <PopoverContent align="end" className="w-fit">
+            <PopoverContent align="end" className="w-80">
               <div className="grid gap-4">
                 <div>
                   <Typography variant="h5">{t('common.table.settings')}</Typography>

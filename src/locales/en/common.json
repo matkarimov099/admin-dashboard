@@ -266,7 +266,8 @@
   },
   "notifications": {
     "title": "Notifications",
-    "markAllAsRead": "Mark all as read",
+    "allAsRead": "Mark all as read",
+    "viewAll": "View all",
     "noNotifications": "No notifications"
   },
   "theme": {

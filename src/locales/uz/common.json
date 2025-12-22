@@ -266,7 +266,8 @@
   },
   "notifications": {
     "title": "Bildirishnomalar",
-    "markAllAsRead": "Barchasini o'qilgan deb belgilash",
+    "allAsRead": "Barchasini o'qildi",
+    "viewAll": "Barchasini ko'rish",
     "noNotifications": "Bildirishnomalar yo'q"
   },
   "theme": {

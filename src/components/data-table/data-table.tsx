@@ -87,6 +87,9 @@ interface DataTableProps<TData> {
   // Search props
   searchValue?: string;
   onSearchChange?: (value: string) => void;
+
+  // Column mapping for translations
+  columnMapping?: Record<string, string>;
 }
 
 export function DataTable<TData>({
@@ -107,6 +110,7 @@ export function DataTable<TData>({
   onSortingChange,
   searchValue: externalSearchValue = '',
   onSearchChange,
+  columnMapping,
 }: DataTableProps<TData>) {
   const { t } = useTranslation();
 
@@ -530,7 +534,7 @@ export function DataTable<TData>({
           resetColumnOrder={resetColumnOrder}
           tableId={tableId}
           exportConfig={exportConfig}
-          columnMapping={exportConfig?.columnMapping}
+          columnMapping={columnMapping || exportConfig?.columnMapping}
           searchValue={currentSearchValue}
           onSearchChange={handleSearchChange}
           customToolbarComponent={renderToolbarContent?.({

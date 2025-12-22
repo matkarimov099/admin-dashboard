@@ -266,7 +266,8 @@
   },
   "notifications": {
     "title": "Уведомления",
-    "markAllAsRead": "Отметить все как прочитанные",
+    "allAsRead": "Прочитать все",
+    "viewAll": "Все уведомления",
     "noNotifications": "Нет уведомлений"
   },
   "theme": {

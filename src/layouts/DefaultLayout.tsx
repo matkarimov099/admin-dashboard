@@ -28,7 +28,7 @@ export const DefaultLayout = () => {
         <SidebarInset className="flex h-full min-w-0 flex-col bg-background">
           {/* Fixed header - does not scroll */}
           <div className="shrink-0 p-2">
-            <header className="glass-strong relative z-50 flex h-12 items-center justify-between gap-2 rounded-lg shadow-sm sm:h-14">
+            <header className="glass-strong relative z-40 flex h-12 items-center justify-between gap-2 rounded-lg shadow-sm sm:h-14">
               {/* Left section - Sidebar trigger and breadcrumbs */}
               <div className="flex min-w-0 flex-1 items-center gap-2 px-3 sm:gap-3 sm:px-4">
                 <SidebarTrigger className="h-7 w-7 shrink-0 p-0 sm:h-8 sm:w-8" />

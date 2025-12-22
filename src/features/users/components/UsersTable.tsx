@@ -6,9 +6,11 @@ import type { User } from '@/features/users/types.ts';
 import { useExportConfig } from '@/features/users/utils/config.ts';
 import { usersTableConfig } from '@/features/users/utils/table-config.ts';
 import { useUsersData } from '../utils/data-fetching';
+import {useTranslation} from "react-i18next";
 
 const ToolbarOptions = lazy(() => import('@/features/users/components/ToolbarOptions.tsx'));
 const UsersTable = () => {
+  const {t} = useTranslation();
   const {
     users,
     total,
@@ -25,6 +27,9 @@ const UsersTable = () => {
 
   const exportConfig = useExportConfig();
   const columns = useGetColumns(null);
+
+  // Get column mappings from translations
+  const columnMapping = t('users.table.columns', { returnObjects: true }) as Record<string, string>;
 
   return (
     <DataTable<User>
@@ -49,6 +54,7 @@ const UsersTable = () => {
         </LazyComponent>
       )}
       config={usersTableConfig}
+      columnMapping={columnMapping}
     />
   );
 };

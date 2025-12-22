@@ -266,7 +266,8 @@
   },
   "notifications": {
     "title": "Билдиришномалар",
-    "markAllAsRead": "Барчасини ўқилган деб белгилаш",
+    "allAsRead": "Барчасини ўқилди",
+    "viewAll": "Барчасини кўриш",
     "noNotifications": "Билдиришномалар йўқ"
   },
   "theme": {

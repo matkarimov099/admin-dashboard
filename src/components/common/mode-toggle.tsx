@@ -37,13 +37,13 @@ export function ModeToggle() {
   const CurrentIcon = currentTheme?.icon || SunIcon;
 
   return (
-    <div className="relative">
+    <div className="relative z-50">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
             size="sm"
-            className="group relative mr-2 h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-colors duration-200 hover:border-(--color-primary)/30 hover:bg-muted/50"
+            className="group relative mr-2 h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-all duration-200 hover:border-(--color-primary)/30 hover:bg-card/80 hover:backdrop-blur-md"
           >
             <div className="relative flex h-full w-full items-center justify-center">
               {/* Icon with rotation animation */}

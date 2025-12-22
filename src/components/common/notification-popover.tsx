@@ -110,15 +110,21 @@ export function NotificationPopover() {
               </span>
             )}
           </div>
-          <span className="sr-only">{t('common.notifications.title')}</span>
+          <span className="sr-only">{t('notifications.title')}</span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent align="end" className="w-80 p-0" sideOffset={4}>
+      <PopoverContent align="end" className="w-84 p-0" sideOffset={4}>
         <div className="flex items-center justify-between border-b p-3">
-          <h4 className="font-semibold">{t('common.notifications.title')}</h4>
+          <h4 className="font-semibold">{t('notifications.title')}</h4>
           {unreadCount > 0 && (
-            <Button variant="ghost" size="sm" onClick={markAllAsRead} className="text-xs">
-              {t('common.notifications.markAllAsRead')}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={markAllAsRead}
+              className="flex h-8 items-center px-2 text-xs"
+            >
+              <CheckCircle className="mr-1 h-3 w-3" />
+              {t('notifications.allAsRead')}
             </Button>
           )}
         </div>
@@ -127,7 +133,7 @@ export function NotificationPopover() {
           {notifications.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-8 text-muted-foreground">
               <BellRing className="mb-2 h-8 w-8" />
-              <p className="text-sm">{t('common.notifications.noNotifications')}</p>
+              <p className="text-sm">{t('notifications.noNotifications')}</p>
             </div>
           ) : (
             <div className="space-y-1 p-2">
@@ -178,7 +184,7 @@ export function NotificationPopover() {
         {notifications.length > 0 && (
           <div className="border-t p-2">
             <Button variant="ghost" className="w-full justify-center text-sm" size="sm">
-              View all notifications
+              {t('notifications.viewAll')}
             </Button>
           </div>
         )}
