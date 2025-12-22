@@ -17,6 +17,7 @@ import {
 } from '@/components/ui/breadcrumb';
 import { Spinner } from '@/components/ui/spinner.tsx';
 import { useBreadcrumb } from '@/hooks/use-breadcrumb.ts';
+import Logo from "@/assets/images/logo/logo.png";
 
 export const HorizontalLayout = () => {
   const { breadcrumbItems } = useBreadcrumb();
@@ -26,33 +27,40 @@ export const HorizontalLayout = () => {
       <div className="flex h-full min-w-0 flex-col bg-background">
         {/* Top Navigation Bar */}
         <div className="shrink-0 border-b bg-card">
-          <div className="flex h-16 items-center justify-between px-4 lg:px-6">
+          <div className="px-4 lg:px-6 border-b">
             {/* Logo and Brand */}
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-(--color-primary)">
-                  <svg className="h-4 w-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <title>logo</title>
-                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
-                  </svg>
+            <div className={"flex h-16 items-center justify-between"}>
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2">
+                  <div
+                      className="flex h-8 w-8 items-center justify-center rounded-lg">
+                    <img
+                        src={Logo}
+                        alt="Logo"
+                        className="relative z-10 size-7 transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="hidden sm:block">
+                    <h1 className="font-semibold text-(--color-primary) text-lg">Cargo Customs</h1>
+                  </div>
                 </div>
-                <div className="hidden sm:block">
-                  <h1 className="font-semibold text-(--color-primary) text-lg">Cargo Customs</h1>
-                </div>
+
+                {/* Horizontal Navigation */}
               </div>
 
-              {/* Horizontal Navigation */}
-              <HorizontalNav />
+              {/* Right Section - Actions */}
+              <div className="flex items-center gap-1">
+                <NotificationPopover/>
+                <LanguageSwitcher/>
+                <SettingsPanel/>
+                <ModeToggle/>
+                <ProfileDropdown/>
+              </div>
             </div>
 
-            {/* Right Section - Actions */}
-            <div className="flex items-center gap-1">
-              <NotificationPopover />
-              <LanguageSwitcher />
-              <SettingsPanel />
-              <ModeToggle />
-              <ProfileDropdown />
-            </div>
+          </div>
+          <div>
+            <HorizontalNav/>
           </div>
         </div>
 

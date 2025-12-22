@@ -1,4 +1,3 @@
-import { Network, Zap } from 'lucide-react';
 import type * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -6,6 +5,7 @@ import { LocalizedNavLink } from '@/components/layout/localized-nav-link';
 import { NavMain } from '@/components/navigation/nav-main.tsx';
 import { NavSecondary } from '@/components/navigation/nav-secondary.tsx';
 import { NavUser } from '@/components/navigation/nav-user.tsx';
+import Logo from "../../assets/images/logo/logo.png";
 import {
   Sidebar,
   SidebarContent,
@@ -53,17 +53,24 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             >
               <LocalizedNavLink to="/" className="flex items-center gap-2">
                 <div
-                  className={cn(
-                    'relative flex items-center justify-center rounded-lg px-2 transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
-                    isCollapsed ? 'size-8' : 'size-8',
-                    'bg-(--color-primary)'
-                  )}
+                    className={cn(
+                        'relative flex items-center justify-center rounded-lg transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
+                        isCollapsed ? 'size-8' : 'size-8',
+                    )}
                 >
                   {/* Dynamic icon based on the collapse state */}
                   {isCollapsed ? (
-                    <Zap className="relative z-10 size-4 text-white transition-transform duration-300 group-hover:scale-110" />
+                      <img
+                          src={Logo}
+                          alt="Logo"
+                          className="relative z-10 size-7 transition-transform duration-300 group-hover:scale-110"
+                      />
                   ) : (
-                    <Network className="relative z-10 size-4 text-white transition-transform duration-300 group-hover:scale-110" />
+                      <img
+                          src={Logo}
+                          alt="Logo"
+                          className="relative z-10 size-7 transition-transform duration-300 group-hover:scale-110"
+                      />
                   )}
                 </div>
 

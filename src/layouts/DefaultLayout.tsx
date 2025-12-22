@@ -114,7 +114,7 @@ export const DefaultLayout = () => {
                   className="flex min-h-0 min-w-0 flex-1 flex-col"
                 >
                   {/* Main content - overflow hidden to enable nested scrolling */}
-                  <main className="flex max-h-[calc(100vh-5rem)] min-w-0 flex-1 flex-col overflow-y-auto overflow-x-hidden rounded-lg bg-content p-4 shadow-md sm:h-[calc(100vh-6rem)]">
+                  <main className="flex max-h-[calc(100vh-5rem)] min-w-0 flex-1 flex-col overflow-y-auto overflow-x-hidden rounded-lg sm:h-[calc(100vh-6rem)]">
                     <Outlet />
                   </main>
                 </motion.div>
