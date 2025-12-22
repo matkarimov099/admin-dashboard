@@ -1,27 +1,14 @@
 import type { Table } from '@tanstack/react-table';
-import { Settings, Undo2, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SearchInput } from '@/components/custom/search-input.tsx';
 import { Button } from '@/components/ui/button';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Typography } from '@/components/ui/typography';
 import { DataTableExport } from './data-export';
+import { TableSettings } from './table-settings';
 import type { ExportConfig, ToolbarSections } from './types';
 import type { TableConfig } from './utils/table-config';
 import { DataTableViewOptions } from './view-options';
-
-// Helper functions for component sizing
-const getButtonSizeClass = (size: 'sm' | 'default' | 'lg') => {
-  switch (size) {
-    case 'sm':
-      return 'h-8 px-3';
-    case 'lg':
-      return 'h-11 px-5';
-    default:
-      return '';
-  }
-};
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
@@ -154,52 +141,12 @@ export function DataTableToolbar<TData>({
           )}
 
           {/* Table settings */}
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button
-                variant="outline"
-                size={config.size === 'sm' ? 'sm' : 'default'}
-                leftIcon={<Settings className="h-4 w-4" />}
-                hideIcon={false}
-                className={`${getButtonSizeClass(config.size)}`}
-                aria-label={t('common.table.settings')}
-              />
-            </PopoverTrigger>
-            <PopoverContent align="end" className="w-80">
-              <div className="grid gap-4">
-                <div>
-                  <Typography variant="h5">{t('common.table.settings')}</Typography>
-                  <Typography variant="small" className="text-muted-foreground">
-                    {t('common.table.settingsDescription')}
-                  </Typography>
-                </div>
-                <div className="grid gap-2">
-                  {config.enableColumnResizing && resetColumnSizing && (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={resetColumnSizing}
-                      className="justify-start"
-                    >
-                      <Undo2 className="mr-2 h-4 w-4" />
-                      {t('common.table.resetColumnSizes')}
-                    </Button>
-                  )}
-                  {resetColumnOrder && (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={resetColumnOrder}
-                      className="justify-start"
-                    >
-                      <Undo2 className="mr-2 h-4 w-4" />
-                      {t('common.table.resetColumns')}
-                    </Button>
-                  )}
-                </div>
-              </div>
-            </PopoverContent>
-          </Popover>
+          <TableSettings
+            enableColumnResizing={config.enableColumnResizing}
+            resetColumnSizing={resetColumnSizing}
+            resetColumnOrder={resetColumnOrder}
+            size={config.size}
+          />
         </div>
       </div>
 
@@ -238,52 +185,12 @@ export function DataTableToolbar<TData>({
               )}
 
               {/* Table settings */}
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button
-                    variant="outline"
-                    size={config.size === 'sm' ? 'sm' : 'default'}
-                    leftIcon={<Settings className="h-4 w-4" />}
-                    hideIcon={false}
-                    className={`${getButtonSizeClass(config.size)}`}
-                    aria-label="Open table settings"
-                  />
-                </PopoverTrigger>
-                <PopoverContent align="end" className="w-fit">
-                  <div className="grid gap-4">
-                    <div className="space-y-2">
-                      <Typography variant="h4">Table Settings</Typography>
-                      <Typography variant="small" className="text-muted-foreground">
-                        Manage table layout and column settings
-                      </Typography>
-                    </div>
-                    <div className="grid gap-2">
-                      {config.enableColumnResizing && resetColumnSizing && (
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={resetColumnSizing}
-                          className="justify-start"
-                        >
-                          <Undo2 className="mr-2 h-4 w-4" />
-                          Reset Column Sizes
-                        </Button>
-                      )}
-                      {resetColumnOrder && (
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={resetColumnOrder}
-                          className="justify-start"
-                        >
-                          <Undo2 className="mr-2 h-4 w-4" />
-                          Reset Column Order
-                        </Button>
-                      )}
-                    </div>
-                  </div>
-                </PopoverContent>
-              </Popover>
+              <TableSettings
+                enableColumnResizing={config.enableColumnResizing}
+                resetColumnSizing={resetColumnSizing}
+                resetColumnOrder={resetColumnOrder}
+                size={config.size}
+              />
             </div>
           </>
         ) : (
@@ -357,52 +264,12 @@ export function DataTableToolbar<TData>({
                 )}
 
                 {/* Table settings */}
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      size={config.size === 'sm' ? 'sm' : 'default'}
-                      leftIcon={<Settings className="h-4 w-4" />}
-                      hideIcon={false}
-                      className={`${getButtonSizeClass(config.size)}`}
-                      aria-label="Open table settings"
-                    />
-                  </PopoverTrigger>
-                  <PopoverContent align="end" className="w-fit">
-                    <div className="grid gap-4">
-                      <div className="space-y-2">
-                        <Typography variant="h4">Table Settings</Typography>
-                        <Typography variant="small" className="text-muted-foreground">
-                          Manage table layout and column settings
-                        </Typography>
-                      </div>
-                      <div className="grid gap-2">
-                        {config.enableColumnResizing && resetColumnSizing && (
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={resetColumnSizing}
-                            className="justify-start"
-                          >
-                            <Undo2 className="mr-2 h-4 w-4" />
-                            Reset Column Sizes
-                          </Button>
-                        )}
-                        {resetColumnOrder && (
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={resetColumnOrder}
-                            className="justify-start"
-                          >
-                            <Undo2 className="mr-2 h-4 w-4" />
-                            Reset Column Order
-                          </Button>
-                        )}
-                      </div>
-                    </div>
-                  </PopoverContent>
-                </Popover>
+                <TableSettings
+                  enableColumnResizing={config.enableColumnResizing}
+                  resetColumnSizing={resetColumnSizing}
+                  resetColumnOrder={resetColumnOrder}
+                  size={config.size}
+                />
               </div>
             </div>
 

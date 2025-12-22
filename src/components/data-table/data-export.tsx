@@ -1,5 +1,5 @@
 import type { Table } from '@tanstack/react-table';
-import { DownloadIcon, Loader2 } from 'lucide-react';
+import { DownloadIcon, FileSpreadsheetIcon, FileTextIcon, Loader2 } from 'lucide-react';
 import { type JSX, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
@@ -10,6 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { useIsMobile } from '@/hooks/use-mobile.ts';
 import { exportData, exportToCSV, exportToExcel } from './utils/export-utils';
 
 interface DataTableExportProps<TData> {
@@ -39,7 +40,7 @@ export function DataTableExport<TData>({
 }: DataTableExportProps<TData>): JSX.Element {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
-
+  const isMobile = useIsMobile();
   const handleExport = async (type: 'csv' | 'excel') => {
     if (isLoading) return; // Prevent multiple export requests
 
@@ -309,13 +310,15 @@ export function DataTableExport<TData>({
           aria-label={hasSelection ? `Export selected ${entityName}` : `Export all ${entityName}`}
         />
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align={isMobile ? 'center' : 'end'} className="w-80">
         {hasSelection ? (
           <>
             <DropdownMenuItem onClick={() => handleExport('csv')} disabled={isLoading}>
+              <FileTextIcon className="mr-2" />
               {t('common.table.exportSelectedCSV')}
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => handleExport('excel')} disabled={isLoading}>
+              <FileSpreadsheetIcon className="mr-2" />
               {t('common.table.exportSelectedExcel')}
             </DropdownMenuItem>
           </>
@@ -326,6 +329,7 @@ export function DataTableExport<TData>({
               onClick={() => handleExport('csv')}
               disabled={isLoading}
             >
+              <FileTextIcon className="mr-2 h-4 w-4" />
               {t('common.table.exportCurrentPageCSV')}
             </DropdownMenuItem>
             <DropdownMenuItem
@@ -333,6 +337,7 @@ export function DataTableExport<TData>({
               onClick={() => handleExport('excel')}
               disabled={isLoading}
             >
+              <FileSpreadsheetIcon className="mr-2 h-4 w-4" />
               {t('common.table.exportCurrentPageExcel')}
             </DropdownMenuItem>
             {getAllItems && (
@@ -342,6 +347,7 @@ export function DataTableExport<TData>({
                   onClick={() => exportAllPages('csv')}
                   disabled={isLoading}
                 >
+                  <FileTextIcon className="mr-2 h-4 w-4" />
                   {t('common.table.exportAllPagesCSV')}
                 </DropdownMenuItem>
                 <DropdownMenuItem
@@ -349,6 +355,7 @@ export function DataTableExport<TData>({
                   onClick={() => exportAllPages('excel')}
                   disabled={isLoading}
                 >
+                  <FileSpreadsheetIcon className="mr-2 h-4 w-4" />
                   {t('common.table.exportAllPagesExcel')}
                 </DropdownMenuItem>
               </>
