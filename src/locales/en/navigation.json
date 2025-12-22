@@ -1,0 +1,162 @@
+{
+  "navigation": {
+    "title": "Navigation",
+    "menu": "Menu",
+    "toggleSidebar": "Toggle sidebar",
+    "expandAll": "Expand all",
+    "collapseAll": "Collapse all",
+
+    "dashboard": {
+      "title": "Dashboard",
+      "description": "Overview and analytics",
+      "overview": {
+        "title": "Overview",
+        "description": "Main dashboard overview"
+      },
+      "analytics": {
+        "title": "Analytics",
+        "description": "Detailed analytics and reports"
+      }
+    },
+
+    "exportImportTransit": {
+      "title": "Export/Import/Transit",
+      "description": "International trade operations",
+      "createDeclaration": {
+        "title": "Create Declaration",
+        "description": "Create new customs declaration"
+      },
+      "importTransit": {
+        "title": "Import Transit",
+        "description": "Import transit operations"
+      },
+      "autoTransport": {
+        "title": "Auto Transport",
+        "description": "Automobile transport declarations"
+      },
+      "railwayTransport": {
+        "title": "Railway Transport",
+        "description": "Railway transport declarations"
+      },
+      "energyResources": {
+        "title": "Energy Resources",
+        "description": "Energy resources declarations"
+      },
+      "gasCertificate": {
+        "title": "Gas Certificate",
+        "description": "Gas certificate management"
+      },
+      "electricEnergy": {
+        "title": "Electric Energy",
+        "description": "Electric energy declarations"
+      },
+      "eCommerce": {
+        "title": "E-Commerce",
+        "description": "E-commerce declarations"
+      },
+      "export": {
+        "title": "Export",
+        "description": "Export operations"
+      },
+      "tollingOperations": {
+        "title": "Tolling Operations",
+        "description": "Tolling operations management"
+      },
+      "customsTerritory": {
+        "title": "Customs Territory",
+        "description": "Operations within customs territory"
+      },
+      "outsideCustomsTerritory": {
+        "title": "Outside Customs Territory",
+        "description": "Operations outside customs territory"
+      }
+    },
+
+    "settings": {
+      "title": "Settings",
+      "description": "Application settings",
+      "profile": {
+        "title": "Profile",
+        "description": "User profile settings"
+      },
+      "account": {
+        "title": "Account",
+        "description": "Account settings"
+      },
+      "preferences": {
+        "title": "Preferences",
+        "description": "User preferences"
+      },
+      "security": {
+        "title": "Security",
+        "description": "Security settings"
+      },
+      "notifications": {
+        "title": "Notifications",
+        "description": "Notification settings"
+      }
+    },
+
+    "users": {
+      "title": "Users",
+      "description": "User management",
+      "list": {
+        "title": "All Users",
+        "description": "View all users"
+      },
+      "roles": {
+        "title": "Roles",
+        "description": "Manage user roles"
+      },
+      "permissions": {
+        "title": "Permissions",
+        "description": "Manage permissions"
+      }
+    },
+
+    "reports": {
+      "title": "Reports",
+      "description": "Reports and analytics",
+      "declarations": {
+        "title": "Declarations",
+        "description": "Declaration reports"
+      },
+      "statistics": {
+        "title": "Statistics",
+        "description": "Statistics reports"
+      }
+    },
+
+    "help": {
+      "title": "Help",
+      "description": "Help and support",
+      "documentation": {
+        "title": "Documentation",
+        "description": "View documentation"
+      },
+      "support": {
+        "title": "Support",
+        "description": "Contact support"
+      },
+      "faq": {
+        "title": "FAQ",
+        "description": "Frequently asked questions"
+      }
+    },
+
+    "states": {
+      "expanded": "Expanded",
+      "collapsed": "Collapsed",
+      "loading": "Loading...",
+      "error": "Error",
+      "noItems": "No items available"
+    },
+
+    "chips": {
+      "new": "New",
+      "beta": "Beta",
+      "updated": "Updated",
+      "popular": "Popular"
+    }
+  }
+}

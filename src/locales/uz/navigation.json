@@ -1,0 +1,162 @@
+{
+  "navigation": {
+    "title": "Navigatsiya",
+    "menu": "Menyu",
+    "toggleSidebar": "Yon panelni o'zgartirish",
+    "expandAll": "Barchasini yoyish",
+    "collapseAll": "Barchasini yig'ish",
+
+    "dashboard": {
+      "title": "Boshqaruv paneli",
+      "description": "Ko'rish va tahlil",
+      "overview": {
+        "title": "Umumiy ko'rish",
+        "description": "Asosiy boshqaruv paneli"
+      },
+      "analytics": {
+        "title": "Tahlillar",
+        "description": "Batafsil tahlillar va hisobotlar"
+      }
+    },
+
+    "exportImportTransit": {
+      "title": "Eksport/Import/Tranzit",
+      "description": "Xalqaro savdo operatsiyalari",
+      "createDeclaration": {
+        "title": "Deklaratsiya yaratish",
+        "description": "Yangi bojxona deklaratsiyasi yaratish"
+      },
+      "importTransit": {
+        "title": "Import tranziti",
+        "description": "Import tranzit operatsiyalari"
+      },
+      "autoTransport": {
+        "title": "Avtotransport",
+        "description": "Avtotransport deklaratsiyalari"
+      },
+      "railwayTransport": {
+        "title": "Temir yo'l transporti",
+        "description": "Temir yo'l transporti deklaratsiyalari"
+      },
+      "energyResources": {
+        "title": "Energiya resurslari",
+        "description": "Energiya resurslari deklaratsiyalari"
+      },
+      "gasCertificate": {
+        "title": "Gaz sertifikati",
+        "description": "Gaz sertifikatlari boshqaruvi"
+      },
+      "electricEnergy": {
+        "title": "Elektr energiyasi",
+        "description": "Elektr energiyasi deklaratsiyalari"
+      },
+      "eCommerce": {
+        "title": "Elektron tijorat",
+        "description": "Elektron tijorat deklaratsiyalari"
+      },
+      "export": {
+        "title": "Eksport",
+        "description": "Eksport operatsiyalari"
+      },
+      "tollingOperations": {
+        "title": "Tolling operatsiyalari",
+        "description": "Tolling operatsiyalari boshqaruvi"
+      },
+      "customsTerritory": {
+        "title": "Bojxona hududi",
+        "description": "Bojxona hududidagi operatsiyalar"
+      },
+      "outsideCustomsTerritory": {
+        "title": "Bojxona hududidan tashqari",
+        "description": "Bojxona hududidan tashqari operatsiyalar"
+      }
+    },
+
+    "settings": {
+      "title": "Sozlamalar",
+      "description": "Ilova sozlamalari",
+      "profile": {
+        "title": "Profil",
+        "description": "Foydalanuvchi profili sozlamalari"
+      },
+      "account": {
+        "title": "Hisob",
+        "description": "Hisob sozlamalari"
+      },
+      "preferences": {
+        "title": "Afziliklar",
+        "description": "Foydalanuvchi afziliklari"
+      },
+      "security": {
+        "title": "Xavfsizlik",
+        "description": "Xavfsizlik sozlamalari"
+      },
+      "notifications": {
+        "title": "Bildirishnomalar",
+        "description": "Bildirishnomalar sozlamalari"
+      }
+    },
+
+    "users": {
+      "title": "Foydalanuvchilar",
+      "description": "Foydalanuvchilarni boshqarish",
+      "list": {
+        "title": "Barcha foydalanuvchilar",
+        "description": "Barcha foydalanuvchilarni ko'rish"
+      },
+      "roles": {
+        "title": "Rollar",
+        "description": "Foydalanuvchi rollarini boshqarish"
+      },
+      "permissions": {
+        "title": "Ruxsatlar",
+        "description": "Ruxsatlarni boshqarish"
+      }
+    },
+
+    "reports": {
+      "title": "Hisobotlar",
+      "description": "Hisobotlar va tahlillar",
+      "declarations": {
+        "title": "Deklaratsiyalar",
+        "description": "Deklaratsiyalar hisobotlari"
+      },
+      "statistics": {
+        "title": "Statistika",
+        "description": "Statistik hisobotlar"
+      }
+    },
+
+    "help": {
+      "title": "Yordam",
+      "description": "Yordam va qo'llab-quvvatlash",
+      "documentation": {
+        "title": "Hujjatlar",
+        "description": "Hujjatları ko'rish"
+      },
+      "support": {
+        "title": "Qo'llab-quvvatlash",
+        "description": "Qo'llab-quvvatlash xizmati bilan bog'lanish"
+      },
+      "faq": {
+        "title": "TTB",
+        "description": "Tez-tez so'raladigan savollar"
+      }
+    },
+
+    "states": {
+      "expanded": "Yoyilgan",
+      "collapsed": "Yig'ilgan",
+      "loading": "Yuklanmoqda...",
+      "error": "Xato",
+      "noItems": "Ma'lumotlar yo'q"
+    },
+
+    "chips": {
+      "new": "Yangi",
+      "beta": "Beta",
+      "updated": "Yangilangan",
+      "popular": "Mashhur"
+    }
+  }
+}

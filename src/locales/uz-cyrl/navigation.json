@@ -1,0 +1,162 @@
+{
+  "navigation": {
+    "title": "Навигация",
+    "menu": "Меню",
+    "toggleSidebar": "Ён панелни ўзгартириш",
+    "expandAll": "Барчасини ёйиш",
+    "collapseAll": "Барчасини йиғиш",
+
+    "dashboard": {
+      "title": "Бошқарув панели",
+      "description": "Кўриш ва таҳлил",
+      "overview": {
+        "title": "Умумий кўриш",
+        "description": "Асосий бошқарув панели"
+      },
+      "analytics": {
+        "title": "Таҳлиллар",
+        "description": "Батафсил таҳлиллар ва ҳисоботлар"
+      }
+    },
+
+    "exportImportTransit": {
+      "title": "Экспорт/Импорт/Транзит",
+      "description": "Халқaraoh савдо операциялари",
+      "createDeclaration": {
+        "title": "Декларация яратиш",
+        "description": "Янги божхона декларацияси яратиш"
+      },
+      "importTransit": {
+        "title": "Импорт транзити",
+        "description": "Импорт транзит операциялари"
+      },
+      "autoTransport": {
+        "title": "Автотранспорт",
+        "description": "Автотранспорт декларациялари"
+      },
+      "railwayTransport": {
+        "title": "Темир йўл транспорти",
+        "description": "Темир йўл транспорти декларациялари"
+      },
+      "energyResources": {
+        "title": "Энергия ресурслари",
+        "description": "Энергия ресурслари декларациялари"
+      },
+      "gasCertificate": {
+        "title": "Газ сертификати",
+        "description": "Газ сертификатлари бошқаруви"
+      },
+      "electricEnergy": {
+        "title": "Электр энергияси",
+        "description": "Электр энергияси декларациялари"
+      },
+      "eCommerce": {
+        "title": "Электрон tijорat",
+        "description": "Электрон tijorat декларациялари"
+      },
+      "export": {
+        "title": "Экспорт",
+        "description": "Экспорт операциялари"
+      },
+      "tollingOperations": {
+        "title": "Толлинг операциялари",
+        "description": "Толлинг операциялари бошқаруви"
+      },
+      "customsTerritory": {
+        "title": "Божхона ҳудуди",
+        "description": "Божхона ҳудудидаги операциялар"
+      },
+      "outsideCustomsTerritory": {
+        "title": "Божхона ҳудудидан ташқари",
+        "description": "Божхона ҳудудидан ташқари операциялар"
+      }
+    },
+
+    "settings": {
+      "title": "Созламалар",
+      "description": "Илова созламалари",
+      "profile": {
+        "title": "Профил",
+        "description": "Фойдаланувчи профили созламалари"
+      },
+      "account": {
+        "title": "Ҳисоб",
+        "description": "Ҳисоб созламалари"
+      },
+      "preferences": {
+        "title": "Афзиликлар",
+        "description": "Фойдаланувчи афзиликлари"
+      },
+      "security": {
+        "title": "Хавфсизлик",
+        "description": "Хавфсизлик созламалари"
+      },
+      "notifications": {
+        "title": "Билдишномалар",
+        "description": "Билдишномалар созламалари"
+      }
+    },
+
+    "users": {
+      "title": "Фойдаланувчилар",
+      "description": "Фойдаланувчиларни бошқариш",
+      "list": {
+        "title": "Барча фойдаланувчилар",
+        "description": "Барча фойдаланувчиларни кўриш"
+      },
+      "roles": {
+        "title": "Роллар",
+        "description": "Фойдаланувчи ролларини бошқариш"
+      },
+      "permissions": {
+        "title": "Рухсатлар",
+        "description": "Рухсатларни бошқариш"
+      }
+    },
+
+    "reports": {
+      "title": "Ҳисоботлар",
+      "description": "Ҳисоботлар ва таҳлиллар",
+      "declarations": {
+        "title": "Декларациялар",
+        "description": "Декларациялар ҳисоботлари"
+      },
+      "statistics": {
+        "title": "Статистика",
+        "description": "Статистик ҳисоботлар"
+      }
+    },
+
+    "help": {
+      "title": "Ёрдам",
+      "description": "Ёрдам ва қўллаб-қувватлаш",
+      "documentation": {
+        "title": "Ҳужжатлар",
+        "description": "Ҳужжатларни кўриш"
+      },
+      "support": {
+        "title": "Қўллаб-қувватлаш",
+        "description": "Қўллаб-қувватлаш хизмати билан боғланиш"
+      },
+      "faq": {
+        "title": "ТТС",
+        "description": "Тез-тез сўраладиган саволлар"
+      }
+    },
+
+    "states": {
+      "expanded": "Ёйилган",
+      "collapsed": "Йиғилган",
+      "loading": "Юкланмоқда...",
+      "error": "Хато",
+      "noItems": "Маълумотлар йўқ"
+    },
+
+    "chips": {
+      "new": "Янги",
+      "beta": "Бета",
+      "updated": "Янгиланган",
+      "popular": "Машҳур"
+    }
+  }
+}

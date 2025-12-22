@@ -16,16 +16,16 @@ interface NavCollapseProps {
 }
 
 /**
- * NavCollapse component for rendering collapsible menu items
- * Based on cargo-customs NavCollapse pattern
+ * NavCollapse - Collapsible navigation group component
  *
- * Supports:
- * - Multi-level nesting (3+ levels)
- * - Collapsible sub-menus
- * - Popover menu when sidebar is collapsed
- * - Auto-expand when child is active
+ * Features:
+ * - Auto-expand when contains active child
+ * - Smooth collapse/expand animation
+ * - Dynamic theme color for active parent
+ * - Popover support for collapsed sidebar
+ * - Multi-level nesting (unlimited depth)
  * - Role-based access control
- * - Icons and badges
+ * - Clean visual hierarchy
  */
 export function NavCollapse({ item, level }: NavCollapseProps) {
   const { t } = useTranslation();
@@ -35,24 +35,25 @@ export function NavCollapse({ item, level }: NavCollapseProps) {
   const isCollapsed = state === 'collapsed';
   const [isOpen, setIsOpen] = useState(false);
 
-  // Check if user has permission to view this item
+  // Role-based access control
   if (item.roles && item.roles.length > 0 && !hasRole(item.roles)) {
     return null;
   }
 
-  // Check if disabled
+  // Don't render disabled items
   if (item.disabled) {
     return null;
   }
 
+  // Get children (support both 'children' and 'items' properties)
   const children = item.children || item.items || [];
 
-  // Filter children based on roles
+  // Filter visible children based on roles
   const visibleChildren = children.filter(child => {
     if (child.roles && child.roles.length > 0) {
       return hasRole(child.roles);
     }
-    return true;
+    return !child.disabled;
   });
 
   // Don't render if no visible children
@@ -60,14 +61,18 @@ export function NavCollapse({ item, level }: NavCollapseProps) {
     return null;
   }
 
-  // Check if any child or nested child is active
+  // Check if any child is active (recursive)
   const hasActiveChild = (items: EnhancedMenuItemConfig[]): boolean => {
     return items.some(child => {
       const childPath = child.path || child.url || child.link || '';
       if (childPath === currentPath) return true;
-      if (child.children || child.items) {
-        return hasActiveChild(child.children || child.items || []);
+
+      // Check nested children recursively
+      const nestedChildren = child.children || child.items || [];
+      if (nestedChildren.length > 0) {
+        return hasActiveChild(nestedChildren);
       }
+
       return false;
     });
   };
@@ -75,47 +80,65 @@ export function NavCollapse({ item, level }: NavCollapseProps) {
   const isParentActive = hasActiveChild(visibleChildren);
   const titleText = typeof item.title === 'string' ? t(item.title) : item.title;
 
-  // Auto-open if has active child
+  // Auto-expand when parent is active (contains active child)
   useEffect(() => {
     if (isParentActive && !isCollapsed) {
       setIsOpen(true);
     }
   }, [isParentActive, currentPath, isCollapsed]);
 
+  // Toggle collapse/expand
   const toggleOpen = () => {
     setIsOpen(prev => !prev);
   };
 
-  // Render as popover when sidebar is collapsed
+  // Popover rendering (for collapsed sidebar)
   if (isCollapsed) {
     return (
       <SidebarMenuItem>
         <Popover>
           <PopoverTrigger asChild>
             <SidebarMenuButton
-              tooltip={undefined}
+              tooltip={titleText}
               className={cn(
-                'relative h-9 w-9 rounded-md p-0 transition-all duration-200',
-                'text-sidebar-foreground'
+                'relative size-9 rounded-md p-0 transition-all duration-200',
+                'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
+                'text-gray-700 hover:!text-gray-700 dark:text-gray-200 dark:hover:!text-white'
               )}
-              data-parent-item="true"
-              data-active={isParentActive ? 'true' : 'false'}
             >
-              <div className="flex size-4 items-center justify-center">{item.icon}</div>
+              <div
+                className={cn(
+                  'flex size-4 items-center justify-center transition-colors duration-200',
+                  isParentActive && 'text-[var(--color-primary)]',
+                  !isParentActive && 'text-gray-500 dark:text-gray-400'
+                )}
+              >
+                {item.icon}
+              </div>
             </SidebarMenuButton>
           </PopoverTrigger>
-          <PopoverContent side="right" align="start" className="w-48 rounded-lg p-1.5 shadow-lg">
-            <div className="mb-1 border-(--sidebar-border) border-b pb-1">
-              <div className="flex items-center gap-2 px-1 font-medium text-gray-800 text-xs dark:text-gray-200">
+
+          <PopoverContent
+            side="right"
+            align="start"
+            className="w-56 rounded-lg border border-gray-200 p-2 shadow-lg dark:border-gray-700"
+          >
+            {/* Popover header */}
+            <div className="mb-2 border-b border-gray-200 pb-2 dark:border-gray-700">
+              <div className="flex items-center gap-2 px-1.5 text-xs">
                 {item.icon && (
-                  <span className="flex h-3 w-3 shrink-0 items-center justify-center">
+                  <span className="flex size-3.5 shrink-0 items-center justify-center text-gray-500 dark:text-gray-400">
                     {item.icon}
                   </span>
                 )}
-                <span>{titleText}</span>
+                <span className="font-semibold text-gray-700 uppercase tracking-wide dark:text-gray-300">
+                  {titleText}
+                </span>
               </div>
             </div>
-            <div className="space-y-0.5">
+
+            {/* Popover children */}
+            <div className="space-y-1">
               {visibleChildren.map(child => renderChildItem(child, level + 1, true))}
             </div>
           </PopoverContent>
@@ -124,51 +147,60 @@ export function NavCollapse({ item, level }: NavCollapseProps) {
     );
   }
 
-  // Render as expandable menu item when sidebar is expanded
+  // Regular sidebar rendering (expanded)
   return (
-    <SidebarMenuItem className="mb-1">
-      {/* Main collapse button */}
+    <SidebarMenuItem>
       <SidebarMenuButton
         onClick={toggleOpen}
         className={cn(
-          'relative h-9 w-full cursor-pointer rounded-lg transition-all duration-200',
-          'text-sidebar-foreground text-sm',
-          'hover:bg-sidebar-accent',
-          isParentActive && 'bg-sidebar-accent',
-          'px-3 py-1.5'
+          'relative h-9 w-full cursor-pointer rounded-md px-2.5 py-2 transition-all duration-200',
+          'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
+          'text-gray-700 hover:!text-gray-700 dark:text-gray-200 dark:hover:!text-white'
         )}
       >
-        <div className="flex w-full items-center justify-between gap-2">
-          <div className="flex min-w-0 flex-1 items-center gap-2">
+        <div className="flex w-full items-center justify-between gap-2.5">
+          {/* Left side: Icon + Title */}
+          <div className="flex min-w-0 flex-1 items-center gap-2.5">
             {/* Icon */}
             {item.icon && (
-              <span className="flex size-4 shrink-0 items-center justify-center">{item.icon}</span>
+              <span
+                className={cn(
+                  'flex size-4 shrink-0 items-center justify-center transition-colors duration-200',
+                  isParentActive && 'text-[var(--color-primary)]',
+                  !isParentActive && 'text-gray-500 dark:text-gray-400'
+                )}
+              >
+                {item.icon}
+              </span>
             )}
 
             {/* Title */}
-            <span className="truncate font-medium text-sm" title={undefined}>
+            <span
+              className={cn(
+                'flex-1 truncate font-medium text-[13px] transition-colors duration-200',
+                isParentActive && 'text-[var(--color-primary)]',
+                !isParentActive && 'text-gray-700 dark:text-gray-200'
+              )}
+            >
               {titleText}
             </span>
           </div>
 
-          {/* Right side: Chip and Chevron */}
-          <div className="flex shrink-0 items-center gap-1">
-            {/* Chip */}
+          {/* Right side: Chip + Chevron */}
+          <div className="flex shrink-0 items-center gap-1.5">
+            {/* Chip badge */}
             {item.chip && (
-              <span
-                className={cn(
-                  'rounded px-1 py-0.5 font-medium text-[10px]',
-                  'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200'
-                )}
-              >
+              <span className="rounded-md bg-[var(--color-primary)]/10 px-1.5 py-0.5 font-medium text-[10px] text-[var(--color-primary)]">
                 {item.chip.label}
               </span>
             )}
 
-            {/* Expand/collapse indicator */}
+            {/* Chevron indicator */}
             <ChevronDown
               className={cn(
-                'h-3.5 w-3.5 shrink-0 transition-transform duration-200',
+                'size-3.5 shrink-0 transition-all duration-200',
+                isParentActive && 'text-[var(--color-primary)]',
+                !isParentActive && 'text-gray-400 dark:text-gray-500',
                 isOpen && 'rotate-180'
               )}
             />
@@ -176,9 +208,9 @@ export function NavCollapse({ item, level }: NavCollapseProps) {
         </div>
       </SidebarMenuButton>
 
-      {/* Children */}
+      {/* Nested children */}
       {isOpen && (
-        <SidebarMenuSub className="mt-0.5 space-y-0.5">
+        <SidebarMenuSub className="ml-2.5 mt-1 space-y-1 border-l border-gray-200 pl-2.5 dark:border-gray-700">
           {visibleChildren.map(child => renderChildItem(child, level + 1, false))}
         </SidebarMenuSub>
       )}
@@ -187,42 +219,48 @@ export function NavCollapse({ item, level }: NavCollapseProps) {
 }
 
 /**
- * Helper function to render child items based on type
- * Supports recursive nesting for 3+ levels
+ * Helper function to render child items
+ * Handles both collapse and item types recursively
  */
 function renderChildItem(
   child: EnhancedMenuItemConfig,
   level: number,
   inPopover: boolean
 ): React.ReactNode {
-  // For popover, render all as simple items (no nested collapses in popover)
+  // Popover rendering - simplified structure
   if (inPopover) {
+    // If child has nested children, show as a sub-group
     if (child.type === 'collapse' || child.children || child.items) {
-      // Render collapse children as a flat list in popover
       const nestedChildren = child.children || child.items || [];
       return (
-        <div key={child.id}>
-          {/* Render the collapse header as a disabled item */}
-          <div className="mt-1 mb-0.5 px-1 font-semibold text-[10px] text-gray-400 uppercase">
-            {typeof child.title === 'string' ? child.title : ''}
+        <div key={child.id} className="space-y-1">
+          {/* Sub-group header */}
+          <div className="px-1.5 pt-1.5 pb-0.5">
+            <span className="font-semibold text-[10px] text-gray-500 uppercase tracking-wide dark:text-gray-400">
+              {typeof child.title === 'string' ? child.title : ''}
+            </span>
           </div>
+
+          {/* Sub-group items */}
           {nestedChildren.map(nested => (
-            <NavItem key={nested.id} item={nested} level={0} inPopover={true} />
+            <NavItem key={nested.id} item={nested} level={level} inPopover={true} />
           ))}
         </div>
       );
     }
-    return <NavItem key={child.id} item={child} level={0} inPopover={true} />;
+
+    // Regular item in popover
+    return <NavItem key={child.id} item={child} level={level} inPopover={true} />;
   }
 
-  // For regular sidebar, support full nesting
+  // Regular sidebar rendering - determine type
   switch (child.type) {
     case 'collapse':
       return <NavCollapse key={child.id} item={child} level={level} />;
     case 'item':
       return <NavItem key={child.id} item={child} level={level} />;
     default:
-      // If an item has children but no explicit type, treat as collapse
+      // Auto-detect type based on children presence
       if (child.children || child.items) {
         return <NavCollapse key={child.id} item={child} level={level} />;
       }

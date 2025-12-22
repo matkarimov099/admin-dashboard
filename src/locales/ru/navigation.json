@@ -1,0 +1,162 @@
+{
+  "navigation": {
+    "title": "Навигация",
+    "menu": "Меню",
+    "toggleSidebar": "Переключить боковую панель",
+    "expandAll": "Развернуть все",
+    "collapseAll": "Свернуть все",
+
+    "dashboard": {
+      "title": "Панель управления",
+      "description": "Обзор и аналитика",
+      "overview": {
+        "title": "Обзор",
+        "description": "Главная панель управления"
+      },
+      "analytics": {
+        "title": "Аналитика",
+        "description": "Подробная аналитика и отчеты"
+      }
+    },
+
+    "exportImportTransit": {
+      "title": "Экспорт/Импорт/Транзит",
+      "description": "Международные торговые операции",
+      "createDeclaration": {
+        "title": "Создать декларацию",
+        "description": "Создать новую таможенную декларацию"
+      },
+      "importTransit": {
+        "title": "Импортный транзит",
+        "description": "Операции импортного транзита"
+      },
+      "autoTransport": {
+        "title": "Автотранспорт",
+        "description": "Декларации автотранспорта"
+      },
+      "railwayTransport": {
+        "title": "Ж/Д транспорт",
+        "description": "Декларации железнодорожного транспорта"
+      },
+      "energyResources": {
+        "title": "Энергоресурсы",
+        "description": "Декларации энергоресурсов"
+      },
+      "gasCertificate": {
+        "title": "Сертификат на газ",
+        "description": "Управление сертификатами на газ"
+      },
+      "electricEnergy": {
+        "title": "Электроэнергия",
+        "description": "Декларации электроэнергии"
+      },
+      "eCommerce": {
+        "title": "Электронная коммерция",
+        "description": "Декларации электронной коммерции"
+      },
+      "export": {
+        "title": "Экспорт",
+        "description": "Экспортные операции"
+      },
+      "tollingOperations": {
+        "title": "Толлинговые операции",
+        "description": "Управление толлинговыми операциями"
+      },
+      "customsTerritory": {
+        "title": "Таможенная территория",
+        "description": "Операции в пределах таможенной территории"
+      },
+      "outsideCustomsTerritory": {
+        "title": "Вне таможенной территории",
+        "description": "Операции вне таможенной территории"
+      }
+    },
+
+    "settings": {
+      "title": "Настройки",
+      "description": "Настройки приложения",
+      "profile": {
+        "title": "Профиль",
+        "description": "Настройки профиля пользователя"
+      },
+      "account": {
+        "title": "Аккаунт",
+        "description": "Настройки аккаунта"
+      },
+      "preferences": {
+        "title": "Предпочтения",
+        "description": "Предпочтения пользователя"
+      },
+      "security": {
+        "title": "Безопасность",
+        "description": "Настройки безопасности"
+      },
+      "notifications": {
+        "title": "Уведомления",
+        "description": "Настройки уведомлений"
+      }
+    },
+
+    "users": {
+      "title": "Пользователи",
+      "description": "Управление пользователями",
+      "list": {
+        "title": "Все пользователи",
+        "description": "Просмотр всех пользователей"
+      },
+      "roles": {
+        "title": "Роли",
+        "description": "Управление ролями пользователей"
+      },
+      "permissions": {
+        "title": "Разрешения",
+        "description": "Управление разрешениями"
+      }
+    },
+
+    "reports": {
+      "title": "Отчеты",
+      "description": "Отчеты и аналитика",
+      "declarations": {
+        "title": "Декларации",
+        "description": "Отчеты по декларациям"
+      },
+      "statistics": {
+        "title": "Статистика",
+        "description": "Статистические отчеты"
+      }
+    },
+
+    "help": {
+      "title": "Помощь",
+      "description": "Справка и поддержка",
+      "documentation": {
+        "title": "Документация",
+        "description": "Просмотр документации"
+      },
+      "support": {
+        "title": "Поддержка",
+        "description": "Связаться с поддержкой"
+      },
+      "faq": {
+        "title": "ЧЗВ",
+        "description": "Часто задаваемые вопросы"
+      }
+    },
+
+    "states": {
+      "expanded": "Развернуто",
+      "collapsed": "Свернуто",
+      "loading": "Загрузка...",
+      "error": "Ошибка",
+      "noItems": "Нет элементов"
+    },
+
+    "chips": {
+      "new": "Новое",
+      "beta": "Бета",
+      "updated": "Обновлено",
+      "popular": "Популярное"
+    }
+  }
+}

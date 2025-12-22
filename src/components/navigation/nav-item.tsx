@@ -14,16 +14,16 @@ interface NavItemProps {
 }
 
 /**
- * NavItem component for rendering individual menu items
- * Based on a cargo-customs NavItem pattern
+ * NavItem - Individual navigation item component
  *
- * Supports:
- * - Icons
- * - Active state detection
+ * Features:
+ * - Dynamic theme color support via CSS variables
+ * - Active/hover states with proper visual feedback
+ * - Light/dark mode support
+ * - Collapsed sidebar with tooltip
+ * - Popover rendering for nested items
  * - Role-based access control
- * - Tooltips when collapsed
- * - Multi-level indentation
- * - Chips/badges (future enhancement)
+ * - External link support
  */
 export function NavItem({ item, level, inPopover = false }: NavItemProps) {
   const { t } = useTranslation();
@@ -32,73 +32,90 @@ export function NavItem({ item, level, inPopover = false }: NavItemProps) {
   const { hasRole } = useAuthContext();
   const isCollapsed = state === 'collapsed';
 
-  // Check if user has permission to view this item
+  // Role-based access control
   if (item.roles && item.roles.length > 0 && !hasRole(item.roles)) {
     return null;
   }
 
-  // Check if disabled
+  // Don't render disabled items
   if (item.disabled) {
     return null;
   }
 
+  // Extract item properties
   const itemPath = item.path || item.url || item.link || '';
   const isActive = itemPath === currentPath;
   const isExternalLink = item.external || item.target === '_blank';
-
   const titleText = typeof item.title === 'string' ? t(item.title) : item.title;
 
-  // For popover rendering (when sidebar is collapsed)
+  // Popover rendering (for collapsed sidebar dropdown)
   if (inPopover) {
     return (
       <LocalizedNavLink
         to={itemPath}
-        className="group block"
+        className="block"
         target={isExternalLink ? '_blank' : undefined}
         rel={isExternalLink ? 'noopener noreferrer' : undefined}
       >
         <div
           className={cn(
-            'flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors duration-200',
-            'text-gray-700 dark:text-gray-200',
-            'hover:bg-blue-50 hover:text-blue-600',
-            'dark:hover:bg-blue-900/20 dark:hover:text-blue-400',
-            isActive &&
-              'bg-blue-100 font-medium text-blue-600 dark:bg-blue-900/40 dark:text-blue-400'
+            'flex cursor-pointer items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-all duration-200',
+            'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
+            // Active state - only text color
+            isActive && 'font-medium !text-[var(--color-primary)]',
+            // Inactive state
+            !isActive && 'text-gray-700 hover:!text-gray-700 dark:text-gray-200 dark:hover:!text-white'
           )}
         >
-          {item.icon && <span className="size-3 shrink-0">{item.icon}</span>}
-          <span className="flex-1">{titleText}</span>
-          {item.chip && (
-            <span className="rounded bg-blue-100 px-1 py-0.5 font-medium text-[10px] text-blue-800">
-              {item.chip.label}
+          {item.icon && (
+            <span
+              className={cn(
+                'flex size-4 shrink-0 items-center justify-center transition-colors duration-200',
+                isActive && 'text-[var(--color-primary)]',
+                !isActive && 'text-gray-500 dark:text-gray-400'
+              )}
+            >
+              {item.icon}
             </span>
           )}
-          {item.badge !== undefined && (
-            <span className="flex size-4 items-center justify-center rounded-full bg-red-500 font-semibold text-[10px] text-white">
-              {item.badge}
-            </span>
+
+          <span className="flex-1 truncate">{titleText}</span>
+
+          {/* Badge and chip support */}
+          {(item.chip || item.badge !== undefined) && (
+            <div className="flex shrink-0 items-center gap-1.5">
+              {item.chip && (
+                <span className="rounded-md bg-[var(--color-primary)]/10 px-1.5 py-0.5 font-medium text-[10px] text-[var(--color-primary)]">
+                  {item.chip.label}
+                </span>
+              )}
+              {item.badge !== undefined && (
+                <span className="flex size-4.5 items-center justify-center rounded-full bg-red-500 font-semibold text-[10px] text-white">
+                  {item.badge}
+                </span>
+              )}
+            </div>
           )}
         </div>
       </LocalizedNavLink>
     );
   }
 
-  // For regular rendering in sidebar
+  // Regular sidebar rendering
   return (
     <SidebarMenuItem>
       <SidebarMenuButton
         asChild
-        tooltip={isCollapsed ? undefined : undefined}
+        tooltip={isCollapsed ? titleText : undefined}
         className={cn(
-          'relative h-fit w-full rounded-md transition-all duration-200',
-          'text-gray-700 text-sm dark:text-gray-200',
-          'hover:bg-blue-50 hover:text-blue-600',
-          'dark:hover:bg-blue-900/20 dark:hover:text-blue-400',
-          isActive &&
-            'bg-blue-100 font-medium text-blue-600 dark:bg-blue-900/40 dark:text-blue-400',
-          isCollapsed && 'h-9 w-9 justify-center p-0',
-          !isCollapsed && 'px-2'
+          'relative h-9 w-full rounded-md transition-all duration-200',
+          'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
+          // Active state - only text color
+          isActive && 'font-medium !text-[var(--color-primary)]',
+          // Inactive state
+          !isActive && 'text-gray-700 hover:!text-gray-700 dark:text-gray-200 dark:hover:!text-white',
+          // Collapsed sidebar specific styles
+          isCollapsed ? 'size-9 justify-center p-0' : 'px-2.5'
         )}
       >
         <LocalizedNavLink
@@ -106,43 +123,38 @@ export function NavItem({ item, level, inPopover = false }: NavItemProps) {
           target={isExternalLink ? '_blank' : undefined}
           rel={isExternalLink ? 'noopener noreferrer' : undefined}
         >
-          <div className={cn('flex w-full items-center gap-2', isCollapsed && 'justify-center')}>
+          <div className={cn('flex w-full items-center gap-2.5', isCollapsed && 'justify-center')}>
             {/* Icon */}
-            {!isCollapsed && item.icon && (
-              <span className="flex size-4.5 shrink-0 items-center justify-center text-gray-600 transition-colors group-hover:text-blue-600 dark:text-gray-400 dark:group-hover:text-blue-400">
-                {item.icon}
-              </span>
-            )}
-
-            {/* Icon when collapsed */}
-            {isCollapsed && item.icon && (
-              <span className="flex size-4 shrink-0 items-center justify-center text-gray-600 transition-colors group-hover:text-blue-600 dark:text-gray-400 dark:group-hover:text-blue-400">
+            {item.icon && (
+              <span
+                className={cn(
+                  'flex shrink-0 items-center justify-center transition-colors duration-200',
+                  isCollapsed ? 'size-4.5' : 'size-4',
+                  isActive && 'text-[var(--color-primary)]',
+                  !isActive && 'text-gray-500 dark:text-gray-400'
+                )}
+              >
                 {item.icon}
               </span>
             )}
 
             {/* Title */}
             {!isCollapsed && (
-              <span className="font-medium text-[13px]" title={undefined}>
+              <span className="flex-1 truncate font-medium text-[13px]">
                 {titleText}
               </span>
             )}
 
-            {/* Right side: Chip/Badge */}
+            {/* Badges and chips (only when expanded) */}
             {!isCollapsed && (item.chip || item.badge !== undefined) && (
-              <div className="flex shrink-0 items-center gap-1">
+              <div className="flex shrink-0 items-center gap-1.5">
                 {item.chip && (
-                  <span
-                    className={cn(
-                      'rounded px-1 py-0.5 font-medium text-[10px]',
-                      'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200'
-                    )}
-                  >
+                  <span className="rounded-md bg-[var(--color-primary)]/10 px-1.5 py-0.5 font-medium text-[10px] text-[var(--color-primary)]">
                     {item.chip.label}
                   </span>
                 )}
                 {item.badge !== undefined && (
-                  <span className="flex size-4 items-center justify-center rounded-full bg-red-500 font-semibold text-[10px] text-white">
+                  <span className="flex size-4.5 items-center justify-center rounded-full bg-red-500 font-semibold text-[10px] text-white">
                     {item.badge}
                   </span>
                 )}
