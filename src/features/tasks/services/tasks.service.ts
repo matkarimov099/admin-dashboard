@@ -19,7 +19,10 @@ export const taskService = {
       cleanedFilter.projectIds = undefined;
     }
 
-    const { data } = await axiosClient.post<PaginatedResponse<Task>>('/tasks/search', cleanedFilter);
+    const { data } = await axiosClient.post<PaginatedResponse<Task>>(
+      '/tasks/search',
+      cleanedFilter
+    );
     return data;
   },
 
@@ -80,12 +83,14 @@ export const taskService = {
   },
 
   unassignFromMe: async (taskId: string): Promise<ApiResponse> => {
-    const { data: response } = await axiosClient.get<ApiResponse>(`/tasks/unassign-from-me/${taskId}`);
+    const { data: response } = await axiosClient.get<ApiResponse>(
+      `/tasks/unassign-from-me/${taskId}`
+    );
     return response;
   },
 
   deleteAsset: async (assetId: string): Promise<ApiResponse> => {
     const { data: response } = await axiosClient.delete<ApiResponse>(`/tasks/assets/${assetId}`);
     return response;
-  }
+  },
 };

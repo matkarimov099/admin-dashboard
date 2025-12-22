@@ -72,21 +72,25 @@ export function SettingsPanel() {
         {/* Header */}
         <SheetHeader className="space-y-1 border-b px-4 py-3">
           <SheetTitle className="text-base">{t('settingsPanel.title')}</SheetTitle>
-          <SheetDescription className="text-xs">
-            {t('settingsPanel.description')}
-          </SheetDescription>
+          <SheetDescription className="text-xs">{t('settingsPanel.description')}</SheetDescription>
         </SheetHeader>
 
         {/* Scrollable Content */}
         <ScrollArea className="h-[calc(100vh-10.5rem)]">
           <div className="space-y-4 px-4 py-2">
             {/* Theme Mode */}
-            <SettingsSection title={t('settingsPanel.themeMode')} description={t('settingsPanel.themeModeDescription')}>
+            <SettingsSection
+              title={t('settingsPanel.themeMode')}
+              description={t('settingsPanel.themeModeDescription')}
+            >
               <ThemeModeToggle />
             </SettingsSection>
 
             {/* Layout Mode */}
-            <SettingsSection title={t('settingsPanel.layoutMode')} description={t('settingsPanel.layoutModeDescription')}>
+            <SettingsSection
+              title={t('settingsPanel.layoutMode')}
+              description={t('settingsPanel.layoutModeDescription')}
+            >
               <LayoutModePicker />
             </SettingsSection>
 

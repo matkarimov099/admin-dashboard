@@ -9,7 +9,6 @@ import { cn } from '@/utils/utils';
 
 interface NavItemProps {
   item: EnhancedMenuItemConfig;
-  level: number;
   inPopover?: boolean;
 }
 
@@ -25,7 +24,7 @@ interface NavItemProps {
  * - Role-based access control
  * - External link support
  */
-export function NavItem({ item, level, inPopover = false }: NavItemProps) {
+export function NavItem({ item, inPopover = false }: NavItemProps) {
   const { t } = useTranslation();
   const currentPath = useCurrentPath();
   const { state } = useSidebar();
@@ -47,6 +46,7 @@ export function NavItem({ item, level, inPopover = false }: NavItemProps) {
   const isActive = itemPath === currentPath;
   const isExternalLink = item.external || item.target === '_blank';
   const titleText = typeof item.title === 'string' ? t(item.title) : item.title;
+  const tooltipText = typeof item.title === 'string' ? t(item.title) : undefined;
 
   // Popover rendering (for collapsed sidebar dropdown)
   if (inPopover) {
@@ -107,7 +107,7 @@ export function NavItem({ item, level, inPopover = false }: NavItemProps) {
     <SidebarMenuItem>
       <SidebarMenuButton
         asChild
-        tooltip={isCollapsed ? titleText : undefined}
+        tooltip={isCollapsed ? tooltipText : undefined}
         className={cn(
           'relative h-fit w-full rounded-md transition-all duration-200',
           'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',

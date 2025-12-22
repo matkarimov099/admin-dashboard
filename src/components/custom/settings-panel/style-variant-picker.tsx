@@ -15,7 +15,7 @@ export function StyleVariantPicker() {
   const translatedStyleVariants = STYLE_VARIANTS.map(variant => ({
     ...variant,
     label: t(`settingsPanel.variants.styleVariant.${variant.value}`),
-    description: t(`settingsPanel.variants.styleDescriptions.${variant.value}`)
+    description: t(`settingsPanel.variants.styleDescriptions.${variant.value}`),
   }));
 
   return (

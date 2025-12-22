@@ -10,7 +10,7 @@ const ruTranslations = {
   ...auth,
   ...autoTransport,
   ...users,
-  ...navigation
+  ...navigation,
 };
 
 export default ruTranslations;

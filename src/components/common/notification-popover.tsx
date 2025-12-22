@@ -160,14 +160,14 @@ export function NotificationPopover() {
 
                   <div className="flex-1 space-y-1">
                     <p className="text-sm">{notification.title}</p>
-                    <p className="text-xs text-muted-foreground">{notification.message}</p>
-                    <p className="text-xs text-muted-foreground">{notification.time}</p>
+                    <p className="text-muted-foreground text-xs">{notification.message}</p>
+                    <p className="text-muted-foreground text-xs">{notification.time}</p>
                   </div>
 
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="absolute right-1 top-1 h-6 w-6 p-0 opacity-0 transition-opacity hover:bg-destructive/10 hover:text-destructive group-hover:opacity-100"
+                    className="absolute top-1 right-1 h-6 w-6 p-0 opacity-0 transition-opacity hover:bg-destructive/10 hover:text-destructive group-hover:opacity-100"
                     onClick={e => {
                       e.stopPropagation();
                       clearNotification(notification.id);

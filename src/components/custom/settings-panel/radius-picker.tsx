@@ -39,7 +39,7 @@ export function RadiusPicker() {
   const translatedRadiusOptions = BORDER_RADIUS_OPTIONS.map(radius => ({
     ...radius,
     label: t(`settingsPanel.variants.radius.${radius.value}`),
-    description: t(`settingsPanel.variants.radiusDescriptions.${radius.value}`)
+    description: t(`settingsPanel.variants.radiusDescriptions.${radius.value}`),
   }));
 
   return (

@@ -10,7 +10,7 @@ const uzCyrlTranslations = {
   ...auth,
   ...autoTransport,
   ...users,
-  ...navigation
+  ...navigation,
 };
 
 export default uzCyrlTranslations;

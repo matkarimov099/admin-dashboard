@@ -21,7 +21,9 @@ export const useGetColumns = (
     },
     {
       accessorKey: 'fullName',
-      header: ({ column }) => <DataTableColumnHeader column={column} title={t('users.labels.fullName')} />,
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title={t('users.labels.fullName')} />
+      ),
       cell: ({ row }) => (
         <div className="truncate text-left font-medium">
           {`${row.original.firstName} ${row.original.lastName}`}
@@ -31,7 +33,9 @@ export const useGetColumns = (
     },
     {
       accessorKey: 'email',
-      header: ({ column }) => <DataTableColumnHeader column={column} title={t('users.labels.email')} />,
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title={t('users.labels.email')} />
+      ),
       cell: ({ row }) => {
         return (
           <div className="flex space-x-2 truncate">
@@ -43,7 +47,9 @@ export const useGetColumns = (
     },
     {
       accessorKey: 'username',
-      header: ({ column }) => <DataTableColumnHeader column={column} title={t('users.labels.username')} />,
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title={t('users.labels.username')} />
+      ),
       cell: ({ row }) => {
         return (
           <div className="flex items-center truncate">
@@ -55,7 +61,9 @@ export const useGetColumns = (
     },
     {
       accessorKey: 'position',
-      header: ({ column }) => <DataTableColumnHeader column={column} title={t('users.labels.position')} />,
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title={t('users.labels.position')} />
+      ),
       cell: ({ row }) => {
         return <div className="max-w-full truncate text-left">{row.original?.position}</div>;
       },
@@ -63,7 +71,9 @@ export const useGetColumns = (
     },
     {
       accessorKey: 'role',
-      header: ({ column }) => <DataTableColumnHeader column={column} title={t('users.labels.role')} />,
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title={t('users.labels.role')} />
+      ),
       cell: ({ row }) => {
         return <div className="max-w-full truncate text-left">{row.original.role}</div>;
       },
@@ -71,7 +81,9 @@ export const useGetColumns = (
     },
     {
       accessorKey: 'createdAt',
-      header: ({ column }) => <DataTableColumnHeader column={column} title={t('users.labels.createdAt')} />,
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title={t('users.labels.createdAt')} />
+      ),
       cell: ({ row }) => {
         return (
           <div className="max-w-full truncate text-left">
@@ -83,7 +95,9 @@ export const useGetColumns = (
     },
     {
       id: 'actions',
-      header: ({ column }) => <DataTableColumnHeader column={column} title={t('common.table.actions')} />,
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title={t('common.table.actions')} />
+      ),
       cell: ({ row, table }) => <DataTableRowActions row={row} table={table} />,
       size: 100,
     },

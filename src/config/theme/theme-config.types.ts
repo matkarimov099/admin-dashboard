@@ -6,14 +6,7 @@
 export type StyleVariant = 'vega' | 'nova' | 'maia' | 'mira';
 
 // Theme Colors (accent colors for interactive elements)
-export type ThemeColor =
-  | 'gray'
-  | 'blue'
-  | 'indigo'
-  | 'orange'
-  | 'purple'
-  | 'rose'
-  | 'teal';
+export type ThemeColor = 'gray' | 'blue' | 'indigo' | 'orange' | 'purple' | 'rose' | 'teal';
 
 // Font Families
 export type FontFamily = 'inter' | 'noto-sans' | 'nunito-sans' | 'figtree';

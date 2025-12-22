@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+import { useTranslation } from 'react-i18next';
 import { LazyComponent } from '@/components/common/lazy-component.tsx';
 import { DataTable } from '@/components/data-table/data-table.tsx';
 import { useGetColumns } from '@/features/users/components/Columns.tsx';
@@ -6,11 +7,10 @@ import type { User } from '@/features/users/types.ts';
 import { useExportConfig } from '@/features/users/utils/config.ts';
 import { usersTableConfig } from '@/features/users/utils/table-config.ts';
 import { useUsersData } from '../utils/data-fetching';
-import {useTranslation} from "react-i18next";
 
 const ToolbarOptions = lazy(() => import('@/features/users/components/ToolbarOptions.tsx'));
 const UsersTable = () => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const {
     users,
     total,

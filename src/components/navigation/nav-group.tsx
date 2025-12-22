@@ -8,7 +8,6 @@ import { NavItem } from './nav-item';
 
 interface NavGroupProps {
   group: MenuGroupConfig;
-  level?: number;
 }
 
 /**
@@ -17,7 +16,7 @@ interface NavGroupProps {
  *
  * Groups are top-level sections with headers that contain menu items
  */
-export function NavGroup({ group, level = 0 }: NavGroupProps) {
+export function NavGroup({ group }: NavGroupProps) {
   const { t } = useTranslation();
   const { state } = useSidebar();
   const isCollapsed = state === 'collapsed';
@@ -32,7 +31,7 @@ export function NavGroup({ group, level = 0 }: NavGroupProps) {
       {showLabel && (
         <SidebarGroupLabel
           className={cn(
-            'mb-1 px-2 py-2 font-semibold text-xs uppercase tracking-wide transition-colors duration-150',
+            'mb-1 px-2 py-2 font-bold text-xs uppercase tracking-wide transition-colors duration-150',
             'text-gray-500 dark:text-gray-500'
           )}
         >
@@ -41,7 +40,7 @@ export function NavGroup({ group, level = 0 }: NavGroupProps) {
       )}
 
       <SidebarMenu className="space-y-0.5 px-0">
-        {group.children?.map(item => renderMenuItem(item, level))}
+        {group.children?.map(item => renderMenuItem(item))}
       </SidebarMenu>
     </SidebarGroup>
   );
@@ -50,15 +49,15 @@ export function NavGroup({ group, level = 0 }: NavGroupProps) {
 /**
  * Helper function to render menu items based on type
  */
-function renderMenuItem(item: EnhancedMenuItemConfig, level: number) {
+function renderMenuItem(item: EnhancedMenuItemConfig) {
   switch (item.type) {
     case 'collapse':
-      return <NavCollapse key={item.id} item={item} level={level} />;
+      return <NavCollapse key={item.id} item={item} />;
     case 'item':
-      return <NavItem key={item.id} item={item} level={level} />;
+      return <NavItem key={item.id} item={item} />;
     case 'group':
       // Nested groups are treated as collapses in most cases
-      return <NavCollapse key={item.id} item={item} level={level} />;
+      return <NavCollapse key={item.id} item={item} />;
     default:
       console.warn(`Unknown menu item type for item:`, item);
       return null;

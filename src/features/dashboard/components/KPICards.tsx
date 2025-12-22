@@ -1,7 +1,7 @@
 import { Activity, Clock, FolderKanban, TrendingUp, Users } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
 import { Typography } from '@/components/ui/typography';
-import { useTranslation } from 'react-i18next';
 import type { DashboardKPIs } from '@/features/dashboard/types';
 
 interface KPICardsProps {

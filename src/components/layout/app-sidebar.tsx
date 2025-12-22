@@ -3,7 +3,7 @@ import type * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { LocalizedNavLink } from '@/components/layout/localized-nav-link';
-import { NavMainEnhanced } from '@/components/navigation/nav-main-enhanced.tsx';
+import { NavMainEnhanced } from '@/components/navigation/nav-main.tsx';
 import { NavSecondary } from '@/components/navigation/nav-secondary.tsx';
 import { NavUser } from '@/components/navigation/nav-user.tsx';
 import {

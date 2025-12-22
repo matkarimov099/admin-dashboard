@@ -1,6 +1,6 @@
 import { BadgeCheck, CreditCard, LogOut, Sparkles, User } from 'lucide-react';
-import { NavLink } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
@@ -29,7 +29,9 @@ export function ProfileDropdown() {
             <div className="relative flex h-full w-full items-center justify-center">
               <User className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" />
             </div>
-            <span className="sr-only">{t('common.entities.profile')} {t('common.ui.menu')}</span>
+            <span className="sr-only">
+              {t('common.entities.profile')} {t('common.ui.menu')}
+            </span>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-56" sideOffset={4}>

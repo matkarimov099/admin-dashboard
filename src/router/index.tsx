@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router';
-import { ChunkErrorBoundary } from '@/components/common/chunk-error-boundary.tsx';
-import { NotAccess } from '@/components/common/not-access';
-import { NotFound } from '@/components/common/not-found.tsx';
 import {
   AuthLayoutWrapper,
   MainLayoutWrapper,
   RootRedirect,
 } from '@/components/auth/router-components.tsx';
+import { ChunkErrorBoundary } from '@/components/common/chunk-error-boundary.tsx';
+import { NotAccess } from '@/components/common/not-access';
+import { NotFound } from '@/components/common/not-found.tsx';
 import { authRoutes } from '@/router/auth-routes.tsx';
 import { mainRoutes } from '@/router/main-routes.tsx';
 

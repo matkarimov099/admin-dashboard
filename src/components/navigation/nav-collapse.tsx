@@ -12,7 +12,6 @@ import { NavItem } from './nav-item';
 
 interface NavCollapseProps {
   item: EnhancedMenuItemConfig;
-  level: number;
 }
 
 /**
@@ -27,23 +26,13 @@ interface NavCollapseProps {
  * - Role-based access control
  * - Clean visual hierarchy
  */
-export function NavCollapse({ item, level }: NavCollapseProps) {
+export function NavCollapse({ item }: NavCollapseProps) {
   const { t } = useTranslation();
   const currentPath = useCurrentPath();
   const { state } = useSidebar();
   const { hasRole } = useAuthContext();
   const isCollapsed = state === 'collapsed';
   const [isOpen, setIsOpen] = useState(false);
-
-  // Role-based access control
-  if (item.roles && item.roles.length > 0 && !hasRole(item.roles)) {
-    return null;
-  }
-
-  // Don't render disabled items
-  if (item.disabled) {
-    return null;
-  }
 
   // Get children (support both 'children' and 'items' properties)
   const children = item.children || item.items || [];
@@ -55,11 +44,6 @@ export function NavCollapse({ item, level }: NavCollapseProps) {
     }
     return !child.disabled;
   });
-
-  // Don't render if no visible children
-  if (visibleChildren.length === 0) {
-    return null;
-  }
 
   // Check if any child is active (recursive)
   const hasActiveChild = (items: EnhancedMenuItemConfig[]): boolean => {
@@ -79,18 +63,34 @@ export function NavCollapse({ item, level }: NavCollapseProps) {
 
   const isParentActive = hasActiveChild(visibleChildren);
   const titleText = typeof item.title === 'string' ? t(item.title) : item.title;
+  const tooltipText = typeof item.title === 'string' ? t(item.title) : undefined;
 
   // Auto-expand when parent is active (contains active child)
   useEffect(() => {
     if (isParentActive && !isCollapsed) {
       setIsOpen(true);
     }
-  }, [isParentActive, currentPath, isCollapsed]);
+  }, [isParentActive, isCollapsed]);
 
   // Toggle collapse/expand
   const toggleOpen = () => {
     setIsOpen(prev => !prev);
   };
+
+  // Role-based access control - checked after all hooks
+  if (item.roles && item.roles.length > 0 && !hasRole(item.roles)) {
+    return null;
+  }
+
+  // Don't render disabled items
+  if (item.disabled) {
+    return null;
+  }
+
+  // Don't render if no visible children
+  if (visibleChildren.length === 0) {
+    return null;
+  }
 
   // Popover rendering (for collapsed sidebar)
   if (isCollapsed) {
@@ -99,11 +99,11 @@ export function NavCollapse({ item, level }: NavCollapseProps) {
         <Popover>
           <PopoverTrigger asChild>
             <SidebarMenuButton
-              tooltip={titleText}
+              tooltip={tooltipText}
               className={cn(
                 'relative size-9 rounded-md p-0 transition-all duration-200',
                 'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
-                'text-gray-700 hover:!text-gray-700 dark:text-gray-200 dark:hover:!text-white'
+                'hover:!text-gray-700 dark:hover:!text-white text-gray-700 dark:text-gray-200'
               )}
             >
               <div
@@ -124,7 +124,7 @@ export function NavCollapse({ item, level }: NavCollapseProps) {
             className="w-56 rounded-lg border border-gray-200 p-2 shadow-lg dark:border-gray-700"
           >
             {/* Popover header */}
-            <div className="mb-2 border-b border-gray-200 pb-2 dark:border-gray-700">
+            <div className="mb-2 border-gray-200 border-b pb-2 dark:border-gray-700">
               <div className="flex items-center gap-2 px-1.5 text-xs">
                 {item.icon && (
                   <span className="flex size-3.5 shrink-0 items-center justify-center text-gray-500 dark:text-gray-400">
@@ -139,7 +139,7 @@ export function NavCollapse({ item, level }: NavCollapseProps) {
 
             {/* Popover children */}
             <div className="space-y-1">
-              {visibleChildren.map(child => renderChildItem(child, level + 1, true))}
+              {visibleChildren.map(child => renderChildItem(child, true))}
             </div>
           </PopoverContent>
         </Popover>
@@ -155,7 +155,7 @@ export function NavCollapse({ item, level }: NavCollapseProps) {
         className={cn(
           'relative h-9 w-full cursor-pointer rounded-md px-2.5 py-2 transition-all duration-200',
           'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
-          'text-gray-700 hover:!text-gray-700 dark:text-gray-200 dark:hover:!text-white'
+          'hover:!text-gray-700 dark:hover:!text-white text-gray-700 dark:text-gray-200'
         )}
       >
         <div className="flex w-full items-center justify-between gap-2.5">
@@ -210,8 +210,8 @@ export function NavCollapse({ item, level }: NavCollapseProps) {
 
       {/* Nested children */}
       {isOpen && (
-        <SidebarMenuSub className="ml-2.5 mt-1 space-y-1 border-l border-gray-200 pl-2.5 dark:border-gray-700">
-          {visibleChildren.map(child => renderChildItem(child, level + 1, false))}
+        <SidebarMenuSub className="mt-1 ml-2.5 space-y-1 border-gray-200 border-l pl-2.5 dark:border-gray-700">
+          {visibleChildren.map(child => renderChildItem(child, false))}
         </SidebarMenuSub>
       )}
     </SidebarMenuItem>
@@ -222,14 +222,10 @@ export function NavCollapse({ item, level }: NavCollapseProps) {
  * Helper function to render child items
  * Handles both collapse and item types recursively
  */
-function renderChildItem(
-  child: EnhancedMenuItemConfig,
-  level: number,
-  inPopover: boolean
-): React.ReactNode {
+function renderChildItem(child: EnhancedMenuItemConfig, inPopover: boolean): React.ReactNode {
   // Popover rendering - simplified structure
   if (inPopover) {
-    // If child has nested children, show as a sub-group
+    // If child has nested children, show as a subgroup
     if (child.type === 'collapse' || child.children || child.items) {
       const nestedChildren = child.children || child.items || [];
       return (
@@ -243,27 +239,27 @@ function renderChildItem(
 
           {/* Sub-group items */}
           {nestedChildren.map(nested => (
-            <NavItem key={nested.id} item={nested} level={level} inPopover={true} />
+            <NavItem key={nested.id} item={nested} inPopover={true} />
           ))}
         </div>
       );
     }
 
     // Regular item in popover
-    return <NavItem key={child.id} item={child} level={level} inPopover={true} />;
+    return <NavItem key={child.id} item={child} inPopover={true} />;
   }
 
   // Regular sidebar rendering - determine type
   switch (child.type) {
     case 'collapse':
-      return <NavCollapse key={child.id} item={child} level={level} />;
+      return <NavCollapse key={child.id} item={child} />;
     case 'item':
-      return <NavItem key={child.id} item={child} level={level} />;
+      return <NavItem key={child.id} item={child} />;
     default:
       // Auto-detect type based on children presence
       if (child.children || child.items) {
-        return <NavCollapse key={child.id} item={child} level={level} />;
+        return <NavCollapse key={child.id} item={child} />;
       }
-      return <NavItem key={child.id} item={child} level={level} />;
+      return <NavItem key={child.id} item={child} />;
   }
 }

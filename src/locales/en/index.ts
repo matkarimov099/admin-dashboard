@@ -10,7 +10,7 @@ const enTranslations = {
   ...auth,
   ...autoTransport,
   ...users,
-  ...navigation
+  ...navigation,
 };
 
 export default enTranslations;
