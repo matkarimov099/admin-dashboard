@@ -38,7 +38,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarHeader
         className={cn(
           'p-3 transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
-          isCollapsed && 'flex items-center justify-center p-2'
+          isCollapsed && 'flex items-center justify-center p-1.5'
         )}
       >
         <SidebarMenu>
