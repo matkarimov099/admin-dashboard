@@ -1,4 +1,4 @@
-import { CheckIcon, MonitorIcon, MoonIcon, SunIcon } from 'lucide-react';
+import { MonitorIcon, MoonIcon, SunIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button.tsx';
 import {
@@ -72,7 +72,7 @@ export function ModeToggle() {
                   <Icon className="h-4! w-4!" />
                   <span className="font-medium text-sm">{option.label}</span>
                 </div>
-                {isSelected && <CheckIcon className="h-4 w-4" />}
+                {/*{isSelected && <CheckIcon className="h-4 w-4" />}*/}
               </DropdownMenuItem>
             );
           })}

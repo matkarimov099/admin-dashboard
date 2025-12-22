@@ -1,4 +1,3 @@
-import { CheckIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import enFlag from '@/assets/en.svg';
 import ruFlag from '@/assets/ru.svg';
@@ -72,9 +71,9 @@ export function LanguageSwitcher() {
                 />
                 <span className="font-medium text-sm">{language.nativeName}</span>
               </div>
-              {(i18n.resolvedLanguage || i18n.language) === language.code && (
-                <CheckIcon className="h-4 w-4" />
-              )}
+              {/*{(i18n.resolvedLanguage || i18n.language) === language.code && (*/}
+              {/*  <CheckIcon className="h-4 w-4" />*/}
+              {/*)}*/}
             </DropdownMenuItem>
           ))}
         </DropdownMenuContent>
