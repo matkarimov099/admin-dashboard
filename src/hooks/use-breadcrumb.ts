@@ -1,11 +1,8 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import type {
-  SidebarFooterItem,
-  SidebarMenuItem,
-  SidebarSubMenuItem,
-} from '@/config/navigation/sidebar-menu';
-import { footerMenuItems, mainMenuItems } from '@/config/navigation/sidebar-menu';
+import menuItems, { hiddenRoutes } from '@/config/navigation/modules/index';
+import type { MenuItemConfig } from '@/types/navigation';
+import type { BreadcrumbPathItem } from '@/types/breadcrumb';
 import { useCurrentPath } from '@/hooks/use-current-path.ts';
 
 interface BreadcrumbItem {
@@ -14,11 +11,41 @@ interface BreadcrumbItem {
   isActive: boolean;
 }
 
+/**
+ * Recursively search for a path in the menu structure
+ * Returns the full breadcrumb path if found
+ */
+function findBreadcrumbPath(
+  items: MenuItemConfig[],
+  targetPath: string,
+  currentPath: BreadcrumbPathItem[] = []
+): BreadcrumbPathItem[] | null {
+  for (const item of items) {
+    // Check if this item matches the target path
+    if (item.path === targetPath) {
+      return [...currentPath, { item, path: item.path || '', level: currentPath.length }];
+    }
+
+    // Check children (nested items)
+    const children = item.children || item.items;
+    if (children && children.length > 0) {
+      const result = findBreadcrumbPath(children, targetPath, [
+        ...currentPath,
+        { item, path: item.path || '', level: currentPath.length },
+      ]);
+      if (result) {
+        return result;
+      }
+    }
+  }
+
+  return null;
+}
+
 export const useBreadcrumb = () => {
   const { t } = useTranslation();
   const currentPath = useCurrentPath();
   const breadcrumbItems = useMemo(() => {
-    // Get the current path
     const items: BreadcrumbItem[] = [];
 
     // Always start with "Project"
@@ -28,65 +55,29 @@ export const useBreadcrumb = () => {
       isActive: false,
     });
 
-    // Find the current page in the menu structure
-    let foundItem: SidebarMenuItem | SidebarSubMenuItem | SidebarFooterItem | null = null;
-    let parentItem: SidebarMenuItem | null = null;
+    // Collect all menu items to search
+    const allMenuItems: MenuItemConfig[] = [...menuItems.items, ...hiddenRoutes];
 
-    // First, check main menu items (which can have subitems)
-    for (const menuItem of mainMenuItems) {
-      // Check if the current path matches a main menu item directly
-      if (menuItem.url && menuItem.url === currentPath) {
-        foundItem = menuItem;
-        break;
-      }
+    // Find the breadcrumb path for current route
+    const breadcrumbPath = findBreadcrumbPath(allMenuItems, currentPath);
 
-      // Special case for a root path ("/") - should match Dashboard
-      if (currentPath === '/' && menuItem.url === '') {
-        foundItem = menuItem;
-        break;
-      }
+    if (breadcrumbPath && breadcrumbPath.length > 0) {
+      // Build breadcrumbs from the path
+      for (let i = 0; i < breadcrumbPath.length; i++) {
+        const { item, path } = breadcrumbPath[i];
 
-      // Check if the current path matches a subitem
-      if (menuItem.items) {
-        for (const subItem of menuItem.items) {
-          if (subItem.url === currentPath) {
-            foundItem = subItem;
-            parentItem = menuItem;
-            break;
-          }
-        }
-        if (foundItem) break;
-      }
-    }
+        // Skip items without breadcrumbs flag or without a path/url
+        if (item.breadcrumbs === false) continue;
 
-    // If not found in the main menu, check footer menu items
-    if (!foundItem) {
-      for (const menuItem of footerMenuItems) {
-        if (menuItem.url && menuItem.url === currentPath) {
-          foundItem = menuItem;
-          break;
-        }
-      }
-    }
+        // Get title - use translation if it's a string key
+        const title = typeof item.title === 'string' ? t(item.title) : String(item.title);
 
-    if (foundItem) {
-      // If we found a parent item (subitem case)
-      if (parentItem) {
-        // Add a parent menu item
-        // Special handling for Dashboard (empty URL)
-        const parentUrl = parentItem.url === '' ? '/' : parentItem.url;
         items.push({
-          title: parentItem.title,
-          url: parentUrl,
-          isActive: false,
+          title,
+          url: path || undefined, // Only add URL if a path exists
+          isActive: i === breadcrumbPath.length - 1, // The last item is active
         });
       }
-
-      // Add current page
-      items.push({
-        title: t(foundItem.title),
-        isActive: true,
-      });
     } else {
       // Fallback: if no match found, use path segments
       const pathSegments = currentPath.split('/').filter(Boolean);
@@ -102,7 +93,7 @@ export const useBreadcrumb = () => {
       } else {
         // Root path - show Dashboard
         items.push({
-          title: t('common.navigation.dashboard'),
+          title: t('navigation.dashboard.title'),
           isActive: true,
         });
       }

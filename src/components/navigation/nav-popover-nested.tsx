@@ -1,7 +1,7 @@
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import type { MenuItemConfig } from '@/config/navigation/types/menu';
+import type { MenuItemConfig } from '@/types/navigation';
 import { cn } from '@/utils/utils';
 
 interface NavPopoverNestedProps {

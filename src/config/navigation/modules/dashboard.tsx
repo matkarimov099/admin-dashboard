@@ -1,6 +1,6 @@
 import { BarChart3, ChartNoAxesCombinedIcon, Home } from 'lucide-react';
 import { lazy } from 'react';
-import type { MenuItemConfig } from '../types/menu';
+import type { MenuItemConfig } from '@/types/navigation';
 
 /**
  * Dashboard menu section
@@ -12,7 +12,7 @@ const dashboard: MenuItemConfig = {
   type: 'collapse',
   icon: <ChartNoAxesCombinedIcon />,
   roles: [], // Accessible to all authenticated users
-  children: [
+  items: [
     {
       id: 'dashboard-overview',
       title: 'navigation.dashboard.overview.title',

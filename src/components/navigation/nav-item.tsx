@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { LocalizedNavLink } from '@/components/layout/localized-nav-link.tsx';
 import { SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar.tsx';
-import type { MenuItemConfig } from '@/config/navigation/types/menu';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
 import { useCurrentPath } from '@/hooks/use-current-path.ts';
 import { useSidebar } from '@/hooks/use-sidebar';
+import type { MenuItemConfig } from '@/types/navigation';
 import { cn } from '@/utils/utils';
 
 interface NavItemProps {
@@ -72,8 +72,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
             <span
               className={cn(
                 'flex size-5 shrink-0 items-center justify-center transition-colors duration-200',
-                isActive && 'text-[var(--color-primary)]',
-                !isActive && 'text-gray-500 dark:text-gray-400'
+                isActive && 'text-[var(--color-primary)]'
               )}
             >
               {item.icon}
@@ -132,8 +131,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
                 className={cn(
                   'flex shrink-0 items-center justify-center transition-colors duration-200',
                   isCollapsed ? 'size-6' : 'size-5',
-                  isActive && 'text-[var(--color-primary)]',
-                  !isActive && 'text-gray-500 dark:text-gray-400'
+                  isActive && 'text-[var(--color-primary)]'
                 )}
               >
                 {item.icon}

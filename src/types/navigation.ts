@@ -1,5 +1,5 @@
 import type { ComponentType, ReactNode } from 'react';
-import type { Role } from '@/types/common.ts';
+import type { Role } from './common';
 
 /**
  * Menu item types

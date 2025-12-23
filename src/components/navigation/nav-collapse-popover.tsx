@@ -1,6 +1,6 @@
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar.tsx';
-import type { MenuItemConfig } from '@/config/navigation/types/menu';
+import type { MenuItemConfig } from '@/types/navigation';
 import { cn } from '@/utils/utils';
 
 interface NavCollapsePopoverProps {

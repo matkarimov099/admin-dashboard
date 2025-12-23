@@ -14,7 +14,7 @@ import {
   ZapIcon,
 } from 'lucide-react';
 import { lazy } from 'react';
-import type { MenuGroupConfig } from '../types/menu';
+import type { MenuGroupConfig } from '@/types/navigation';
 
 /**
  * Export/Import/Transit operations menu group

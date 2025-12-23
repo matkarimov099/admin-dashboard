@@ -2,7 +2,7 @@ import { ChevronDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SidebarMenuButton, SidebarMenuItem, SidebarMenuSub } from '@/components/ui/sidebar.tsx';
-import type { MenuItemConfig } from '@/config/navigation/types/menu';
+import type { MenuItemConfig } from '@/types/navigation';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
 import { useCurrentPath } from '@/hooks/use-current-path.ts';
 import { useSidebar } from '@/hooks/use-sidebar';

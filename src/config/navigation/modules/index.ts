@@ -1,4 +1,4 @@
-import type { MenuConfig } from '../types/menu';
+import type { MenuConfig } from '@/types/navigation';
 // Import only necessary menu sections
 import dashboard from './dashboard';
 import exportImportTransit from './export-import-transit';

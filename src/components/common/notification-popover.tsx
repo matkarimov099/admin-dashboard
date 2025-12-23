@@ -113,7 +113,7 @@ export function NotificationPopover() {
           <span className="sr-only">{t('navigation.notifications.title')}</span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent align="end" className="w-84 p-0" sideOffset={4}>
+      <PopoverContent align="center" className="w-84 p-0" sideOffset={4}>
         <div className="flex items-center justify-between border-b p-3">
           <h4 className="font-semibold">{t('navigation.notifications.title')}</h4>
           {unreadCount > 0 && (

@@ -2,7 +2,7 @@ import type { RouteObject } from 'react-router';
 import { ProtectedRoute } from '@/components/auth/router-components.tsx';
 import { LazyComponent } from '@/components/common/lazy-component.tsx';
 import { PageTitle } from '@/components/custom/page-title.tsx';
-import type { MenuItemConfig } from '../types/menu';
+import type { MenuItemConfig } from '@/types/navigation';
 import menuItems from './index';
 import { hiddenRoutes } from './index';
 

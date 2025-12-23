@@ -2,6 +2,8 @@ import { ChevronDown, Menu } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router';
+import logo from '@/assets/logo.png';
+import { LocalizedNavLink } from '@/components/layout/localized-nav-link';
 import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -10,7 +12,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import menuItems from '@/config/navigation/modules';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
 import { useCurrentPath } from '@/hooks/use-current-path.ts';
-import type { MenuItemConfig, MenuGroupConfig } from '@/config/navigation/types/menu';
+import type { MenuGroupConfig, MenuItemConfig } from '@/types/navigation';
 import { cn } from '@/utils/utils';
 
 /**
@@ -80,7 +82,8 @@ function HorizontalNavNestedItem({
             className={cn(
               'flex cursor-pointer items-center justify-between gap-2.5 rounded-md px-2.5 py-2 text-sm transition-all duration-200',
               isActive && 'bg-(--color-primary)/10 font-semibold text-(--color-primary)',
-              !isActive && 'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
+              !isActive &&
+                'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
               'hover:!text-gray-700 dark:hover:!text-white text-gray-700 dark:text-gray-200'
             )}
             onMouseEnter={handleMouseEnter}
@@ -88,7 +91,7 @@ function HorizontalNavNestedItem({
           >
             <div className="flex min-w-0 flex-1 items-center gap-2.5">
               {item.icon && (
-                <span className="flex size-5 shrink-0 items-center justify-center text-gray-500 dark:text-gray-400">
+                <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">
                   {item.icon}
                 </span>
               )}
@@ -96,7 +99,7 @@ function HorizontalNavNestedItem({
             </div>
             <ChevronDown
               className={cn(
-                'size-4.5 shrink-0 text-gray-400 transition-transform duration-200 dark:text-gray-500',
+                'size-4 shrink-0 text-gray-400 transition-transform duration-200 dark:text-gray-500',
                 isOpen ? 'rotate-0' : '-rotate-90'
               )}
             />
@@ -106,7 +109,7 @@ function HorizontalNavNestedItem({
         <PopoverContent
           side="right"
           align="start"
-          className="min-w-48 max-w-64 rounded-lg border border-gray-200 p-2 shadow-lg dark:border-gray-700"
+          className="w-fit rounded-lg border border-gray-200 p-2 shadow-lg dark:border-gray-700"
           onOpenAutoFocus={e => e.preventDefault()}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -115,7 +118,7 @@ function HorizontalNavNestedItem({
           <div className="mb-2 border-gray-200 border-b pb-1.5 dark:border-gray-700">
             <div className="flex items-center gap-2 px-1.5 py-1 text-xs">
               {item.icon && (
-                <span className="flex size-4.5 shrink-0 items-center justify-center text-gray-500 dark:text-gray-400">
+                <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">
                   {item.icon}
                 </span>
               )}
@@ -156,7 +159,7 @@ function HorizontalNavNestedItem({
     >
       <div className="flex min-w-0 flex-1 items-center gap-2.5">
         {item.icon && (
-          <span className="flex size-5 shrink-0 items-center justify-center text-gray-500 dark:text-gray-400">
+          <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">
             {item.icon}
           </span>
         )}
@@ -195,7 +198,10 @@ export function HorizontalNav() {
   const filteredMenuItems = filterMenuItems(menuItems.items);
 
   // Check if this item or any of its subitems is active
-  const isItemActive = (item: MenuItemConfig | MenuGroupConfig, path: string = currentPath): boolean => {
+  const isItemActive = (
+    item: MenuItemConfig | MenuGroupConfig,
+    path: string = currentPath
+  ): boolean => {
     if ('path' in item && item.path === path) return true;
     if ('url' in item && item.url === path) return true;
     if ('children' in item) {
@@ -211,7 +217,6 @@ export function HorizontalNav() {
   const renderMenuGroupPopover = (group: MenuGroupConfig) => {
     const isActive = isItemActive(group);
     const titleText = typeof group.title === 'string' ? t(group.title) : group.title;
-    const captionText = typeof group.caption === 'string' ? t(group.caption) : group.caption;
 
     // Filter children by roles
     const visibleChildren = group.children.filter(child => {
@@ -233,40 +238,43 @@ export function HorizontalNav() {
             )}
           >
             <div className="flex items-center gap-2">
-              {group.icon && <div className="shrink-0">{group.icon}</div>}
+              {group.icon && (
+                <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">
+                  {group.icon}
+                </span>
+              )}
               <span>{titleText}</span>
             </div>
             <ChevronDown className="h-4 w-4 shrink-0" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent align="start" className="min-w-56 max-w-80 p-0" sideOffset={4}>
+        <PopoverContent align="start" className="w-fit p-0" sideOffset={4}>
           <div className="p-2">
             {/* Header with icon and title */}
-            <div className="flex items-center gap-2 px-2 py-2 mb-1">
-                {group.icon && <div className="shrink-0">{group.icon}</div>}
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium">{titleText}</p>
-                  {captionText && (
-                    <p className="text-muted-foreground text-xs truncate">{captionText}</p>
-                  )}
-                </div>
-              </div>
-              <Separator className="mb-2" />
-              {/* Children with nested popover support */}
-              <ScrollArea className="max-h-80">
-                <div className="space-y-1">
-                  {visibleChildren.map(child => (
-                    <HorizontalNavNestedItem
-                      key={child.id}
-                      item={child}
-                      t={t}
-                      currentPath={currentPath}
-                      hasRole={hasRole}
-                    />
-                  ))}
-                </div>
-              </ScrollArea>
+            <div className="mb-1 flex items-center gap-2 px-2 py-2">
+              {group.icon && (
+                <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">
+                  {group.icon}
+                </span>
+              )}
+              <p className="font-medium text-sm">{titleText}</p>
             </div>
+            <Separator className="mb-2" />
+            {/* Children with nested popover support */}
+            <ScrollArea className="max-h-80">
+              <div className="space-y-1">
+                {visibleChildren.map(child => (
+                  <HorizontalNavNestedItem
+                    key={child.id}
+                    item={child}
+                    t={t}
+                    currentPath={currentPath}
+                    hasRole={hasRole}
+                  />
+                ))}
+              </div>
+            </ScrollArea>
+          </div>
         </PopoverContent>
       </Popover>
     );
@@ -298,18 +306,22 @@ export function HorizontalNav() {
               )}
             >
               <div className="flex items-center gap-2">
-                {item.icon && <div className="shrink-0">{item.icon}</div>}
+                {item.icon && (
+                  <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">
+                    {item.icon}
+                  </span>
+                )}
                 <span>{titleText}</span>
               </div>
               <ChevronDown className="h-4 w-4 shrink-0" />
             </Button>
           </PopoverTrigger>
-          <PopoverContent align="start" className="min-w-48 max-w-72 p-2" sideOffset={4}>
+          <PopoverContent align="start" className="w-fit p-2" sideOffset={4}>
             {/* Header */}
             <div className="mb-2 border-gray-200 border-b pb-1.5 dark:border-gray-700">
               <div className="flex items-center gap-2 px-1.5 py-1 text-xs">
                 {item.icon && (
-                  <span className="flex size-4.5 shrink-0 items-center justify-center text-gray-500 dark:text-gray-400">
+                  <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">
                     {item.icon}
                   </span>
                 )}
@@ -349,7 +361,11 @@ export function HorizontalNav() {
       >
         <NavLink to={item.path || item.url || '#'}>
           <div className="flex items-center gap-2">
-            {item.icon && <div className="shrink-0">{item.icon}</div>}
+            {item.icon && (
+              <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">
+                {item.icon}
+              </span>
+            )}
             <span>{titleText}</span>
           </div>
         </NavLink>
@@ -376,7 +392,11 @@ export function HorizontalNav() {
               'text-foreground'
             )}
           >
-            {item.icon && <div className="shrink-0">{item.icon}</div>}
+            {item.icon && (
+              <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">
+                {item.icon}
+              </span>
+            )}
             <span>{titleText}</span>
           </div>
           <div className="mt-1 space-y-1">
@@ -414,7 +434,11 @@ export function HorizontalNav() {
               'text-foreground'
             )}
           >
-            {item.icon && <div className="shrink-0">{item.icon}</div>}
+            {item.icon && (
+              <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">
+                {item.icon}
+              </span>
+            )}
             <span>{titleText}</span>
           </div>
           <div className="mt-1 space-y-1">
@@ -431,13 +455,15 @@ export function HorizontalNav() {
         to={item.path || item.url || '#'}
         className={cn(
           'flex items-center gap-3 rounded-lg px-3 py-2 font-medium transition-colors',
-          isActive
-            ? 'bg-(--color-primary) text-white'
-            : 'text-foreground hover:bg-accent'
+          isActive ? 'bg-(--color-primary) text-white' : 'text-foreground hover:bg-accent'
         )}
         onClick={() => setMobileMenuOpen(false)}
       >
-        {item.icon && <div className="shrink-0">{item.icon}</div>}
+        {item.icon && (
+          <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">
+            {item.icon}
+          </span>
+        )}
         <span>{titleText}</span>
       </NavLink>
     );
@@ -446,17 +472,35 @@ export function HorizontalNav() {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden items-center space-x-1 md:flex">
-        {filteredMenuItems.map(item => {
-          if (item.type === 'group') {
-            return renderMenuGroupPopover(item as MenuGroupConfig);
-          }
-          if (item.type === 'collapse') {
+      <nav className="hidden items-center gap-4 md:flex">
+        {/* Logo */}
+        <LocalizedNavLink
+          to="/"
+          className="flex items-center gap-2.5 transition-all duration-300 hover:opacity-80"
+        >
+          <div className="relative flex size-10 shrink-0 items-center justify-center rounded-md">
+            <img src={logo} alt={t('app.name')} className="size-10 object-contain" />
+          </div>
+          <span className="truncate font-bold font-sans text-(--color-primary) text-base tracking-wide">
+            {t('app.name')}
+          </span>
+        </LocalizedNavLink>
+
+        <Separator orientation="vertical" className="h-6" />
+
+        {/* Menu Items */}
+        <div className="flex items-center space-x-1">
+          {filteredMenuItems.map(item => {
+            if (item.type === 'group') {
+              return renderMenuGroupPopover(item as MenuGroupConfig);
+            }
+            if (item.type === 'collapse') {
+              return renderCollapseItem(item as MenuItemConfig);
+            }
+            // Simple item
             return renderCollapseItem(item as MenuItemConfig);
-          }
-          // Simple item
-          return renderCollapseItem(item as MenuItemConfig);
-        })}
+          })}
+        </div>
       </nav>
 
       {/* Mobile Navigation */}
@@ -470,13 +514,24 @@ export function HorizontalNav() {
         <SheetContent side="left" className="w-72 p-0">
           <div className="flex h-full flex-col">
             {/* Header */}
-            <div className="flex items-center justify-between border-b p-4">
-              <h2 className="font-semibold text-lg">{t('navigation.menu')}</h2>
+            <div className="flex items-center gap-3 border-b p-4">
+              <LocalizedNavLink
+                to="/"
+                className="flex items-center gap-2.5 transition-all duration-300"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <div className="relative flex size-9 shrink-0 items-center justify-center rounded-md">
+                  <img src={logo} alt={t('app.name')} className="size-9 object-contain" />
+                </div>
+                <span className="truncate font-bold font-sans text-(--color-primary) text-sm tracking-wide">
+                  {t('app.name')}
+                </span>
+              </LocalizedNavLink>
             </div>
 
             {/* Navigation Items */}
             <ScrollArea className="flex-1">
-              <div className="p-4 space-y-2">
+              <div className="space-y-2 p-4">
                 {filteredMenuItems.map(item => renderMobileMenuItem(item))}
               </div>
             </ScrollArea>

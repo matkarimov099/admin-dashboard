@@ -1,6 +1,6 @@
 import { SidebarGroup, SidebarMenu } from '@/components/ui/sidebar.tsx';
 import menuItems from '@/config/navigation/modules';
-import type { MenuGroupConfig, MenuItemConfig } from '@/config/navigation/types/menu';
+import type { MenuGroupConfig, MenuItemConfig } from '@/types/navigation';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
 import { NavCollapse } from './nav-collapse';
 import { NavGroup } from './nav-group';
@@ -21,14 +21,14 @@ export function NavMain() {
   const { hasRole } = useAuthContext();
 
   // Filter menu items based on roles
-  const visibleItems = menuItems.items.filter(item => {
+  const visibleItems = menuItems.items.filter((item: MenuItemConfig | MenuGroupConfig) => {
     if (item.roles && item.roles.length > 0) {
       return hasRole(item.roles);
     }
     return true;
   });
 
-  return <>{visibleItems.map(item => renderMenuItem(item))}</>;
+  return <>{visibleItems.map((item: MenuItemConfig | MenuGroupConfig) => renderMenuItem(item))}</>;
 }
 
 /**
