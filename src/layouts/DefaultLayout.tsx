@@ -1,25 +1,16 @@
 import { AnimatePresence, motion } from 'motion/react';
 import { Suspense, useId } from 'react';
-import { NavLink, Outlet } from 'react-router';
+import { Outlet } from 'react-router';
+import { BreadcrumbNav } from '@/components/common/breadcrumb-nav';
 import { LanguageSwitcher } from '@/components/common/language-switcher.tsx';
 import { ModeToggle } from '@/components/common/mode-toggle.tsx';
 import { NotificationPopover } from '@/components/common/notification-popover.tsx';
 import { SettingsPanel } from '@/components/custom/settings-panel.tsx';
 import { AppSidebar } from '@/components/layout/app-sidebar.tsx';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { Spinner } from '@/components/ui/spinner.tsx';
-import { useBreadcrumb } from '@/hooks/use-breadcrumb.ts';
 
 export const DefaultLayout = () => {
-  const { breadcrumbItems } = useBreadcrumb();
 
   return (
     <div className="h-screen w-full overflow-hidden bg-background">
@@ -32,51 +23,7 @@ export const DefaultLayout = () => {
               {/* Left section - Sidebar trigger and breadcrumbs */}
               <div className="flex min-w-0 flex-1 items-center gap-2 px-3 sm:gap-3 sm:px-4">
                 <SidebarTrigger className="h-7 w-7 shrink-0 p-0 sm:h-8 sm:w-8" />
-
-                <Breadcrumb className="min-w-0 flex-1">
-                  {/* Mobile: Show only the last item */}
-                  <BreadcrumbList className="flex flex-wrap gap-1 sm:hidden">
-                    {breadcrumbItems.slice(-1).map((item, index) => (
-                      <BreadcrumbItem key={`item-${index}`} className="min-w-0">
-                        <BreadcrumbPage className="max-w-37.5 truncate font-semibold text-primary">
-                          {item.title}
-                        </BreadcrumbPage>
-                      </BreadcrumbItem>
-                    ))}
-                  </BreadcrumbList>
-
-                  {/* Desktop: Show all items */}
-                  <BreadcrumbList className="hidden flex-wrap gap-1 sm:flex">
-                    {breadcrumbItems.flatMap((item, index) =>
-                      [
-                        <BreadcrumbItem key={`item-${index}`} className="min-w-0">
-                          {item.isActive ? (
-                            <BreadcrumbPage className="max-w-37.5 truncate font-semibold text-primary sm:max-w-50">
-                              {item.title}
-                            </BreadcrumbPage>
-                          ) : item.url ? (
-                            <BreadcrumbLink asChild>
-                              <NavLink
-                                to={item.url}
-                                className="flex items-center gap-2 font-medium text-secondary text-sm transition-colors hover:text-primary"
-                              >
-                                {item.title}
-                              </NavLink>
-                            </BreadcrumbLink>
-                          ) : (
-                            <span className="font-medium text-secondary text-sm">{item.title}</span>
-                          )}
-                        </BreadcrumbItem>,
-                        index < breadcrumbItems.length - 1 && (
-                          <BreadcrumbSeparator
-                            key={`separator-${index}`}
-                            className="text-secondary"
-                          />
-                        ),
-                      ].filter(Boolean)
-                    )}
-                  </BreadcrumbList>
-                </Breadcrumb>
+                <BreadcrumbNav />
               </div>
 
               {/* Right section - Actions */}

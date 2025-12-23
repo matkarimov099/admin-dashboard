@@ -2,14 +2,8 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import menuItems, { hiddenRoutes } from '@/config/navigation/modules/index';
 import { useCurrentPath } from '@/hooks/use-current-path.ts';
-import type { BreadcrumbPathItem } from '@/types/breadcrumb';
+import type { BreadcrumbItem, BreadcrumbPathItem } from '@/types/breadcrumb';
 import type { MenuItemConfig } from '@/types/navigation';
-
-interface BreadcrumbItem {
-  title: string;
-  url?: string;
-  isActive: boolean;
-}
 
 /**
  * Recursively search for a path in the menu structure
@@ -58,7 +52,7 @@ export const useBreadcrumb = () => {
     // Collect all menu items to search
     const allMenuItems: MenuItemConfig[] = [...menuItems.items, ...hiddenRoutes];
 
-    // Find the breadcrumb path for current route
+    // Find the breadcrumb path for the current route
     const breadcrumbPath = findBreadcrumbPath(allMenuItems, currentPath);
 
     if (breadcrumbPath && breadcrumbPath.length > 0) {
@@ -66,7 +60,7 @@ export const useBreadcrumb = () => {
       for (let i = 0; i < breadcrumbPath.length; i++) {
         const { item, path } = breadcrumbPath[i];
 
-        // Skip items without breadcrumbs flag or without a path/url
+        // Skip items without a breadcrumbs flag or without a path/url
         if (item.breadcrumbs === false) continue;
 
         // Get title - use translation if it's a string key
