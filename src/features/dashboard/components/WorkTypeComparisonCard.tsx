@@ -1,6 +1,5 @@
 import { Building, Home, Wifi } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Typography } from '@/components/ui/typography';
 import type { WorkTypeComparison } from '@/features/dashboard/types';
 
 interface WorkTypeComparisonCardProps {
@@ -23,42 +22,44 @@ export function WorkTypeComparisonCard({ data }: WorkTypeComparisonCardProps) {
           <div className="space-y-4 rounded-lg border border-blue-200 bg-blue-50 p-4 dark:bg-blue-950">
             <div className="flex items-center gap-2">
               <Wifi className="h-5 w-5 text-blue-600" />
-              <Typography variant="h3">Remote Work</Typography>
+              <h3 className="scroll-m-20 text-lg sm:text-xl md:text-2xl font-semibold tracking-tight">Remote Work</h3>
             </div>
 
             <div className="space-y-3">
               <div>
-                <Typography variant="small" className="text-muted-foreground">
+                <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
                   Avg Hours/Session
-                </Typography>
-                <Typography variant="h2">{data.remote.avgHours.toFixed(1)}h</Typography>
+                </small>
+                <h2 className="scroll-m-20 pb-2 text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight first:mt-0">
+                  {data.remote.avgHours.toFixed(1)}h
+                </h2>
               </div>
 
               <div>
-                <Typography variant="small" className="text-muted-foreground">
+                <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
                   Total Sessions
-                </Typography>
-                <Typography variant="p" className="font-semibold">
+                </small>
+                <p className="text-sm sm:text-base leading-6 sm:leading-7 font-semibold">
                   {data.remote.totalSessions}
-                </Typography>
+                </p>
               </div>
 
               <div>
-                <Typography variant="small" className="text-muted-foreground">
+                <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
                   Avg Break Time
-                </Typography>
-                <Typography variant="p" className="font-semibold">
+                </small>
+                <p className="text-sm sm:text-base leading-6 sm:leading-7 font-semibold">
                   {data.remote.avgPauseMinutes.toFixed(0)} min
-                </Typography>
+                </p>
               </div>
 
               <div>
-                <Typography variant="small" className="text-muted-foreground">
+                <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
                   Team Members
-                </Typography>
-                <Typography variant="p" className="font-semibold">
+                </small>
+                <p className="text-sm sm:text-base leading-6 sm:leading-7 font-semibold">
                   {data.remote.userCount}
-                </Typography>
+                </p>
               </div>
             </div>
           </div>
@@ -67,42 +68,44 @@ export function WorkTypeComparisonCard({ data }: WorkTypeComparisonCardProps) {
           <div className="space-y-4 rounded-lg border border-green-200 bg-green-50 p-4 dark:bg-green-950">
             <div className="flex items-center gap-2">
               <Building className="h-5 w-5 text-green-600" />
-              <Typography variant="h3">Office Work</Typography>
+              <h3 className="scroll-m-20 text-lg sm:text-xl md:text-2xl font-semibold tracking-tight">Office Work</h3>
             </div>
 
             <div className="space-y-3">
               <div>
-                <Typography variant="small" className="text-muted-foreground">
+                <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
                   Avg Hours/Session
-                </Typography>
-                <Typography variant="h2">{data.office.avgHours.toFixed(1)}h</Typography>
+                </small>
+                <h2 className="scroll-m-20 pb-2 text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight first:mt-0">
+                  {data.office.avgHours.toFixed(1)}h
+                </h2>
               </div>
 
               <div>
-                <Typography variant="small" className="text-muted-foreground">
+                <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
                   Total Sessions
-                </Typography>
-                <Typography variant="p" className="font-semibold">
+                </small>
+                <p className="text-sm sm:text-base leading-6 sm:leading-7 font-semibold">
                   {data.office.totalSessions}
-                </Typography>
+                </p>
               </div>
 
               <div>
-                <Typography variant="small" className="text-muted-foreground">
+                <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
                   Avg Break Time
-                </Typography>
-                <Typography variant="p" className="font-semibold">
+                </small>
+                <p className="text-sm sm:text-base leading-6 sm:leading-7 font-semibold">
                   {data.office.avgPauseMinutes.toFixed(0)} min
-                </Typography>
+                </p>
               </div>
 
               <div>
-                <Typography variant="small" className="text-muted-foreground">
+                <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
                   Team Members
-                </Typography>
-                <Typography variant="p" className="font-semibold">
+                </small>
+                <p className="text-sm sm:text-base leading-6 sm:leading-7 font-semibold">
                   {data.office.userCount}
-                </Typography>
+                </p>
               </div>
             </div>
           </div>
@@ -110,9 +113,9 @@ export function WorkTypeComparisonCard({ data }: WorkTypeComparisonCardProps) {
 
         {/* Insights */}
         <div className="mt-6 rounded-lg bg-muted p-4">
-          <Typography variant="p" className="font-semibold">
+          <p className="text-sm sm:text-base leading-6 sm:leading-7 font-semibold">
             📊 Insights
-          </Typography>
+          </p>
           <ul className="mt-2 space-y-1 text-sm">
             <li>
               Remote workers average{' '}

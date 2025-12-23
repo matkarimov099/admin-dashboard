@@ -1,6 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
 import { motion } from 'motion/react';
-import { Typography } from '@/components/ui/typography';
 import { cn } from '@/utils/utils';
 
 interface StatCardProps {
@@ -25,13 +24,15 @@ export const StatCard = ({ icon: Icon, label, value, gradient, description }: St
         <div className="rounded-lg bg-white/10 p-1.5 backdrop-blur-sm sm:p-2">
           <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
         </div>
-        <Typography variant="large">{label}</Typography>
+        <div className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">{label}</div>
       </div>
-      <Typography variant="h2">{value.toLocaleString()}</Typography>
+      <h2 className="scroll-m-20 pb-2 text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight first:mt-0">
+        {value.toLocaleString()}
+      </h2>
       {description && (
-        <Typography variant="muted" className="mt-2">
+        <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-2">
           {description}
-        </Typography>
+        </p>
       )}
     </div>
     <div className="absolute top-0 right-0 h-20 w-20 rounded-full bg-white/5 blur-2xl" />

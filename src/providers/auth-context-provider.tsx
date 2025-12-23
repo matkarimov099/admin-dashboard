@@ -36,7 +36,7 @@ export default function AuthContextProvider({ children }: PropsWithChildren) {
     if (token && isAuthenticated() && token !== authToken) {
       setAuthToken(token);
     }
-    if (userData?.data) setCurrentUser(userData.data);
+    if (userData) setCurrentUser(userData);
   }, [userData, authToken]);
 
   return (

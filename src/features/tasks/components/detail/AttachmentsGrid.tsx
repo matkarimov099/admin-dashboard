@@ -3,7 +3,6 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Button } from '@/components/ui/button.tsx';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.tsx';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip.tsx';
-import { Typography } from '@/components/ui/typography.tsx';
 import { humanizeDateTime } from '@/utils/humanize.ts';
 import 'react-photo-view/dist/react-photo-view.css';
 import { toast } from 'sonner';
@@ -27,7 +26,7 @@ function AttachmentItem({ asset }: AttachmentItemProps) {
 
   const handleDelete = () => {
     deleteAsset(
-      { assetId: asset.id },
+      { assetId: asset.asset.id },
       {
         onSuccess: response => {
           toast.success(response?.message || 'File deleted successfully');
@@ -54,23 +53,14 @@ function AttachmentItem({ asset }: AttachmentItemProps) {
             <div className="w-32 bg-background p-1">
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Typography
-                    variant="caption"
-                    weight="medium"
-                    truncate
-                    className="line-clamp-none"
-                  >
-                    {asset.asset.fileName}
-                  </Typography>
+                  <p className="line-clamp-none">{asset.asset.fileName}</p>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <Typography variant="small" weight="medium" className="max-w-xs break-words">
-                    {asset.asset.fileName}
-                  </Typography>
-                  <Typography variant="muted">
+                  <p className="max-w-xs break-words">{asset.asset.fileName}</p>
+                  <p>
                     Uploaded by {asset.uploadedBy.firstName} {asset.uploadedBy.lastName}
-                  </Typography>
-                  <Typography variant="muted">{humanizeDateTime(asset.uploadedAt)}</Typography>
+                  </p>
+                  <p>{humanizeDateTime(asset.uploadedAt)}</p>
                 </TooltipContent>
               </Tooltip>
             </div>
@@ -88,20 +78,14 @@ function AttachmentItem({ asset }: AttachmentItemProps) {
           <div className="w-32 bg-background p-1">
             <Tooltip>
               <TooltipTrigger asChild>
-                <Typography variant="caption" weight="medium" truncate className="line-clamp-none">
-                  {asset.asset.fileName}
-                </Typography>
+                <p className="line-clamp-none truncate">{asset.asset.fileName}</p>
               </TooltipTrigger>
               <TooltipContent>
-                <Typography variant="small" weight="medium" className="max-w-xs break-words">
-                  {asset.asset.fileName}
-                </Typography>
-                <Typography variant="muted" className="[&:not(:first-child)]:mt-0">
+                <p className="max-w-xs break-words">{asset.asset.fileName}</p>
+                <p className="[&:not(:first-child)]:mt-0">
                   Uploaded by {asset.uploadedBy.firstName} {asset.uploadedBy.lastName}
-                </Typography>
-                <Typography variant="muted" className="[&:not(:first-child)]:mt-0">
-                  {humanizeDateTime(asset.uploadedAt)}
-                </Typography>
+                </p>
+                <p className="[&:not(:first-child)]:mt-0">{humanizeDateTime(asset.uploadedAt)}</p>
               </TooltipContent>
             </Tooltip>
           </div>
@@ -140,12 +124,8 @@ export function AttachmentsGrid({ taskId, assets }: AttachmentsGridProps) {
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-base sm:text-lg">
           <FileIcon className="h-4 w-4 sm:h-5 sm:w-5" />
-          <Typography variant="label" className="[&:not(:first-child)]:mt-0">
-            Attachments
-          </Typography>
-          <Typography variant="muted" className="[&:not(:first-child)]:mt-0">
-            ({assets.length})
-          </Typography>
+          <p className="[&:not(:first-child)]:mt-0">Attachments</p>
+          <p className="[&:not(:first-child)]:mt-0">({assets.length})</p>
         </CardTitle>
       </CardHeader>
       <CardContent>

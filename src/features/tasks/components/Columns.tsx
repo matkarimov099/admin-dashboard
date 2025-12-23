@@ -5,7 +5,6 @@ import { DataTableColumnHeader } from '@/components/data-table/column-header';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Typography } from '@/components/ui/typography';
 import { DataTableRowActions } from '@/features/tasks/components/RowActions.tsx';
 import { humanizeDateTime } from '@/utils/humanize';
 import { cn } from '@/utils/utils.ts';
@@ -49,7 +48,9 @@ export const getColumns = (
                 </button>
               </TooltipTrigger>
               <TooltipContent>
-                <Typography variant="small">Click to copy task URL</Typography>
+                <p className="font-medium text-xs leading-none sm:text-sm">
+                  Click to copy task URL
+                </p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -72,7 +73,7 @@ export const getColumns = (
                   <div className="cursor-help truncate text-left font-medium">{title}</div>
                 </TooltipTrigger>
                 <TooltipContent side="bottom" className="max-w-md">
-                  <Typography variant="small">{title}</Typography>
+                  <p className="font-medium text-xs leading-none sm:text-sm">{title}</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
@@ -89,9 +90,7 @@ export const getColumns = (
                     </div>
                   </TooltipTrigger>
                   <TooltipContent side="bottom" className="max-h-60 max-w-md overflow-y-auto">
-                    <Typography variant="small" className="whitespace-pre-wrap">
-                      {description}
-                    </Typography>
+                    <p className="font-medium text-xs leading-none sm:text-sm">{description}</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -159,11 +158,11 @@ export const getColumns = (
                     </Avatar>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <Typography variant="small">
+                    <p className="font-medium text-xs leading-none sm:text-sm">
                       {assignee.firstName && assignee.lastName
                         ? `${assignee.firstName} ${assignee.lastName}`
                         : assignee.username}
-                    </Typography>
+                    </p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>

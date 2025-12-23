@@ -3,7 +3,6 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar.tsx'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.tsx';
 import { Skeleton } from '@/components/ui/skeleton.tsx';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip.tsx';
-import { Typography } from '@/components/ui/typography.tsx';
 import type { User } from '@/features/users/types.ts';
 import { getUserFullName, getUserInitials } from '../../utils/task-helpers.ts';
 
@@ -31,7 +30,7 @@ export function AssigneesCard({ assignee, isLoading }: AssigneesCardProps) {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <UserIcon className="h-4 w-4" />
-          <Typography variant="label">Assignee</Typography>
+          <p>Assignee</p>
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -46,16 +45,12 @@ export function AssigneesCard({ assignee, isLoading }: AssigneesCardProps) {
               </Avatar>
             </TooltipTrigger>
             <TooltipContent>
-              <Typography variant="small" weight="medium">
-                {getUserFullName(assignee)}
-              </Typography>
-              <Typography variant="muted">@{assignee.username}</Typography>
+              <p>{getUserFullName(assignee)}</p>
+              <p>@{assignee.username}</p>
             </TooltipContent>
           </Tooltip>
         ) : (
-          <Typography variant="muted" italic>
-            No assignee
-          </Typography>
+          <p>No assignee</p>
         )}
       </CardContent>
     </Card>

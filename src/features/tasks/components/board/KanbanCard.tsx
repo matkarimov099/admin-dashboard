@@ -8,7 +8,6 @@ import { AvatarGroup } from '@/components/common/avatar-group';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Typography } from '@/components/ui/typography';
 import { cn } from '@/utils/utils';
 import { useAssignToMe } from '../../hooks/use-tasks';
 import type { Task } from '../../types';
@@ -104,23 +103,16 @@ export function KanbanCard({ task, onTaskClick }: KanbanCardProps) {
                   onClick={handleCopyTaskUrl}
                   className="group/copy flex items-center gap-1 font-mono font-semibold text-muted-foreground transition-colors hover:text-primary"
                 >
-                  <Typography
-                    variant="muted"
-                    className="font-mono font-semibold group-hover/copy:text-primary"
-                  >
+                  <p className="text-gray-600 text-xs sm:text-sm dark:text-gray-400">
                     {task.taskKey}
-                  </Typography>
+                  </p>
                   <Copy className="h-3 w-3 opacity-0 transition-opacity group-hover/copy:opacity-100" />
                 </button>
               </TooltipTrigger>
               <TooltipContent>
                 <div className="flex flex-col gap-2 space-y-1">
-                  <Typography variant="small" className="font-semibold">
-                    {task.project.name}
-                  </Typography>
-                  <Typography variant="small" className="text-muted-foreground">
-                    Click to copy task URL
-                  </Typography>
+                  <p className="font-semibold">{task.project.name}</p>
+                  <p className="text-muted-foreground">Click to copy task URL</p>
                 </div>
               </TooltipContent>
             </Tooltip>
@@ -132,17 +124,12 @@ export function KanbanCard({ task, onTaskClick }: KanbanCardProps) {
         </CardHeader>
 
         <CardContent className="px-4 py-0">
-          <Typography
-            variant="label"
-            className="line-clamp-2 break-words transition-colors group-hover:text-primary"
-          >
+          <p className="line-clamp-2 break-words transition-colors group-hover:text-primary">
             {task.title}
-          </Typography>
+          </p>
 
           {task.description && (
-            <Typography variant="caption" className="line-clamp-2 overflow-hidden break-all">
-              {task.description}
-            </Typography>
+            <p className="line-clamp-2 overflow-hidden break-all">{task.description}</p>
           )}
         </CardContent>
 
@@ -168,7 +155,7 @@ export function KanbanCard({ task, onTaskClick }: KanbanCardProps) {
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <Typography variant="small">Assign this task to yourself</Typography>
+                  <p>Assign this task to yourself</p>
                 </TooltipContent>
               </Tooltip>
             )}
@@ -181,13 +168,11 @@ export function KanbanCard({ task, onTaskClick }: KanbanCardProps) {
                     <TooltipTrigger asChild>
                       <div className="flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground">
                         <Clock className="h-3 w-3" />
-                        <Typography variant="muted" className="font-medium text-xs">
-                          {task.estimate}h
-                        </Typography>
+                        <p className="font-medium text-xs">{task.estimate}h</p>
                       </div>
                     </TooltipTrigger>
                     <TooltipContent>
-                      <Typography variant="small">Estimated time</Typography>
+                      <p>Estimated time</p>
                     </TooltipContent>
                   </Tooltip>
                 )}
@@ -200,13 +185,13 @@ export function KanbanCard({ task, onTaskClick }: KanbanCardProps) {
                       </div>
                     </TooltipTrigger>
                     <TooltipContent>
-                      <Typography variant="small">
+                      <p>
                         {new Date(task.deadline).toLocaleDateString('en-US', {
                           month: 'short',
                           day: 'numeric',
                           year: 'numeric',
                         })}
-                      </Typography>
+                      </p>
                     </TooltipContent>
                   </Tooltip>
                 )}
@@ -216,13 +201,11 @@ export function KanbanCard({ task, onTaskClick }: KanbanCardProps) {
                     <TooltipTrigger asChild>
                       <div className="flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground">
                         <Link2 className="h-3 w-3" />
-                        <Typography variant="muted" className="font-medium text-xs">
-                          {linkedTasksCount}
-                        </Typography>
+                        <p className="font-medium text-xs">{linkedTasksCount}</p>
                       </div>
                     </TooltipTrigger>
                     <TooltipContent>
-                      <Typography variant="small">{linkedTasksCount} linked tasks</Typography>
+                      <p>{linkedTasksCount} linked tasks</p>
                     </TooltipContent>
                   </Tooltip>
                 )}
@@ -232,13 +215,11 @@ export function KanbanCard({ task, onTaskClick }: KanbanCardProps) {
                     <TooltipTrigger asChild>
                       <div className="flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground">
                         <Paperclip className="h-3 w-3" />
-                        <Typography variant="muted" className="font-medium text-xs">
-                          {attachmentsCount}
-                        </Typography>
+                        <p className="font-medium text-xs">{attachmentsCount}</p>
                       </div>
                     </TooltipTrigger>
                     <TooltipContent>
-                      <Typography variant="small">{attachmentsCount} attachments</Typography>
+                      <p>{attachmentsCount} attachments</p>
                     </TooltipContent>
                   </Tooltip>
                 )}

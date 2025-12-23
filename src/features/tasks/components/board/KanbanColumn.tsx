@@ -5,7 +5,6 @@ import { GripVertical, Plus } from 'lucide-react';
 import { lazy, Suspense } from 'react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Typography } from '@/components/ui/typography.tsx';
 import { cn } from '@/utils/utils';
 import type { Task, TaskStatus } from '../../types';
 import { StatusBadge } from '../badges/StatusBadge';
@@ -64,12 +63,9 @@ export function KanbanColumn({ status, tasks, taskCount, onTaskClick }: KanbanCo
             <StatusBadge status={status} size="xs" />
           </div>
           <div className="flex items-center gap-2.5">
-            <Typography variant="small" className="font-semibold text-muted-foreground">
-              {taskCount}
-            </Typography>
+            <p className="font-semibold text-muted-foreground">{taskCount}</p>
             <Suspense fallback={null}>
               <CreateTask
-                purpose="board"
                 initialStatus={status}
                 triggerButton={
                   <Button
@@ -108,7 +104,7 @@ export function KanbanColumn({ status, tasks, taskCount, onTaskClick }: KanbanCo
             {/* Empty State */}
             {tasks.length === 0 && (
               <div className="flex h-32 items-center justify-center">
-                <Typography variant="muted">No tasks</Typography>
+                <p>No tasks</p>
               </div>
             )}
           </div>

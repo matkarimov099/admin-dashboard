@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Typography } from '@/components/ui/typography';
 
 interface User {
   id: string;
@@ -60,13 +59,13 @@ export const AvatarGroup = ({ users, maxVisible = 5, size = 'md' }: AvatarGroupP
               </Avatar>
             </TooltipTrigger>
             <TooltipContent>
-              <Typography variant="p" className="font-semibold">
+              <p className="text-sm sm:text-base leading-6 sm:leading-7 font-semibold">
                 {user.name}
-              </Typography>
+              </p>
               {user.role && (
-                <Typography variant="small" className="text-muted-foreground">
+                <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
                   {user.role}
-                </Typography>
+                </small>
               )}
             </TooltipContent>
           </Tooltip>
@@ -82,9 +81,9 @@ export const AvatarGroup = ({ users, maxVisible = 5, size = 'md' }: AvatarGroupP
               </Avatar>
             </TooltipTrigger>
             <TooltipContent>
-              <Typography variant="small">
+              <small className="text-xs sm:text-sm font-medium leading-none">
                 {remainingCount} more user{remainingCount > 1 ? 's' : ''}
-              </Typography>
+              </small>
             </TooltipContent>
           </Tooltip>
         )}

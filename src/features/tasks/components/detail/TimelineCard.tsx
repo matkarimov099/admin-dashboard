@@ -1,6 +1,5 @@
 import { CalendarIcon } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.tsx';
-import { Typography } from '@/components/ui/typography.tsx';
 import { humanizeDateTime } from '@/utils/humanize.ts';
 
 interface TimelineCardProps {
@@ -16,10 +15,8 @@ interface TimelineRowProps {
 function TimelineRow({ label, date }: TimelineRowProps) {
   return (
     <div className="flex w-full items-center justify-between gap-4">
-      <Typography variant="muted">{label}</Typography>
-      <Typography variant="small" align="right" className="flex" weight="medium">
-        {humanizeDateTime(date)}
-      </Typography>
+      <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{label}</p>
+      <small className="text-xs sm:text-sm font-medium leading-none flex">{humanizeDateTime(date)}</small>
     </div>
   );
 }
@@ -30,7 +27,7 @@ export function TimelineCard({ createdAt, updatedAt }: TimelineCardProps) {
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-sm">
           <CalendarIcon className="h-4 w-4" />
-          <Typography variant="label">Timeline</Typography>
+          <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 uppercase tracking-wide">Timeline</span>
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-2.5">

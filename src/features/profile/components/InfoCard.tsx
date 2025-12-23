@@ -1,6 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
 import { motion } from 'motion/react';
-import { Typography } from '@/components/ui/typography';
 import { cn } from '@/utils/utils';
 
 interface InfoCardProps {
@@ -24,10 +23,10 @@ export const InfoCard = ({ icon: Icon, label, value }: InfoCardProps) => (
       <Icon className="h-4 w-4 text-[var(--system-blue)] sm:h-4.5 sm:w-4.5" />
     </div>
     <div className="flex min-w-0 items-center gap-2">
-      <Typography variant="small">{label}:</Typography>
-      <Typography variant="p" className="!mt-0">
+      <small className="text-xs sm:text-sm font-medium leading-none">{label}:</small>
+      <p className="text-sm sm:text-base leading-6 sm:leading-7 !mt-0">
         {value}
-      </Typography>
+      </p>
     </div>
   </motion.div>
 );

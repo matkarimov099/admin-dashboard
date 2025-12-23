@@ -1,4 +1,3 @@
-import { Typography } from '@/components/ui/typography';
 import { GitHubUserProfile } from '@/features/profile/components/GitHubUserProfile';
 import { RegularUserProfile } from '@/features/profile/components/RegularUserProfile';
 import { useGitHubUser } from '@/features/profile/hooks/use-github-user';
@@ -15,9 +14,9 @@ export default function Profile() {
     return (
       <div className="container mx-auto py-8">
         <div className="mx-auto flex min-h-[400px] max-w-4xl items-center justify-center">
-          <Typography variant="large" className="text-[var(--secondaryLabel)]">
+          <div className="text-base sm:text-lg font-semibold text-[var(--secondaryLabel)]">
             Loading profile...
-          </Typography>
+          </div>
         </div>
       </div>
     );
@@ -33,10 +32,12 @@ export default function Profile() {
         </div>
       ) : (
         <div className="mx-auto max-w-4xl text-center">
-          <Typography variant="h1">Welcome! 👋</Typography>
-          <Typography variant="large" className="mt-4 text-[var(--secondaryLabel)]">
+          <h1 className="scroll-m-20 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight">
+            Welcome! 👋
+          </h1>
+          <div className="mt-4 text-base sm:text-lg font-semibold text-[var(--secondaryLabel)]">
             Please log in to view your profile
-          </Typography>
+          </div>
         </div>
       )}
     </div>

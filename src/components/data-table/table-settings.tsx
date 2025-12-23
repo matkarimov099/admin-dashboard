@@ -3,7 +3,6 @@ import type { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Typography } from '@/components/ui/typography';
 
 interface TableSettingsProps {
   enableColumnResizing?: boolean;
@@ -51,10 +50,12 @@ export function TableSettings({
       <PopoverContent align="end" className="w-80">
         <div className="grid gap-4">
           <div className="space-y-2">
-            <Typography variant="h4">{t('common.table.settings', 'Table Settings')}</Typography>
-            <Typography variant="small" className="text-muted-foreground">
+            <h4 className="scroll-m-20 text-base sm:text-lg md:text-xl font-semibold tracking-tight">
+              {t('common.table.settings', 'Table Settings')}
+            </h4>
+            <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
               {t('common.table.settingsDescription', 'Manage table layout and column settings')}
-            </Typography>
+            </small>
           </div>
           <div className="grid gap-2">
             {enableColumnResizing && resetColumnSizing && (

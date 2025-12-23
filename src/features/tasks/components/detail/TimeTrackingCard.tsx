@@ -1,6 +1,5 @@
 import { ClockIcon } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.tsx';
-import { Typography } from '@/components/ui/typography.tsx';
 import { humanizeDateTime } from '@/utils/humanize.ts';
 
 interface TimeTrackingCardProps {
@@ -18,14 +17,14 @@ interface TimeRowProps {
 function TimeRow({ label, value, isCompleted }: TimeRowProps) {
   return (
     <div className="flex w-full items-center justify-between gap-4">
-      <Typography variant="muted">{label}</Typography>
-      <Typography
-        align="right"
-        variant="small"
-        className={isCompleted ? 'flex text-green-600 dark:text-green-400' : ''}
+      <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{label}</p>
+      <small
+        className={`text-xs sm:text-sm font-medium leading-none ${
+          isCompleted ? 'flex text-green-600 dark:text-green-400' : ''
+        }`}
       >
         {value}
-      </Typography>
+      </small>
     </div>
   );
 }
@@ -33,12 +32,12 @@ function TimeRow({ label, value, isCompleted }: TimeRowProps) {
 function EmptyTimeRow({ label }: { label: string }) {
   return (
     <div className="flex items-center justify-between">
-      <Typography variant="muted" className="[&:not(:first-child)]:mt-0">
+      <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 [&:not(:first-child)]:mt-0">
         {label}
-      </Typography>
-      <Typography variant="muted" italic className="[&:not(:first-child)]:mt-0">
+      </p>
+      <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 italic [&:not(:first-child)]:mt-0">
         Not set
-      </Typography>
+      </p>
     </div>
   );
 }
@@ -49,9 +48,9 @@ export function TimeTrackingCard({ estimate, deadline, completedAt }: TimeTracki
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-sm">
           <ClockIcon className="h-4 w-4" />
-          <Typography variant="label" className="[&:not(:first-child)]:mt-0">
+          <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 uppercase tracking-wide [&:not(:first-child)]:mt-0">
             Time Tracking
-          </Typography>
+          </span>
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-2.5">

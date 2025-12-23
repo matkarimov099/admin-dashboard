@@ -30,7 +30,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select.tsx';
-import { Typography } from '@/components/ui/typography.tsx';
 import { useCheckUser, useCreateUser } from '@/features/users/hooks/use-users';
 import { type UserCreateSchema, userCreateSchema } from '@/features/users/schema/users.schema.ts';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
@@ -210,8 +209,7 @@ export function CreateUser({ className }: CreateUserProps = {}) {
                       <div className="flex items-center gap-2">
                         <FormLabel required>Username</FormLabel>
                         {membershipStatus !== null && (
-                          <Typography
-                            variant="small"
+                          <small
                             className={
                               membershipStatus
                                 ? 'text-green-600 dark:text-green-400'
@@ -219,7 +217,7 @@ export function CreateUser({ className }: CreateUserProps = {}) {
                             }
                           >
                             {membershipStatus ? 'Member' : 'Not Member'}
-                          </Typography>
+                          </small>
                         )}
                       </div>
                       <FormControl>

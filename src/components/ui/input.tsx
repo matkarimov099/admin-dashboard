@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { forwardRef } from 'react';
 
-import { Typography } from '@/components/ui/typography';
 import { useReducedMotion } from '@/hooks/use-reduced-motion';
 import { cn } from '@/utils/utils';
 
@@ -176,21 +175,20 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
 
         {error && (
-          <Typography
+          <small
             id={errorId}
-            variant="small"
             className="font text-red"
             role="alert"
             aria-live="polite"
           >
             {error}
-          </Typography>
+          </small>
         )}
 
         {helperText && !error && (
-          <Typography id={helperTextId} variant="small" className="font text-secondary">
+          <small id={helperTextId} className="font text-secondary">
             {helperText}
-          </Typography>
+          </small>
         )}
       </div>
     );

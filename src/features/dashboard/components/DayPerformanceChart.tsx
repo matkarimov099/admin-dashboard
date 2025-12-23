@@ -8,7 +8,6 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Typography } from '@/components/ui/typography';
 import type { DayPerformanceResponse } from '@/features/dashboard/types';
 
 interface DayPerformanceChartProps {
@@ -43,28 +42,28 @@ export function DayPerformanceChart({ data }: DayPerformanceChartProps) {
 
         <div className="mt-4 grid grid-cols-3 gap-4">
           <div className="text-center">
-            <Typography variant="small" className="text-muted-foreground">
+            <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
               Best Day
-            </Typography>
-            <Typography variant="p" className="font-bold">
+            </small>
+            <p className="text-sm sm:text-base leading-6 sm:leading-7 font-bold">
               {data.insights.bestDay}
-            </Typography>
+            </p>
           </div>
           <div className="text-center">
-            <Typography variant="small" className="text-muted-foreground">
+            <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
               Avg Weekly Hours
-            </Typography>
-            <Typography variant="p" className="font-bold">
+            </small>
+            <p className="text-sm sm:text-base leading-6 sm:leading-7 font-bold">
               {data.insights.avgWeeklyHours.toFixed(1)}h
-            </Typography>
+            </p>
           </div>
           <div className="text-center">
-            <Typography variant="small" className="text-muted-foreground">
+            <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
               Peak Performance
-            </Typography>
-            <Typography variant="p" className="font-bold">
+            </small>
+            <p className="text-sm sm:text-base leading-6 sm:leading-7 font-bold">
               {data.insights.peakPerformance.toFixed(0)}%
-            </Typography>
+            </p>
           </div>
         </div>
       </CardContent>

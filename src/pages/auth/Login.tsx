@@ -8,7 +8,6 @@ import {
   CustomCardDescription,
   CustomCardTitle,
 } from '@/components/common/custom-card.tsx';
-import { Typography } from '@/components/ui/typography.tsx';
 import { LoginForm } from '@/features/auth/components/LoginForm.tsx';
 import { isAuthenticated } from '@/lib/auth';
 
@@ -56,9 +55,9 @@ const Login = () => {
           >
             <KeyRound className="h-8 w-8 text-white" />
           </motion.div>
-          <Typography variant="large" align="center">
+          <div className="text-center font-semibold text-base text-gray-900 sm:text-lg dark:text-gray-100">
             {t('auth.login.welcomeBack')}
-          </Typography>
+          </div>
         </div>
         <CustomCardTitle className="mb-2 text-center font-semibold text-(--label)">
           {t('auth.login.subtitle')}
