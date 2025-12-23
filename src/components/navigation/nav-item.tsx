@@ -27,9 +27,16 @@ interface NavItemProps {
 export function NavItem({ item, inPopover = false }: NavItemProps) {
   const { t } = useTranslation();
   const currentPath = useCurrentPath();
-  const { state } = useSidebar();
+  const { state, isMobile, setOpenMobile } = useSidebar();
   const { hasRole } = useAuthContext();
   const isCollapsed = state === 'collapsed';
+
+  // Close the sidebar on mobile when clicking a link
+  const handleClick = () => {
+    if (isMobile) {
+      setOpenMobile(false);
+    }
+  };
 
   // Role-based access control
   if (item.roles && item.roles.length > 0 && !hasRole(item.roles)) {
@@ -54,6 +61,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
       <LocalizedNavLink
         to={itemPath}
         className="block"
+        onClick={handleClick}
         target={isExternalLink ? '_blank' : undefined}
         rel={isExternalLink ? 'noopener noreferrer' : undefined}
       >
@@ -72,7 +80,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
             <span
               className={cn(
                 'flex size-5 shrink-0 items-center justify-center transition-colors duration-200',
-                isActive && 'text-[var(--color-primary)]'
+                isActive && 'text-white dark:text-white'
               )}
             >
               {item.icon}
@@ -121,6 +129,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
       >
         <LocalizedNavLink
           to={itemPath}
+          onClick={handleClick}
           target={isExternalLink ? '_blank' : undefined}
           rel={isExternalLink ? 'noopener noreferrer' : undefined}
         >

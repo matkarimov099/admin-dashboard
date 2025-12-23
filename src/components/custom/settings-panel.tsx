@@ -65,7 +65,7 @@ export function SettingsPanel() {
 
       <SheetContent
         side="right"
-        className={`w-full p-0 sm:max-w-sm ${radiusClass}`}
+        className={`w-full p-0 sm:max-w-md ${radiusClass}`}
         style={{ borderRadius: '' }}
       >
         {/* Header */}

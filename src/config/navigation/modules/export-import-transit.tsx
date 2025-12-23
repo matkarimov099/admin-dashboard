@@ -17,12 +17,11 @@ import { lazy } from 'react';
 import type { MenuGroupConfig } from '@/types/navigation';
 
 /**
- * Export/Import/Transit operations menu group
- * Cargo-customs kabi 4-5 darajali nesting bilan
- * Trade operations with deep multi-level nesting
+ * Declaration Create operations menu group
+ * Simplified structure with max 3 level depth
  */
-const exportImportTransit: MenuGroupConfig = {
-  id: 'group-export-import-transit',
+const declarationCreate: MenuGroupConfig = {
+  id: 'group-declaration-create',
   title: 'navigation.exportImportTransit.title',
   type: 'group',
   icon: <RefreshCwIcon />,
@@ -37,38 +36,38 @@ const exportImportTransit: MenuGroupConfig = {
       roles: [],
       breadcrumbs: true,
       children: [
-        // Import Transit - 3rd level nesting
+        // Import - 2nd level
         {
-          id: 'import-transit',
+          id: 'import',
           title: 'navigation.exportImportTransit.importTransit.title',
           type: 'collapse',
           icon: <ArrowDownLeftIcon />,
           roles: [],
           breadcrumbs: true,
           children: [
-            // Auto Transport
+            // Auto Transport - 3rd level
             {
               id: 'auto-transport',
               title: 'navigation.exportImportTransit.autoTransport.title',
               type: 'item',
-              path: '/export-import-transit/create-declaration/import-transit/auto-transport',
+              path: '/declaration-create/import/auto',
               icon: <TruckIcon />,
               roles: [],
-              component: lazy(() => import('@/pages/export-import-transit/AutoTransport.tsx')),
+              component: lazy(() => import('@/pages/declaration-create/import/AutoTransport.tsx')),
               breadcrumbs: true,
             },
-            // Railway Transport
+            // Railway Transport - 3rd level
             {
               id: 'railway-transport',
               title: 'navigation.exportImportTransit.railwayTransport.title',
               type: 'item',
-              path: '/export-import-transit/create-declaration/import-transit/railway-transport',
+              path: '/declaration-create/import/railway',
               icon: <TrainIcon />,
               roles: [],
-              component: lazy(() => import('@/pages/export-import-transit/RailwayTransport.tsx')),
+              component: lazy(() => import('@/pages/declaration-create/import/RailwayTransport.tsx')),
               breadcrumbs: true,
             },
-            // Energy Resources - 4th level nesting!
+            // Energy Resources - 3rd level
             {
               id: 'energy-resources',
               title: 'navigation.exportImportTransit.energyResources.title',
@@ -77,55 +76,55 @@ const exportImportTransit: MenuGroupConfig = {
               roles: [],
               breadcrumbs: true,
               children: [
-                // Gas Certificate - 5th level!
+                // Gas Certificate - 3rd level (max depth)
                 {
                   id: 'gas-certificate',
                   title: 'navigation.exportImportTransit.gasCertificate.title',
                   type: 'item',
-                  path: '/export-import-transit/create-declaration/import-transit/energy-resources/gas-certificate',
+                  path: '/declaration-create/import/energy/gas',
                   icon: <FlameIcon />,
                   roles: [],
-                  component: lazy(() => import('@/pages/export-import-transit/GasCertificate.tsx')),
+                  component: lazy(() => import('@/pages/declaration-create/import/Energy/GasCertificate.tsx')),
                   breadcrumbs: true,
                 },
-                // Electric Energy - 5th level!
+                // Electric Energy - 3rd level (max depth)
                 {
                   id: 'electric-energy',
                   title: 'navigation.exportImportTransit.electricEnergy.title',
                   type: 'item',
-                  path: '/export-import-transit/create-declaration/import-transit/energy-resources/electric-energy',
+                  path: '/declaration-create/import/energy/electric',
                   icon: <ZapIcon />,
                   roles: [],
-                  component: lazy(() => import('@/pages/export-import-transit/ElectricEnergy.tsx')),
+                  component: lazy(() => import('@/pages/declaration-create/import/Energy/ElectricEnergy.tsx')),
                   breadcrumbs: true,
                 },
               ],
             },
-            // E-Commerce
+            // E-Commerce - 3rd level
             {
               id: 'e-commerce',
               title: 'navigation.exportImportTransit.eCommerce.title',
               type: 'item',
-              path: '/export-import-transit/create-declaration/import-transit/e-commerce',
+              path: '/declaration-create/import/e-commerce',
               icon: <ShoppingCartIcon />,
               roles: [],
-              component: lazy(() => import('@/pages/export-import-transit/ECommerce.tsx')),
+              component: lazy(() => import('@/pages/declaration-create/import/ECommerce.tsx')),
               breadcrumbs: true,
             },
           ],
         },
-        // Export - 3rd level
+        // Export - 2nd level
         {
           id: 'export',
           title: 'navigation.exportImportTransit.export.title',
           type: 'item',
-          path: '/export-import-transit/create-declaration/export',
+          path: '/declaration-create/export',
           icon: <ArrowUpRightIcon />,
           roles: [],
-          component: lazy(() => import('@/pages/export-import-transit/Export.tsx')),
+          component: lazy(() => import('@/pages/declaration-create/export/Export.tsx')),
           breadcrumbs: true,
         },
-        // Tolling Operations - 3rd level nesting
+        // Tolling Operations - 2nd level
         {
           id: 'tolling-operations',
           title: 'navigation.exportImportTransit.tollingOperations.title',
@@ -134,28 +133,26 @@ const exportImportTransit: MenuGroupConfig = {
           roles: [],
           breadcrumbs: true,
           children: [
-            // Customs Territory - 4th level
+            // Customs Territory - 3rd level
             {
               id: 'customs-territory',
               title: 'navigation.exportImportTransit.customsTerritory.title',
               type: 'item',
-              path: '/export-import-transit/create-declaration/tolling-operations/customs-territory',
+              path: '/declaration-create/tolling/customs',
               icon: <FileTextIcon />,
               roles: [],
-              component: lazy(() => import('@/pages/export-import-transit/CustomsTerritory.tsx')),
+              component: lazy(() => import('@/pages/declaration-create/tolling/CustomsTerritory.tsx')),
               breadcrumbs: true,
             },
-            // Outside Customs Territory - 4th level
+            // Outside Customs Territory - 3rd level
             {
               id: 'outside-customs-territory',
               title: 'navigation.exportImportTransit.outsideCustomsTerritory.title',
               type: 'item',
-              path: '/export-import-transit/create-declaration/tolling-operations/outside-customs-territory',
+              path: '/declaration-create/tolling/outside',
               icon: <PlaneIcon />,
               roles: [],
-              component: lazy(
-                () => import('@/pages/export-import-transit/OutsideCustomsTerritory.tsx')
-              ),
+              component: lazy(() => import('@/pages/declaration-create/tolling/OutsideCustomsTerritory.tsx')),
               breadcrumbs: true,
             },
           ],
@@ -165,4 +162,4 @@ const exportImportTransit: MenuGroupConfig = {
   ],
 };
 
-export default exportImportTransit;
+export default declarationCreate;

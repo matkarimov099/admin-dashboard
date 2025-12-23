@@ -1,7 +1,7 @@
 import type { MenuConfig } from '@/types/navigation';
 // Import only necessary menu sections
 import dashboard from './dashboard';
-import exportImportTransit from './export-import-transit';
+import declarationCreate from './export-import-transit';
 
 /**
  * Main menu configuration
@@ -11,8 +11,8 @@ const menuItems: MenuConfig = {
   items: [
     // Dashboard - Boshqaruv paneli
     dashboard,
-    // Export/Import/Transit - Group with 4-5 level deep nesting!
-    exportImportTransit,
+    // Declaration Create - Group with max 3 level depth
+    declarationCreate,
   ],
 };
 
