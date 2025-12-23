@@ -1,5 +1,5 @@
 import { ChevronDown, Menu } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { type ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router';
 import logo from '@/assets/logo.png';
@@ -12,6 +12,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import menuItems from '@/config/navigation/modules';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
 import { useCurrentPath } from '@/hooks/use-current-path.ts';
+import type { Role } from '@/types/common';
 import type { MenuGroupConfig, MenuItemConfig } from '@/types/navigation';
 import { cn } from '@/utils/utils';
 
@@ -29,45 +30,42 @@ function HorizontalNavNestedItem({
   item: MenuItemConfig;
   t: (key: string) => string;
   currentPath: string;
-  hasRole: (roles: string[]) => boolean;
+  hasRole: (roles: Role | Role[]) => boolean;
   depth?: number;
 }) {
   const [isOpen, setIsOpen] = useState(false);
-  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isActive = item.path === currentPath || item.url === currentPath;
   const nestedChildren = item.children || item.items || [];
 
-  const clearCloseTimeout = () => {
+  const clearCloseTimeout = useCallback(() => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
       closeTimeoutRef.current = null;
     }
-  };
+  }, []);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = useCallback(() => {
     clearCloseTimeout();
     setIsOpen(true);
-  };
+  }, [clearCloseTimeout]);
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     clearCloseTimeout();
-    // Longer delay to allow smooth navigation to nested popovers
+    // Longer delay to allow smooth navigation to nest popovers
     closeTimeoutRef.current = setTimeout(() => {
       setIsOpen(false);
-    }, 400); // 400ms delay for smoother experience
-  };
+    }, 400); // 400ms delay for a smoother experience
+  }, [clearCloseTimeout]);
 
-  // Cleanup timeout on unmount
+  // Cleanup timeout on unmounting
   useEffect(() => {
     return () => clearCloseTimeout();
-  }, []);
+  }, [clearCloseTimeout]);
 
   // Filter children by roles
   const visibleChildren = nestedChildren.filter(child => {
-    if (child.roles && child.roles.length > 0 && !hasRole(child.roles)) {
-      return false;
-    }
-    return true;
+    return !(child.roles && child.roles.length > 0 && !hasRole(child.roles));
   });
 
   const titleText = typeof item.title === 'string' ? t(item.title) : item.title;
@@ -182,12 +180,9 @@ export function HorizontalNav() {
         return false;
       }
       // For groups, also filter children
-      if ('children' in item) {
+      if ('children' in item && item.children) {
         const filteredChildren = item.children.filter(child => {
-          if (child.roles && child.roles.length > 0 && !hasRole(child.roles)) {
-            return false;
-          }
-          return true;
+          return !(child.roles && child.roles.length > 0 && !hasRole(child.roles));
         });
         return filteredChildren.length > 0;
       }
@@ -204,7 +199,7 @@ export function HorizontalNav() {
   ): boolean => {
     if ('path' in item && item.path === path) return true;
     if ('url' in item && item.url === path) return true;
-    if ('children' in item) {
+    if ('children' in item && item.children) {
       return item.children.some(child => isItemActive(child, path));
     }
     if ('items' in item && item.items) {
@@ -220,10 +215,7 @@ export function HorizontalNav() {
 
     // Filter children by roles
     const visibleChildren = group.children.filter(child => {
-      if (child.roles && child.roles.length > 0 && !hasRole(child.roles)) {
-        return false;
-      }
-      return true;
+      return !(child.roles && child.roles.length > 0 && !hasRole(child.roles));
     });
 
     return (
@@ -286,10 +278,7 @@ export function HorizontalNav() {
     const titleText = typeof item.title === 'string' ? t(item.title) : item.title;
     const children = item.items || [];
     const visibleChildren = children.filter(child => {
-      if (child.roles && child.roles.length > 0 && !hasRole(child.roles)) {
-        return false;
-      }
-      return true;
+      return !(child.roles && child.roles.length > 0 && !hasRole(child.roles));
     });
 
     if (visibleChildren.length > 0) {
@@ -377,10 +366,10 @@ export function HorizontalNav() {
   const renderMobileMenuItem = (
     item: MenuItemConfig | MenuGroupConfig,
     depth: number = 0
-  ): React.ReactNode => {
+  ): ReactNode => {
     const isActive = isItemActive(item);
 
-    if ('children' in item) {
+    if ('children' in item && item.children) {
       // Group
       const titleText = typeof item.title === 'string' ? t(item.title) : item.title;
       return (
@@ -402,10 +391,7 @@ export function HorizontalNav() {
           <div className="mt-1 space-y-1">
             {item.children
               .filter(child => {
-                if (child.roles && child.roles.length > 0 && !hasRole(child.roles)) {
-                  return false;
-                }
-                return true;
+                return !(child.roles && child.roles.length > 0 && !hasRole(child.roles));
               })
               .map(child => renderMobileMenuItem(child, depth + 1))}
           </div>
@@ -413,20 +399,19 @@ export function HorizontalNav() {
       );
     }
 
-    const titleText = typeof item.title === 'string' ? t(item.title) : item.title;
-    const hasChildren = item.items && item.items.length > 0;
+    // MenuItemConfig (not a group)
+    const menuItem = item as MenuItemConfig;
+    const titleText = typeof menuItem.title === 'string' ? t(menuItem.title) : menuItem.title;
+    const hasChildren = menuItem.items && menuItem.items.length > 0;
     const visibleChildren = hasChildren
-      ? item.items!.filter(child => {
-          if (child.roles && child.roles.length > 0 && !hasRole(child.roles)) {
-            return false;
-          }
-          return true;
+      ? menuItem.items?.filter((child: MenuItemConfig) => {
+          return !(child.roles && child.roles.length > 0 && !hasRole(child.roles));
         })
       : [];
 
-    if (hasChildren && visibleChildren.length > 0) {
+    if (hasChildren && visibleChildren && visibleChildren.length > 0) {
       return (
-        <div key={item.id}>
+        <div key={menuItem.id}>
           <div
             className={cn(
               'flex items-center gap-3 rounded-lg px-3 py-2 font-medium transition-colors',
@@ -434,15 +419,17 @@ export function HorizontalNav() {
               'text-foreground'
             )}
           >
-            {item.icon && (
+            {menuItem.icon && (
               <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">
-                {item.icon}
+                {menuItem.icon}
               </span>
             )}
             <span>{titleText}</span>
           </div>
           <div className="mt-1 space-y-1">
-            {visibleChildren.map(child => renderMobileMenuItem(child, depth + 1))}
+            {visibleChildren?.map((child: MenuItemConfig) =>
+              renderMobileMenuItem(child, depth + 1)
+            )}
           </div>
         </div>
       );
@@ -451,17 +438,17 @@ export function HorizontalNav() {
     // Simple item
     return (
       <NavLink
-        key={item.id}
-        to={item.path || item.url || '#'}
+        key={menuItem.id}
+        to={menuItem.path || menuItem.url || '#'}
         className={cn(
           'flex items-center gap-3 rounded-lg px-3 py-2 font-medium transition-colors',
           isActive ? 'bg-(--color-primary) text-white' : 'text-foreground hover:bg-accent'
         )}
         onClick={() => setMobileMenuOpen(false)}
       >
-        {item.icon && (
+        {menuItem.icon && (
           <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">
-            {item.icon}
+            {menuItem.icon}
           </span>
         )}
         <span>{titleText}</span>

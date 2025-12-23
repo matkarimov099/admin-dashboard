@@ -25,7 +25,7 @@ export const HorizontalLayout = () => {
     <div className="h-screen w-full overflow-hidden bg-background">
       <div className="flex h-full min-w-0 flex-col bg-background">
         {/* Top Navigation Bar */}
-        <div className="shrink-0 border-b bg-card">
+        <div className="shrink-0 border-b border-[var(--sidebar-border)] bg-[var(--sidebar-bg)]">
           <div className="flex h-16 items-center justify-between px-4 lg:px-6">
           {/* Left Section - Navigation */}
           <div className="flex items-center">
@@ -44,7 +44,7 @@ export const HorizontalLayout = () => {
         </div>
 
         {/* Breadcrumb Navigation */}
-        <div className="shrink-0 border-b bg-card/50 px-4 py-2">
+        <div className="shrink-0 border-b border-[var(--sidebar-border)] bg-[var(--sidebar-bg)]/50 px-4 py-2">
           <Breadcrumb className="min-w-0">
             <BreadcrumbList className="flex flex-wrap gap-1">
               {breadcrumbItems.flatMap((item, index) =>
