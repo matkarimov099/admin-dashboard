@@ -18,7 +18,6 @@ import { RadiusPicker } from './settings-panel/radius-picker';
 import { SettingsActions } from './settings-panel/settings-actions';
 import { SettingsSection } from './settings-panel/settings-section';
 import { ShadowPicker } from './settings-panel/shadow-picker';
-import { StyleVariantPicker } from './settings-panel/style-variant-picker';
 import { ThemeColorPicker } from './settings-panel/theme-color-picker';
 import { ThemeModeToggle } from './settings-panel/theme-mode-toggle';
 
@@ -95,9 +94,9 @@ export function SettingsPanel() {
             </SettingsSection>
 
             {/* Style Variant */}
-            <SettingsSection title={t('settingsPanel.styleVariant')}>
-              <StyleVariantPicker />
-            </SettingsSection>
+            {/*<SettingsSection title={t('settingsPanel.styleVariant')}>*/}
+            {/*  <StyleVariantPicker />*/}
+            {/*</SettingsSection>*/}
 
             {/* Theme Color */}
             <SettingsSection title={t('settingsPanel.themeColor')}>
