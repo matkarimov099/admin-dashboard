@@ -1,8 +1,11 @@
 import {
+  BACKGROUND_GRADIENTS,
   BORDER_RADIUS_OPTIONS,
   BORDER_RADIUS_VALUES,
   CSS_FONT_FAMILIES,
   FONT_FAMILIES,
+  GRADIENT_COLOR_SCHEMES,
+  GRADIENT_VALUES,
   LAYOUT_MODES,
   SHADOW_OPTIONS,
   SHADOW_VALUES,
@@ -119,6 +122,45 @@ export function generateCSSVariables(config: ThemeConfig): Record<string, string
   cssVars['--color-error'] = '#ef4444';
   cssVars['--color-info'] = '#06b6d4';
 
+  // Apply background gradients (only if not default)
+  if (config.sidebarGradient !== 'default') {
+    cssVars['--sidebar-gradient'] = GRADIENT_VALUES[config.sidebarGradient];
+
+    // Apply gradient-specific text and accent colors for sidebar
+    const sidebarScheme = GRADIENT_COLOR_SCHEMES[config.sidebarGradient];
+    if (sidebarScheme && sidebarScheme.foreground !== 'default') {
+      cssVars['--sidebar-foreground'] = sidebarScheme.foreground;
+      cssVars['--sidebar-primary-foreground'] = sidebarScheme.foreground;
+    }
+    if (sidebarScheme && sidebarScheme.accent !== 'default') {
+      cssVars['--sidebar-accent'] = sidebarScheme.accent;
+      cssVars['--sidebar-accent-foreground'] = sidebarScheme.accentForeground;
+    }
+    if (sidebarScheme && sidebarScheme.ring !== 'default') {
+      cssVars['--sidebar-ring'] = sidebarScheme.ring;
+    }
+    if (sidebarScheme && sidebarScheme.primary) {
+      cssVars['--sidebar-primary'] = sidebarScheme.primary;
+    }
+  }
+
+  if (config.headerGradient !== 'default') {
+    cssVars['--header-gradient'] = GRADIENT_VALUES[config.headerGradient];
+
+    // Apply gradient-specific text and accent colors for header
+    const headerScheme = GRADIENT_COLOR_SCHEMES[config.headerGradient];
+    if (headerScheme && headerScheme.foreground !== 'default') {
+      cssVars['--header-foreground'] = headerScheme.foreground;
+    }
+    if (headerScheme && headerScheme.accent !== 'default') {
+      cssVars['--header-accent'] = headerScheme.accent;
+      cssVars['--header-accent-foreground'] = headerScheme.accentForeground;
+    }
+    if (headerScheme && headerScheme.primary) {
+      cssVars['--header-primary'] = headerScheme.primary;
+    }
+  }
+
   return cssVars;
 }
 
@@ -139,5 +181,7 @@ export function randomizeConfig(): ThemeConfig {
     borderRadius: getRandomItem(BORDER_RADIUS_OPTIONS),
     shadow: getRandomItem(SHADOW_OPTIONS),
     layoutMode: getRandomItem(LAYOUT_MODES),
+    sidebarGradient: getRandomItem(BACKGROUND_GRADIENTS),
+    headerGradient: getRandomItem(BACKGROUND_GRADIENTS),
   };
 }

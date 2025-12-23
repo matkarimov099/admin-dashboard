@@ -11,4 +11,6 @@ export const DEFAULT_THEME_CONFIG: ThemeConfig = {
   borderRadius: 'default',
   shadow: 'default',
   layoutMode: 'vertical',
+  sidebarGradient: 'default',
+  headerGradient: 'default',
 };

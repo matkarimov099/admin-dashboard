@@ -72,14 +72,13 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
             // Active state - only text color
             isActive && 'font-medium text-(--color-primary)!',
             // Inactive state
-            !isActive &&
-              'text-gray-700 hover:text-gray-700! dark:text-gray-200 dark:hover:text-white!'
+            !isActive && 'text-gray-700 hover:text-gray-700! dark:text-white dark:hover:text-white!'
           )}
         >
           {item.icon && (
             <span
               className={cn(
-                'flex size-5 shrink-0 items-center justify-center transition-colors duration-200',
+                'flex size-5 shrink-0 items-center justify-center transition-colors duration-200 dark:text-white',
                 isActive && 'dark:text-white'
               )}
             >
@@ -121,8 +120,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
           // Active state - only text color
           isActive && 'font-medium text-(--color-primary)!',
           // Inactive state
-          !isActive &&
-            'text-gray-700 hover:text-gray-700! dark:text-gray-200 dark:hover:text-white!',
+          !isActive && 'text-gray-700 hover:text-gray-700! dark:text-white dark:hover:text-white!',
           // Collapsed sidebar specific styles
           isCollapsed ? 'size-9 justify-center p-0' : 'px-2.5'
         )}

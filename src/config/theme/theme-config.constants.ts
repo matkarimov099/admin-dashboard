@@ -1,4 +1,5 @@
 import type {
+  BackgroundGradient,
   BorderRadius,
   FontFamily,
   LayoutMode,
@@ -374,4 +375,161 @@ export const THEME_COLOR_HSL = {
     900: '175 61% 19%',
     950: '176 84% 10%',
   },
+} as const;
+
+// ============================
+// Background Gradient Options
+// ============================
+
+// Light mode gradients - bright and vibrant
+export const LIGHT_MODE_GRADIENTS: ThemeOption<BackgroundGradient>[] = [
+  {
+    value: 'default',
+    label: 'None',
+    description: 'Solid color (no gradient)',
+    previewColor: '',
+  },
+  {
+    value: 'light-gradient1',
+    label: 'Sky Blue',
+    description: 'Soft blue sky gradient',
+    previewColor: 'linear-gradient(135deg, #a8e0ff 0%, #c3f0ff 100%)',
+  },
+  {
+    value: 'light-gradient2',
+    label: 'Sunset Pink',
+    description: 'Warm pink sunset',
+    previewColor: 'linear-gradient(135deg, #ffd4e5 0%, #ffe5ec 100%)',
+  },
+  {
+    value: 'light-gradient3',
+    label: 'Mint Fresh',
+    description: 'Fresh mint gradient',
+    previewColor: 'linear-gradient(135deg, #c3fae8 0%, #d4f4e8 100%)',
+  },
+  {
+    value: 'light-gradient4',
+    label: 'Lavender Dream',
+    description: 'Soft lavender gradient',
+    previewColor: 'linear-gradient(135deg, #e3d5ff 0%, #f0e7ff 100%)',
+  },
+];
+
+// Dark mode gradients - deep and contrasting
+export const DARK_MODE_GRADIENTS: ThemeOption<BackgroundGradient>[] = [
+  {
+    value: 'default',
+    label: 'None',
+    description: 'Solid color (no gradient)',
+    previewColor: '',
+  },
+  {
+    value: 'dark-gradient1',
+    label: 'Ocean Deep',
+    description: 'Deep ocean blue',
+    previewColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+  },
+  {
+    value: 'dark-gradient2',
+    label: 'Crimson Night',
+    description: 'Dark crimson gradient',
+    previewColor: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+  },
+  {
+    value: 'dark-gradient3',
+    label: 'Midnight Blue',
+    description: 'Dark midnight blue',
+    previewColor: 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)',
+  },
+  {
+    value: 'dark-gradient4',
+    label: 'Purple Haze',
+    description: 'Deep purple gradient',
+    previewColor: 'linear-gradient(135deg, #5b247a 0%, #1e3799 100%)',
+  },
+];
+
+// Combined list for all gradients
+export const BACKGROUND_GRADIENTS = [...LIGHT_MODE_GRADIENTS, ...DARK_MODE_GRADIENTS];
+
+// Gradient color schemes for text and interactive elements
+export const GRADIENT_COLOR_SCHEMES = {
+  default: {
+    foreground: 'default',
+    accent: 'default',
+    accentForeground: 'default',
+    ring: 'default',
+  },
+  // Light mode gradients - use dark text on light backgrounds
+  'light-gradient1': {
+    foreground: '#0f172a',
+    accent: 'rgba(15, 23, 42, 0.1)',
+    accentForeground: '#0f172a',
+    ring: 'rgba(15, 23, 42, 0.25)',
+    primary: '#0f172a',
+  },
+  'light-gradient2': {
+    foreground: '#0f172a',
+    accent: 'rgba(15, 23, 42, 0.1)',
+    accentForeground: '#0f172a',
+    ring: 'rgba(15, 23, 42, 0.25)',
+    primary: '#0f172a',
+  },
+  'light-gradient3': {
+    foreground: '#0f172a',
+    accent: 'rgba(15, 23, 42, 0.1)',
+    accentForeground: '#0f172a',
+    ring: 'rgba(15, 23, 42, 0.25)',
+    primary: '#0f172a',
+  },
+  'light-gradient4': {
+    foreground: '#0f172a',
+    accent: 'rgba(15, 23, 42, 0.1)',
+    accentForeground: '#0f172a',
+    ring: 'rgba(15, 23, 42, 0.25)',
+    primary: '#0f172a',
+  },
+  // Dark mode gradients - use white text on dark backgrounds
+  'dark-gradient1': {
+    foreground: '#ffffff',
+    accent: 'rgba(255, 255, 255, 0.15)',
+    accentForeground: '#ffffff',
+    ring: 'rgba(255, 255, 255, 0.3)',
+    primary: '#ffffff',
+  },
+  'dark-gradient2': {
+    foreground: '#ffffff',
+    accent: 'rgba(255, 255, 255, 0.15)',
+    accentForeground: '#ffffff',
+    ring: 'rgba(255, 255, 255, 0.3)',
+    primary: '#ffffff',
+  },
+  'dark-gradient3': {
+    foreground: '#ffffff',
+    accent: 'rgba(255, 255, 255, 0.15)',
+    accentForeground: '#ffffff',
+    ring: 'rgba(255, 255, 255, 0.3)',
+    primary: '#ffffff',
+  },
+  'dark-gradient4': {
+    foreground: '#ffffff',
+    accent: 'rgba(255, 255, 255, 0.15)',
+    accentForeground: '#ffffff',
+    ring: 'rgba(255, 255, 255, 0.3)',
+    primary: '#ffffff',
+  },
+} as const;
+
+export const GRADIENT_VALUES = {
+  default: 'none',
+  // Light mode gradients
+  'light-gradient1': 'linear-gradient(135deg, #a8e0ff 0%, #c3f0ff 100%)',
+  'light-gradient2': 'linear-gradient(135deg, #ffd4e5 0%, #ffe5ec 100%)',
+  'light-gradient3': 'linear-gradient(135deg, #c3fae8 0%, #d4f4e8 100%)',
+  'light-gradient4': 'linear-gradient(135deg, #e3d5ff 0%, #f0e7ff 100%)',
+  // Dark mode gradients
+  'dark-gradient1': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+  'dark-gradient2': 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+  'dark-gradient3': 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)',
+  'dark-gradient4': 'linear-gradient(135deg, #5b247a 0%, #1e3799 100%)',
 } as const;

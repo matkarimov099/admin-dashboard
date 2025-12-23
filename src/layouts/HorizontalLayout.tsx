@@ -16,7 +16,13 @@ export const HorizontalLayout = () => {
     <div className="h-screen w-full overflow-hidden bg-background">
       <div className="flex h-full min-w-0 flex-col bg-background">
         {/* Top Navigation Bar */}
-        <div className="shrink-0 border-(--sidebar-border) border-b bg-(--sidebar-bg)">
+        <div
+          className="shrink-0 border-(--sidebar-border) border-b bg-(--sidebar-bg)"
+          style={{
+            background: 'var(--header-gradient, var(--sidebar-bg))',
+            color: 'var(--header-foreground, inherit)',
+          }}
+        >
           <div className="flex h-16 items-center justify-between px-4 lg:px-6">
             {/* Left Section - Navigation */}
             <div className="flex items-center">

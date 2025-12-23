@@ -48,7 +48,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className={cn(
                 'group h-11 w-full transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
-                'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
+                'hover:bg-[var(--sidebar-accent,hsl(var(--primary)/0.1))]!',
                 isCollapsed && 'h-11 w-11 justify-center px-0'
               )}
             >
@@ -78,7 +78,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
                 {!isCollapsed && (
                   <div className="text-left leading-tight transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]">
-                    <span className="truncate font-bold font-sans text-(--color-primary) text-base tracking-wide">
+                    <span
+                      className="truncate font-bold font-sans text-base tracking-wide"
+                      style={{ color: 'var(--sidebar-primary, hsl(var(--primary)))' }}
+                    >
                       {t('app.name')}
                     </span>
                   </div>

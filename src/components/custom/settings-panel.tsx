@@ -12,6 +12,7 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { useThemeConfig } from '@/hooks/use-theme-config.ts';
+import { BackgroundGradientSection } from './settings-panel/background-gradient-picker';
 import { FontPicker } from './settings-panel/font-picker';
 import { LayoutModePicker } from './settings-panel/layout-mode-picker';
 import { RadiusPicker } from './settings-panel/radius-picker';
@@ -116,6 +117,17 @@ export function SettingsPanel() {
             {/* Shadow */}
             <SettingsSection title={t('settingsPanel.shadow')}>
               <ShadowPicker />
+            </SettingsSection>
+
+            {/* Background Gradients */}
+            <SettingsSection
+              title={t('settingsPanel.backgroundGradients', 'Background Gradients')}
+              description={t(
+                'settingsPanel.backgroundGradientsDescription',
+                'Customize sidebar and header backgrounds'
+              )}
+            >
+              <BackgroundGradientSection />
             </SettingsSection>
           </div>
         </ScrollArea>

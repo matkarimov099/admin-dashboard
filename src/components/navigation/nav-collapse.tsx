@@ -132,7 +132,7 @@ export function NavCollapse({ item }: NavCollapseProps) {
                 className={cn(
                   'flex size-5 shrink-0 items-center justify-center transition-colors duration-200',
                   isParentActive && 'text-(--color-primary)',
-                  !isParentActive && 'text-gray-500 dark:text-gray-400'
+                  !isParentActive && 'text-gray-500 dark:text-white'
                 )}
               >
                 {item.icon}
@@ -144,7 +144,7 @@ export function NavCollapse({ item }: NavCollapseProps) {
               className={cn(
                 'flex-1 truncate font-medium text-[13px] transition-colors duration-200',
                 isParentActive && 'text-(--color-primary)',
-                !isParentActive && 'text-gray-700 dark:text-gray-200'
+                !isParentActive && 'text-gray-700 dark:text-white'
               )}
             >
               {titleText}

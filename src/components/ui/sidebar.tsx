@@ -170,8 +170,8 @@ function Sidebar({
           style={
             {
               '--sidebar-width': SIDEBAR_WIDTH_MOBILE,
-              background: 'var(--sidebar-bg)',
-              color: 'var(--sidebar-foreground)',
+              background: 'var(--sidebar-gradient, var(--sidebar-bg))',
+              color: 'var(--sidebar-foreground, var(--sidebar-foreground))',
               borderColor: 'var(--sidebar-border)',
             } as CSSProperties
           }
@@ -238,9 +238,9 @@ function Sidebar({
             'shadow-sm'
           )}
           style={{
-            background: 'var(--sidebar-bg)',
+            background: 'var(--sidebar-gradient, var(--sidebar-bg))',
             borderColor: 'var(--sidebar-border)',
-            color: 'var(--sidebar-foreground)',
+            color: 'var(--sidebar-foreground, var(--sidebar-foreground))',
           }}
         >
           {children}

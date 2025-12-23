@@ -19,7 +19,13 @@ export const CompactLayout = () => {
         <SidebarInset className="flex h-full min-w-0 flex-col bg-background">
           {/* Fixed header - does not scroll */}
           <div className="shrink-0 p-2">
-            <header className="glass-strong relative z-50 flex h-12 items-center justify-between gap-2 rounded-lg shadow-sm sm:h-14">
+            <header
+              className="glass-strong relative z-50 flex h-12 items-center justify-between gap-2 rounded-lg shadow-sm sm:h-14"
+              style={{
+                background: 'var(--header-gradient, var(--card-bg))',
+                color: 'var(--header-foreground, inherit)',
+              }}
+            >
               {/* Left section - sidebar trigger and breadcrumbs */}
               <div className="flex min-w-0 flex-1 items-center gap-2 px-3 sm:gap-3 sm:px-4">
                 {/* Compact sidebar trigger */}
