@@ -188,25 +188,6 @@
       "permissions": "Permissions",
       "rights": "Rights"
     },
-    "navigation": {
-      "home": "Home",
-      "dashboard": "Dashboard",
-      "menu": "Menu",
-      "sidebar": "Sidebar",
-      "header": "Header",
-      "footer": "Footer",
-      "breadcrumb": "Breadcrumb",
-      "tabs": "Tabs",
-      "links": "Links",
-      "backToHome": "Back to home",
-      "backToList": "Back to list",
-      "goToTop": "Go to top",
-      "goToBottom": "Go to bottom"
-    },
-    "dashboard": {
-      "overview": "Overview",
-      "analytics": "Analytics"
-    },
     "table": {
       "actions": "Actions",
       "selectAll": "Select all",
@@ -237,9 +218,7 @@
       "exportCurrentPageCSV": "Export Current Page as CSV",
       "exportCurrentPageExcel": "Export Current Page as Excel",
       "exportAllPagesCSV": "Export All Pages as CSV",
-      "exportAllPagesExcel": "Export All Pages as Excel",
-      "billing": "Billing",
-      "upgradePro": "Upgrade to Pro"
+      "exportAllPagesExcel": "Export All Pages as Excel"
     },
     "pagination": {
       "previous": "Previous",
@@ -258,37 +237,6 @@
       "noColumns": "No columns found",
       "clearFilters": "Clear filters"
     }
-  },
-  "tasks": {
-    "title": "Tasks",
-    "table": "Table",
-    "board": "Board",
-    "details": "Details"
-  },
-  "profile": {
-    "title": "Profile"
-  },
-  "exportImportTransit": {
-    "title": "Export/Import/Transit",
-    "caption": "International trade operations",
-    "createDeclaration": "Create Declaration",
-    "importTransit": "Import Transit",
-    "autoTransport": "Auto Transport",
-    "railwayTransport": "Railway Transport",
-    "energyResources": "Energy Resources",
-    "gasCertificate": "Gas Certificate",
-    "electricEnergy": "Electric Energy",
-    "eCommerce": "E-Commerce",
-    "export": "Export",
-    "tollingOperations": "Tolling Operations",
-    "customsTerritory": "Customs Territory",
-    "outsideCustomsTerritory": "Outside Customs Territory"
-  },
-  "notifications": {
-    "title": "Notifications",
-    "allAsRead": "Mark all as read",
-    "viewAll": "View all",
-    "noNotifications": "No notifications"
   },
   "theme": {
     "light": "Light",

@@ -188,25 +188,6 @@
       "permissions": "Ruxsatnomalari",
       "rights": "Huquqlari"
     },
-    "navigation": {
-      "home": "Bosh sahifa",
-      "dashboard": "Boshqaruv paneli",
-      "menu": "Menyu",
-      "sidebar": "Yon panel",
-      "header": "Sarlavha",
-      "footer": "Pastki qism",
-      "breadcrumb": "Yo'l xaritasi",
-      "tabs": "Varaqlar",
-      "links": "Havolalar",
-      "backToHome": "Bosh sahifaga qaytish",
-      "backToList": "Ro'yxatga qaytish",
-      "goToTop": "Yuqoriga chiqish",
-      "goToBottom": "Pastga tushish"
-    },
-    "dashboard": {
-      "overview": "Asosiy",
-      "analytics": "Analitika"
-    },
     "table": {
       "actions": "Amallar",
       "selectAll": "Barchasini tanlash",
@@ -237,9 +218,7 @@
       "exportCurrentPageCSV": "Joriy sahifani CSV sifatida eksport qilish",
       "exportCurrentPageExcel": "Joriy sahifani Excel sifatida eksport qilish",
       "exportAllPagesCSV": "Barcha sahifalarni CSV sifatida eksport qilish",
-      "exportAllPagesExcel": "Barcha sahifalarni Excel sifatida eksport qilish",
-      "billing": "To'lovlar",
-      "upgradePro": "Pro versiyasiga yangilash"
+      "exportAllPagesExcel": "Barcha sahifalarni Excel sifatida eksport qilish"
     },
     "pagination": {
       "previous": "Oldingi",
@@ -258,37 +237,6 @@
       "noColumns": "Ustunlar topilmadi",
       "clearFilters": "Filterlarni tozalash"
     }
-  },
-  "tasks": {
-    "title": "Vazifalar",
-    "table": "Jadval",
-    "board": "Taxta",
-    "details": "Tafsilotlar"
-  },
-  "profile": {
-    "title": "Profil"
-  },
-  "exportImportTransit": {
-    "title": "Eksport/Import/Tranzit",
-    "caption": "Xalqaro savdo operatsiyalari",
-    "createDeclaration": "Deklaratsiya yaratish",
-    "importTransit": "Import tranzit",
-    "autoTransport": "Avtotransport",
-    "railwayTransport": "Temir yo'l transporti",
-    "energyResources": "Energiya resurslari",
-    "gasCertificate": "Gaz sertifikati",
-    "electricEnergy": "Elektr energiyasi",
-    "eCommerce": "Elektron tijorat",
-    "export": "Eksport",
-    "tollingOperations": "Tolling operatsiyalari",
-    "customsTerritory": "Bojxona hududi",
-    "outsideCustomsTerritory": "Bojxona hududidan tashqarida"
-  },
-  "notifications": {
-    "title": "Bildirishnomalar",
-    "allAsRead": "Barchasini o'qildi",
-    "viewAll": "Barchasini ko'rish",
-    "noNotifications": "Bildirishnomalar yo'q"
   },
   "theme": {
     "light": "Yorqin",

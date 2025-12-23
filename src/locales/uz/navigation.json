@@ -21,13 +21,14 @@
 
     "exportImportTransit": {
       "title": "Eksport/Import/Tranzit",
+      "caption": "Savdo operatsiyalari",
       "description": "Xalqaro savdo operatsiyalari",
       "createDeclaration": {
         "title": "Deklaratsiya yaratish",
         "description": "Yangi bojxona deklaratsiyasi yaratish"
       },
       "importTransit": {
-        "title": "Import tranziti",
+        "title": "Import/Tranzit",
         "description": "Import tranzit operatsiyalari"
       },
       "autoTransport": {
@@ -144,6 +145,22 @@
       }
     },
 
+    "tasks": {
+      "title": "Vazifalar",
+      "description": "Vazifalarni boshqarish",
+      "table": "Jadval",
+      "board": "Taxta",
+      "details": "Tafsilotlar"
+    },
+
+    "profile": {
+      "title": "Profil",
+      "description": "Foydalanuvchi profili",
+      "upgradePro": "Pro versiyasiga yangilash",
+      "billing": "To'lovlar",
+      "logout": "Chiqish"
+    },
+
     "states": {
       "expanded": "Yoyilgan",
       "collapsed": "Yig'ilgan",
@@ -157,6 +174,14 @@
       "beta": "Beta",
       "updated": "Yangilangan",
       "popular": "Mashhur"
+    },
+
+    "notifications": {
+      "title": "Bildirishnomalar",
+      "description": "Foydalanuvchi bildirishnomalari",
+      "allAsRead": "Barchasini o'qildi",
+      "viewAll": "Barchasini ko'rish",
+      "noNotifications": "Bildirishnomalar yo'q"
     }
   }
 }

@@ -1,0 +1,51 @@
+{
+  "dashboard": {
+    "title": "Панель управления",
+    "overview": "Добро пожаловать в вашу панель управления. Вот что происходит сегодня.",
+    "greeting": "Доброе {{timeOfDay}}, {{name}}!",
+    "greetingFallback": "Добро пожаловать!",
+    "timeOfDay": {
+      "morning": "утро",
+      "afternoon": "день",
+      "evening": "вечер"
+    },
+    "stats": {
+      "totalUsers": "Всего пользователей",
+      "activeUsers": "Активные пользователи",
+      "totalRevenue": "Общий доход",
+      "pendingTasks": "Ожидающие задачи",
+      "completedTasks": "Выполненные задачи",
+      "newOrders": "Новые заказы",
+      "growth": "Рост",
+      "decline": "Снижение"
+    },
+    "recentActivity": {
+      "title": "Последняя активность",
+      "viewAll": "Посмотреть всю активность",
+      "noActivity": "Последней активности нет",
+      "types": {
+        "userRegistered": "Пользователь {{name}} зарегистрировался",
+        "taskCompleted": "Задача '{{task}}' выполнена {{name}}",
+        "orderPlaced": "Новый заказ #{{orderId}} оформлен",
+        "paymentReceived": "Платеж ${{amount}} получен"
+      }
+    },
+    "quickActions": {
+      "title": "Быстрые действия",
+      "addUser": "Добавить пользователя",
+      "createTask": "Создать задачу",
+      "generateReport": "Сгенерировать отчет",
+      "viewSettings": "Просмотреть настройки"
+    },
+    "charts": {
+      "revenue": "Доход",
+      "users": "Пользователи",
+      "tasks": "Задачи",
+      "orders": "Заказы",
+      "last7Days": "Последние 7 дней",
+      "last30Days": "Последние 30 дней",
+      "last90Days": "Последние 90 дней",
+      "thisYear": "Этот год"
+    }
+  }
+}

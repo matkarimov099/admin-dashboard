@@ -1,20 +1,170 @@
 import { ChevronDown, Menu } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router';
 import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import type { SidebarMenuItem } from '@/config/navigation/sidebar-menu';
-import { mainMenuItems } from '@/config/navigation/sidebar-menu.tsx';
+import menuItems from '@/config/navigation/modules';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
 import { useCurrentPath } from '@/hooks/use-current-path.ts';
+import type { MenuItemConfig, MenuGroupConfig } from '@/config/navigation/types/menu';
 import { cn } from '@/utils/utils';
+
+/**
+ * HorizontalNavNestedItem - Nested popover item for horizontal nav
+ * Opens new popovers to the right when hovering over items with children
+ */
+function HorizontalNavNestedItem({
+  item,
+  t,
+  currentPath,
+  hasRole,
+  depth = 0,
+}: {
+  item: MenuItemConfig;
+  t: (key: string) => string;
+  currentPath: string;
+  hasRole: (roles: string[]) => boolean;
+  depth?: number;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const isActive = item.path === currentPath || item.url === currentPath;
+  const nestedChildren = item.children || item.items || [];
+
+  const clearCloseTimeout = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+  };
+
+  const handleMouseEnter = () => {
+    clearCloseTimeout();
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    clearCloseTimeout();
+    // Longer delay to allow smooth navigation to nested popovers
+    closeTimeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 400); // 400ms delay for smoother experience
+  };
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => clearCloseTimeout();
+  }, []);
+
+  // Filter children by roles
+  const visibleChildren = nestedChildren.filter(child => {
+    if (child.roles && child.roles.length > 0 && !hasRole(child.roles)) {
+      return false;
+    }
+    return true;
+  });
+
+  const titleText = typeof item.title === 'string' ? t(item.title) : item.title;
+  const hasNestedChildren = visibleChildren.length > 0;
+
+  if (hasNestedChildren) {
+    // Item with children - use nested popover
+    return (
+      <Popover open={isOpen} onOpenChange={setIsOpen}>
+        <PopoverTrigger asChild>
+          <div
+            className={cn(
+              'flex cursor-pointer items-center justify-between gap-2.5 rounded-md px-2.5 py-2 text-sm transition-all duration-200',
+              isActive && 'bg-(--color-primary)/10 font-semibold text-(--color-primary)',
+              !isActive && 'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
+              'hover:!text-gray-700 dark:hover:!text-white text-gray-700 dark:text-gray-200'
+            )}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="flex min-w-0 flex-1 items-center gap-2.5">
+              {item.icon && (
+                <span className="flex size-5 shrink-0 items-center justify-center text-gray-500 dark:text-gray-400">
+                  {item.icon}
+                </span>
+              )}
+              <span className="flex-1">{titleText}</span>
+            </div>
+            <ChevronDown
+              className={cn(
+                'size-4.5 shrink-0 text-gray-400 transition-transform duration-200 dark:text-gray-500',
+                isOpen ? 'rotate-0' : '-rotate-90'
+              )}
+            />
+          </div>
+        </PopoverTrigger>
+
+        <PopoverContent
+          side="right"
+          align="start"
+          className="min-w-48 max-w-64 rounded-lg border border-gray-200 p-2 shadow-lg dark:border-gray-700"
+          onOpenAutoFocus={e => e.preventDefault()}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          {/* Nested popover header */}
+          <div className="mb-2 border-gray-200 border-b pb-1.5 dark:border-gray-700">
+            <div className="flex items-center gap-2 px-1.5 py-1 text-xs">
+              {item.icon && (
+                <span className="flex size-4.5 shrink-0 items-center justify-center text-gray-500 dark:text-gray-400">
+                  {item.icon}
+                </span>
+              )}
+              <span className="font-semibold text-gray-700 uppercase tracking-wide dark:text-gray-300">
+                {titleText}
+              </span>
+            </div>
+          </div>
+
+          {/* Nested popover children */}
+          <div className="space-y-1">
+            {visibleChildren.map(child => (
+              <HorizontalNavNestedItem
+                key={child.id}
+                item={child}
+                t={t}
+                currentPath={currentPath}
+                hasRole={hasRole}
+                depth={depth + 1}
+              />
+            ))}
+          </div>
+        </PopoverContent>
+      </Popover>
+    );
+  }
+
+  // Simple item without children - make it a link
+  return (
+    <NavLink
+      to={item.path || item.url || '#'}
+      className={cn(
+        'flex cursor-pointer items-center justify-between gap-2.5 rounded-md px-2.5 py-2 text-sm transition-all duration-200',
+        isActive && 'bg-(--color-primary)/10 font-semibold text-(--color-primary)',
+        !isActive && 'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
+        'hover:!text-gray-700 dark:hover:!text-white text-gray-700 dark:text-gray-200'
+      )}
+    >
+      <div className="flex min-w-0 flex-1 items-center gap-2.5">
+        {item.icon && (
+          <span className="flex size-5 shrink-0 items-center justify-center text-gray-500 dark:text-gray-400">
+            {item.icon}
+          </span>
+        )}
+        <span className="flex-1">{titleText}</span>
+      </div>
+    </NavLink>
+  );
+}
 
 export function HorizontalNav() {
   const { t } = useTranslation();
@@ -23,95 +173,123 @@ export function HorizontalNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Filter menu items based on roles
-  const filteredMenuItems = mainMenuItems.filter(item => {
-    // For parent items without URL, check if they have any visible subitems
-    if (!item.url || item.url.trim() === '') {
-      // If an item has roles restriction, check the user has those roles
+  const filterMenuItems = (items: (MenuItemConfig | MenuGroupConfig)[]) => {
+    return items.filter(item => {
       if (item.roles && item.roles.length > 0 && !hasRole(item.roles)) {
         return false;
       }
-      // Check if any subitems are visible
-      if (item.items && item.items.length > 0) {
-        return item.items.some(subItem => {
-          if (!subItem.roles || subItem.roles.length === 0) return true;
-          return hasRole(subItem.roles);
+      // For groups, also filter children
+      if ('children' in item) {
+        const filteredChildren = item.children.filter(child => {
+          if (child.roles && child.roles.length > 0 && !hasRole(child.roles)) {
+            return false;
+          }
+          return true;
         });
+        return filteredChildren.length > 0;
       }
       return true;
-    }
-    // For items with URL, check role permissions
-    if (!item.roles || item.roles.length === 0) return true;
-    return hasRole(item.roles);
-  });
-
-  // Check if this item or any of its subitems is active
-  const isItemActive = (item: SidebarMenuItem) => {
-    const hasActiveSubItem = item.items?.some(subItem => subItem.url === currentPath);
-    const isDirectlyActive = item.url && item.url !== '' && item.url === currentPath;
-    return hasActiveSubItem || isDirectlyActive;
+    });
   };
 
-  return (
-    <>
-      {/* Desktop Navigation */}
-      <nav className="hidden items-center space-x-1 md:flex">
-        {filteredMenuItems.map(item => {
-          const hasSubItems = item.items && item.items.length > 0;
-          const isActive = isItemActive(item);
+  const filteredMenuItems = filterMenuItems(menuItems.items);
 
-          if (hasSubItems && (!item.url || item.url.trim() === '')) {
-            // Dropdown menu for items with subitems but no direct URL
-            return (
-              <DropdownMenu key={item.title}>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant={isActive ? 'default' : 'ghost'}
-                    size="sm"
-                    className={cn(
-                      'h-9 gap-2 px-3 transition-colors',
-                      isActive && 'bg-(--color-primary) text-white hover:bg-(--color-primary-hover)'
-                    )}
-                  >
-                    <div className="flex items-center gap-2">
-                      {item.icon}
-                      <span>{t(item.title)}</span>
-                    </div>
-                    <ChevronDown className="h-4 w-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" className="w-48">
-                  {item.items
-                    ?.filter(subItem => {
-                      if (!subItem.roles || subItem.roles.length === 0) return true;
-                      return hasRole(subItem.roles);
-                    })
-                    .map(subItem => {
-                      const isSubActive = subItem.url === currentPath;
-                      return (
-                        <DropdownMenuItem key={subItem.title} asChild>
-                          <NavLink
-                            to={subItem.url}
-                            className={cn(
-                              'flex w-full cursor-pointer items-center gap-2',
-                              isSubActive &&
-                                'bg-(--color-primary)/10 font-semibold text-(--color-primary)'
-                            )}
-                          >
-                            <span>{t(subItem.title)}</span>
-                          </NavLink>
-                        </DropdownMenuItem>
-                      );
-                    })}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            );
-          }
+  // Check if this item or any of its subitems is active
+  const isItemActive = (item: MenuItemConfig | MenuGroupConfig, path: string = currentPath): boolean => {
+    if ('path' in item && item.path === path) return true;
+    if ('url' in item && item.url === path) return true;
+    if ('children' in item) {
+      return item.children.some(child => isItemActive(child, path));
+    }
+    if ('items' in item && item.items) {
+      return item.items.some(child => isItemActive(child, path));
+    }
+    return false;
+  };
 
-          // Regular navigation link
-          return (
+  // Render menu group popover (for groups like Export/Import/Transit)
+  const renderMenuGroupPopover = (group: MenuGroupConfig) => {
+    const isActive = isItemActive(group);
+    const titleText = typeof group.title === 'string' ? t(group.title) : group.title;
+    const captionText = typeof group.caption === 'string' ? t(group.caption) : group.caption;
+
+    // Filter children by roles
+    const visibleChildren = group.children.filter(child => {
+      if (child.roles && child.roles.length > 0 && !hasRole(child.roles)) {
+        return false;
+      }
+      return true;
+    });
+
+    return (
+      <Popover key={group.id}>
+        <PopoverTrigger asChild>
+          <Button
+            variant={isActive ? 'default' : 'ghost'}
+            size="sm"
+            className={cn(
+              'h-9 gap-2 px-3 transition-colors',
+              isActive && 'bg-(--color-primary) text-white hover:bg-(--color-primary-hover)'
+            )}
+          >
+            <div className="flex items-center gap-2">
+              {group.icon && <div className="shrink-0">{group.icon}</div>}
+              <span>{titleText}</span>
+            </div>
+            <ChevronDown className="h-4 w-4 shrink-0" />
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent align="start" className="min-w-56 max-w-80 p-0" sideOffset={4}>
+          <div className="p-2">
+            {/* Header with icon and title */}
+            <div className="flex items-center gap-2 px-2 py-2 mb-1">
+                {group.icon && <div className="shrink-0">{group.icon}</div>}
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-medium">{titleText}</p>
+                  {captionText && (
+                    <p className="text-muted-foreground text-xs truncate">{captionText}</p>
+                  )}
+                </div>
+              </div>
+              <Separator className="mb-2" />
+              {/* Children with nested popover support */}
+              <ScrollArea className="max-h-80">
+                <div className="space-y-1">
+                  {visibleChildren.map(child => (
+                    <HorizontalNavNestedItem
+                      key={child.id}
+                      item={child}
+                      t={t}
+                      currentPath={currentPath}
+                      hasRole={hasRole}
+                    />
+                  ))}
+                </div>
+              </ScrollArea>
+            </div>
+        </PopoverContent>
+      </Popover>
+    );
+  };
+
+  // Render simple collapse item (for items like Dashboard)
+  const renderCollapseItem = (item: MenuItemConfig) => {
+    const isActive = isItemActive(item);
+    const titleText = typeof item.title === 'string' ? t(item.title) : item.title;
+    const children = item.items || [];
+    const visibleChildren = children.filter(child => {
+      if (child.roles && child.roles.length > 0 && !hasRole(child.roles)) {
+        return false;
+      }
+      return true;
+    });
+
+    if (visibleChildren.length > 0) {
+      // Item with children - show as popover
+      return (
+        <Popover key={item.id}>
+          <PopoverTrigger asChild>
             <Button
-              key={item.title}
-              asChild
               variant={isActive ? 'default' : 'ghost'}
               size="sm"
               className={cn(
@@ -119,14 +297,165 @@ export function HorizontalNav() {
                 isActive && 'bg-(--color-primary) text-white hover:bg-(--color-primary-hover)'
               )}
             >
-              <NavLink to={item.url || '#'}>
-                <div className="flex items-center gap-2">
-                  {item.icon}
-                  <span>{t(item.title)}</span>
-                </div>
-              </NavLink>
+              <div className="flex items-center gap-2">
+                {item.icon && <div className="shrink-0">{item.icon}</div>}
+                <span>{titleText}</span>
+              </div>
+              <ChevronDown className="h-4 w-4 shrink-0" />
             </Button>
-          );
+          </PopoverTrigger>
+          <PopoverContent align="start" className="min-w-48 max-w-72 p-2" sideOffset={4}>
+            {/* Header */}
+            <div className="mb-2 border-gray-200 border-b pb-1.5 dark:border-gray-700">
+              <div className="flex items-center gap-2 px-1.5 py-1 text-xs">
+                {item.icon && (
+                  <span className="flex size-4.5 shrink-0 items-center justify-center text-gray-500 dark:text-gray-400">
+                    {item.icon}
+                  </span>
+                )}
+                <span className="font-semibold text-gray-700 uppercase tracking-wide dark:text-gray-300">
+                  {titleText}
+                </span>
+              </div>
+            </div>
+            {/* Children */}
+            <div className="space-y-1">
+              {visibleChildren.map(child => (
+                <HorizontalNavNestedItem
+                  key={child.id}
+                  item={child}
+                  t={t}
+                  currentPath={currentPath}
+                  hasRole={hasRole}
+                />
+              ))}
+            </div>
+          </PopoverContent>
+        </Popover>
+      );
+    }
+
+    // Simple item without children
+    return (
+      <Button
+        key={item.id}
+        asChild
+        variant={isActive ? 'default' : 'ghost'}
+        size="sm"
+        className={cn(
+          'h-9 gap-2 px-3 transition-colors',
+          isActive && 'bg-(--color-primary) text-white hover:bg-(--color-primary-hover)'
+        )}
+      >
+        <NavLink to={item.path || item.url || '#'}>
+          <div className="flex items-center gap-2">
+            {item.icon && <div className="shrink-0">{item.icon}</div>}
+            <span>{titleText}</span>
+          </div>
+        </NavLink>
+      </Button>
+    );
+  };
+
+  // Mobile menu item renderer
+  const renderMobileMenuItem = (
+    item: MenuItemConfig | MenuGroupConfig,
+    depth: number = 0
+  ): React.ReactNode => {
+    const isActive = isItemActive(item);
+
+    if ('children' in item) {
+      // Group
+      const titleText = typeof item.title === 'string' ? t(item.title) : item.title;
+      return (
+        <div key={item.id}>
+          <div
+            className={cn(
+              'flex items-center gap-3 rounded-lg px-3 py-2 font-medium transition-colors',
+              isActive && 'bg-(--color-primary)/10 text-(--color-primary)',
+              'text-foreground'
+            )}
+          >
+            {item.icon && <div className="shrink-0">{item.icon}</div>}
+            <span>{titleText}</span>
+          </div>
+          <div className="mt-1 space-y-1">
+            {item.children
+              .filter(child => {
+                if (child.roles && child.roles.length > 0 && !hasRole(child.roles)) {
+                  return false;
+                }
+                return true;
+              })
+              .map(child => renderMobileMenuItem(child, depth + 1))}
+          </div>
+        </div>
+      );
+    }
+
+    const titleText = typeof item.title === 'string' ? t(item.title) : item.title;
+    const hasChildren = item.items && item.items.length > 0;
+    const visibleChildren = hasChildren
+      ? item.items!.filter(child => {
+          if (child.roles && child.roles.length > 0 && !hasRole(child.roles)) {
+            return false;
+          }
+          return true;
+        })
+      : [];
+
+    if (hasChildren && visibleChildren.length > 0) {
+      return (
+        <div key={item.id}>
+          <div
+            className={cn(
+              'flex items-center gap-3 rounded-lg px-3 py-2 font-medium transition-colors',
+              isActive && 'bg-(--color-primary)/10 text-(--color-primary)',
+              'text-foreground'
+            )}
+          >
+            {item.icon && <div className="shrink-0">{item.icon}</div>}
+            <span>{titleText}</span>
+          </div>
+          <div className="mt-1 space-y-1">
+            {visibleChildren.map(child => renderMobileMenuItem(child, depth + 1))}
+          </div>
+        </div>
+      );
+    }
+
+    // Simple item
+    return (
+      <NavLink
+        key={item.id}
+        to={item.path || item.url || '#'}
+        className={cn(
+          'flex items-center gap-3 rounded-lg px-3 py-2 font-medium transition-colors',
+          isActive
+            ? 'bg-(--color-primary) text-white'
+            : 'text-foreground hover:bg-accent'
+        )}
+        onClick={() => setMobileMenuOpen(false)}
+      >
+        {item.icon && <div className="shrink-0">{item.icon}</div>}
+        <span>{titleText}</span>
+      </NavLink>
+    );
+  };
+
+  return (
+    <>
+      {/* Desktop Navigation */}
+      <nav className="hidden items-center space-x-1 md:flex">
+        {filteredMenuItems.map(item => {
+          if (item.type === 'group') {
+            return renderMenuGroupPopover(item as MenuGroupConfig);
+          }
+          if (item.type === 'collapse') {
+            return renderCollapseItem(item as MenuItemConfig);
+          }
+          // Simple item
+          return renderCollapseItem(item as MenuItemConfig);
         })}
       </nav>
 
@@ -135,84 +464,22 @@ export function HorizontalNav() {
         <SheetTrigger asChild className="md:hidden">
           <Button variant="ghost" size="sm" className="h-9 w-9 p-0">
             <Menu className="h-5 w-5" />
-            <span className="sr-only">{t('common.navigation.menu')}</span>
+            <span className="sr-only">{t('navigation.menu')}</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="w-64 p-0">
+        <SheetContent side="left" className="w-72 p-0">
           <div className="flex h-full flex-col">
             {/* Header */}
             <div className="flex items-center justify-between border-b p-4">
-              <h2 className="font-semibold text-lg">{t('common.navigation.menu')}</h2>
+              <h2 className="font-semibold text-lg">{t('navigation.menu')}</h2>
             </div>
 
             {/* Navigation Items */}
-            <div className="flex-1 overflow-y-auto p-4">
-              <div className="space-y-2">
-                {filteredMenuItems.map(item => {
-                  const hasSubItems = item.items && item.items.length > 0;
-                  const isActive = isItemActive(item);
-
-                  if (hasSubItems && (!item.url || item.url.trim() === '')) {
-                    // Expandable section for items with subitems
-                    return (
-                      <div key={item.title}>
-                        <div
-                          className={cn(
-                            'flex items-center gap-3 rounded-lg p-3 font-medium transition-colors',
-                            isActive && 'bg-(--color-primary)/10 text-(--color-primary)',
-                            'text-foreground'
-                          )}
-                        >
-                          {item.icon}
-                          <span>{t(item.title)}</span>
-                        </div>
-                        <div className="mt-1 ml-6 space-y-1">
-                          {item.items
-                            ?.filter(subItem => {
-                              if (!subItem.roles || subItem.roles.length === 0) return true;
-                              return hasRole(subItem.roles);
-                            })
-                            .map(subItem => {
-                              const isSubActive = subItem.url === currentPath;
-                              return (
-                                <NavLink
-                                  key={subItem.title}
-                                  to={subItem.url}
-                                  className={cn(
-                                    'block rounded-md p-2 text-sm transition-colors',
-                                    isSubActive
-                                      ? 'bg-(--color-primary)/10 font-semibold text-(--color-primary)'
-                                      : 'text-muted-foreground hover:bg-accent hover:text-foreground'
-                                  )}
-                                >
-                                  {t(subItem.title)}
-                                </NavLink>
-                              );
-                            })}
-                        </div>
-                      </div>
-                    );
-                  }
-
-                  // Regular navigation link
-                  return (
-                    <NavLink
-                      key={item.title}
-                      to={item.url || '#'}
-                      className={cn(
-                        'flex items-center gap-3 rounded-lg p-3 font-medium transition-colors',
-                        isActive
-                          ? 'bg-(--color-primary) text-white'
-                          : 'text-foreground hover:bg-accent'
-                      )}
-                    >
-                      {item.icon}
-                      <span>{t(item.title)}</span>
-                    </NavLink>
-                  );
-                })}
+            <ScrollArea className="flex-1">
+              <div className="p-4 space-y-2">
+                {filteredMenuItems.map(item => renderMobileMenuItem(item))}
               </div>
-            </div>
+            </ScrollArea>
           </div>
         </SheetContent>
       </Sheet>

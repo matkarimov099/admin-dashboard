@@ -189,23 +189,8 @@
       "rights": "Ҳуқуқлари"
     },
     "navigation": {
-      "home": "Бош саҳифа",
       "dashboard": "Бошқарув панели",
-      "menu": "Меню",
-      "sidebar": "Ён панел",
-      "header": "Сарлавҳа",
-      "footer": "Пастки қисм",
-      "breadcrumb": "Йўл харитаси",
-      "tabs": "Варақлар",
-      "links": "Ҳаволалар",
-      "backToHome": "Бош саҳифага қайтиш",
-      "backToList": "Рўйхатга қайтиш",
-      "goToTop": "Юқорига чиқиш",
-      "goToBottom": "Пастга тушиш"
-    },
-    "dashboard": {
-      "overview": "Асосий",
-      "analytics": "Аналитика"
+      "menu": "Меню"
     },
     "table": {
       "actions": "Амаллар",
@@ -237,9 +222,7 @@
       "exportCurrentPageCSV": "Жорий саҳифани CSV сифатида экспорт қилиш",
       "exportCurrentPageExcel": "Жорий саҳифани Excel сифатида экспорт қилиш",
       "exportAllPagesCSV": "Барча саҳифаларни CSV сифатида экспорт қилиш",
-      "exportAllPagesExcel": "Барча саҳифаларни Excel сифатида экспорт қилиш",
-      "billing": "Тўловлар",
-      "upgradePro": "Pro версиясига янгилаш"
+      "exportAllPagesExcel": "Барча саҳифаларни Excel сифатида экспорт қилиш"
     },
     "pagination": {
       "previous": "Олдинги",
@@ -268,21 +251,8 @@
   "profile": {
     "title": "Профил"
   },
-  "exportImportTransit": {
-    "title": "Экспорт/Импорт/Транзит",
-    "caption": "Халқаро савдо операциялари",
-    "createDeclaration": "Декларация яратиш",
-    "importTransit": "Импорт транзит",
-    "autoTransport": "Автотранспорт",
-    "railwayTransport": "Темир йўл транспорти",
-    "energyResources": "Энергия ресурслари",
-    "gasCertificate": "Газ сертификати",
-    "electricEnergy": "Электр энергияси",
-    "eCommerce": "Электрон тижорат",
-    "export": "Экспорт",
-    "tollingOperations": "Толлинг операциялари",
-    "customsTerritory": "Божхона ҳудуди",
-    "outsideCustomsTerritory": "Божхона ҳудудидан ташқарида"
+  "users": {
+    "title": "Фойдаланувчилар"
   },
   "notifications": {
     "title": "Билдиришномалар",

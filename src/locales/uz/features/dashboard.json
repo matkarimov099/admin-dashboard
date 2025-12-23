@@ -1,0 +1,51 @@
+{
+  "dashboard": {
+    "title": "Boshqaruv paneli",
+    "overview": "Admin panelingizga xush kelibsiz. Bugun nima bo'layapti.",
+    "greeting": "Xayrli {{timeOfDay}}, {{name}}!",
+    "greetingFallback": "Xush kelibsiz!",
+    "timeOfDay": {
+      "morning": "ertalab",
+      "afternoon": "tushlikdan keyin",
+      "evening": "kechasi"
+    },
+    "stats": {
+      "totalUsers": "Jami foydalanuvchilar",
+      "activeUsers": "Faol foydalanuvchilar",
+      "totalRevenue": "Jami daromad",
+      "pendingTasks": "Kutilmoqda vazifalar",
+      "completedTasks": "Bajarilgan vazifalar",
+      "newOrders": "Yangi buyurtmalar",
+      "growth": "O'sish",
+      "decline": "Kamayish"
+    },
+    "recentActivity": {
+      "title": "So'nggi faoliyat",
+      "viewAll": "Barcha faoliyatni ko'rish",
+      "noActivity": "So'nggi faoliyat yo'q",
+      "types": {
+        "userRegistered": "Foydalanuvchi {{name}} ro'yxatdan o'tdi",
+        "taskCompleted": "'{{task}}' vazifasi {{name}} tomonidan bajarildi",
+        "orderPlaced": "#{{orderId}} buyurtma berildi",
+        "paymentReceived": "${{amount}} to'lov qabul qilindi"
+      }
+    },
+    "quickActions": {
+      "title": "Tezkor harakatlar",
+      "addUser": "Foydalanuvchi qo'shish",
+      "createTask": "Vazifa yaratish",
+      "generateReport": "Hisobot yaratish",
+      "viewSettings": "Sozlamalarni ko'rish"
+    },
+    "charts": {
+      "revenue": "Daromad",
+      "users": "Foydalanuvchilar",
+      "tasks": "Vazifalar",
+      "orders": "Buyurtmalar",
+      "last7Days": "Oxirgi 7 kun",
+      "last30Days": "Oxirgi 30 kun",
+      "last90Days": "Oxirgi 90 kun",
+      "thisYear": "Shu yil"
+    }
+  }
+}

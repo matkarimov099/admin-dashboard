@@ -6,16 +6,11 @@ import exportImportTransit from './export-import-transit';
 /**
  * Main menu configuration
  * Clean and focused structure with only essential modules
- *
- * Structure:
- * - Dashboard - Main overview
- * - Export/Import/Transit - Full cargo-customs workflow with 5-level nesting
  */
 const menuItems: MenuConfig = {
   items: [
     // Dashboard - Boshqaruv paneli
     dashboard,
-
     // Export/Import/Transit - Group with 4-5 level deep nesting!
     exportImportTransit,
   ],
@@ -28,7 +23,7 @@ const menuItems: MenuConfig = {
 export const hiddenRoutes = [
   {
     id: 'profile',
-    title: 'profile.title',
+    title: 'navigation.profile.title',
     type: 'item' as const,
     path: '/profile',
     roles: [],

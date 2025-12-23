@@ -29,34 +29,34 @@ export interface MenuSubItemConfig {
 
 export const menuConfig: MenuItemConfig[] = [
   {
-    title: 'common.navigation.dashboard',
+    title: 'navigation.dashboard.title',
     path: '/dashboard',
     icon: <ChartNoAxesCombinedIcon />,
     roles: [], // Accessible to all authenticated users
     component: lazy(() => import('@/pages/dashboard/Dashboard.tsx')),
   },
   {
-    title: 'users.title',
+    title: 'navigation.users.title',
     path: '/users',
     icon: <UsersIcon />,
     roles: [],
     component: lazy(() => import('@/pages/users/Users.tsx')),
   },
   {
-    title: 'tasks.title', // Use tasks title from root level
+    title: 'navigation.tasks.title',
     path: '', // Parent-only menu (no direct route)
     icon: <CheckSquareIcon />,
     roles: [], // Accessible to all authenticated users
     items: [
       {
-        title: 'tasks.table',
+        title: 'navigation.tasks.table',
         path: '/tasks/table',
         icon: <LayoutListIcon />,
         roles: [],
         component: lazy(() => import('@/pages/tasks/TasksTable.tsx')),
       },
       {
-        title: 'tasks.board',
+        title: 'navigation.tasks.board',
         path: '/tasks/board',
         icon: <CheckSquareIcon />,
         roles: [],
@@ -79,13 +79,13 @@ export const footerMenuConfig: MenuItemConfig[] = [];
  */
 export const hiddenRoutes: MenuItemConfig[] = [
   {
-    title: 'profile.title',
+    title: 'navigation.profile.title',
     path: '/profile',
     roles: [],
     component: lazy(() => import('@/pages/profile/Profile.tsx')),
   },
   {
-    title: 'tasks.details',
+    title: 'navigation.tasks.details',
     path: '/tasks/:taskKey',
     roles: [], // Accessible to all authenticated users
     component: lazy(() => import('@/pages/tasks/TaskDetail.tsx')),

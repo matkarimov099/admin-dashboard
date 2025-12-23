@@ -23,15 +23,15 @@ import type { MenuGroupConfig } from '../types/menu';
  */
 const exportImportTransit: MenuGroupConfig = {
   id: 'group-export-import-transit',
-  title: 'exportImportTransit.title',
+  title: 'navigation.exportImportTransit.title',
   type: 'group',
   icon: <RefreshCwIcon />,
-  caption: 'exportImportTransit.caption',
+  caption: 'navigation.exportImportTransit.caption',
   roles: [],
   children: [
     {
       id: 'create-declaration',
-      title: 'exportImportTransit.createDeclaration',
+      title: 'navigation.exportImportTransit.createDeclaration.title',
       type: 'collapse',
       icon: <CirclePlusIcon />,
       roles: [],
@@ -40,7 +40,7 @@ const exportImportTransit: MenuGroupConfig = {
         // Import Transit - 3rd level nesting
         {
           id: 'import-transit',
-          title: 'exportImportTransit.importTransit',
+          title: 'navigation.exportImportTransit.importTransit.title',
           type: 'collapse',
           icon: <ArrowDownLeftIcon />,
           roles: [],
@@ -49,7 +49,7 @@ const exportImportTransit: MenuGroupConfig = {
             // Auto Transport
             {
               id: 'auto-transport',
-              title: 'exportImportTransit.autoTransport',
+              title: 'navigation.exportImportTransit.autoTransport.title',
               type: 'item',
               path: '/export-import-transit/create-declaration/import-transit/auto-transport',
               icon: <TruckIcon />,
@@ -60,7 +60,7 @@ const exportImportTransit: MenuGroupConfig = {
             // Railway Transport
             {
               id: 'railway-transport',
-              title: 'exportImportTransit.railwayTransport',
+              title: 'navigation.exportImportTransit.railwayTransport.title',
               type: 'item',
               path: '/export-import-transit/create-declaration/import-transit/railway-transport',
               icon: <TrainIcon />,
@@ -71,7 +71,7 @@ const exportImportTransit: MenuGroupConfig = {
             // Energy Resources - 4th level nesting!
             {
               id: 'energy-resources',
-              title: 'exportImportTransit.energyResources',
+              title: 'navigation.exportImportTransit.energyResources.title',
               type: 'collapse',
               icon: <BoltIcon />,
               roles: [],
@@ -80,7 +80,7 @@ const exportImportTransit: MenuGroupConfig = {
                 // Gas Certificate - 5th level!
                 {
                   id: 'gas-certificate',
-                  title: 'exportImportTransit.gasCertificate',
+                  title: 'navigation.exportImportTransit.gasCertificate.title',
                   type: 'item',
                   path: '/export-import-transit/create-declaration/import-transit/energy-resources/gas-certificate',
                   icon: <FlameIcon />,
@@ -91,7 +91,7 @@ const exportImportTransit: MenuGroupConfig = {
                 // Electric Energy - 5th level!
                 {
                   id: 'electric-energy',
-                  title: 'exportImportTransit.electricEnergy',
+                  title: 'navigation.exportImportTransit.electricEnergy.title',
                   type: 'item',
                   path: '/export-import-transit/create-declaration/import-transit/energy-resources/electric-energy',
                   icon: <ZapIcon />,
@@ -104,7 +104,7 @@ const exportImportTransit: MenuGroupConfig = {
             // E-Commerce
             {
               id: 'e-commerce',
-              title: 'exportImportTransit.eCommerce',
+              title: 'navigation.exportImportTransit.eCommerce.title',
               type: 'item',
               path: '/export-import-transit/create-declaration/import-transit/e-commerce',
               icon: <ShoppingCartIcon />,
@@ -117,7 +117,7 @@ const exportImportTransit: MenuGroupConfig = {
         // Export - 3rd level
         {
           id: 'export',
-          title: 'exportImportTransit.export',
+          title: 'navigation.exportImportTransit.export.title',
           type: 'item',
           path: '/export-import-transit/create-declaration/export',
           icon: <ArrowUpRightIcon />,
@@ -128,7 +128,7 @@ const exportImportTransit: MenuGroupConfig = {
         // Tolling Operations - 3rd level nesting
         {
           id: 'tolling-operations',
-          title: 'exportImportTransit.tollingOperations',
+          title: 'navigation.exportImportTransit.tollingOperations.title',
           type: 'collapse',
           icon: <PackageIcon />,
           roles: [],
@@ -137,7 +137,7 @@ const exportImportTransit: MenuGroupConfig = {
             // Customs Territory - 4th level
             {
               id: 'customs-territory',
-              title: 'exportImportTransit.customsTerritory',
+              title: 'navigation.exportImportTransit.customsTerritory.title',
               type: 'item',
               path: '/export-import-transit/create-declaration/tolling-operations/customs-territory',
               icon: <FileTextIcon />,
@@ -148,7 +148,7 @@ const exportImportTransit: MenuGroupConfig = {
             // Outside Customs Territory - 4th level
             {
               id: 'outside-customs-territory',
-              title: 'exportImportTransit.outsideCustomsTerritory',
+              title: 'navigation.exportImportTransit.outsideCustomsTerritory.title',
               type: 'item',
               path: '/export-import-transit/create-declaration/tolling-operations/outside-customs-territory',
               icon: <PlaneIcon />,

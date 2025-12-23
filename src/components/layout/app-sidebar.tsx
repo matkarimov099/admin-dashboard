@@ -1,7 +1,7 @@
-import { Network, Zap } from 'lucide-react';
 import type * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import logo from '@/assets/logo.png';
 import { LocalizedNavLink } from '@/components/layout/localized-nav-link';
 import { NavMain } from '@/components/navigation/nav-main.tsx';
 import { NavSecondary } from '@/components/navigation/nav-secondary.tsx';
@@ -48,7 +48,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className={cn(
                 'group h-11 w-full transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
-                'hover:bg-sidebar-accent',
+                'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
                 isCollapsed && 'h-11 w-11 justify-center px-0'
               )}
             >
@@ -62,16 +62,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <div
                   className={cn(
                     'relative flex items-center justify-center rounded-md transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
-                    isCollapsed ? 'size-7' : 'size-8',
-                    'shrink-0 bg-(--color-primary)'
+                    isCollapsed ? 'size-9' : 'size-10',
+                    'shrink-0'
                   )}
                 >
-                  {/* Dynamic icon based on the collapse state */}
-                  {isCollapsed ? (
-                    <Zap className="relative z-10 size-4 text-white transition-transform duration-300 group-hover:scale-110" />
-                  ) : (
-                    <Network className="relative z-10 size-5 text-white transition-transform duration-300 group-hover:scale-110" />
-                  )}
+                  <img
+                    src={logo}
+                    alt={t('app.name')}
+                    className={cn(
+                      'relative z-10 object-contain transition-transform duration-300 group-hover:scale-110',
+                      isCollapsed ? 'size-9' : 'size-10'
+                    )}
+                  />
                 </div>
 
                 {!isCollapsed && (

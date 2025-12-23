@@ -71,7 +71,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
           {item.icon && (
             <span
               className={cn(
-                'flex size-4 shrink-0 items-center justify-center transition-colors duration-200',
+                'flex size-5 shrink-0 items-center justify-center transition-colors duration-200',
                 isActive && 'text-[var(--color-primary)]',
                 !isActive && 'text-gray-500 dark:text-gray-400'
               )}
@@ -80,7 +80,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
             </span>
           )}
 
-          <span className="flex-1 truncate">{titleText}</span>
+          <span className="flex-1">{titleText}</span>
 
           {/* Badge and chip support */}
           {(item.chip || item.badge !== undefined) && (
@@ -131,7 +131,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
               <span
                 className={cn(
                   'flex shrink-0 items-center justify-center transition-colors duration-200',
-                  isCollapsed ? 'size-4.5' : 'size-4',
+                  isCollapsed ? 'size-6' : 'size-5',
                   isActive && 'text-[var(--color-primary)]',
                   !isActive && 'text-gray-500 dark:text-gray-400'
                 )}

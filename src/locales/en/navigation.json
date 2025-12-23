@@ -21,13 +21,14 @@
 
     "exportImportTransit": {
       "title": "Export/Import/Transit",
+      "caption": "Trade operations",
       "description": "International trade operations",
       "createDeclaration": {
         "title": "Create Declaration",
         "description": "Create new customs declaration"
       },
       "importTransit": {
-        "title": "Import Transit",
+        "title": "Import/Transit",
         "description": "Import transit operations"
       },
       "autoTransport": {
@@ -144,6 +145,22 @@
       }
     },
 
+    "tasks": {
+      "title": "Tasks",
+      "description": "Task management",
+      "table": "Table",
+      "board": "Board",
+      "details": "Details"
+    },
+
+    "profile": {
+      "title": "Profile",
+      "description": "User profile",
+      "upgradePro": "Upgrade to Pro",
+      "billing": "Billing",
+      "logout": "Log out"
+    },
+
     "states": {
       "expanded": "Expanded",
       "collapsed": "Collapsed",
@@ -157,6 +174,14 @@
       "beta": "Beta",
       "updated": "Updated",
       "popular": "Popular"
+    },
+
+    "notifications": {
+      "title": "Notifications",
+      "description": "User notifications",
+      "allAsRead": "All read",
+      "viewAll": "View all",
+      "noNotifications": "No notifications"
     }
   }
 }

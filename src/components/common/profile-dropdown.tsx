@@ -29,9 +29,7 @@ export function ProfileDropdown() {
             <div className="relative flex h-full w-full items-center justify-center">
               <User className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" />
             </div>
-            <span className="sr-only">
-              {t('common.entities.profile')} {t('common.ui.menu')}
-            </span>
+            <span className="sr-only">{t('navigation.profile.title')}</span>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-56" sideOffset={4}>
@@ -59,23 +57,38 @@ export function ProfileDropdown() {
                 className="flex w-full cursor-pointer items-center gap-3 px-3 py-2"
               >
                 <User className="h-4 w-4" />
-                {t('profile.title')}
+                {t('navigation.profile.title')}
               </NavLink>
             </DropdownMenuItem>
-            <DropdownMenuItem className="flex cursor-pointer items-center gap-3 px-3 py-2">
-              <BadgeCheck className="h-4 w-4" />
-              {t('common.entities.account')}
+            <DropdownMenuItem asChild>
+              <NavLink
+                to="/account"
+                className="flex w-full cursor-pointer items-center gap-3 px-3 py-2"
+              >
+                <BadgeCheck className="h-4 w-4" />
+                {t('navigation.settings.account.title')}
+              </NavLink>
             </DropdownMenuItem>
-            <DropdownMenuItem className="flex cursor-pointer items-center gap-3 px-3 py-2">
-              <CreditCard className="h-4 w-4" />
-              {t('common.table.billing')}
+            <DropdownMenuItem asChild>
+              <NavLink
+                to="/billing"
+                className="flex w-full cursor-pointer items-center gap-3 px-3 py-2"
+              >
+                <CreditCard className="h-4 w-4" />
+                {t('navigation.profile.billing')}
+              </NavLink>
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <DropdownMenuItem className="flex cursor-pointer items-center gap-3 px-3 py-2">
-              <Sparkles className="h-4 w-4" />
-              {t('common.table.upgradePro')}
+            <DropdownMenuItem asChild>
+              <NavLink
+                to="/upgrade"
+                className="flex w-full cursor-pointer items-center gap-3 px-3 py-2"
+              >
+                <Sparkles className="h-4 w-4" />
+                {t('navigation.profile.upgradePro')}
+              </NavLink>
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
@@ -84,7 +97,7 @@ export function ProfileDropdown() {
             className="flex cursor-pointer items-center gap-3 px-3 py-2"
           >
             <LogOut className="h-4 w-4" />
-            {t('common.actions.logout')}
+            {t('navigation.profile.logout')}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

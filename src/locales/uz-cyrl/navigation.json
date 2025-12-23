@@ -21,6 +21,7 @@
 
     "exportImportTransit": {
       "title": "Экспорт/Импорт/Транзит",
+      "caption": "Савдо операциялари",
       "description": "Халқaraoh савдо операциялари",
       "createDeclaration": {
         "title": "Декларация яратиш",
@@ -144,6 +145,35 @@
       }
     },
 
+    "tasks": {
+      "title": "Вазифалар",
+      "description": "Вазифаларни бошқариш",
+      "table": "Жадвал",
+      "board": "Тахта",
+      "details": "Тафсилотлар"
+    },
+
+    "profile": {
+      "title": "Профил",
+      "description": "Фойдаланувчи профили",
+      "upgradePro": "Pro версиясига янгилаш",
+      "billing": "Тўловлар",
+      "logout": "Чиқиш"
+    },
+
+    "users": {
+      "title": "Фойдаланувчилар",
+      "description": "Фойдаланувчиларни бошқариш"
+    },
+
+    "notifications": {
+      "title": "Билдишномалар",
+      "description": "Фойдаланувчи билдишномалари",
+      "allAsRead": "Барчасини ўқилди",
+      "viewAll": "Барчасини кўриш",
+      "noNotifications": "Билдишномалар йўқ"
+    },
+
     "states": {
       "expanded": "Ёйилган",
       "collapsed": "Йиғилган",
@@ -157,6 +187,14 @@
       "beta": "Бета",
       "updated": "Янгиланган",
       "popular": "Машҳур"
+    },
+
+    "notifications": {
+      "title": "Билдишномалар",
+      "description": "Фойдаланувчи билдишномалари",
+      "allAsRead": "Барчасини ўқилди",
+      "viewAll": "Барчасини кўриш",
+      "noNotifications": "Билдишномалар йўқ"
     }
   }
 }

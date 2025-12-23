@@ -21,13 +21,14 @@
 
     "exportImportTransit": {
       "title": "Экспорт/Импорт/Транзит",
+      "caption": "Торговые операции",
       "description": "Международные торговые операции",
       "createDeclaration": {
         "title": "Создать декларацию",
         "description": "Создать новую таможенную декларацию"
       },
       "importTransit": {
-        "title": "Импортный транзит",
+        "title": "Импорт/Транзит",
         "description": "Операции импортного транзита"
       },
       "autoTransport": {
@@ -144,6 +145,22 @@
       }
     },
 
+    "tasks": {
+      "title": "Задачи",
+      "description": "Управление задачами",
+      "table": "Таблица",
+      "board": "Доска",
+      "details": "Детали"
+    },
+
+    "profile": {
+      "title": "Профиль",
+      "description": "Профиль пользователя",
+      "upgradePro": "Обновить до Pro",
+      "billing": "Биллинг",
+      "logout": "Выйти"
+    },
+
     "states": {
       "expanded": "Развернуто",
       "collapsed": "Свернуто",
@@ -157,6 +174,14 @@
       "beta": "Бета",
       "updated": "Обновлено",
       "popular": "Популярное"
+    },
+
+    "notifications": {
+      "title": "Уведомления",
+      "description": "Уведомления пользователя",
+      "allAsRead": "Все прочитаны",
+      "viewAll": "Посмотреть все",
+      "noNotifications": "Нет уведомлений"
     }
   }
 }

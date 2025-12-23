@@ -1,14 +1,15 @@
 import { ChevronDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { SidebarMenuButton, SidebarMenuItem, SidebarMenuSub } from '@/components/ui/sidebar.tsx';
 import type { MenuItemConfig } from '@/config/navigation/types/menu';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
 import { useCurrentPath } from '@/hooks/use-current-path.ts';
 import { useSidebar } from '@/hooks/use-sidebar';
 import { cn } from '@/utils/utils';
+import { NavCollapsePopover } from './nav-collapse-popover';
 import { NavItem } from './nav-item';
+import { NavPopoverNested } from './nav-popover-nested';
 
 interface NavCollapseProps {
   item: MenuItemConfig;
@@ -92,58 +93,22 @@ export function NavCollapse({ item }: NavCollapseProps) {
     return null;
   }
 
+  // Helper function to render children in popover
+  const renderPopoverChildren = (children: MenuItemConfig[]) => {
+    return children.map(child => renderChildItem(child, true, t));
+  };
+
   // Popover rendering (for collapsed sidebar)
   if (isCollapsed) {
     return (
-      <SidebarMenuItem>
-        <Popover>
-          <PopoverTrigger asChild>
-            <SidebarMenuButton
-              tooltip={tooltipText}
-              className={cn(
-                'relative size-9 rounded-md p-0 transition-all duration-200',
-                'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
-                'hover:!text-gray-700 dark:hover:!text-white text-gray-700 dark:text-gray-200'
-              )}
-            >
-              <div
-                className={cn(
-                  'flex size-4 items-center justify-center transition-colors duration-200',
-                  isParentActive && 'text-[var(--color-primary)]',
-                  !isParentActive && 'text-gray-500 dark:text-gray-400'
-                )}
-              >
-                {item.icon}
-              </div>
-            </SidebarMenuButton>
-          </PopoverTrigger>
-
-          <PopoverContent
-            side="right"
-            align="start"
-            className="w-56 rounded-lg border border-gray-200 p-2 shadow-lg dark:border-gray-700"
-          >
-            {/* Popover header */}
-            <div className="mb-2 border-gray-200 border-b pb-2 dark:border-gray-700">
-              <div className="flex items-center gap-2 px-1.5 text-xs">
-                {item.icon && (
-                  <span className="flex size-3.5 shrink-0 items-center justify-center text-gray-500 dark:text-gray-400">
-                    {item.icon}
-                  </span>
-                )}
-                <span className="font-semibold text-gray-700 uppercase tracking-wide dark:text-gray-300">
-                  {titleText}
-                </span>
-              </div>
-            </div>
-
-            {/* Popover children */}
-            <div className="space-y-1">
-              {visibleChildren.map(child => renderChildItem(child, true))}
-            </div>
-          </PopoverContent>
-        </Popover>
-      </SidebarMenuItem>
+      <NavCollapsePopover
+        item={item}
+        titleText={titleText}
+        tooltipText={tooltipText}
+        isParentActive={isParentActive}
+        renderChildren={renderPopoverChildren}
+        visibleChildren={visibleChildren}
+      />
     );
   }
 
@@ -165,7 +130,7 @@ export function NavCollapse({ item }: NavCollapseProps) {
             {item.icon && (
               <span
                 className={cn(
-                  'flex size-4 shrink-0 items-center justify-center transition-colors duration-200',
+                  'flex size-5 shrink-0 items-center justify-center transition-colors duration-200',
                   isParentActive && 'text-[var(--color-primary)]',
                   !isParentActive && 'text-gray-500 dark:text-gray-400'
                 )}
@@ -198,7 +163,7 @@ export function NavCollapse({ item }: NavCollapseProps) {
             {/* Chevron indicator */}
             <ChevronDown
               className={cn(
-                'size-3.5 shrink-0 transition-all duration-200',
+                'size-4.5 shrink-0 transition-all duration-200',
                 isParentActive && 'text-[var(--color-primary)]',
                 !isParentActive && 'text-gray-400 dark:text-gray-500',
                 isOpen && 'rotate-180'
@@ -211,7 +176,7 @@ export function NavCollapse({ item }: NavCollapseProps) {
       {/* Nested children */}
       {isOpen && (
         <SidebarMenuSub className="mt-1 ml-2.5 space-y-1 border-gray-200 border-l pl-2.5 dark:border-gray-700">
-          {visibleChildren.map(child => renderChildItem(child, false))}
+          {visibleChildren.map(child => renderChildItem(child, false, t))}
         </SidebarMenuSub>
       )}
     </SidebarMenuItem>
@@ -221,27 +186,29 @@ export function NavCollapse({ item }: NavCollapseProps) {
 /**
  * Helper function to render child items
  * Handles both collapse and item types recursively
+ * Supports nested popovers for items with children
  */
-function renderChildItem(child: MenuItemConfig, inPopover: boolean): React.ReactNode {
-  // Popover rendering - simplified structure
+function renderChildItem(
+  child: MenuItemConfig,
+  inPopover: boolean,
+  t: (key: string) => string
+): React.ReactNode {
+  // Popover rendering - with nested popover support
   if (inPopover) {
-    // If child has nested children, show as a subgroup
+    // If child has nested children, show as a nested popover
     if (child.type === 'collapse' || child.children || child.items) {
-      const nestedChildren = child.children || child.items || [];
-      return (
-        <div key={child.id} className="space-y-1">
-          {/* Sub-group header */}
-          <div className="px-1.5 pt-1.5 pb-0.5">
-            <span className="font-semibold text-[10px] text-gray-500 uppercase tracking-wide dark:text-gray-400">
-              {typeof child.title === 'string' ? child.title : ''}
-            </span>
-          </div>
+      // Helper to render nested children recursively
+      const renderNestedChildren = (children: MenuItemConfig[]) => {
+        return children.map(nested => renderChildItem(nested, true, t));
+      };
 
-          {/* Sub-group items */}
-          {nestedChildren.map(nested => (
-            <NavItem key={nested.id} item={nested} inPopover={true} />
-          ))}
-        </div>
+      return (
+        <NavPopoverNested
+          key={child.id}
+          child={child}
+          t={t}
+          renderChildren={renderNestedChildren}
+        />
       );
     }
 

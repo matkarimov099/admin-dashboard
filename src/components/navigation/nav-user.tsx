@@ -106,7 +106,7 @@ export function NavUser({ user, logout }: NavUserProps) {
               <DropdownMenuGroup>
                 <DropdownMenuItem>
                   <Sparkles />
-                  {t('common.table.upgradePro')}
+                  {t('navigation.profile.upgradePro')}
                 </DropdownMenuItem>
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
@@ -114,22 +114,22 @@ export function NavUser({ user, logout }: NavUserProps) {
                 <LocalizedNavLink to="/profile">
                   <DropdownMenuItem>
                     <BadgeCheck />
-                    {t('profile.title')}
+                    {t('navigation.profile.title')}
                   </DropdownMenuItem>
                 </LocalizedNavLink>
                 <DropdownMenuItem>
                   <CreditCard />
-                  {t('common.table.billing')}
+                  {t('navigation.profile.billing')}
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Bell />
-                  {t('notifications.title')}
+                  {t('navigation.notifications.title')}
                 </DropdownMenuItem>
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={logout}>
                 <LogOut />
-                {t('common.actions.logout')}
+                {t('navigation.profile.logout')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
