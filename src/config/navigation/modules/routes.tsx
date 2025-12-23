@@ -3,8 +3,7 @@ import { ProtectedRoute } from '@/components/auth/router-components.tsx';
 import { LazyComponent } from '@/components/common/lazy-component.tsx';
 import { PageTitle } from '@/components/custom/page-title.tsx';
 import type { MenuItemConfig } from '@/types/navigation';
-import menuItems from './index';
-import { hiddenRoutes } from './index';
+import menuItems, { hiddenRoutes } from './index';
 
 /**
  * Recursively collect all menu items that have a path and component
@@ -14,7 +13,7 @@ function collectRouteItems(items: MenuItemConfig[]): MenuItemConfig[] {
   const routeItems: MenuItemConfig[] = [];
 
   for (const item of items) {
-    // If item has a path and component, it's a route
+    // If an item has a path and component, it's a route
     if (item.path && item.component) {
       routeItems.push(item);
     }
@@ -37,10 +36,7 @@ function collectRouteItems(items: MenuItemConfig[]): MenuItemConfig[] {
  */
 export function generateRoutes(): RouteObject[] {
   // Collect all menu items from main items and hidden routes
-  const allItems = [
-    ...menuItems.items,
-    ...hiddenRoutes,
-  ];
+  const allItems = [...menuItems.items, ...hiddenRoutes];
 
   // Flatten nested items recursively
   const routeItems = collectRouteItems(allItems);
@@ -53,7 +49,7 @@ export function generateRoutes(): RouteObject[] {
     // Skip if no path or component
     if (!path || !Component) continue;
 
-    // Remove leading slash for React Router (uses relative paths)
+    // Remove the leading slash for React Router (uses relative paths)
     const routePath = path.startsWith('/') ? path.slice(1) : path;
 
     // Title for PageTitle - only use string (translation key), skip ReactNode
