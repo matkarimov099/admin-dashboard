@@ -79,3 +79,25 @@
 .PhotoView-Slider__backdrop {
 	z-index: 99998;
 }
+
+/* Data Table Column Resizing Optimization */
+.resizable-table th,
+.resizable-table td {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Ensure resizer handle is visible and accessible */
+.resizable-table th {
+	position: relative;
+}
+
+/* Smooth resizing animation */
+.resizable-table[data-resizing="true"] {
+	user-select: none;
+}
+
+/* Better column resize handle visibility */
+.resizable-table th:hover .resizer {
+	opacity: 1;
+}

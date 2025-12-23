@@ -57,6 +57,8 @@ export const getColumns = (
         );
       },
       size: 70,
+      minSize: 60,
+      maxSize: 150,
     },
     {
       accessorKey: 'title',
@@ -99,6 +101,8 @@ export const getColumns = (
         );
       },
       size: 300,
+      minSize: 150,
+      maxSize: 600,
     },
     {
       accessorKey: 'project',
@@ -111,6 +115,8 @@ export const getColumns = (
         return <div className="truncate text-left">{projectName}</div>;
       },
       size: 150,
+      minSize: 100,
+      maxSize: 300,
     },
     {
       accessorKey: 'workType',
@@ -119,6 +125,8 @@ export const getColumns = (
         return <WorkTypeBadge workType={row.original.workType} showIcon={false} size="xs" />;
       },
       size: 100,
+      minSize: 80,
+      maxSize: 200,
     },
     {
       accessorKey: 'status',
@@ -127,6 +135,8 @@ export const getColumns = (
         return <StatusBadge status={row.original.status} showIcon={false} size="xs" />;
       },
       size: 120,
+      minSize: 100,
+      maxSize: 200,
     },
     {
       accessorKey: 'priority',
@@ -135,6 +145,8 @@ export const getColumns = (
         return <PriorityBadge priority={row.original.priority} showIcon={false} size="xs" />;
       },
       size: 100,
+      minSize: 80,
+      maxSize: 200,
     },
     {
       accessorKey: 'assignees',
@@ -171,6 +183,8 @@ export const getColumns = (
         );
       },
       size: 180,
+      minSize: 100,
+      maxSize: 300,
     },
     {
       accessorKey: 'estimate',
@@ -183,6 +197,8 @@ export const getColumns = (
         return <div className="text-sm">{estimate}h</div>;
       },
       size: 90,
+      minSize: 70,
+      maxSize: 150,
     },
     {
       accessorKey: 'deadline',
@@ -204,6 +220,8 @@ export const getColumns = (
         );
       },
       size: 150,
+      minSize: 100,
+      maxSize: 250,
     },
     {
       accessorKey: 'createdAt',
@@ -216,12 +234,16 @@ export const getColumns = (
         );
       },
       size: 120,
+      minSize: 100,
+      maxSize: 200,
     },
     {
       id: 'actions',
       header: ({ column }) => <DataTableColumnHeader column={column} title="Actions" />,
       cell: ({ row, table }) => <DataTableRowActions row={row} table={table} />,
       size: 100,
+      minSize: 80,
+      maxSize: 150,
     },
   ];
 
@@ -266,6 +288,8 @@ export const getColumns = (
         enableSorting: false,
         enableHiding: false,
         size: 50,
+        minSize: 50,
+        maxSize: 50,
       },
       ...baseColumns,
     ];

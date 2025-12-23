@@ -555,6 +555,7 @@ export function DataTable<TData>({
       >
         <Table
           className={`${tableConfig.enableColumnResizing ? 'resizable-table' : ''} text-foreground`}
+          style={{ tableLayout: 'fixed' }}
         >
           <TableHeader>
             {table.getHeaderGroups().map(headerGroup => (
