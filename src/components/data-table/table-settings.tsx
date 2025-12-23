@@ -50,10 +50,10 @@ export function TableSettings({
       <PopoverContent align="end" className="w-80">
         <div className="grid gap-4">
           <div className="space-y-2">
-            <h4 className="scroll-m-20 text-base sm:text-lg md:text-xl font-semibold tracking-tight">
+            <h4 className="scroll-m-20 font-semibold text-base tracking-tight sm:text-lg md:text-xl">
               {t('common.table.settings', 'Table Settings')}
             </h4>
-            <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
+            <small className="font-medium text-muted-foreground text-xs leading-none sm:text-sm">
               {t('common.table.settingsDescription', 'Manage table layout and column settings')}
             </small>
           </div>

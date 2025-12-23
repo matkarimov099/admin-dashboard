@@ -1,11 +1,11 @@
 import { ChevronDown } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { type ReactNode, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SidebarMenuButton, SidebarMenuItem, SidebarMenuSub } from '@/components/ui/sidebar.tsx';
-import type { MenuItemConfig } from '@/types/navigation';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
 import { useCurrentPath } from '@/hooks/use-current-path.ts';
 import { useSidebar } from '@/hooks/use-sidebar';
+import type { MenuItemConfig } from '@/types/navigation';
 import { cn } from '@/utils/utils';
 import { NavCollapsePopover } from './nav-collapse-popover';
 import { NavItem } from './nav-item';
@@ -66,7 +66,7 @@ export function NavCollapse({ item }: NavCollapseProps) {
   const titleText = typeof item.title === 'string' ? t(item.title) : item.title;
   const tooltipText = typeof item.title === 'string' ? t(item.title) : undefined;
 
-  // Auto-expand when parent is active (contains active child)
+  // Auto-expand when the parent is active (contains active child)
   useEffect(() => {
     if (isParentActive && !isCollapsed) {
       setIsOpen(true);
@@ -119,8 +119,8 @@ export function NavCollapse({ item }: NavCollapseProps) {
         onClick={toggleOpen}
         className={cn(
           'relative h-9 w-full cursor-pointer rounded-md px-2.5 py-2 transition-all duration-200',
-          'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
-          'hover:!text-gray-700 dark:hover:!text-white text-gray-700 dark:text-gray-200'
+          'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
+          'text-gray-700 hover:text-gray-700! dark:text-gray-200 dark:hover:text-white!'
         )}
       >
         <div className="flex w-full items-center justify-between gap-2.5">
@@ -131,7 +131,7 @@ export function NavCollapse({ item }: NavCollapseProps) {
               <span
                 className={cn(
                   'flex size-5 shrink-0 items-center justify-center transition-colors duration-200',
-                  isParentActive && 'text-[var(--color-primary)]',
+                  isParentActive && 'text-(--color-primary)',
                   !isParentActive && 'text-gray-500 dark:text-gray-400'
                 )}
               >
@@ -143,7 +143,7 @@ export function NavCollapse({ item }: NavCollapseProps) {
             <span
               className={cn(
                 'flex-1 truncate font-medium text-[13px] transition-colors duration-200',
-                isParentActive && 'text-[var(--color-primary)]',
+                isParentActive && 'text-(--color-primary)',
                 !isParentActive && 'text-gray-700 dark:text-gray-200'
               )}
             >
@@ -155,7 +155,7 @@ export function NavCollapse({ item }: NavCollapseProps) {
           <div className="flex shrink-0 items-center gap-1.5">
             {/* Chip badge */}
             {item.chip && (
-              <span className="rounded-md bg-[var(--color-primary)]/10 px-1.5 py-0.5 font-medium text-[10px] text-[var(--color-primary)]">
+              <span className="rounded-md bg-(--color-primary)/10 px-1.5 py-0.5 font-medium text-(--color-primary) text-[10px]">
                 {item.chip.label}
               </span>
             )}
@@ -164,7 +164,7 @@ export function NavCollapse({ item }: NavCollapseProps) {
             <ChevronDown
               className={cn(
                 'size-4.5 shrink-0 transition-all duration-200',
-                isParentActive && 'text-[var(--color-primary)]',
+                isParentActive && 'text-(--color-primary)',
                 !isParentActive && 'text-gray-400 dark:text-gray-500',
                 isOpen && 'rotate-180'
               )}
@@ -192,10 +192,10 @@ function renderChildItem(
   child: MenuItemConfig,
   inPopover: boolean,
   t: (key: string) => string
-): React.ReactNode {
+): ReactNode {
   // Popover rendering - with nested popover support
   if (inPopover) {
-    // If child has nested children, show as a nested popover
+    // If a child has nested children, show as a nested popover
     if (child.type === 'collapse' || child.children || child.items) {
       // Helper to render nested children recursively
       const renderNestedChildren = (children: MenuItemConfig[]) => {
@@ -223,7 +223,7 @@ function renderChildItem(
     case 'item':
       return <NavItem key={child.id} item={child} />;
     default:
-      // Auto-detect type based on children presence
+      // Auto-detect type based on children's presence
       if (child.children || child.items) {
         return <NavCollapse key={child.id} item={child} />;
       }

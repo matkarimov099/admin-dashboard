@@ -49,10 +49,10 @@ export const RegularUserProfile = ({ user }: RegularUserProfileProps) => {
           </motion.div>
 
           <div className="space-y-1">
-            <h1 className="text-center scroll-m-20 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight">
+            <h1 className="scroll-m-20 text-center font-extrabold text-2xl tracking-tight sm:text-3xl md:text-4xl lg:text-5xl">
               {getGreeting()}, {user.firstName}! 👋
             </h1>
-            <div className="text-center text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
+            <div className="text-center font-semibold text-base text-gray-900 sm:text-lg dark:text-gray-100">
               Welcome back to your dashboard
             </div>
           </div>
@@ -72,10 +72,12 @@ export const RegularUserProfile = ({ user }: RegularUserProfileProps) => {
         >
           <div className="mb-4 flex items-center justify-between">
             <div>
-              <h2 className="scroll-m-20 pb-2 text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight first:mt-0">
+              <h2 className="scroll-m-20 pb-2 font-semibold text-xl tracking-tight first:mt-0 sm:text-2xl md:text-3xl">
                 Profile Information
               </h2>
-              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Your account details and settings</p>
+              <p className="text-gray-600 text-xs sm:text-sm dark:text-gray-400">
+                Your account details and settings
+              </p>
             </div>
             <Button onClick={onOpen} variant="outline" size="icon">
               <KeyRound className="h-5 w-5" />

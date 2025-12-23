@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import menuItems, { hiddenRoutes } from '@/config/navigation/modules/index';
-import type { MenuItemConfig } from '@/types/navigation';
-import type { BreadcrumbPathItem } from '@/types/breadcrumb';
 import { useCurrentPath } from '@/hooks/use-current-path.ts';
+import type { BreadcrumbPathItem } from '@/types/breadcrumb';
+import type { MenuItemConfig } from '@/types/navigation';
 
 interface BreadcrumbItem {
   title: string;

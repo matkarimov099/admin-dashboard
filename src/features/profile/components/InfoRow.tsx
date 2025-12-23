@@ -14,8 +14,8 @@ export const InfoRow = ({ icon: Icon, label, value, href }: InfoRowProps) => {
         <Icon className="h-3.5 w-3.5 text-[var(--system-blue)]" />
       </div>
       <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-        <small className="text-xs sm:text-sm font-medium leading-none">{label}</small>
-        <small className="text-xs sm:text-sm font-medium leading-none">{value}</small>
+        <small className="font-medium text-xs leading-none sm:text-sm">{label}</small>
+        <small className="font-medium text-xs leading-none sm:text-sm">{value}</small>
       </div>
       {href && (
         <ExternalLink className="h-3.5 w-3.5 flex-shrink-0 text-[var(--system-blue)] opacity-0 transition-opacity group-hover:opacity-100" />

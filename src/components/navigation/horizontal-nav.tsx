@@ -55,7 +55,7 @@ function HorizontalNavNestedItem({
     // Longer delay to allow smooth navigation to nest popovers
     closeTimeoutRef.current = setTimeout(() => {
       setIsOpen(false);
-    }, 400); // 400ms delay for a smoother experience
+    }, 200); // 400ms delay for a smoother experience
   }, [clearCloseTimeout]);
 
   // Cleanup timeout on unmounting
@@ -80,9 +80,8 @@ function HorizontalNavNestedItem({
             className={cn(
               'flex cursor-pointer items-center justify-between gap-2.5 rounded-md px-2.5 py-2 text-sm transition-all duration-200',
               isActive && 'bg-(--color-primary)/10 font-semibold text-(--color-primary)',
-              !isActive &&
-                'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
-              'hover:!text-gray-700 dark:hover:!text-white text-gray-700 dark:text-gray-200'
+              !isActive && 'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
+              'text-gray-700 hover:text-gray-700! dark:text-gray-200 dark:hover:text-white!'
             )}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -113,18 +112,18 @@ function HorizontalNavNestedItem({
           onMouseLeave={handleMouseLeave}
         >
           {/* Nested popover header */}
-          <div className="mb-2 border-gray-200 border-b pb-1.5 dark:border-gray-700">
-            <div className="flex items-center gap-2 px-1.5 py-1 text-xs">
-              {item.icon && (
-                <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">
-                  {item.icon}
-                </span>
-              )}
-              <span className="font-semibold text-gray-700 uppercase tracking-wide dark:text-gray-300">
-                {titleText}
-              </span>
-            </div>
-          </div>
+          {/*<div className="mb-2 border-gray-200 border-b pb-1.5 dark:border-gray-700">*/}
+          {/*  <div className="flex items-center gap-2 px-1.5 py-1 text-xs">*/}
+          {/*    {item.icon && (*/}
+          {/*      <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">*/}
+          {/*        {item.icon}*/}
+          {/*      </span>*/}
+          {/*    )}*/}
+          {/*    <span className="font-semibold text-gray-700 uppercase tracking-wide dark:text-gray-300">*/}
+          {/*      {titleText}*/}
+          {/*    </span>*/}
+          {/*  </div>*/}
+          {/*</div>*/}
 
           {/* Nested popover children */}
           <div className="space-y-1">
@@ -151,8 +150,8 @@ function HorizontalNavNestedItem({
       className={cn(
         'flex cursor-pointer items-center justify-between gap-2.5 rounded-md px-2.5 py-2 text-sm transition-all duration-200',
         isActive && 'bg-(--color-primary)/10 font-semibold text-(--color-primary)',
-        !isActive && 'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
-        'hover:!text-gray-700 dark:hover:!text-white text-gray-700 dark:text-gray-200'
+        !isActive && 'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
+        'text-gray-700 hover:text-gray-700! dark:text-gray-200 dark:hover:text-white!'
       )}
     >
       <div className="flex min-w-0 flex-1 items-center gap-2.5">
@@ -243,15 +242,15 @@ export function HorizontalNav() {
         <PopoverContent align="start" className="w-fit p-0" sideOffset={4}>
           <div className="p-2">
             {/* Header with icon and title */}
-            <div className="mb-1 flex items-center gap-2 px-2 py-2">
-              {group.icon && (
-                <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">
-                  {group.icon}
-                </span>
-              )}
-              <p className="font-medium text-sm">{titleText}</p>
-            </div>
-            <Separator className="mb-2" />
+            {/*<div className="mb-1 flex items-center gap-2 px-2 py-2">*/}
+            {/*  {group.icon && (*/}
+            {/*    <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">*/}
+            {/*      {group.icon}*/}
+            {/*    </span>*/}
+            {/*  )}*/}
+            {/*  <p className="font-medium text-sm">{titleText}</p>*/}
+            {/*</div>*/}
+            {/*<Separator className="mb-2" />*/}
             {/* Children with nested popover support */}
             <ScrollArea className="max-h-80">
               <div className="space-y-1">

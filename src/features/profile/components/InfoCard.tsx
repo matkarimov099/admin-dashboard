@@ -23,10 +23,8 @@ export const InfoCard = ({ icon: Icon, label, value }: InfoCardProps) => (
       <Icon className="h-4 w-4 text-[var(--system-blue)] sm:h-4.5 sm:w-4.5" />
     </div>
     <div className="flex min-w-0 items-center gap-2">
-      <small className="text-xs sm:text-sm font-medium leading-none">{label}:</small>
-      <p className="text-sm sm:text-base leading-6 sm:leading-7 !mt-0">
-        {value}
-      </p>
+      <small className="font-medium text-xs leading-none sm:text-sm">{label}:</small>
+      <p className="!mt-0 text-sm leading-6 sm:text-base sm:leading-7">{value}</p>
     </div>
   </motion.div>
 );

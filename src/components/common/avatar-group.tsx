@@ -59,11 +59,11 @@ export const AvatarGroup = ({ users, maxVisible = 5, size = 'md' }: AvatarGroupP
               </Avatar>
             </TooltipTrigger>
             <TooltipContent>
-              <p className="text-sm sm:text-base leading-6 sm:leading-7 font-semibold">
+              <p className="font-semibold text-sm leading-6 sm:text-base sm:leading-7">
                 {user.name}
               </p>
               {user.role && (
-                <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
+                <small className="font-medium text-muted-foreground text-xs leading-none sm:text-sm">
                   {user.role}
                 </small>
               )}
@@ -81,7 +81,7 @@ export const AvatarGroup = ({ users, maxVisible = 5, size = 'md' }: AvatarGroupP
               </Avatar>
             </TooltipTrigger>
             <TooltipContent>
-              <small className="text-xs sm:text-sm font-medium leading-none">
+              <small className="font-medium text-xs leading-none sm:text-sm">
                 {remainingCount} more user{remainingCount > 1 ? 's' : ''}
               </small>
             </TooltipContent>

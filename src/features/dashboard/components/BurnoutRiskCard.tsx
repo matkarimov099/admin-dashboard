@@ -44,7 +44,9 @@ export function BurnoutRiskCard({ risks = [] }: BurnoutRiskCardProps) {
         <div className="space-y-4">
           {safeRisks.length === 0 ? (
             <div className="py-8 text-center">
-              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">No risk data available</p>
+              <p className="text-gray-600 text-xs sm:text-sm dark:text-gray-400">
+                No risk data available
+              </p>
             </div>
           ) : (
             safeRisks.slice(0, 5).map(risk => (
@@ -54,10 +56,10 @@ export function BurnoutRiskCard({ risks = [] }: BurnoutRiskCardProps) {
               >
                 <div className="mb-3 flex items-center justify-between">
                   <div>
-                    <p className="text-sm sm:text-base leading-6 sm:leading-7 font-semibold">
+                    <p className="font-semibold text-sm leading-6 sm:text-base sm:leading-7">
                       {risk.userName}
                     </p>
-                    <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
+                    <small className="font-medium text-muted-foreground text-xs leading-none sm:text-sm">
                       Risk Score: {risk.score.toFixed(0)}/100
                     </small>
                   </div>
@@ -68,22 +70,22 @@ export function BurnoutRiskCard({ risks = [] }: BurnoutRiskCardProps) {
 
                 <div className="mb-3 grid grid-cols-2 gap-2 text-sm">
                   <div>
-                    <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
+                    <small className="font-medium text-muted-foreground text-xs leading-none sm:text-sm">
                       Overtime: +{risk.factors.overtimeHours.toFixed(1)}h/week
                     </small>
                   </div>
                   <div>
-                    <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
+                    <small className="font-medium text-muted-foreground text-xs leading-none sm:text-sm">
                       Consecutive: {risk.factors.consecutiveDays} days
                     </small>
                   </div>
                   <div>
-                    <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
+                    <small className="font-medium text-muted-foreground text-xs leading-none sm:text-sm">
                       Late sessions: {risk.factors.lateNightSessions}
                     </small>
                   </div>
                   <div>
-                    <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
+                    <small className="font-medium text-muted-foreground text-xs leading-none sm:text-sm">
                       Weekend: {risk.factors.weekendDays} days
                     </small>
                   </div>
@@ -91,11 +93,14 @@ export function BurnoutRiskCard({ risks = [] }: BurnoutRiskCardProps) {
 
                 {Array.isArray(risk.recommendations) && risk.recommendations.length > 0 && (
                   <div className="space-y-1">
-                    <small className="text-xs sm:text-sm font-semibold leading-none">
+                    <small className="font-semibold text-xs leading-none sm:text-sm">
                       Recommendations:
                     </small>
                     {risk.recommendations.slice(0, 2).map(rec => (
-                      <small key={rec} className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
+                      <small
+                        key={rec}
+                        className="font-medium text-muted-foreground text-xs leading-none sm:text-sm"
+                      >
                         • {rec}
                       </small>
                     ))}

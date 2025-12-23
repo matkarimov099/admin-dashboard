@@ -64,7 +64,9 @@ const declarationCreate: MenuGroupConfig = {
               path: '/declaration-create/import/railway',
               icon: <TrainIcon />,
               roles: [],
-              component: lazy(() => import('@/pages/declaration-create/import/RailwayTransport.tsx')),
+              component: lazy(
+                () => import('@/pages/declaration-create/import/RailwayTransport.tsx')
+              ),
               breadcrumbs: true,
             },
             // Energy Resources - 3rd level
@@ -84,7 +86,9 @@ const declarationCreate: MenuGroupConfig = {
                   path: '/declaration-create/import/energy/gas',
                   icon: <FlameIcon />,
                   roles: [],
-                  component: lazy(() => import('@/pages/declaration-create/import/Energy/GasCertificate.tsx')),
+                  component: lazy(
+                    () => import('@/pages/declaration-create/import/Energy/GasCertificate.tsx')
+                  ),
                   breadcrumbs: true,
                 },
                 // Electric Energy - 3rd level (max depth)
@@ -95,7 +99,9 @@ const declarationCreate: MenuGroupConfig = {
                   path: '/declaration-create/import/energy/electric',
                   icon: <ZapIcon />,
                   roles: [],
-                  component: lazy(() => import('@/pages/declaration-create/import/Energy/ElectricEnergy.tsx')),
+                  component: lazy(
+                    () => import('@/pages/declaration-create/import/Energy/ElectricEnergy.tsx')
+                  ),
                   breadcrumbs: true,
                 },
               ],
@@ -141,7 +147,9 @@ const declarationCreate: MenuGroupConfig = {
               path: '/declaration-create/tolling/customs',
               icon: <FileTextIcon />,
               roles: [],
-              component: lazy(() => import('@/pages/declaration-create/tolling/CustomsTerritory.tsx')),
+              component: lazy(
+                () => import('@/pages/declaration-create/tolling/CustomsTerritory.tsx')
+              ),
               breadcrumbs: true,
             },
             // Outside Customs Territory - 3rd level
@@ -152,7 +160,9 @@ const declarationCreate: MenuGroupConfig = {
               path: '/declaration-create/tolling/outside',
               icon: <PlaneIcon />,
               roles: [],
-              component: lazy(() => import('@/pages/declaration-create/tolling/OutsideCustomsTerritory.tsx')),
+              component: lazy(
+                () => import('@/pages/declaration-create/tolling/OutsideCustomsTerritory.tsx')
+              ),
               breadcrumbs: true,
             },
           ],

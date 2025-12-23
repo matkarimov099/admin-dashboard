@@ -1,6 +1,6 @@
 import menuItems, { hiddenRoutes } from '@/config/navigation/modules/index';
-import type { MenuItemConfig } from '@/types/navigation';
 import type { BreadcrumbItem, BreadcrumbPathItem } from '@/types/breadcrumb';
+import type { MenuItemConfig } from '@/types/navigation';
 
 /**
  * Recursively search for a path in the menu structure

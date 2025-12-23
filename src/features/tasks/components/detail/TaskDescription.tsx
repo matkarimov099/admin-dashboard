@@ -12,11 +12,11 @@ export function TaskDescription({ description }: TaskDescriptionProps) {
       </CardHeader>
       <CardContent className="max-h-[500px] overflow-y-auto">
         {description ? (
-          <p className="text-sm sm:text-base leading-6 sm:leading-7 whitespace-pre-wrap break-words [&:not(:first-child)]:mt-0">
+          <p className="whitespace-pre-wrap break-words text-sm leading-6 sm:text-base sm:leading-7 [&:not(:first-child)]:mt-0">
             {description}
           </p>
         ) : (
-          <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 italic">
+          <p className="text-gray-600 text-xs italic sm:text-sm dark:text-gray-400">
             No description provided
           </p>
         )}

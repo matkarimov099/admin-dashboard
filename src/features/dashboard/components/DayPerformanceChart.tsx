@@ -42,26 +42,26 @@ export function DayPerformanceChart({ data }: DayPerformanceChartProps) {
 
         <div className="mt-4 grid grid-cols-3 gap-4">
           <div className="text-center">
-            <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
+            <small className="font-medium text-muted-foreground text-xs leading-none sm:text-sm">
               Best Day
             </small>
-            <p className="text-sm sm:text-base leading-6 sm:leading-7 font-bold">
+            <p className="font-bold text-sm leading-6 sm:text-base sm:leading-7">
               {data.insights.bestDay}
             </p>
           </div>
           <div className="text-center">
-            <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
+            <small className="font-medium text-muted-foreground text-xs leading-none sm:text-sm">
               Avg Weekly Hours
             </small>
-            <p className="text-sm sm:text-base leading-6 sm:leading-7 font-bold">
+            <p className="font-bold text-sm leading-6 sm:text-base sm:leading-7">
               {data.insights.avgWeeklyHours.toFixed(1)}h
             </p>
           </div>
           <div className="text-center">
-            <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
+            <small className="font-medium text-muted-foreground text-xs leading-none sm:text-sm">
               Peak Performance
             </small>
-            <p className="text-sm sm:text-base leading-6 sm:leading-7 font-bold">
+            <p className="font-bold text-sm leading-6 sm:text-base sm:leading-7">
               {data.insights.peakPerformance.toFixed(0)}%
             </p>
           </div>

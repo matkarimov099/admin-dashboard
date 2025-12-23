@@ -1,5 +1,5 @@
 import { ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import { type ReactNode, useState } from 'react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import type { MenuItemConfig } from '@/types/navigation';
 import { cn } from '@/utils/utils';
@@ -7,7 +7,7 @@ import { cn } from '@/utils/utils';
 interface NavPopoverNestedProps {
   child: MenuItemConfig;
   t: (key: string) => string;
-  renderChildren: (children: MenuItemConfig[]) => React.ReactNode;
+  renderChildren: (children: MenuItemConfig[]) => ReactNode;
 }
 
 /**
@@ -30,8 +30,8 @@ export function NavPopoverNested({ child, t, renderChildren }: NavPopoverNestedP
         <div
           className={cn(
             'flex cursor-pointer items-center justify-between gap-2.5 rounded-md px-2.5 py-2 text-sm transition-all duration-200',
-            'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
-            'hover:!text-gray-700 dark:hover:!text-white text-gray-700 dark:text-gray-200'
+            'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
+            'text-gray-700 hover:text-gray-700! dark:text-gray-200 dark:hover:text-white!'
           )}
         >
           <div className="flex min-w-0 flex-1 items-center gap-2.5">

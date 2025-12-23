@@ -68,19 +68,19 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
         <div
           className={cn(
             'flex cursor-pointer items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-all duration-200',
-            'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
+            'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
             // Active state - only text color
-            isActive && '!text-[var(--color-primary)] font-medium',
+            isActive && 'font-medium text-(--color-primary)!',
             // Inactive state
             !isActive &&
-              'hover:!text-gray-700 dark:hover:!text-white text-gray-700 dark:text-gray-200'
+              'text-gray-700 hover:text-gray-700! dark:text-gray-200 dark:hover:text-white!'
           )}
         >
           {item.icon && (
             <span
               className={cn(
                 'flex size-5 shrink-0 items-center justify-center transition-colors duration-200',
-                isActive && 'text-white dark:text-white'
+                isActive && 'dark:text-white'
               )}
             >
               {item.icon}
@@ -93,7 +93,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
           {(item.chip || item.badge !== undefined) && (
             <div className="flex shrink-0 items-center gap-1.5">
               {item.chip && (
-                <span className="rounded-md bg-[var(--color-primary)]/10 px-1.5 py-0.5 font-medium text-[10px] text-[var(--color-primary)]">
+                <span className="rounded-md bg-(--color-primary)/10 px-1.5 py-0.5 font-medium text-(--color-primary) text-[10px]">
                   {item.chip.label}
                 </span>
               )}
@@ -117,12 +117,12 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
         tooltip={isCollapsed ? tooltipText : undefined}
         className={cn(
           'relative h-fit w-full rounded-md transition-all duration-200',
-          'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
+          'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
           // Active state - only text color
-          isActive && '!text-[var(--color-primary)] font-medium',
+          isActive && 'font-medium text-(--color-primary)!',
           // Inactive state
           !isActive &&
-            'hover:!text-gray-700 dark:hover:!text-white text-gray-700 dark:text-gray-200',
+            'text-gray-700 hover:text-gray-700! dark:text-gray-200 dark:hover:text-white!',
           // Collapsed sidebar specific styles
           isCollapsed ? 'size-9 justify-center p-0' : 'px-2.5'
         )}
@@ -140,7 +140,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
                 className={cn(
                   'flex shrink-0 items-center justify-center transition-colors duration-200',
                   isCollapsed ? 'size-6' : 'size-5',
-                  isActive && 'text-[var(--color-primary)]'
+                  isActive && 'text-(--color-primary)'
                 )}
               >
                 {item.icon}
@@ -154,7 +154,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
             {!isCollapsed && (item.chip || item.badge !== undefined) && (
               <div className="flex shrink-0 items-center gap-1.5">
                 {item.chip && (
-                  <span className="rounded-md bg-[var(--color-primary)]/10 px-1.5 py-0.5 font-medium text-[10px] text-[var(--color-primary)]">
+                  <span className="rounded-md bg-(--color-primary)/10 px-1.5 py-0.5 font-medium text-(--color-primary) text-[10px]">
                     {item.chip.label}
                   </span>
                 )}

@@ -28,7 +28,12 @@ export const CustomCardTitle = ({
   className?: string;
 }) => {
   return (
-    <h6 className={cn('scroll-m-20 text-xs sm:text-sm md:text-base font-semibold tracking-tight py-2 text-primary', className)}>
+    <h6
+      className={cn(
+        'scroll-m-20 py-2 font-semibold text-primary text-xs tracking-tight sm:text-sm md:text-base',
+        className
+      )}
+    >
       {children}
     </h6>
   );

@@ -17,9 +17,9 @@ interface TimeRowProps {
 function TimeRow({ label, value, isCompleted }: TimeRowProps) {
   return (
     <div className="flex w-full items-center justify-between gap-4">
-      <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{label}</p>
+      <p className="text-gray-600 text-xs sm:text-sm dark:text-gray-400">{label}</p>
       <small
-        className={`text-xs sm:text-sm font-medium leading-none ${
+        className={`font-medium text-xs leading-none sm:text-sm ${
           isCompleted ? 'flex text-green-600 dark:text-green-400' : ''
         }`}
       >
@@ -32,10 +32,10 @@ function TimeRow({ label, value, isCompleted }: TimeRowProps) {
 function EmptyTimeRow({ label }: { label: string }) {
   return (
     <div className="flex items-center justify-between">
-      <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 [&:not(:first-child)]:mt-0">
+      <p className="text-gray-600 text-xs sm:text-sm dark:text-gray-400 [&:not(:first-child)]:mt-0">
         {label}
       </p>
-      <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 italic [&:not(:first-child)]:mt-0">
+      <p className="text-gray-600 text-xs italic sm:text-sm dark:text-gray-400 [&:not(:first-child)]:mt-0">
         Not set
       </p>
     </div>
@@ -48,7 +48,7 @@ export function TimeTrackingCard({ estimate, deadline, completedAt }: TimeTracki
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-sm">
           <ClockIcon className="h-4 w-4" />
-          <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 uppercase tracking-wide [&:not(:first-child)]:mt-0">
+          <span className="text-gray-500 text-xs uppercase tracking-wide sm:text-sm dark:text-gray-500 [&:not(:first-child)]:mt-0">
             Time Tracking
           </span>
         </CardTitle>

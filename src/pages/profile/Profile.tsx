@@ -14,7 +14,7 @@ export default function Profile() {
     return (
       <div className="container mx-auto py-8">
         <div className="mx-auto flex min-h-[400px] max-w-4xl items-center justify-center">
-          <div className="text-base sm:text-lg font-semibold text-[var(--secondaryLabel)]">
+          <div className="font-semibold text-[var(--secondaryLabel)] text-base sm:text-lg">
             Loading profile...
           </div>
         </div>
@@ -32,10 +32,10 @@ export default function Profile() {
         </div>
       ) : (
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="scroll-m-20 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight">
+          <h1 className="scroll-m-20 font-extrabold text-2xl tracking-tight sm:text-3xl md:text-4xl lg:text-5xl">
             Welcome! 👋
           </h1>
-          <div className="mt-4 text-base sm:text-lg font-semibold text-[var(--secondaryLabel)]">
+          <div className="mt-4 font-semibold text-[var(--secondaryLabel)] text-base sm:text-lg">
             Please log in to view your profile
           </div>
         </div>

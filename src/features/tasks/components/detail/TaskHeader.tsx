@@ -56,7 +56,7 @@ export function TaskHeader({
           <ArrowLeftIcon className="h-4 w-4" />
         </Button>
         <div className="min-w-0 flex-1">
-          <div className="mb-2 break-words text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
+          <div className="mb-2 break-words font-semibold text-base text-gray-900 sm:text-lg dark:text-gray-100">
             {task.title}
           </div>
           <div className="flex flex-wrap items-center gap-2">
@@ -77,13 +77,15 @@ export function TaskHeader({
                 </button>
               </TooltipTrigger>
               <TooltipContent>
-                <small className="text-xs sm:text-sm font-medium leading-none">Click to copy task URL</small>
+                <small className="font-medium text-xs leading-none sm:text-sm">
+                  Click to copy task URL
+                </small>
               </TooltipContent>
             </Tooltip>
             <WorkTypeBadge workType={task.workType} />
             <StatusBadge status={task.status} />
             <PriorityBadge priority={task.priority} />
-            <small className="text-xs sm:text-sm font-medium leading-none flex items-center gap-1.5">
+            <small className="flex items-center gap-1.5 font-medium text-xs leading-none sm:text-sm">
               <span>#{task.taskNumber}</span>
             </small>
 
@@ -96,7 +98,7 @@ export function TaskHeader({
                 <span>{task.project.name}</span>
               </a>
             ) : (
-              <small className="text-xs sm:text-sm font-medium leading-none">
+              <small className="font-medium text-xs leading-none sm:text-sm">
                 {task.project.name}
               </small>
             )}

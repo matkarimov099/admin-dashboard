@@ -1,7 +1,7 @@
 import { SidebarGroup, SidebarMenu } from '@/components/ui/sidebar.tsx';
 import menuItems from '@/config/navigation/modules';
-import type { MenuGroupConfig, MenuItemConfig } from '@/types/navigation';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
+import type { MenuGroupConfig, MenuItemConfig } from '@/types/navigation';
 import { NavCollapse } from './nav-collapse';
 import { NavGroup } from './nav-group';
 import { NavItem } from './nav-item';

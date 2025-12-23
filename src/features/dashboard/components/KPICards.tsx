@@ -64,10 +64,10 @@ export function KPICards({ kpis }: KPICardsProps) {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div className="flex-1">
-                <small className="text-xs sm:text-sm font-medium leading-none text-muted-foreground">
+                <small className="font-medium text-muted-foreground text-xs leading-none sm:text-sm">
                   {card.title}
                 </small>
-                <h2 className="scroll-m-20 pb-2 text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight first:mt-0 mt-2">
+                <h2 className="mt-2 scroll-m-20 pb-2 font-semibold text-xl tracking-tight first:mt-0 sm:text-2xl md:text-3xl">
                   {card.value}
                 </h2>
               </div>

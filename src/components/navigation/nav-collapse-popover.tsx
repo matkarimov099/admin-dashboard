@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar.tsx';
 import type { MenuItemConfig } from '@/types/navigation';
@@ -5,10 +6,10 @@ import { cn } from '@/utils/utils';
 
 interface NavCollapsePopoverProps {
   item: MenuItemConfig;
-  titleText: string | React.ReactNode;
+  titleText: string | ReactNode;
   tooltipText?: string;
   isParentActive: boolean;
-  renderChildren: (children: MenuItemConfig[]) => React.ReactNode;
+  renderChildren: (children: MenuItemConfig[]) => ReactNode;
   visibleChildren: MenuItemConfig[];
 }
 
@@ -16,7 +17,7 @@ interface NavCollapsePopoverProps {
  * NavCollapsePopover - Collapsed sidebar popover component
  *
  * Features:
- * - Shown when sidebar is collapsed
+ * - Shown when the sidebar is collapsed
  * - Displays menu item children in a popover
  * - Hover-triggered popover
  * - Active state indication
@@ -38,14 +39,14 @@ export function NavCollapsePopover({
             tooltip={tooltipText}
             className={cn(
               'relative size-9 rounded-md p-0 transition-all duration-200',
-              'hover:!bg-[var(--color-primary)]/10 dark:hover:!bg-[var(--color-primary)]/20',
-              'hover:!text-gray-700 dark:hover:!text-white text-gray-700 dark:text-gray-200'
+              'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
+              'text-gray-700 hover:text-gray-700! dark:text-gray-200 dark:hover:text-white!'
             )}
           >
             <div
               className={cn(
                 'flex size-5 items-center justify-center transition-colors duration-200',
-                isParentActive && 'text-[var(--color-primary)]',
+                isParentActive && 'text-(--color-primary)',
                 !isParentActive && 'text-gray-500 dark:text-gray-400'
               )}
             >

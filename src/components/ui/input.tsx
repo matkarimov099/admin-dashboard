@@ -175,12 +175,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
 
         {error && (
-          <small
-            id={errorId}
-            className="font text-red"
-            role="alert"
-            aria-live="polite"
-          >
+          <small id={errorId} className="font text-red" role="alert" aria-live="polite">
             {error}
           </small>
         )}

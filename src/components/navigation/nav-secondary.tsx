@@ -32,7 +32,7 @@ export function NavSecondary({ ...props }: React.ComponentPropsWithoutRef<typeof
             .filter((item: MenuItemConfig) => {
               // If an item has no roles specified, it's visible to all
               if (!item.roles || item.roles.length === 0) return true;
-              // Check if user has any of the required roles
+              // Check if a user has any of the required roles
               return hasRole(item.roles);
             })
             .map((item: MenuItemConfig) => {

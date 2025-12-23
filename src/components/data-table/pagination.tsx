@@ -53,7 +53,7 @@ export function DataTablePagination<TData>({
       </div>
       <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:gap-4 lg:gap-6">
         <div className="flex items-center space-x-2" data-slot="pagination-select">
-          <small className="hidden whitespace-nowrap font-medium leading-none text-foreground sm:block">
+          <small className="hidden whitespace-nowrap font-medium text-foreground leading-none sm:block">
             {t('common.pagination.per_page')}
           </small>
           <Select

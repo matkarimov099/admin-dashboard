@@ -1,5 +1,5 @@
-import { lazy } from 'react';
 import { ListTodo, Table } from 'lucide-react';
+import { lazy } from 'react';
 import type { MenuItemConfig } from '@/types/navigation.ts';
 
 const tasks: MenuItemConfig = {

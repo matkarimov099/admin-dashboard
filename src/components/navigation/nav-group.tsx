@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { SidebarGroup, SidebarGroupLabel, SidebarMenu } from '@/components/ui/sidebar.tsx';
-import type { MenuGroupConfig, MenuItemConfig } from '@/types/navigation';
 import { useSidebar } from '@/hooks/use-sidebar';
+import type { MenuGroupConfig, MenuItemConfig } from '@/types/navigation';
 import { cn } from '@/utils/utils';
 import { NavCollapse } from './nav-collapse';
 import { NavItem } from './nav-item';
