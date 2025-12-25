@@ -251,6 +251,18 @@
 	[data-sidebar="menu-sub-button"][data-active="true"] svg {
 		color: white;
 	}
+
+	/* ---------- Header Trigger Icons with Sidebar Gradient Active ---------- */
+	/* When sidebar gradient is active in light mode, apply glassmorphism background to header trigger icons */
+	:root:not(.dark)[data-sidebar-gradient-active] [data-header-trigger="true"] {
+		background: var(--sidebar-accent, var(--card-bg)) !important;
+	}
+
+	/* Make sure header trigger icons use the correct foreground color when gradient is active */
+	:root:not(.dark)[data-sidebar-gradient-active] [data-header-trigger="true"] svg,
+	:root:not(.dark)[data-sidebar-gradient-active] [data-header-trigger="true"] img {
+		color: var(--sidebar-foreground, inherit);
+	}
 }
 
 /* ============================

@@ -142,6 +142,9 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
         root.style.removeProperty('--sidebar-accent-foreground');
         root.style.removeProperty('--sidebar-ring');
         root.style.removeProperty('--sidebar-primary');
+        root.removeAttribute('data-sidebar-gradient-active');
+      } else {
+        root.setAttribute('data-sidebar-gradient-active', 'true');
       }
       if (initialConfig.headerGradient === 'default') {
         root.style.removeProperty('--header-gradient');
@@ -174,6 +177,9 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
       root.style.removeProperty('--sidebar-accent-foreground');
       root.style.removeProperty('--sidebar-ring');
       root.style.removeProperty('--sidebar-primary');
+      root.removeAttribute('data-sidebar-gradient-active');
+    } else {
+      root.setAttribute('data-sidebar-gradient-active', 'true');
     }
     if (config.headerGradient === 'default') {
       root.style.removeProperty('--header-gradient');
@@ -207,6 +213,9 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
         root.style.removeProperty('--sidebar-accent-foreground');
         root.style.removeProperty('--sidebar-ring');
         root.style.removeProperty('--sidebar-primary');
+        root.removeAttribute('data-sidebar-gradient-active');
+      } else {
+        root.setAttribute('data-sidebar-gradient-active', 'true');
       }
       if (config.headerGradient === 'default') {
         root.style.removeProperty('--header-gradient');

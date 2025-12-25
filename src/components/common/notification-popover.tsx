@@ -103,6 +103,7 @@ export function NotificationPopover() {
         <Button
           variant="ghost"
           size="sm"
+          data-header-trigger="true"
           className="group relative h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-all duration-200"
         >
           <div className="relative flex h-full w-full items-center justify-center">
