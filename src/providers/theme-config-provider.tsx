@@ -1,6 +1,5 @@
 import { createContext, type ReactNode, useEffect, useState } from 'react';
 import { DEFAULT_THEME_CONFIG } from '@/config/theme/theme-config.defaults';
-import { useTheme } from '@/hooks/use-theme';
 import type {
   BackgroundGradient,
   BorderRadius,
@@ -13,6 +12,7 @@ import type {
   ThemeConfigContextValue,
 } from '@/config/theme/theme-config.types';
 import { generateCSSVariables, randomizeConfig } from '@/config/theme/theme-config.utils';
+import { useTheme } from '@/hooks/use-theme';
 import { loadGoogleFont } from '@/lib/google-fonts';
 
 const STORAGE_KEY = 'ui-theme-config';
@@ -174,7 +174,7 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
     }, 0);
 
     return () => clearTimeout(timeoutId);
-  }, [config, theme]);
+  }, [config]);
 
   // Listen to system theme changes when theme is 'system'
   useEffect(() => {

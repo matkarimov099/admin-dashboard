@@ -1,13 +1,10 @@
 import { CheckIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { DARK_MODE_GRADIENTS, LIGHT_MODE_GRADIENTS } from '@/config/theme/theme-config.constants';
+import type { BackgroundGradient } from '@/config/theme/theme-config.types';
 import { useTheme } from '@/hooks/use-theme';
-import {
-  DARK_MODE_GRADIENTS,
-  LIGHT_MODE_GRADIENTS,
-} from '@/config/theme/theme-config.constants';
 import { useThemeConfig } from '@/hooks/use-theme-config';
 import { cn } from '@/utils/utils';
-import type { BackgroundGradient } from '@/config/theme/theme-config.types';
 
 // ============================
 // Background Gradient Picker
@@ -19,8 +16,11 @@ interface BackgroundGradientPickerProps {
   label: string;
 }
 
-export function BackgroundGradientPicker({ value, onChange, label }: BackgroundGradientPickerProps) {
-  const { t } = useTranslation();
+export function BackgroundGradientPicker({
+  value,
+  onChange,
+  label,
+}: BackgroundGradientPickerProps) {
   const { theme } = useTheme();
 
   // Show different gradients based on current theme mode
@@ -38,7 +38,7 @@ export function BackgroundGradientPicker({ value, onChange, label }: BackgroundG
 
   return (
     <div className="space-y-2">
-      <p className="text-xs font-medium text-muted-foreground">{label}</p>
+      <p className="font-medium text-muted-foreground text-xs">{label}</p>
       <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
         {gradients.map(gradient => {
           const gradientNumber = getCurrentGradientNumber(gradient.value);
@@ -62,10 +62,12 @@ export function BackgroundGradientPicker({ value, onChange, label }: BackgroundG
                     : 'ring-1 ring-border hover:ring-2 hover:ring-primary/50',
                   gradient.value === 'default' && 'bg-muted'
                 )}
-                style={gradient.value !== 'default' ? { background: gradient.previewColor } : undefined}
+                style={
+                  gradient.value !== 'default' ? { background: gradient.previewColor } : undefined
+                }
               >
                 {isSelected && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 rounded-md">
+                  <div className="absolute inset-0 flex items-center justify-center rounded-md bg-black/20">
                     <CheckIcon className="h-4 w-4 text-white drop-shadow-md" />
                   </div>
                 )}
@@ -74,7 +76,7 @@ export function BackgroundGradientPicker({ value, onChange, label }: BackgroundG
               {/* Label */}
               <span
                 className={cn(
-                  'text-[10px] text-center',
+                  'text-center text-[10px]',
                   isSelected ? 'font-medium text-foreground' : 'text-muted-foreground'
                 )}
               >

@@ -79,7 +79,8 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
             <span
               className={cn(
                 'flex size-5 shrink-0 items-center justify-center transition-colors duration-200 dark:text-white',
-                isActive && 'text-(--color-primary) hover:text-(--color-primary)! dark:text-(--color-primary)!',
+                isActive &&
+                  'text-(--color-primary) hover:text-(--color-primary)! dark:text-(--color-primary)!',
                 !isActive && 'hover:text-current'
               )}
             >
