@@ -6,6 +6,8 @@ import {
   FONT_FAMILIES,
   GRADIENT_COLOR_SCHEMES,
   GRADIENT_VALUES,
+  SIDEBAR_GRADIENT_VALUES,
+  HEADER_GRADIENT_VALUES,
   LAYOUT_MODES,
   SHADOW_OPTIONS,
   SHADOW_VALUES,
@@ -20,11 +22,38 @@ import type { ThemeConfig } from './theme-config.types';
 // ============================
 
 /**
+ * Converts gradient to appropriate mode (light/dark) based on current theme
+ */
+function convertGradientForTheme(
+  gradient: BackgroundGradient,
+  isDark: boolean
+): BackgroundGradient {
+  if (gradient === 'default') return gradient;
+
+  // Extract number from gradient (e.g., 'light-gradient1' -> '1')
+  const match = gradient.match(/(\d+)$/);
+  if (!match) return gradient;
+
+  const number = match[1];
+
+  // Convert to appropriate mode
+  return (isDark ? `dark-gradient${number}` : `light-gradient${number}`) as BackgroundGradient;
+}
+
+/**
  * Generates CSS variables object from theme config
  * These will be applied to document.documentElement.style
  */
 export function generateCSSVariables(config: ThemeConfig): Record<string, string> {
   const cssVars: Record<string, string> = {};
+
+  // Detect current theme mode
+  const isDark =
+    typeof window !== 'undefined' && document.documentElement.classList.contains('dark');
+
+  // Convert gradients to appropriate mode based on current theme
+  const sidebarGradient = convertGradientForTheme(config.sidebarGradient, isDark);
+  const headerGradient = convertGradientForTheme(config.headerGradient, isDark);
 
   // Apply font family
   cssVars['--font-sans'] = CSS_FONT_FAMILIES[config.fontFamily];
@@ -123,11 +152,11 @@ export function generateCSSVariables(config: ThemeConfig): Record<string, string
   cssVars['--color-info'] = '#06b6d4';
 
   // Apply background gradients (only if not default)
-  if (config.sidebarGradient !== 'default') {
-    cssVars['--sidebar-gradient'] = GRADIENT_VALUES[config.sidebarGradient];
+  if (sidebarGradient !== 'default') {
+    cssVars['--sidebar-gradient'] = SIDEBAR_GRADIENT_VALUES[sidebarGradient];
 
     // Apply gradient-specific text and accent colors for sidebar
-    const sidebarScheme = GRADIENT_COLOR_SCHEMES[config.sidebarGradient];
+    const sidebarScheme = GRADIENT_COLOR_SCHEMES[sidebarGradient];
     if (sidebarScheme && sidebarScheme.foreground !== 'default') {
       cssVars['--sidebar-foreground'] = sidebarScheme.foreground;
       cssVars['--sidebar-primary-foreground'] = sidebarScheme.foreground;
@@ -144,11 +173,11 @@ export function generateCSSVariables(config: ThemeConfig): Record<string, string
     }
   }
 
-  if (config.headerGradient !== 'default') {
-    cssVars['--header-gradient'] = GRADIENT_VALUES[config.headerGradient];
+  if (headerGradient !== 'default') {
+    cssVars['--header-gradient'] = HEADER_GRADIENT_VALUES[headerGradient];
 
     // Apply gradient-specific text and accent colors for header
-    const headerScheme = GRADIENT_COLOR_SCHEMES[config.headerGradient];
+    const headerScheme = GRADIENT_COLOR_SCHEMES[headerGradient];
     if (headerScheme && headerScheme.foreground !== 'default') {
       cssVars['--header-foreground'] = headerScheme.foreground;
     }

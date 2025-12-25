@@ -48,7 +48,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className={cn(
                 'group h-11 w-full transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
-                'hover:bg-[var(--sidebar-accent,hsl(var(--primary)/0.1))]!',
+                'hover:border-(--color-primary)/30 hover:bg-(--color-primary)/10!',
                 isCollapsed && 'h-11 w-11 justify-center px-0'
               )}
             >

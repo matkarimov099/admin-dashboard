@@ -28,10 +28,12 @@ export type BackgroundGradient =
   | 'light-gradient2'
   | 'light-gradient3'
   | 'light-gradient4'
+  | 'light-gradient5'
   | 'dark-gradient1'
   | 'dark-gradient2'
   | 'dark-gradient3'
-  | 'dark-gradient4';
+  | 'dark-gradient4'
+  | 'dark-gradient5';
 
 // ============================
 // Configuration Interfaces

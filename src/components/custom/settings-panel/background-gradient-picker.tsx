@@ -27,12 +27,23 @@ export function BackgroundGradientPicker({ value, onChange, label }: BackgroundG
   const isDarkMode = theme === 'dark';
   const gradients = isDarkMode ? DARK_MODE_GRADIENTS : LIGHT_MODE_GRADIENTS;
 
+  // Get the current gradient number from value (e.g., 'light-gradient1' -> '1')
+  const getCurrentGradientNumber = (gradientValue: BackgroundGradient): string | null => {
+    if (gradientValue === 'default') return 'default';
+    const match = gradientValue.match(/(\d+)$/);
+    return match ? match[1] : null;
+  };
+
+  const currentNumber = getCurrentGradientNumber(value);
+
   return (
     <div className="space-y-2">
       <p className="text-xs font-medium text-muted-foreground">{label}</p>
-      <div className="grid grid-cols-3 gap-2 sm:grid-cols-5">
+      <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
         {gradients.map(gradient => {
-          const isSelected = value === gradient.value;
+          const gradientNumber = getCurrentGradientNumber(gradient.value);
+          // Match by number, not by exact value (so light-gradient1 and dark-gradient1 are treated as same)
+          const isSelected = currentNumber === gradientNumber;
 
           return (
             <button

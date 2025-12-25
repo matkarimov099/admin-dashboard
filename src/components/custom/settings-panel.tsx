@@ -36,7 +36,7 @@ export function SettingsTrigger() {
         size="sm"
         className="group relative mr-2 h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-colors duration-200 hover:border-(--color-primary)/30 hover:bg-muted/50"
       >
-        <PaletteIcon className="h-5! w-5! text-muted-foreground transition-transform duration-200 group-hover:scale-110 group-hover:text-foreground" />
+        <PaletteIcon className="h-5! w-5! transition-transform duration-200 group-hover:scale-110 group-hover:text-foreground" />
         <span className="sr-only">{t('settingsPanel.customizeTheme')}</span>
       </Button>
     </SheetTrigger>

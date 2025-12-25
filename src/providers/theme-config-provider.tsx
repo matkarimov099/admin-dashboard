@@ -13,6 +13,7 @@ import type {
 } from '@/config/theme/theme-config.types';
 import { generateCSSVariables, randomizeConfig } from '@/config/theme/theme-config.utils';
 import { loadGoogleFont } from '@/lib/google-fonts';
+import { useTheme } from '@/hooks/use-theme';
 
 const STORAGE_KEY = 'ui-theme-config';
 
@@ -43,10 +44,12 @@ function loadInitialConfig(): ThemeConfig {
         'light-gradient2',
         'light-gradient3',
         'light-gradient4',
+        'light-gradient5',
         'dark-gradient1',
         'dark-gradient2',
         'dark-gradient3',
         'dark-gradient4',
+        'dark-gradient5',
       ];
       if (
         !configWithoutBaseColor.sidebarGradient ||
@@ -102,6 +105,8 @@ interface ThemeConfigProviderProps {
 }
 
 export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
+  const { theme } = useTheme();
+
   // Initialize with a synchronous load
   const [config, setConfig] = useState<ThemeConfig>(() => {
     const initialConfig = loadInitialConfig();
@@ -136,7 +141,7 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
     return initialConfig;
   });
 
-  // Update CSS variables when config changes
+  // Update CSS variables when config or theme mode changes
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const root = document.documentElement;
@@ -163,7 +168,7 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
         root.style.removeProperty('--header-primary');
       }
     }
-  }, [config]);
+  }, [config, theme]);
 
   // Load Google font when config changes
   useEffect(() => {

@@ -266,7 +266,7 @@ function SidebarTrigger({ className, onClick, ...props }: ComponentProps<typeof 
       }}
       {...props}
     >
-      <PanelLeftIcon />
+      <PanelLeftIcon className="h-5! w-5! transition-transform duration-200 hover:scale-110 hover:text-foreground" />
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   );
