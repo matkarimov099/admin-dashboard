@@ -2,9 +2,11 @@ import { AnimatePresence, motion } from 'motion/react';
 import { Suspense, useId } from 'react';
 import { Outlet } from 'react-router';
 import { BreadcrumbNav } from '@/components/common/breadcrumb-nav';
+import { CurrentTime } from '@/components/common/current-time.tsx';
 import { LanguageSwitcher } from '@/components/common/language-switcher.tsx';
 import { ModeToggle } from '@/components/common/mode-toggle.tsx';
 import { NotificationPopover } from '@/components/common/notification-popover.tsx';
+import { UsersTooltip } from '@/components/common/users-tooltip.tsx';
 import { SettingsPanel } from '@/components/custom/settings-panel.tsx';
 import { AppSidebar } from '@/components/layout/app-sidebar.tsx';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
@@ -33,7 +35,9 @@ export const CompactLayout = () => {
               </div>
 
               {/* Right section - Actions */}
-              <div className="flex shrink-0 items-center gap-1 px-2">
+              <div className="mr-4 flex items-center gap-1.5">
+                <CurrentTime className="hidden md:flex" />
+                <UsersTooltip className="hidden md:flex" />
                 <NotificationPopover />
                 <LanguageSwitcher />
                 <SettingsPanel />

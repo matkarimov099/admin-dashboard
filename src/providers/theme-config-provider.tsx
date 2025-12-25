@@ -108,6 +108,19 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
   // Track theme mode changes to update CSS variables
   const { theme } = useTheme();
 
+  // Resolve actual theme mode (handle 'system' setting)
+  const getResolvedTheme = (): 'light' | 'dark' => {
+    if (theme === 'system') {
+      return typeof window !== 'undefined' &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
+    }
+    return theme;
+  };
+
+  const isDarkMode = getResolvedTheme() === 'dark';
+
   // Initialize with a synchronous load
   const [config, setConfig] = useState<ThemeConfig>(() => {
     const initialConfig = loadInitialConfig();
@@ -146,35 +159,30 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // Use setTimeout to ensure ThemeProvider has updated the DOM class list first
-    const timeoutId = setTimeout(() => {
-      const root = document.documentElement;
-      const cssVars = generateCSSVariables(config);
-      Object.entries(cssVars).forEach(([key, value]) => {
-        root.style.setProperty(key, value);
-      });
+    const root = document.documentElement;
+    const cssVars = generateCSSVariables(config, isDarkMode);
+    Object.entries(cssVars).forEach(([key, value]) => {
+      root.style.setProperty(key, value);
+    });
 
-      // Remove gradient variables if 'default' is selected
-      if (config.sidebarGradient === 'default') {
-        root.style.removeProperty('--sidebar-gradient');
-        root.style.removeProperty('--sidebar-foreground');
-        root.style.removeProperty('--sidebar-primary-foreground');
-        root.style.removeProperty('--sidebar-accent');
-        root.style.removeProperty('--sidebar-accent-foreground');
-        root.style.removeProperty('--sidebar-ring');
-        root.style.removeProperty('--sidebar-primary');
-      }
-      if (config.headerGradient === 'default') {
-        root.style.removeProperty('--header-gradient');
-        root.style.removeProperty('--header-foreground');
-        root.style.removeProperty('--header-accent');
-        root.style.removeProperty('--header-accent-foreground');
-        root.style.removeProperty('--header-primary');
-      }
-    }, 0);
-
-    return () => clearTimeout(timeoutId);
-  }, [config]);
+    // Remove gradient variables if 'default' is selected
+    if (config.sidebarGradient === 'default') {
+      root.style.removeProperty('--sidebar-gradient');
+      root.style.removeProperty('--sidebar-foreground');
+      root.style.removeProperty('--sidebar-primary-foreground');
+      root.style.removeProperty('--sidebar-accent');
+      root.style.removeProperty('--sidebar-accent-foreground');
+      root.style.removeProperty('--sidebar-ring');
+      root.style.removeProperty('--sidebar-primary');
+    }
+    if (config.headerGradient === 'default') {
+      root.style.removeProperty('--header-gradient');
+      root.style.removeProperty('--header-foreground');
+      root.style.removeProperty('--header-accent');
+      root.style.removeProperty('--header-accent-foreground');
+      root.style.removeProperty('--header-primary');
+    }
+  }, [config, isDarkMode]);
 
   // Listen to system theme changes when theme is 'system'
   useEffect(() => {
@@ -183,8 +191,9 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
     const handleSystemThemeChange = () => {
+      const isSystemDark = mediaQuery.matches;
       const root = document.documentElement;
-      const cssVars = generateCSSVariables(config);
+      const cssVars = generateCSSVariables(config, isSystemDark);
       Object.entries(cssVars).forEach(([key, value]) => {
         root.style.setProperty(key, value);
       });

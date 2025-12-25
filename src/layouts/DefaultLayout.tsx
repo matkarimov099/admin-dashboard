@@ -21,7 +21,7 @@ export const DefaultLayout = () => {
           {/* Fixed header - does not scroll */}
           <div className="shrink-0 p-2">
             <header
-              className="glass-strong relative z-40 flex h-12 items-center justify-between gap-2 rounded-lg shadow-sm sm:h-14"
+              className="relative z-40 flex h-12 items-center justify-between gap-2 rounded-lg shadow-sm sm:h-14"
               style={{
                 background: 'var(--header-gradient, var(--card-bg))',
                 color: 'var(--header-foreground, inherit)',

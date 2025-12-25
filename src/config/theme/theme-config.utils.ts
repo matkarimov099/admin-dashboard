@@ -64,7 +64,7 @@ function generateGlassmorphismScheme(isDark: boolean) {
 // ============================
 
 /**
- * Converts gradient to appropriate mode (light/dark) based on current theme
+ * Converts gradient to the appropriate mode (light/dark) based on the current theme
  */
 function convertGradientForTheme(
   gradient: BackgroundGradient,
@@ -72,7 +72,7 @@ function convertGradientForTheme(
 ): BackgroundGradient {
   if (gradient === 'default') return gradient;
 
-  // Extract number from gradient (e.g., 'light-gradient1' -> '1')
+  // Extract number from the gradient (e.g., 'light-gradient1' -> '1')
   const match = gradient.match(/(\d+)$/);
   if (!match) return gradient;
 
@@ -85,15 +85,21 @@ function convertGradientForTheme(
 /**
  * Generates CSS variables object from theme config
  * These will be applied to document.documentElement.style
+ * @param config - Theme configuration
+ * @param isDark - Optional explicit dark mode flag (if not provided, reads from DOM)
  */
-export function generateCSSVariables(config: ThemeConfig): Record<string, string> {
+export function generateCSSVariables(
+  config: ThemeConfig,
+  isDark?: boolean
+): Record<string, string> {
   const cssVars: Record<string, string> = {};
 
-  // Detect current theme mode
-  const isDark =
-    typeof window !== 'undefined' && document.documentElement.classList.contains('dark');
+  // Detect the current theme mode if not explicitly provided
+  if (isDark === undefined) {
+    isDark = typeof window !== 'undefined' && document.documentElement.classList.contains('dark');
+  }
 
-  // Convert gradients to appropriate mode based on current theme
+  // Convert gradients to the appropriate mode based on the current theme
   const sidebarGradient = convertGradientForTheme(config.sidebarGradient, isDark);
   const headerGradient = convertGradientForTheme(config.headerGradient, isDark);
 
@@ -197,12 +203,11 @@ export function generateCSSVariables(config: ThemeConfig): Record<string, string
   cssVars['--color-error'] = '#ef4444';
   cssVars['--color-info'] = '#06b6d4';
 
-  // Apply background gradients with glassmorphism effect
+  // Apply background gradients with a glassmorphism effect
   if (sidebarGradient !== 'default') {
-    const gradientValue = SIDEBAR_GRADIENT_VALUES[sidebarGradient];
-    cssVars['--sidebar-gradient'] = gradientValue;
+    cssVars['--sidebar-gradient'] = SIDEBAR_GRADIENT_VALUES[sidebarGradient];
 
-    // Generate glassmorphism color scheme
+    // Generate a glassmorphism color scheme
     const glassScheme = generateGlassmorphismScheme(isDark);
 
     cssVars['--sidebar-foreground'] = glassScheme.foreground;
@@ -221,10 +226,9 @@ export function generateCSSVariables(config: ThemeConfig): Record<string, string
   }
 
   if (headerGradient !== 'default') {
-    const gradientValue = HEADER_GRADIENT_VALUES[headerGradient];
-    cssVars['--header-gradient'] = gradientValue;
+    cssVars['--header-gradient'] = HEADER_GRADIENT_VALUES[headerGradient];
 
-    // Generate glassmorphism color scheme
+    // Generate a glassmorphism color scheme
     const glassScheme = generateGlassmorphismScheme(isDark);
 
     cssVars['--header-foreground'] = glassScheme.foreground;

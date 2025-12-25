@@ -103,7 +103,11 @@ export function NotificationPopover() {
         <Button
           variant="ghost"
           size="sm"
-          className="group relative h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-all duration-200"
+          className="group relative h-9 w-9 overflow-hidden rounded-lg p-0 backdrop-blur-sm transition-all duration-200"
+          style={{
+            background: 'var(--header-accent, var(--card))',
+            color: 'var(--header-foreground, inherit)',
+          }}
         >
           <div className="relative flex h-full w-full items-center justify-center">
             <BellRing className="z-0 h-5! w-5! transition-transform duration-200 group-hover:scale-110" />

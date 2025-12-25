@@ -23,11 +23,11 @@ export function BackgroundGradientPicker({
 }: BackgroundGradientPickerProps) {
   const { theme } = useTheme();
 
-  // Show different gradients based on current theme mode
+  // Show different gradients based on the current theme mode
   const isDarkMode = theme === 'dark';
   const gradients = isDarkMode ? DARK_MODE_GRADIENTS : LIGHT_MODE_GRADIENTS;
 
-  // Get the current gradient number from value (e.g., 'light-gradient1' -> '1')
+  // Get the current gradient number from the value (e.g., 'light-gradient1' -> '1')
   const getCurrentGradientNumber = (gradientValue: BackgroundGradient): string | null => {
     if (gradientValue === 'default') return 'default';
     const match = gradientValue.match(/(\d+)$/);
@@ -42,7 +42,7 @@ export function BackgroundGradientPicker({
       <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
         {gradients.map(gradient => {
           const gradientNumber = getCurrentGradientNumber(gradient.value);
-          // Match by number, not by exact value (so light-gradient1 and dark-gradient1 are treated as same)
+          // Match by number, not by exact value (so light-gradient1 and dark-gradient1 are treated as the same)
           const isSelected = currentNumber === gradientNumber;
 
           return (
