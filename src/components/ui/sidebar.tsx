@@ -229,11 +229,10 @@ function Sidebar({
           className={cn(
             'flex h-full w-full flex-col',
             'bg-sidebar text-sidebar-foreground',
-            'border-sidebar-border',
-            'group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-lg',
+            // 'border-sidebar-border',
+            'group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-lg',
             // Enhanced styling
             'backdrop-blur-xl backdrop-saturate-150',
-            'group-data-[side=left]:border-r group-data-[side=right]:border-l',
             // Add subtle shadow for depth
             'shadow-sm'
           )}
