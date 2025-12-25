@@ -131,6 +131,7 @@
       "minutes": "daqiqa",
       "hours": "soat",
       "days": "kun",
+      "dayNames": ["Yakshanba", "Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma", "Shanba"],
       "weeks": "hafta",
       "months": "oy",
       "years": "yil",
@@ -243,6 +244,11 @@
     "dark": "Qorong'i",
     "system": "Tizim",
     "toggle": "Tema almashtirish"
+  },
+  "active-users": {
+    "title": "Foydalanuvchilar",
+    "registered": "Ro'yxatdan o'tgan foydalanuvchilar",
+    "active": "Faol foydalanuvchilar"
   },
   "settingsPanel": {
     "title": "Temani sozlash",

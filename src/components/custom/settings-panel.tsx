@@ -34,7 +34,7 @@ export function SettingsTrigger() {
       <Button
         variant="ghost"
         size="sm"
-        className="group relative mr-2 h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-colors duration-200 hover:border-(--color-primary)/30 hover:bg-muted/50"
+        className="group relative h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-all duration-200"
       >
         <PaletteIcon className="h-5! w-5! transition-transform duration-200 group-hover:scale-110 group-hover:text-foreground" />
         <span className="sr-only">{t('settingsPanel.customizeTheme')}</span>

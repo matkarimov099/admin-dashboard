@@ -131,6 +131,7 @@
       "minutes": "minutes",
       "hours": "hours",
       "days": "days",
+      "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
       "weeks": "weeks",
       "months": "months",
       "years": "years",
@@ -243,6 +244,11 @@
     "dark": "Dark",
     "system": "System",
     "toggle": "Toggle theme"
+  },
+  "active-users": {
+    "title": "Users",
+    "registered": "Registered users",
+    "active": "Active users"
   },
   "settingsPanel": {
     "title": "Customize Theme",

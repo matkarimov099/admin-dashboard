@@ -2,16 +2,17 @@ import { AnimatePresence, motion } from 'motion/react';
 import { Suspense, useId } from 'react';
 import { Outlet } from 'react-router';
 import { BreadcrumbNav } from '@/components/common/breadcrumb-nav';
+import { CurrentTime } from '@/components/common/current-time';
 import { LanguageSwitcher } from '@/components/common/language-switcher.tsx';
 import { ModeToggle } from '@/components/common/mode-toggle.tsx';
 import { NotificationPopover } from '@/components/common/notification-popover.tsx';
 import { ProfileDropdown } from '@/components/common/profile-dropdown.tsx';
+import { UsersTooltip } from '@/components/common/users-tooltip';
 import { SettingsPanel } from '@/components/custom/settings-panel.tsx';
 import { HorizontalNav } from '@/components/navigation/horizontal-nav.tsx';
 import { Spinner } from '@/components/ui/spinner.tsx';
 
 export const HorizontalLayout = () => {
-
   return (
     <div className="h-screen w-full overflow-hidden bg-background">
       <div className="flex h-full min-w-0 flex-col bg-background">
@@ -30,7 +31,9 @@ export const HorizontalLayout = () => {
             </div>
 
             {/* Right Section - Actions */}
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1.5">
+              <CurrentTime className="hidden md:flex" />
+              <UsersTooltip className="hidden md:flex" />
               <NotificationPopover />
               <LanguageSwitcher />
               <SettingsPanel />

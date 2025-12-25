@@ -2,16 +2,17 @@ import { AnimatePresence, motion } from 'motion/react';
 import { Suspense, useId } from 'react';
 import { Outlet } from 'react-router';
 import { BreadcrumbNav } from '@/components/common/breadcrumb-nav';
+import { CurrentTime } from '@/components/common/current-time';
 import { LanguageSwitcher } from '@/components/common/language-switcher.tsx';
 import { ModeToggle } from '@/components/common/mode-toggle.tsx';
 import { NotificationPopover } from '@/components/common/notification-popover.tsx';
+import { UsersTooltip } from '@/components/common/users-tooltip';
 import { SettingsPanel } from '@/components/custom/settings-panel.tsx';
 import { AppSidebar } from '@/components/layout/app-sidebar.tsx';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { Spinner } from '@/components/ui/spinner.tsx';
 
 export const DefaultLayout = () => {
-
   return (
     <div className="h-screen w-full overflow-hidden bg-background">
       <SidebarProvider>
@@ -28,12 +29,14 @@ export const DefaultLayout = () => {
             >
               {/* Left section - Sidebar trigger and breadcrumbs */}
               <div className="flex min-w-0 flex-1 items-center gap-2 px-3 sm:gap-3 sm:px-4">
-                <SidebarTrigger className="h-7 w-7 shrink-0 p-0 sm:h-8 sm:w-8" />
+                <SidebarTrigger className="h-5! w-5! shrink-0 p-0 sm:h-8! sm:w-8!" />
                 <BreadcrumbNav />
               </div>
 
               {/* Right section - Actions */}
-              <div className="flex shrink-0 items-center gap-1 px-2">
+              <div className="mr-4 flex items-center gap-1.5">
+                <CurrentTime className="hidden md:flex" />
+                <UsersTooltip className="hidden md:flex" />
                 <NotificationPopover />
                 <LanguageSwitcher />
                 <SettingsPanel />

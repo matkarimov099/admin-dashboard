@@ -1,4 +1,4 @@
-import { BadgeCheck, CreditCard, LogOut, Sparkles, User } from 'lucide-react';
+import { BadgeCheck, CreditCard, LogOut, Sparkles, User, UserRoundIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -24,10 +24,11 @@ export function ProfileDropdown() {
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
-            className="group relative mr-2 h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-colors duration-200 hover:border-(--color-primary)/30 hover:bg-muted/50"
+            size="sm"
+            className="group relative h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-all duration-200"
           >
             <div className="relative flex h-full w-full items-center justify-center">
-              <User className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" />
+              <UserRoundIcon className="h-5! w-5! transition-transform duration-200 group-hover:scale-110" />
             </div>
             <span className="sr-only">{t('navigation.profile.title')}</span>
           </Button>

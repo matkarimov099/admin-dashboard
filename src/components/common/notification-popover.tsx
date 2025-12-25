@@ -100,10 +100,11 @@ export function NotificationPopover() {
       <PopoverTrigger asChild>
         <Button
           variant="ghost"
-          className="group relative mr-2 h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-colors duration-200 hover:border-(--color-primary)/30 hover:bg-muted/50"
+          size="sm"
+          className="group relative h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-all duration-200"
         >
           <div className="relative flex h-full w-full items-center justify-center">
-            <BellRing className="z-0 h-5 w-5 transition-transform duration-200 group-hover:scale-110" />
+            <BellRing className="z-0 h-5! w-5! transition-transform duration-200 group-hover:scale-110" />
             {unreadCount > 0 && (
               <span className="-top-2 -right-2 absolute z-10 flex h-4 w-4 items-center justify-center rounded-full bg-(--color-primary) font-medium text-[10px] text-white shadow-sm">
                 {unreadCount > 9 ? '9+' : unreadCount}

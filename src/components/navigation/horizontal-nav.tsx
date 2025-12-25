@@ -106,7 +106,7 @@ function HorizontalNavNestedItem({
         <PopoverContent
           side="right"
           align="start"
-          className="w-fit rounded-lg border border-gray-200 p-2 shadow-lg dark:border-gray-700"
+          className="min-w-[var(--radix-popover-trigger-width)] w-fit rounded-lg border border-gray-200 p-2 shadow-lg dark:border-gray-700"
           onOpenAutoFocus={e => e.preventDefault()}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -239,7 +239,7 @@ export function HorizontalNav() {
             <ChevronDown className="h-4 w-4 shrink-0" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent align="start" className="w-fit p-0" sideOffset={4}>
+        <PopoverContent align="start" className="min-w-[var(--radix-popover-trigger-width)] w-fit p-0" sideOffset={4}>
           <div className="p-2">
             {/* Header with icon and title */}
             {/*<div className="mb-1 flex items-center gap-2 px-2 py-2">*/}
@@ -275,7 +275,7 @@ export function HorizontalNav() {
   const renderCollapseItem = (item: MenuItemConfig) => {
     const isActive = isItemActive(item);
     const titleText = typeof item.title === 'string' ? t(item.title) : item.title;
-    const children = item.items || [];
+    const children = item.items || item.children || [];
     const visibleChildren = children.filter(child => {
       return !(child.roles && child.roles.length > 0 && !hasRole(child.roles));
     });
@@ -304,20 +304,7 @@ export function HorizontalNav() {
               <ChevronDown className="h-4 w-4 shrink-0" />
             </Button>
           </PopoverTrigger>
-          <PopoverContent align="start" className="w-fit p-2" sideOffset={4}>
-            {/* Header */}
-            <div className="mb-2 border-gray-200 border-b pb-1.5 dark:border-gray-700">
-              <div className="flex items-center gap-2 px-1.5 py-1 text-xs">
-                {item.icon && (
-                  <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">
-                    {item.icon}
-                  </span>
-                )}
-                <span className="font-semibold text-gray-700 uppercase tracking-wide dark:text-gray-300">
-                  {titleText}
-                </span>
-              </div>
-            </div>
+          <PopoverContent align="start" className="min-w-[var(--radix-popover-trigger-width)] w-fit p-2" sideOffset={4}>
             {/* Children */}
             <div className="space-y-1">
               {visibleChildren.map(child => (
