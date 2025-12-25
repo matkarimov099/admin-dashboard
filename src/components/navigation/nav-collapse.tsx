@@ -165,7 +165,6 @@ export function NavCollapse({ item }: NavCollapseProps) {
               className={cn(
                 'size-4.5 shrink-0 transition-all duration-200',
                 isParentActive && 'text-(--color-primary)',
-                !isParentActive && 'dark:text-gray-500',
                 isOpen && 'rotate-180'
               )}
             />

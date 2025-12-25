@@ -1,5 +1,6 @@
 import { createContext, type ReactNode, useEffect, useState } from 'react';
 import { DEFAULT_THEME_CONFIG } from '@/config/theme/theme-config.defaults';
+import { useTheme } from '@/hooks/use-theme';
 import type {
   BackgroundGradient,
   BorderRadius,
@@ -104,11 +105,14 @@ interface ThemeConfigProviderProps {
 }
 
 export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
+  // Track theme mode changes to update CSS variables
+  const { theme } = useTheme();
+
   // Initialize with a synchronous load
   const [config, setConfig] = useState<ThemeConfig>(() => {
     const initialConfig = loadInitialConfig();
 
-    // Apply CSS variables immediately
+    // Apply CSS variables immediately during initialization
     if (typeof window !== 'undefined') {
       const root = document.documentElement;
       const cssVars = generateCSSVariables(initialConfig);
@@ -140,7 +144,10 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
 
   // Update CSS variables when config or theme mode changes
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window === 'undefined') return;
+
+    // Use setTimeout to ensure ThemeProvider has updated the DOM class list first
+    const timeoutId = setTimeout(() => {
       const root = document.documentElement;
       const cssVars = generateCSSVariables(config);
       Object.entries(cssVars).forEach(([key, value]) => {
@@ -164,8 +171,49 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
         root.style.removeProperty('--header-accent-foreground');
         root.style.removeProperty('--header-primary');
       }
-    }
-  }, [config]);
+    }, 0);
+
+    return () => clearTimeout(timeoutId);
+  }, [config, theme]);
+
+  // Listen to system theme changes when theme is 'system'
+  useEffect(() => {
+    if (theme !== 'system' || typeof window === 'undefined') return;
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const handleSystemThemeChange = () => {
+      const root = document.documentElement;
+      const cssVars = generateCSSVariables(config);
+      Object.entries(cssVars).forEach(([key, value]) => {
+        root.style.setProperty(key, value);
+      });
+
+      // Remove gradient variables if 'default' is selected
+      if (config.sidebarGradient === 'default') {
+        root.style.removeProperty('--sidebar-gradient');
+        root.style.removeProperty('--sidebar-foreground');
+        root.style.removeProperty('--sidebar-primary-foreground');
+        root.style.removeProperty('--sidebar-accent');
+        root.style.removeProperty('--sidebar-accent-foreground');
+        root.style.removeProperty('--sidebar-ring');
+        root.style.removeProperty('--sidebar-primary');
+      }
+      if (config.headerGradient === 'default') {
+        root.style.removeProperty('--header-gradient');
+        root.style.removeProperty('--header-foreground');
+        root.style.removeProperty('--header-accent');
+        root.style.removeProperty('--header-accent-foreground');
+        root.style.removeProperty('--header-primary');
+      }
+    };
+
+    mediaQuery.addEventListener('change', handleSystemThemeChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleSystemThemeChange);
+    };
+  }, [config, theme]);
 
   // Load Google font when config changes
   useEffect(() => {
