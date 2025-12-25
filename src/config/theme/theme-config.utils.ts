@@ -5,17 +5,16 @@ import {
   CSS_FONT_FAMILIES,
   FONT_FAMILIES,
   GRADIENT_COLOR_SCHEMES,
-  GRADIENT_VALUES,
-  SIDEBAR_GRADIENT_VALUES,
   HEADER_GRADIENT_VALUES,
   LAYOUT_MODES,
   SHADOW_OPTIONS,
   SHADOW_VALUES,
+  SIDEBAR_GRADIENT_VALUES,
   STYLE_VARIANTS,
   THEME_COLOR_HSL,
   THEME_COLORS,
 } from './theme-config.constants';
-import type { ThemeConfig } from './theme-config.types';
+import type { BackgroundGradient, ThemeConfig } from './theme-config.types';
 
 // ============================
 // CSS Variable Generation
@@ -133,17 +132,24 @@ export function generateCSSVariables(config: ThemeConfig): Record<string, string
   };
 
   // Apply theme colors to global CSS variables
-  cssVars['--color-primary'] = getHexColor(themeColorValues[600]);
-  cssVars['--color-primary-hover'] = getHexColor(themeColorValues[700]);
+  // Use lighter shade (400) in dark mode for better contrast, darker shade (600) in light mode
+  const primaryShade = isDark ? 400 : 600;
+  const primaryHoverShade = isDark ? 500 : 700;
+  const primaryDarkShade = isDark ? 600 : 800;
+
+  cssVars['--color-primary'] = getHexColor(themeColorValues[primaryShade]);
+  cssVars['--color-primary-hover'] = getHexColor(themeColorValues[primaryHoverShade]);
   cssVars['--color-primary-light'] = getHexColor(themeColorValues[50]);
-  cssVars['--color-primary-dark'] = getHexColor(themeColorValues[800]);
+  cssVars['--color-primary-dark'] = getHexColor(themeColorValues[primaryDarkShade]);
 
   // Apply theme colors to sidebar variables
-  cssVars['--sidebar-primary'] = getHexColor(themeColorValues[600]);
+  // Use lighter shade (400) in dark mode for better contrast on sidebar
+  const sidebarPrimaryShade = isDark ? 400 : 600;
+  cssVars['--sidebar-primary'] = getHexColor(themeColorValues[sidebarPrimaryShade]);
   cssVars['--sidebar-primary-foreground'] = '#ffffff';
   cssVars['--sidebar-accent'] = getHexColor(themeColorValues[50]);
   cssVars['--sidebar-accent-foreground'] = getHexColor(themeColorValues[700]);
-  cssVars['--sidebar-ring'] = getHexColor(themeColorValues[600]);
+  cssVars['--sidebar-ring'] = getHexColor(themeColorValues[sidebarPrimaryShade]);
 
   // Keep success, warning, error colors constant but could be themed later
   cssVars['--color-success'] = '#22c55e';
@@ -168,7 +174,7 @@ export function generateCSSVariables(config: ThemeConfig): Record<string, string
     if (sidebarScheme && sidebarScheme.ring !== 'default') {
       cssVars['--sidebar-ring'] = sidebarScheme.ring;
     }
-    if (sidebarScheme && sidebarScheme.primary) {
+    if (sidebarScheme?.primary) {
       cssVars['--sidebar-primary'] = sidebarScheme.primary;
     }
   }
