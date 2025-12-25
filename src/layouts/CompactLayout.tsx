@@ -11,7 +11,6 @@ import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/s
 import { Spinner } from '@/components/ui/spinner.tsx';
 
 export const CompactLayout = () => {
-
   return (
     <div className="h-screen w-full overflow-hidden bg-background">
       <SidebarProvider defaultOpen={false}>
@@ -20,7 +19,7 @@ export const CompactLayout = () => {
           {/* Fixed header - does not scroll */}
           <div className="shrink-0 p-2">
             <header
-              className="glass-strong relative z-50 flex h-12 items-center justify-between gap-2 rounded-lg shadow-sm sm:h-14"
+              className="relative z-50 flex h-12 items-center justify-between gap-2 rounded-lg shadow-sm sm:h-14"
               style={{
                 background: 'var(--header-gradient, var(--card-bg))',
                 color: 'var(--header-foreground, inherit)',

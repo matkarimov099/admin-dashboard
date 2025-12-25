@@ -54,7 +54,7 @@ export function CurrentTime({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        'flex items-center gap-2 rounded-lg px-1.5 py-1 text-sm hover:bg-(--color-primary)/10! dark:text-gray-400',
+        'flex items-center gap-2 rounded-lg px-1.5 py-1 text-sm hover:bg-(--color-primary)/10! dark:text-white',
         className
       )}
     >
