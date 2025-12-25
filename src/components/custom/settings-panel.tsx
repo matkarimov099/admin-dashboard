@@ -34,11 +34,7 @@ export function SettingsTrigger() {
       <Button
         variant="ghost"
         size="sm"
-        className="group relative h-9 w-9 overflow-hidden rounded-lg p-0 backdrop-blur-sm transition-all duration-200"
-        style={{
-          background: 'var(--header-accent, var(--card))',
-          color: 'var(--header-foreground, inherit)',
-        }}
+        className="group relative h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-all duration-200"
       >
         <PaletteIcon className="h-5! w-5! transition-transform duration-200 group-hover:scale-110 group-hover:text-foreground" />
         <span className="sr-only">{t('settingsPanel.customizeTheme')}</span>

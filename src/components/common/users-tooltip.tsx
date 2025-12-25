@@ -17,11 +17,7 @@ export function UsersTooltip({ className }: { className?: string }) {
           <Button
             variant="ghost"
             size="sm"
-            className="group relative ml-2 h-9 w-9 overflow-hidden rounded-lg p-0 backdrop-blur-sm transition-all duration-200"
-            style={{
-              background: 'var(--header-accent, var(--card))',
-              color: 'var(--header-foreground, inherit)',
-            }}
+            className="group relative h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-all duration-200"
           >
             <UsersRoundIcon className="h-5! w-5!" />
             <span className="sr-only">{t('active-users.title')}</span>
