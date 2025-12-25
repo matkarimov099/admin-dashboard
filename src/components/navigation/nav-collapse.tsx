@@ -132,7 +132,7 @@ export function NavCollapse({ item }: NavCollapseProps) {
                 className={cn(
                   'flex size-5 shrink-0 items-center justify-center transition-colors duration-200',
                   isParentActive && 'text-(--color-primary)',
-                  !isParentActive && 'text-gray-500 dark:text-white'
+                  !isParentActive && 'dark:text-white'
                 )}
               >
                 {item.icon}
@@ -165,7 +165,7 @@ export function NavCollapse({ item }: NavCollapseProps) {
               className={cn(
                 'size-4.5 shrink-0 transition-all duration-200',
                 isParentActive && 'text-(--color-primary)',
-                !isParentActive && 'text-gray-400 dark:text-gray-500',
+                !isParentActive && 'dark:text-gray-500',
                 isOpen && 'rotate-180'
               )}
             />
@@ -175,7 +175,7 @@ export function NavCollapse({ item }: NavCollapseProps) {
 
       {/* Nested children */}
       {isOpen && (
-        <SidebarMenuSub className="mt-1 ml-2.5 space-y-1 border-gray-200 border-l pl-2.5 dark:border-gray-700">
+        <SidebarMenuSub className="mt-1 ml-2.5 space-y-1 border-l pl-2.5">
           {visibleChildren.map(child => renderChildItem(child, false, t))}
         </SidebarMenuSub>
       )}

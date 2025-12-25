@@ -106,7 +106,7 @@ function HorizontalNavNestedItem({
         <PopoverContent
           side="right"
           align="start"
-          className="min-w-[var(--radix-popover-trigger-width)] w-fit rounded-lg border border-gray-200 p-2 shadow-lg dark:border-gray-700"
+          className="w-fit min-w-[var(--radix-popover-trigger-width)] rounded-lg border border-gray-200 p-2 shadow-lg dark:border-gray-700"
           onOpenAutoFocus={e => e.preventDefault()}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -239,7 +239,11 @@ export function HorizontalNav() {
             <ChevronDown className="h-4 w-4 shrink-0" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent align="start" className="min-w-[var(--radix-popover-trigger-width)] w-fit p-0" sideOffset={4}>
+        <PopoverContent
+          align="start"
+          className="w-fit min-w-[var(--radix-popover-trigger-width)] p-0"
+          sideOffset={4}
+        >
           <div className="p-2">
             {/* Header with icon and title */}
             {/*<div className="mb-1 flex items-center gap-2 px-2 py-2">*/}
@@ -304,7 +308,11 @@ export function HorizontalNav() {
               <ChevronDown className="h-4 w-4 shrink-0" />
             </Button>
           </PopoverTrigger>
-          <PopoverContent align="start" className="min-w-[var(--radix-popover-trigger-width)] w-fit p-2" sideOffset={4}>
+          <PopoverContent
+            align="start"
+            className="w-fit min-w-[var(--radix-popover-trigger-width)] p-2"
+            sideOffset={4}
+          >
             {/* Children */}
             <div className="space-y-1">
               {visibleChildren.map(child => (
