@@ -70,7 +70,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
             'flex cursor-pointer items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-all duration-200',
             'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
             // Active state - only text color
-            isActive && 'font-medium text-(--color-primary)!',
+            isActive && 'font-medium text-(--color-primary)! hover:text-(--color-primary)!',
             // Inactive state
             !isActive && 'text-gray-700 hover:text-gray-700! dark:text-white dark:hover:text-white!'
           )}
@@ -79,7 +79,8 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
             <span
               className={cn(
                 'flex size-5 shrink-0 items-center justify-center transition-colors duration-200 dark:text-white',
-                isActive && 'dark:text-white'
+                isActive && 'text-(--color-primary) hover:text-(--color-primary)! dark:text-(--color-primary)!',
+                !isActive && 'hover:text-current'
               )}
             >
               {item.icon}
@@ -118,7 +119,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
           'relative h-fit w-full rounded-md transition-all duration-200',
           'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
           // Active state - only text color
-          isActive && 'font-medium text-(--color-primary)!',
+          isActive && 'font-medium text-(--color-primary)! hover:text-(--color-primary)!',
           // Inactive state
           !isActive && 'text-gray-700 hover:text-gray-700! dark:text-white dark:hover:text-white!',
           // Collapsed sidebar specific styles
@@ -138,7 +139,8 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
                 className={cn(
                   'flex shrink-0 items-center justify-center transition-colors duration-200',
                   isCollapsed ? 'size-6' : 'size-5',
-                  isActive && 'text-(--color-primary)'
+                  isActive && 'text-(--color-primary) hover:text-(--color-primary)!',
+                  !isActive && 'hover:text-current'
                 )}
               >
                 {item.icon}
