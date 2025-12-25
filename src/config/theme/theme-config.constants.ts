@@ -124,10 +124,10 @@ export const FONT_FAMILIES: ThemeOption<FontFamily>[] = [
     description: 'Friendly & rounded',
   },
   {
-    value: 'figtree',
-    label: 'Figtree',
-    previewFont: 'Figtree, ui-sans-serif, system-ui, sans-serif',
-    description: 'Geometric & clean',
+    value: 'arial',
+    label: 'Arial',
+    previewFont: '"Open Sans", Arial, Helvetica, sans-serif',
+    description: 'Classic system font',
   },
 ];
 
@@ -262,8 +262,8 @@ export const CSS_FONT_FAMILIES = {
     '"Noto Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
   'nunito-sans':
     '"Nunito Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
-  figtree:
-    'Figtree, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+  arial:
+    '"Open Sans", Arial, Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
 } as const;
 
 // ============================
@@ -276,7 +276,7 @@ export const GOOGLE_FONTS_MAP = {
     'https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap',
   'nunito-sans':
     'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap',
-  figtree: 'https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap',
+  arial: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap',
 } as const;
 
 // ============================

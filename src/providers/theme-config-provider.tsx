@@ -13,7 +13,6 @@ import type {
 } from '@/config/theme/theme-config.types';
 import { generateCSSVariables, randomizeConfig } from '@/config/theme/theme-config.utils';
 import { loadGoogleFont } from '@/lib/google-fonts';
-import { useTheme } from '@/hooks/use-theme';
 
 const STORAGE_KEY = 'ui-theme-config';
 
@@ -105,8 +104,6 @@ interface ThemeConfigProviderProps {
 }
 
 export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
-  const { theme } = useTheme();
-
   // Initialize with a synchronous load
   const [config, setConfig] = useState<ThemeConfig>(() => {
     const initialConfig = loadInitialConfig();
@@ -168,7 +165,7 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
         root.style.removeProperty('--header-primary');
       }
     }
-  }, [config, theme]);
+  }, [config]);
 
   // Load Google font when config changes
   useEffect(() => {

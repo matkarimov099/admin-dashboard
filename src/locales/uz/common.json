@@ -262,9 +262,15 @@
     "font": "Shrift",
     "radius": "Radius",
     "shadow": "Soya",
+    "backgroundGradients": "Fon Gradiyentlari",
+    "backgroundGradientsDescription": "Sidebar va header fonlarini sozlang",
     "shuffle": "Aralashtirish",
     "reset": "Tiklash",
     "customizeTheme": "Temani sozlash",
+    "sections": {
+      "sidebarGradient": "Sidebar Fon",
+      "headerGradient": "Header Fon"
+    },
     "variants": {
       "themeMode": {
         "light": "Yorqin",
@@ -306,13 +312,13 @@
         "inter": "Inter",
         "noto-sans": "Noto Sans",
         "nunito-sans": "Nunito Sans",
-        "figtree": "Figtree"
+        "arial": "Arial"
       },
       "fontDescriptions": {
         "inter": "Zamonaviy va professional",
         "noto-sans": "Ko'p tilli qo'llab-quvvatlash",
         "nunito-sans": "Do'stonona va yumaloq",
-        "figtree": "Geometrik va toza"
+        "arial": "Klassik tizim shrifti"
       },
       "radius": {
         "none": "Yo'q",

@@ -262,9 +262,15 @@
     "font": "Шрифт",
     "radius": "Радиус",
     "shadow": "Тень",
+    "backgroundGradients": "Градиенты фона",
+    "backgroundGradientsDescription": "Настройте фон боковой панели и шапки",
     "shuffle": "Перемешать",
     "reset": "Сбросить",
     "customizeTheme": "Настроить тему",
+    "sections": {
+      "sidebarGradient": "Фон боковой панели",
+      "headerGradient": "Фон шапки"
+    },
     "variants": {
       "themeMode": {
         "light": "Светлая",
@@ -306,13 +312,13 @@
         "inter": "Inter",
         "noto-sans": "Noto Sans",
         "nunito-sans": "Nunito Sans",
-        "figtree": "Figtree"
+        "arial": "Arial"
       },
       "fontDescriptions": {
         "inter": "Современный и профессиональный",
         "noto-sans": "Поддержка многих языков",
         "nunito-sans": "Дружелюбный и скруглый",
-        "figtree": "Геометрический и чистый"
+        "arial": "Классический системный шрифт"
       },
       "radius": {
         "none": "Нет",

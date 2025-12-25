@@ -9,7 +9,7 @@ export type StyleVariant = 'vega' | 'nova' | 'maia' | 'mira';
 export type ThemeColor = 'gray' | 'blue' | 'indigo' | 'orange' | 'purple' | 'rose' | 'teal';
 
 // Font Families
-export type FontFamily = 'inter' | 'noto-sans' | 'nunito-sans' | 'figtree';
+export type FontFamily = 'inter' | 'noto-sans' | 'nunito-sans' | 'arial';
 
 // Border Radius Options
 export type BorderRadius = 'none' | 'small' | 'default' | 'medium' | 'large';

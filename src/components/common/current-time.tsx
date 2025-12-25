@@ -1,4 +1,3 @@
-import { Clock } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/utils/utils';
@@ -53,10 +52,15 @@ export function CurrentTime({ className }: { className?: string }) {
   const dayName = t(`common.time.dayNames.${dayIndex}`);
 
   return (
-    <div className={cn('flex items-center gap-2 text-sm dark:text-gray-400', className)}>
-      <div className="flex flex-col items-center gap-1.5 tabular-nums">
+    <div
+      className={cn(
+        'flex items-center gap-2 rounded-lg px-1.5 py-1 text-sm hover:bg-(--color-primary)/10! dark:text-gray-400',
+        className
+      )}
+    >
+      <div className="flex flex-col items-center gap-x-1.5 tabular-nums">
         <div className="flex items-center gap-1 font-bold">
-          <Clock className="h-4 w-4" strokeWidth={2.5} />
+          {/*<Clock className="h-4 w-4" strokeWidth={2.5} />*/}
           <span> {formatTime(time)}</span>
         </div>
         <div className="flex items-center gap-1.5">

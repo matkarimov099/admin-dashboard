@@ -26,7 +26,7 @@ export function loadGoogleFont(fontFamily: FontFamily): void {
 
   // Create font URL with display=swap for better performance
   const baseUrl = GOOGLE_FONTS_MAP[fontFamily];
-  const optimizedUrl = baseUrl.includes('?')
+  const optimizedUrl = baseUrl?.includes('?')
     ? `${baseUrl}&display=swap`
     : `${baseUrl}?display=swap`;
 

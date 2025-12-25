@@ -78,10 +78,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
                 {!isCollapsed && (
                   <div className="text-left leading-tight transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]">
-                    <span
-                      className="truncate font-bold font-sans text-base tracking-wide"
-                      style={{ color: 'var(--sidebar-primary, hsl(var(--primary)))' }}
-                    >
+                    <span className="truncate font-bold text-(--color-primary) text-base tracking-wide">
                       {t('app.name')}
                     </span>
                   </div>

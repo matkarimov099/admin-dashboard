@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { useIsMobile } from '@/hooks/use-mobile.ts';
 import { cn } from '@/utils/utils';
 
 interface Notification {
@@ -78,6 +79,7 @@ const getNotificationBg = (type: Notification['type']) => {
 
 export function NotificationPopover() {
   const { t } = useTranslation();
+  const isMobile = useIsMobile();
   const [notifications, setNotifications] = useState<Notification[]>(mockNotifications);
   const unreadCount = notifications.filter(n => !n.read).length;
 
@@ -114,7 +116,11 @@ export function NotificationPopover() {
           <span className="sr-only">{t('navigation.notifications.title')}</span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent align="center" className="w-84 p-0" sideOffset={4}>
+      <PopoverContent
+        align={isMobile ? 'center' : 'end'}
+        className="m-2 min-w-84 p-0"
+        sideOffset={4}
+      >
         <div className="flex items-center justify-between border-b p-3">
           <h4 className="font-semibold">{t('navigation.notifications.title')}</h4>
           {unreadCount > 0 && (

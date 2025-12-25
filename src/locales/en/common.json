@@ -262,9 +262,15 @@
     "font": "Font",
     "radius": "Radius",
     "shadow": "Shadow",
+    "backgroundGradients": "Background Gradients",
+    "backgroundGradientsDescription": "Customize sidebar and header backgrounds",
     "shuffle": "Shuffle",
     "reset": "Reset",
     "customizeTheme": "Customize theme",
+    "sections": {
+      "sidebarGradient": "Sidebar Background",
+      "headerGradient": "Header Background"
+    },
     "variants": {
       "themeMode": {
         "light": "Light",
@@ -306,13 +312,13 @@
         "inter": "Inter",
         "noto-sans": "Noto Sans",
         "nunito-sans": "Nunito Sans",
-        "figtree": "Figtree"
+        "arial": "Arial"
       },
       "fontDescriptions": {
         "inter": "Modern & professional",
         "noto-sans": "Multi-language support",
         "nunito-sans": "Friendly & rounded",
-        "figtree": "Geometric & clean"
+        "arial": "Classic system font"
       },
       "radius": {
         "none": "None",

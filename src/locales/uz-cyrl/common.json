@@ -281,9 +281,15 @@
     "font": "Шрифт",
     "radius": "Радиус",
     "shadow": "Соя",
+    "backgroundGradients": "Фон Градиентлари",
+    "backgroundGradientsDescription": "Sidebar ва header фонларини созланг",
     "shuffle": "Аралаштириш",
     "reset": "Тиклаш",
     "customizeTheme": "Темани созлаш",
+    "sections": {
+      "sidebarGradient": "Sidebar Фон",
+      "headerGradient": "Header Фон"
+    },
     "variants": {
       "themeMode": {
         "light": "Ёруқин",
@@ -325,13 +331,13 @@
         "inter": "Inter",
         "noto-sans": "Noto Sans",
         "nunito-sans": "Nunito Sans",
-        "figtree": "Figtree"
+        "arial": "Arial"
       },
       "fontDescriptions": {
         "inter": "Замонавий ва профессионал",
         "noto-sans": "Кўп тилли қўллаб-қувватлаш",
         "nunito-sans": "Дўстонаона ваyumалоқ",
-        "figtree": "Геометрик ва тоза"
+        "arial": "Классик тизим шрифти"
       },
       "radius": {
         "none": "Йўқ",
