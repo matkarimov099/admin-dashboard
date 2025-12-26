@@ -3,6 +3,7 @@
     "name": "Cargo Customs",
     "description": "Professional customs and cargo management system"
   },
+
   "common": {
     "actions": {
       "save": "Сохранить",

@@ -1,140 +1,140 @@
-import { BadgeCheck, Bell, ChevronsUpDown, CreditCard, LogOut, Sparkles } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import {BadgeCheck, Bell, ChevronsUpDown, CreditCard, LogOut} from 'lucide-react';
+import {useTranslation} from 'react-i18next';
+import {User} from 'lucide-react';
+import AvatarImg from "../../assets/images/logo/hacker.png";
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar.tsx';
+import {Avatar, AvatarFallback, AvatarImage} from '@/components/ui/avatar.tsx';
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu.tsx';
-import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar.tsx';
-import type { CurrentUser } from '@/features/auth/types.ts';
-import { useSidebar } from '@/hooks/use-sidebar';
-import { cn } from '@/utils/utils';
-import { LocalizedNavLink } from '../layout/localized-nav-link';
+import {SidebarMenu, SidebarMenuButton, SidebarMenuItem} from '@/components/ui/sidebar.tsx';
+import type {CurrentUser} from '@/features/auth/types.ts';
+import {useSidebar} from '@/hooks/use-sidebar';
+import {cn} from '@/utils/utils';
+import {LocalizedNavLink} from '../layout/localized-nav-link';
 
 interface NavUserProps {
-  user?: CurrentUser | null;
-  logout: () => void;
+    user?: CurrentUser | null;
+    logout: () => void;
 }
-export function NavUser({ user, logout }: NavUserProps) {
-  const { t } = useTranslation();
-  const { isMobile, state } = useSidebar();
-  const isCollapsed = state === 'collapsed';
 
-  return (
-    <div
-      className={cn(
-        'relative',
-        'before:-top-3 before:absolute before:inset-x-0 before:h-px before:bg-linear-to-r before:from-transparent before:via-(--border)/50 before:to-transparent'
-      )}
-    >
-      <SidebarMenu>
-        <SidebarMenuItem>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <SidebarMenuButton
-                size={isCollapsed ? 'sm' : 'lg'}
-                className={cn(
-                  'group relative cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)] hover:bg-(--color-primary)/10!',
-                  'hover:border-(--color-primary)/30',
-                  'data-[state=open]:border-(--color-primary)/40 data-[state=open]:bg-(--control-ghost-bg)',
-                  isCollapsed && 'h-9 w-9 justify-center p-0'
-                )}
-              >
-                <div className="relative">
-                  <Avatar
-                    className={cn(
-                      'h-9 w-9 rounded-lg border border-(--border)/30 transition-all duration-200',
-                      isCollapsed && 'h-8 w-8'
-                    )}
-                  >
-                    <AvatarImage src={user?.avatarUrl} alt={user?.firstName} />
-                    <AvatarFallback
-                      className={cn(
-                        'flex items-center justify-center rounded-lg bg-linear-to-br from-(--color-primary)/10 to-(--color-primary)/5 font-semibold text-(--color-primary)',
-                        isCollapsed && 'text-xs'
-                      )}
-                    >
-                      {`${user?.firstName?.[0] ?? ''}${user?.lastName?.[0] ?? ''}`.toUpperCase() ||
-                        'SU'}
-                    </AvatarFallback>
-                  </Avatar>
-                </div>
-                {!isCollapsed && (
-                  <>
-                    <div className="grid flex-1 text-left font-sans text-sm leading-tight transition-all duration-300">
-                      <span className="truncate font-medium text-(--label)">
-                        {user?.firstName || 'First Name'}
-                      </span>
-                      <span className="truncate text-(--secondaryLabel) text-xs">
-                        {user?.lastName || 'Last Name'}
-                      </span>
-                    </div>
-                    <ChevronsUpDown className="ml-auto size-4 text-(--tertiaryLabel) transition-colors group-hover:text-(--secondaryLabel)" />
-                  </>
-                )}
-              </SidebarMenuButton>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
-              side={isMobile ? 'bottom' : 'right'}
-              align="end"
-              sideOffset={4}
-            >
-              <DropdownMenuLabel className="p-0 font-normal">
-                <div className="flex items-center gap-2 px-2 py-1.5 text-left text-sm">
-                  <Avatar className="h-9 w-9 shrink-0 rounded-lg">
-                    <AvatarImage src={user?.avatarUrl} alt={user?.firstName} />
-                    <AvatarFallback className="rounded-lg">
-                      {`${user?.firstName?.[0] ?? ''}${user?.lastName?.[0] ?? ''}`.toUpperCase()}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div className="grid min-w-0 flex-1 text-left text-sm leading-tight">
-                    <span className="truncate font-semibold">
-                      {`${user?.firstName} ${user?.lastName}`}
-                    </span>
-                    <span className="truncate text-xs">{user?.username}</span>
-                  </div>
-                </div>
-              </DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuGroup>
-                <DropdownMenuItem>
-                  <Sparkles />
-                  {t('common.table.upgradePro')}
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
-              <DropdownMenuSeparator />
-              <DropdownMenuGroup>
-                <LocalizedNavLink to="/profile">
-                  <DropdownMenuItem>
-                    <BadgeCheck />
-                    {t('profile.title')}
-                  </DropdownMenuItem>
-                </LocalizedNavLink>
-                <DropdownMenuItem>
-                  <CreditCard />
-                  {t('common.table.billing')}
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Bell />
-                  {t('notifications.title')}
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={logout}>
-                <LogOut />
-                {t('common.actions.logout')}
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </SidebarMenuItem>
-      </SidebarMenu>
-    </div>
-  );
+export function NavUser({user, logout}: NavUserProps) {
+    const {t} = useTranslation();
+    const {isMobile, state} = useSidebar();
+    const isCollapsed = state === 'collapsed';
+
+    return (
+        <div
+            className={cn(
+                'relative',
+                'before:-top-3 before:absolute before:inset-x-0 before:h-px before:bg-linear-to-r before:from-transparent before:via-(--border)/50 before:to-transparent'
+            )}
+        >
+            <SidebarMenu>
+                <SidebarMenuItem>
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <SidebarMenuButton
+                                size={isCollapsed ? 'sm' : 'lg'}
+                                className={cn(
+                                    'group relative cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)] hover:bg-(--color-primary)/10!',
+                                    'hover:border-(--color-primary)/30',
+                                    'data-[state=open]:border-(--color-primary)/40 data-[state=open]:bg-(--control-ghost-bg)',
+                                    isCollapsed && 'h-9 w-9 justify-center p-0'
+                                )}
+                            >
+                                <div className="relative">
+                                    <Avatar
+                                        className={cn(
+                                            'h-9 w-9 rounded-lg border border-(--border)/30 transition-all duration-200',
+                                            isCollapsed && 'h-8 w-8'
+                                        )}
+                                    >
+                                        <AvatarImage src={user?.avatarUrl} alt={user?.firstName}/>
+                                        <AvatarFallback
+                                            className={cn(
+                                                'flex items-center justify-center rounded-lg bg-linear-to-br from-(--color-primary)/10 to-(--color-primary)/5 font-semibold text-(--color-primary)',
+                                                isCollapsed && 'text-xs'
+                                            )}
+                                        >
+                                            {`${user?.firstName?.[0] ?? ''}${user?.lastName?.[0] ?? ''}`.toUpperCase() ||
+                                                'SU'}
+                                        </AvatarFallback>
+                                    </Avatar>
+                                </div>
+                                {!isCollapsed && (
+                                    <>
+                                        <div
+                                            className="grid flex-1 text-left font-sans text-sm leading-tight transition-all duration-300">
+                                              <span className="truncate font-medium text-(--label)">
+                                                {user?.firstName || 'Soatov Sanjar'}
+                                              </span>
+                                            <span className="truncate text-(--secondaryLabel) text-xs">
+                                                {user?.lastName || 'Administrator DBK'}
+                                            </span>
+                                        </div>
+                                        <ChevronsUpDown
+                                            className="ml-auto size-4 text-(--tertiaryLabel) transition-colors group-hover:text-(--secondaryLabel)"/>
+                                    </>
+                                )}
+                            </SidebarMenuButton>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent
+                            className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
+                            side={isMobile ? 'bottom' : 'right'}
+                            align="end"
+                            sideOffset={4}
+                        >
+                            <DropdownMenuLabel className="p-0 font-normal">
+                                <div className="flex items-center gap-2 px-2 py-1.5 text-left text-sm">
+                                    <Avatar className="h-9 w-9 shrink-0 rounded-lg">
+                                        <AvatarImage src={AvatarImg} alt={user?.firstName}/>
+                                        <User className="h-5 w-5"/>
+                                        <AvatarFallback className="rounded-lg">
+                                            {`${user?.firstName?.[0] ?? ''}${user?.lastName?.[0] ?? ''}`.toUpperCase()}
+                                        </AvatarFallback>
+                                    </Avatar>
+                                    <div className="grid min-w-0 flex-1 text-left leading-tight">
+                                        <span className="truncate font-semibold">
+                                          {/*{`${user?.firstName} ${user?.lastName}`}*/}
+                                            Soatov Sanjar Safarovich
+                                        </span>
+                                        <span className="truncate text-xs mt-1">{user?.username} Administrator DBK(Dasturchi)</span>
+                                    </div>
+                                </div>
+                            </DropdownMenuLabel>
+                            <DropdownMenuSeparator/>
+                            <DropdownMenuGroup>
+                                <LocalizedNavLink to="/profile">
+                                    <DropdownMenuItem>
+                                        <BadgeCheck/>
+                                        {t('profile.title')}
+                                    </DropdownMenuItem>
+                                </LocalizedNavLink>
+                                <DropdownMenuItem>
+                                    <CreditCard/>
+                                    {t('common.table.billing')}
+                                </DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <Bell/>
+                                    {t('notifications.title')}
+                                </DropdownMenuItem>
+                            </DropdownMenuGroup>
+                            <DropdownMenuSeparator/>
+                            <DropdownMenuItem onClick={logout}>
+                                <LogOut/>
+                                {t('common.actions.logout')}
+                            </DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                </SidebarMenuItem>
+            </SidebarMenu>
+        </div>
+    );
 }

@@ -3,12 +3,16 @@ import common from './common.json';
 import auth from './features/auth.json';
 import autoTransport from './features/auto-transport.json';
 import users from './features/users.json';
+import menu from './features/menu.json';
+import transit from './pages/transit.json';
 
 const uzCyrlTranslations = {
   ...common,
   ...auth,
   ...autoTransport,
-  ...users
+  ...users,
+  ...menu,
+  transit
 };
 
 export default uzCyrlTranslations;

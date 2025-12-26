@@ -1,0 +1,157 @@
+import {
+    ArrowDownLeftIcon,
+    ArrowUpRightIcon,
+    BoltIcon,
+    CirclePlusIcon,
+    FileTextIcon,
+    FlameIcon,
+    PackageIcon,
+    PlaneIcon,
+    RefreshCwIcon,
+    ShoppingCartIcon,
+    TrainIcon,
+    TruckIcon,
+    ZapIcon,
+} from 'lucide-react';
+import type {MenuGroupConfig} from '@/types/navigation';
+
+/**
+ * Declaration Create operations menu group
+ * Simplified structure with max 3 level depth
+ */
+const declarationCreate: MenuGroupConfig = {
+    id: 'group-declaration-create',
+    title: 'navigation.exportImportTransit.title',
+    type: 'group',
+    icon: <RefreshCwIcon/>,
+    caption: 'navigation.exportImportTransit.caption',
+    roles: [],
+    children: [
+        {
+            id: 'create-declaration',
+            title: 'navigation.exportImportTransit.createDeclaration.title',
+            type: 'collapse',
+            icon: <CirclePlusIcon/>,
+            roles: [],
+            breadcrumbs: true,
+            children: [
+                // Import - 2nd level
+                {
+                    id: 'import',
+                    title: 'navigation.exportImportTransit.importTransit.title',
+                    type: 'collapse',
+                    icon: <ArrowDownLeftIcon/>,
+                    roles: [],
+                    breadcrumbs: true,
+                    children: [
+                        // Auto Transport - 3rd level
+                        {
+                            id: 'auto-transport',
+                            title: 'navigation.exportImportTransit.autoTransport.title',
+                            type: 'item',
+                            path: '/declaration-create/import/auto',
+                            icon: <TruckIcon/>,
+                            roles: [],
+                            breadcrumbs: true,
+                        },
+                        // Railway Transport - 3rd level
+                        {
+                            id: 'railway-transport',
+                            title: 'navigation.exportImportTransit.railwayTransport.title',
+                            type: 'item',
+                            path: '/declaration-create/import/railway',
+                            icon: <TrainIcon/>,
+                            roles: [],
+                            breadcrumbs: true,
+                        },
+                        // Energy Resources - 3rd level
+                        {
+                            id: 'energy-resources',
+                            title: 'navigation.exportImportTransit.energyResources.title',
+                            type: 'collapse',
+                            icon: <BoltIcon/>,
+                            roles: [],
+                            breadcrumbs: true,
+                            children: [
+                                // Gas Certificate - 3rd level (max depth)
+                                {
+                                    id: 'gas-certificate',
+                                    title: 'navigation.exportImportTransit.gasCertificate.title',
+                                    type: 'item',
+                                    path: '/declaration-create/import/energy/gas',
+                                    icon: <FlameIcon/>,
+                                    roles: [],
+
+                                    breadcrumbs: true,
+                                },
+                                // Electric Energy - 3rd level (max depth)
+                                {
+                                    id: 'electric-energy',
+                                    title: 'navigation.exportImportTransit.electricEnergy.title',
+                                    type: 'item',
+                                    path: '/declaration-create/import/energy/electric',
+                                    icon: <ZapIcon/>,
+                                    roles: [],
+                                    breadcrumbs: true,
+                                },
+                            ],
+                        },
+                        // E-Commerce - 3rd level
+                        {
+                            id: 'e-commerce',
+                            title: 'navigation.exportImportTransit.eCommerce.title',
+                            type: 'item',
+                            path: '/declaration-create/import/e-commerce',
+                            icon: <ShoppingCartIcon/>,
+                            roles: [],
+                            breadcrumbs: true,
+                        },
+                    ],
+                },
+                // Export - 2nd level
+                {
+                    id: 'export',
+                    title: 'navigation.exportImportTransit.export.title',
+                    type: 'item',
+                    path: '/declaration-create/export',
+                    icon: <ArrowUpRightIcon/>,
+                    roles: [],
+                    breadcrumbs: true,
+                },
+                // Tolling Operations - 2nd level
+                {
+                    id: 'tolling-operations',
+                    title: 'navigation.exportImportTransit.tollingOperations.title',
+                    type: 'collapse',
+                    icon: <PackageIcon/>,
+                    roles: [],
+                    breadcrumbs: true,
+                    children: [
+                        // Customs Territory - 3rd level
+                        {
+                            id: 'customs-territory',
+                            title: 'navigation.exportImportTransit.customsTerritory.title',
+                            type: 'item',
+                            path: '/declaration-create/tolling/customs',
+                            icon: <FileTextIcon/>,
+                            roles: [],
+                            breadcrumbs: true,
+                        },
+                        // Outside Customs Territory - 3rd level
+                        {
+                            id: 'outside-customs-territory',
+                            title: 'navigation.exportImportTransit.outsideCustomsTerritory.title',
+                            type: 'item',
+                            path: '/declaration-create/tolling/outside',
+                            icon: <PlaneIcon/>,
+                            roles: [],
+                            breadcrumbs: true,
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
+};
+
+export default declarationCreate;

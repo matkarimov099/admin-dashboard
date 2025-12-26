@@ -177,7 +177,7 @@ export function NavMain() {
                                                 'relative h-9 w-full rounded-sm px-2 transition-all duration-200',
 
                                                 // oddiy holat
-                                                'text-gray-700 dark:text-gray-200 hover:!bg-[var(--color-primary)] hover:!text-white',
+                                                'text-gray-900 dark:text-gray-200 hover:!bg-[var(--color-primary)] hover:!text-white',
 
                                                 // ACTIVE holat
                                                 isDirectlyActive &&
@@ -263,10 +263,10 @@ export function NavMain() {
                                                                 )}
                                                             >
                                                                 <LocalizedNavLink to={subItem.url}>
-                                  <span className="flex items-center gap-0.5 text-sm">
-                                    <ChevronRightIcon className="size-4"/>
-                                      {t(subItem.title)}
-                                  </span>
+                                                                  <span className="flex items-center gap-0.5 text-sm">
+                                                                    <ChevronRightIcon className="size-4"/>
+                                                                      {t(subItem.title)}
+                                                                  </span>
                                                                 </LocalizedNavLink>
                                                             </SidebarMenuSubButton>
                                                         </SidebarMenuSubItem>

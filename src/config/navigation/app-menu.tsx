@@ -6,12 +6,12 @@ import {
     ArrowUpFromLine,
     CarFront,
     GitCompareArrows,
-    Truck,
     TriangleAlert,
     FileText,
     FileSliders,
     BriefcaseBusiness,
-    Map
+    Map,
+    Truck
 } from 'lucide-react';
 import {type ComponentType, lazy, type ReactNode} from 'react';
 import type {Role} from '@/types/common.ts';
@@ -19,6 +19,7 @@ import type {Role} from '@/types/common.ts';
 /**
  * Menu item configuration interface
  */
+
 export interface MenuItemConfig {
     title: string; // Translation key
     path: string;
@@ -43,16 +44,79 @@ export interface MenuSubItemConfig {
 
 export const menuConfig: MenuItemConfig[] = [
     {
-        title: 'common.navigation.dashboard',
+        title: 'menu.dashboard',
         path: '/dashboard',
         icon: <LayoutGrid size={20}/>,
-        roles: [], // Accessible to all authenticated users
+        roles: [],
         component: lazy(() => import('@/pages/dashboard/Dashboard.tsx')),
     },
     {
-        title: 'users.title',
-        path: '/users',
-        icon: <LayoutGrid size={20}/>,
+        title: 'menu.transit',
+        path: '/transit-at',
+        icon: <ArrowDownToLine size={20}/>,
+        roles: [],
+        component: lazy(() => import('@/pages/transit/index.tsx')),
+    },
+    {
+        title: 'menu.export',
+        path: '/export',
+        icon: <ArrowUpFromLine size={20}/>,
+        roles: [],
+        component: lazy(() => import('@/pages/users/Users.tsx')),
+    },
+    {
+        title: 'menu.undertaking',
+        path: '/majburiyatnoma',
+        icon: <CarFront size={20}/>,
+        roles: [],
+        component: lazy(() => import('@/pages/majburiyatnoma/Majburiyatnoma.tsx')),
+    },
+    {
+        title: 'menu.tolling',
+        path: '/tolling',
+        icon: <GitCompareArrows size={20}/>,
+        roles: [],
+        component: lazy(() => import('@/pages/users/Users.tsx')),
+    },
+    {
+        title: 'menu.transportInspector',
+        path: '/transport-inspector',
+        icon: <Truck size={20}/>,
+        roles: [],
+        component: lazy(() => import('@/pages/users/Users.tsx')),
+    },
+    {
+        title: 'menu.tobaccoTransit',
+        path: '/tobacco-transit',
+        icon: <TriangleAlert size={20}/>,
+        roles: [],
+        component: lazy(() => import('@/pages/users/Users.tsx')),
+    },
+    {
+        title: 'menu.reports',
+        path: '/reports',
+        icon: <FileText size={20}/>,
+        roles: [],
+        component: lazy(() => import('@/pages/users/Users.tsx')),
+    },
+    {
+        title: 'menu.observationReport',
+        path: '/observation-report',
+        icon: <FileSliders size={20}/>,
+        roles: [],
+        component: lazy(() => import('@/pages/users/Users.tsx')),
+    },
+    {
+        title: 'menu.serviceInformation',
+        path: '/service-information',
+        icon: <BriefcaseBusiness size={20}/>,
+        roles: [],
+        component: lazy(() => import('@/pages/users/Users.tsx')),
+    },
+    {
+        title: 'menu.electronicSeals',
+        path: '//electronic-seals',
+        icon: <Map size={20}/>,
         roles: [],
         component: lazy(() => import('@/pages/users/Users.tsx')),
     },

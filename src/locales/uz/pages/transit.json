@@ -1,0 +1,21 @@
+{
+  "transit": {
+    "declarationName": "Deklrasiya raqami",
+    "status": "Status nomi",
+    "carNumber": "Transportning davlat raqami",
+    "driversName": "Haydovchi FISH/Pasport",
+    "product": "ARA/IKM/Tovar/BQB",
+    "byd": "BYD",
+    "singleAccount": "Yagona hisob varaqasi",
+    "sum": "Jami",
+    "paid": "To'langan",
+    "unpaid": "To'lanmagan",
+    "sendsCustoms": "Jo'natuvchi bojxona posti",
+    "destinationCustoms": "Manzil bojxona posti",
+    "deliveryTime": "Yetkazib berish muddati",
+    "typeOfWarranty": "Kafolat turi",
+    "numberOfLots": "partiyalar soni",
+    "numberOfGoods": "Tovarlar soni",
+    "declarationSubmissionTime": "Deklaratsiya taqdim etilgan vaqt"
+  }
+}

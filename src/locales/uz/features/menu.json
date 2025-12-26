@@ -1,0 +1,15 @@
+{
+  "users": {
+    "dashboard": "Dashboard",
+    "transit": "Tranzit (AT)",
+    "export": "Export (EK)",
+    "undertaking": "Majburiyatnoma (MB)",
+    "tolling": "Tolling (TL)",
+    "transportInspector": "Transport nazorati",
+    "tobaccoTransit": "Tamaki tranziti",
+    "reports": "Hisobotlar",
+    "observationReport": "Kuzatuv dalolatnomasi",
+    "serviceInformation": "Xizmat malumotlari",
+    "electronicSeals": "Elektron plombalar haritasi"
+  }
+}

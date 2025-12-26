@@ -61,7 +61,7 @@ export function KPICards({ kpis }: KPICardsProps) {
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
       {cards.map(card => (
-        <Card key={card.title}>
+        <Card key={card.title} className={"border"}>
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div className="flex-1">
