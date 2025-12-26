@@ -8,6 +8,8 @@ import {
   CustomCardDescription,
   CustomCardTitle,
 } from '@/components/common/custom-card.tsx';
+import { LanguageSwitcher } from '@/components/common/language-switcher';
+import { ModeToggle } from '@/components/common/mode-toggle';
 import { LoginForm } from '@/features/auth/components/LoginForm.tsx';
 import { isAuthenticated } from '@/lib/auth';
 
@@ -36,16 +38,28 @@ const Login = () => {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{
-        duration: 0.4,
-        ease: [0.2, 0.9, 0.25, 1], // smooth cubic-bezier
-      }}
-      className="w-full"
-    >
-      <CustomCard className="border border-(--border)/50 bg-(--card-bg)/80 shadow-2xl backdrop-blur-xl md:max-w-md">
+    <>
+      {/* Theme & Language Controls */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.4 }}
+        className="fixed top-4 right-4 z-50 flex gap-2"
+      >
+        <LanguageSwitcher />
+        <ModeToggle />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{
+          duration: 0.4,
+          ease: [0.2, 0.9, 0.25, 1], // smooth cubic-bezier
+        }}
+        className="w-full"
+      >
+        <CustomCard className="border border-(--border)/50 bg-(--card-bg)/80 shadow-2xl backdrop-blur-xl md:max-w-md">
         <div className="text-center">
           <motion.div
             initial={{ scale: 0.8, rotate: -10 }}
@@ -76,6 +90,7 @@ const Login = () => {
         </CustomCardDescription>
       </CustomCard>
     </motion.div>
+    </>
   );
 };
 
