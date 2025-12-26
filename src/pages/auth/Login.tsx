@@ -1,8 +1,8 @@
-import { KeyRound } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from 'react-router';
+import logo from '@/assets/logo.png';
 import {
   CustomCard,
   CustomCardDescription,
@@ -51,9 +51,9 @@ const Login = () => {
             initial={{ scale: 0.8, rotate: -10 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ delay: 0.2, duration: 0.5, ease: 'backOut' }}
-            className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-(--system-blue) to-(--system-blue)/80 shadow-lg"
+            className="mb-4 inline-flex h-20 w-20 items-center justify-center"
           >
-            <KeyRound className="h-8 w-8 text-white" />
+            <img src={logo} alt={t('app.name')} className="h-full w-full object-contain" />
           </motion.div>
           <div className="text-center font-semibold text-base text-gray-900 sm:text-lg dark:text-gray-100">
             {t('auth.login.welcomeBack')}
