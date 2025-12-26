@@ -1,6 +1,6 @@
+import { Network, Zap } from 'lucide-react';
 import type * as React from 'react';
 import { useTranslation } from 'react-i18next';
-
 import logo from '@/assets/logo.png';
 import { LocalizedNavLink } from '@/components/layout/localized-nav-link';
 import { NavMain } from '@/components/navigation/nav-main.tsx';
