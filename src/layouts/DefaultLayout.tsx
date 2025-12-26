@@ -7,6 +7,7 @@ import { LanguageSwitcher } from '@/components/common/language-switcher.tsx';
 import { ModeToggle } from '@/components/common/mode-toggle.tsx';
 import { NotificationPopover } from '@/components/common/notification-popover.tsx';
 import { UsersTooltip } from '@/components/common/users-tooltip';
+import { FloatingSearchButton } from '@/components/custom/floating-search-button';
 import { SettingsPanel } from '@/components/custom/settings-panel.tsx';
 import { AppSidebar } from '@/components/layout/app-sidebar.tsx';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
@@ -79,6 +80,9 @@ export const DefaultLayout = () => {
           </div>
         </SidebarInset>
       </SidebarProvider>
+
+      {/* Floating Search Button */}
+      <FloatingSearchButton />
     </div>
   );
 };

@@ -8,6 +8,7 @@ import { ModeToggle } from '@/components/common/mode-toggle.tsx';
 import { NotificationPopover } from '@/components/common/notification-popover.tsx';
 import { ProfileDropdown } from '@/components/common/profile-dropdown.tsx';
 import { UsersTooltip } from '@/components/common/users-tooltip';
+import { FloatingSearchButton } from '@/components/custom/floating-search-button';
 import { SettingsPanel } from '@/components/custom/settings-panel.tsx';
 import { HorizontalNav } from '@/components/navigation/horizontal-nav.tsx';
 import { Spinner } from '@/components/ui/spinner.tsx';
@@ -78,6 +79,9 @@ export const HorizontalLayout = () => {
           </Suspense>
         </div>
       </div>
+
+      {/* Floating Search Button */}
+      <FloatingSearchButton />
     </div>
   );
 };
