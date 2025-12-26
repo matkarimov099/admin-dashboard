@@ -4,6 +4,7 @@ import {useState} from 'react';
 import {Button} from '@/components/ui/button';
 import {Popover, PopoverContent, PopoverTrigger} from '@/components/ui/popover';
 import {ScrollArea} from '@/components/ui/scroll-area';
+import {useIsMobile } from '@/hooks/use-mobile.ts';
 import {cn} from '@/utils/utils';
 
 interface Notification {
@@ -78,7 +79,8 @@ const getNotificationBg = (type: Notification['type']) => {
 
 export function NotificationPopover() {
     // const {t} = useTranslation();
-    const [notifications, setNotifications] = useState<Notification[]>(mockNotifications);
+    const isMobile = useIsMobile();
+  const [notifications, setNotifications] = useState<Notification[]>(mockNotifications);
     const unreadCount = notifications.filter(n => !n.read).length;
 
     const markAsRead = (id: string) => {
@@ -100,10 +102,12 @@ export function NotificationPopover() {
             <PopoverTrigger asChild>
                 <Button
                     variant="ghost"
-                    className="group relative mr-2 h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-colors duration-200 hover:border-(--color-primary)/30 hover:bg-muted/50"
+                    size="sm"
+          data-header-trigger="true"
+          className="group relative h-9 w-9 overflow-hidden bg-card p-0 backdrop-blur-sm transition-all duration-200"
                 >
                     <div className="relative flex h-full w-full items-center justify-center">
-                        <BellRing className="z-0 h-5 w-5 transition-transform duration-200 group-hover:scale-110"/>
+                        <BellRing className="z-0 h-5! w-5! transition-transform duration-200 group-hover:scale-110"/>
                         {unreadCount > 0 && (
                             <span
                                 className="-top-2 -right-2 absolute z-10 flex h-4 w-4 items-center justify-center rounded-full bg-(--color-primary) font-medium text-[10px] text-white shadow-sm">
@@ -112,19 +116,22 @@ export function NotificationPopover() {
                         )}
                     </div>
                     <span className="sr-only">
-                        {/*{t('common.notifications.title')}*/}
+                        {/*{t('navigation.notifications.title')}*/}
                     </span>
                 </Button>
             </PopoverTrigger>
-            <PopoverContent align="end" className="w-80 p-0" sideOffset={4}>
+            <PopoverContent align={isMobile ? 'center' : 'end'}
+        className="m-2 min-w-84 p-0" sideOffset={4}>
                 <div className="flex items-center justify-between border-b p-3">
                     <h4 className="font-semibold">
-                        {/*{t('common.notifications.title')}*/}
+                        {/*{t('navigation.notifications.title')}*/}
                         Notifications
                     </h4>
                     {unreadCount > 0 && (
-                        <Button variant="ghost" size="sm" onClick={markAllAsRead} className="text-xs">
-                            {/*{t('common.notifications.markAllAsRead')}*/}
+                        <Button variant="ghost" size="sm" onClick={markAllAsRead} className="flex h-8 items-center px-2 text-xs"
+                          >
+              <CheckCircle className="mr-1 h-3 w-3" />
+              {/*{t('navigation.notifications.allAsRead')}*/}
                         </Button>
                     )}
                 </div>
@@ -133,7 +140,7 @@ export function NotificationPopover() {
                     {notifications.length === 0 ? (
                         <div className="flex flex-col items-center justify-center py-8 text-muted-foreground">
                             <BellRing className="mb-2 h-8 w-8"/>
-                            {/*<p className="text-sm">{t('common.notifications.noNotifications')}</p>*/}
+                            {/*<p className="text-sm">{t('navigation.notifications.noNotifications')}</p>*/}
                         </div>
                     ) : (
                         <div className="space-y-1 p-2">
@@ -160,14 +167,14 @@ export function NotificationPopover() {
 
                                     <div className="flex-1 space-y-1">
                                         <p className="text-sm">{notification.title}</p>
-                                        <p className="text-xs text-muted-foreground">{notification.message}</p>
-                                        <p className="text-xs text-muted-foreground">{notification.time}</p>
+                                        <p className="text-muted-foreground text-xs">{notification.message}</p>
+                                        <p className="text-muted-foreground text-xs">{notification.time}</p>
                                     </div>
 
                                     <Button
                                         variant="ghost"
                                         size="sm"
-                                        className="absolute right-1 top-1 h-6 w-6 p-0 opacity-0 transition-opacity hover:bg-destructive/10 hover:text-destructive group-hover:opacity-100"
+                                        className="absolute top-1 right-1 h-6 w-6 p-0 opacity-0 transition-opacity hover:bg-destructive/10 hover:text-destructive group-hover:opacity-100"
                                         onClick={e => {
                                             e.stopPropagation();
                                             clearNotification(notification.id);
@@ -184,7 +191,7 @@ export function NotificationPopover() {
                 {notifications.length > 0 && (
                     <div className="border-t p-2">
                         <Button variant="ghost" className="w-full justify-center text-sm" size="sm">
-                            View all notifications
+                            {t('navigation.notifications.viewAll')}
                         </Button>
                     </div>
                 )}

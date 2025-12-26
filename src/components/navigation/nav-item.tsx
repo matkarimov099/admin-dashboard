@@ -1,0 +1,174 @@
+import { useTranslation } from 'react-i18next';
+import { LocalizedNavLink } from '@/components/layout/localized-nav-link.tsx';
+import { SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar.tsx';
+import { useAuthContext } from '@/hooks/use-auth-context.ts';
+import { useCurrentPath } from '@/hooks/use-current-path.ts';
+import { useSidebar } from '@/hooks/use-sidebar';
+import type { MenuItemConfig } from '@/types/navigation';
+import { cn } from '@/utils/utils';
+
+interface NavItemProps {
+  item: MenuItemConfig;
+  inPopover?: boolean;
+}
+
+/**
+ * NavItem - Individual navigation item component
+ *
+ * Features:
+ * - Dynamic theme color support via CSS variables
+ * - Active/hover states with proper visual feedback
+ * - Light/dark mode support
+ * - Collapsed sidebar with tooltip
+ * - Popover rendering for nested items
+ * - Role-based access control
+ * - External link support
+ */
+export function NavItem({ item, inPopover = false }: NavItemProps) {
+  const { t } = useTranslation();
+  const currentPath = useCurrentPath();
+  const { state, isMobile, setOpenMobile } = useSidebar();
+  const { hasRole } = useAuthContext();
+  const isCollapsed = state === 'collapsed';
+
+  // Close the sidebar on mobile when clicking a link
+  const handleClick = () => {
+    if (isMobile) {
+      setOpenMobile(false);
+    }
+  };
+
+  // Role-based access control
+  if (item.roles && item.roles.length > 0 && !hasRole(item.roles)) {
+    return null;
+  }
+
+  // Don't render disabled items
+  if (item.disabled) {
+    return null;
+  }
+
+  // Extract item properties
+  const itemPath = item.path || item.url || item.link || '';
+  const isActive = itemPath === currentPath;
+  const isExternalLink = item.external || item.target === '_blank';
+  const titleText = typeof item.title === 'string' ? t(item.title) : item.title;
+  const tooltipText = typeof item.title === 'string' ? t(item.title) : undefined;
+
+  // Popover rendering (for collapsed sidebar dropdown)
+  if (inPopover) {
+    return (
+      <LocalizedNavLink
+        to={itemPath}
+        className="block"
+        onClick={handleClick}
+        target={isExternalLink ? '_blank' : undefined}
+        rel={isExternalLink ? 'noopener noreferrer' : undefined}
+      >
+        <div
+          className={cn(
+            'flex cursor-pointer items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-all duration-200',
+            'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
+            // Active state - only text color
+            isActive && 'font-medium text-(--color-primary)! hover:text-(--color-primary)!',
+            // Inactive state
+            !isActive && 'text-gray-700 hover:text-gray-700! dark:text-white dark:hover:text-white!'
+          )}
+        >
+          {item.icon && (
+            <span
+              className={cn(
+                'flex size-5 shrink-0 items-center justify-center transition-colors duration-200 dark:text-white',
+                isActive &&
+                  'text-(--color-primary) hover:text-(--color-primary)! dark:text-(--color-primary)!',
+                !isActive && 'hover:text-current'
+              )}
+            >
+              {item.icon}
+            </span>
+          )}
+
+          <span className="flex-1">{titleText}</span>
+
+          {/* Badge and chip support */}
+          {(item.chip || item.badge !== undefined) && (
+            <div className="flex shrink-0 items-center gap-1.5">
+              {item.chip && (
+                <span className="rounded-md bg-(--color-primary)/10 px-1.5 py-0.5 font-medium text-(--color-primary) text-[10px]">
+                  {item.chip.label}
+                </span>
+              )}
+              {item.badge !== undefined && (
+                <span className="flex size-4.5 items-center justify-center rounded-full bg-red-500 font-semibold text-[10px] text-white">
+                  {item.badge}
+                </span>
+              )}
+            </div>
+          )}
+        </div>
+      </LocalizedNavLink>
+    );
+  }
+
+  // Regular sidebar rendering
+  return (
+    <SidebarMenuItem>
+      <SidebarMenuButton
+        asChild
+        tooltip={isCollapsed ? tooltipText : undefined}
+        className={cn(
+          'relative h-fit w-full rounded-md transition-all duration-200',
+          'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
+          // Active state - only text color
+          isActive && 'font-medium text-(--color-primary)! hover:text-(--color-primary)!',
+          // Inactive state
+          !isActive && 'text-gray-700 hover:text-gray-700! dark:text-white dark:hover:text-white!',
+          // Collapsed sidebar specific styles
+          isCollapsed ? 'size-9 justify-center p-0' : 'px-2.5'
+        )}
+      >
+        <LocalizedNavLink
+          to={itemPath}
+          onClick={handleClick}
+          target={isExternalLink ? '_blank' : undefined}
+          rel={isExternalLink ? 'noopener noreferrer' : undefined}
+        >
+          <div className={cn('flex w-full items-center gap-2.5', isCollapsed && 'justify-center')}>
+            {/* Icon */}
+            {item.icon && (
+              <span
+                className={cn(
+                  'flex shrink-0 items-center justify-center transition-colors duration-200',
+                  isCollapsed ? 'size-6' : 'size-5',
+                  isActive && 'text-(--color-primary) hover:text-(--color-primary)!',
+                  !isActive && 'hover:text-current'
+                )}
+              >
+                {item.icon}
+              </span>
+            )}
+
+            {/* Title */}
+            {!isCollapsed && <span className="flex-1 font-medium text-[13px]">{titleText}</span>}
+
+            {/* Badges and chips (only when expanded) */}
+            {!isCollapsed && (item.chip || item.badge !== undefined) && (
+              <div className="flex shrink-0 items-center gap-1.5">
+                {item.chip && (
+                  <span className="rounded-md bg-(--color-primary)/10 px-1.5 py-0.5 font-medium text-(--color-primary) text-[10px]">
+                    {item.chip.label}
+                  </span>
+                )}
+                {item.badge !== undefined && (
+                  <span className="flex size-4.5 items-center justify-center rounded-full bg-red-500 font-semibold text-[10px] text-white">
+                    {item.badge}
+                  </span>
+                )}
+              </div>
+            )}
+          </div>
+        </LocalizedNavLink>
+      </SidebarMenuButton>
+    </SidebarMenuItem>
+  );
+}

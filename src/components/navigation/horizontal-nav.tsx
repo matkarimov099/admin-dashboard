@@ -197,7 +197,7 @@ export function HorizontalNav() {
     const isItemActive = (
         item: MenuItemConfig | MenuGroupConfig,
         path: string = currentPath
-    ): boolean => {
+  ): boolean => {
         if ('path' in item && item.path === path) return true;
         if ('url' in item && item.url === path) return true;
         if ('children' in item && item.children) {
@@ -382,10 +382,10 @@ export function HorizontalNav() {
                     </div>
                     <div className="mt-1 space-y-1">
                         {item.children
-                            .filter(child => {
+              .filter(child => {
                                 return !(child.roles && child.roles.length > 0 && !hasRole(child.roles));
-                            })
-                            .map(child => renderMobileMenuItem(child, depth + 1))}
+              })
+              .map(child => renderMobileMenuItem(child, depth + 1))}
                     </div>
                 </div>
             );

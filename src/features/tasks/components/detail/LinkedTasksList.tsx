@@ -1,6 +1,5 @@
 import { ExternalLink, LinkIcon } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.tsx';
-import { Typography } from '@/components/ui/typography.tsx';
 import type { LinkedTask } from '@/features/tasks/types.ts';
 
 interface LinkedTasksListProps {
@@ -17,15 +16,18 @@ export function LinkedTasksList({ linkedTaskUrls }: LinkedTasksListProps) {
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-base sm:text-lg">
           <LinkIcon className="h-4 w-4 sm:h-5 sm:w-5" />
-          <Typography variant="label">Linked Tasks</Typography>
-          <Typography variant="muted">({linkedTaskUrls.length})</Typography>
+          <span className="text-gray-500 text-xs uppercase tracking-wide sm:text-sm dark:text-gray-500">
+            Linked Tasks
+          </span>
+          <p className="text-gray-600 text-xs sm:text-sm dark:text-gray-400">
+            ({linkedTaskUrls.length})
+          </p>
         </CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-2">
           {linkedTaskUrls.map(link => (
-            <Typography
-              variant="a"
+            <a
               key={link.url}
               href={link.url}
               target="_blank"
@@ -33,14 +35,10 @@ export function LinkedTasksList({ linkedTaskUrls }: LinkedTasksListProps) {
               className="group flex items-center gap-2 rounded-lg border border-border p-3 transition-colors hover:border-primary hover:bg-accent/50"
             >
               <ExternalLink className="h-4 w-4 shrink-0 text-muted-foreground" />
-              <Typography
-                variant="small"
-                weight="medium"
-                className="min-w-0 flex-1 break-all text-primary hover:underline"
-              >
+              <small className="min-w-0 flex-1 break-all font-medium text-primary text-xs leading-none hover:underline sm:text-sm">
                 {link.url}
-              </Typography>
-            </Typography>
+              </small>
+            </a>
           ))}
         </div>
       </CardContent>

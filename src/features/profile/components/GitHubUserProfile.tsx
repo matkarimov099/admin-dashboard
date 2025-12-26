@@ -19,7 +19,6 @@ import {
 import { motion } from 'motion/react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar.tsx';
 import { Button } from '@/components/ui/button';
-import { Typography } from '@/components/ui/typography';
 import type { GitHubUser } from '@/features/profile/types';
 import { useDisclosure } from '@/hooks/use-disclosure';
 import { humanizeDate } from '@/utils/humanize.ts';
@@ -84,105 +83,107 @@ export const GitHubUserProfile = ({ user }: GitHubUserProfileProps) => {
           {/* Profile Info */}
           <div className="flex-1 space-y-3">
             <div className="text-center sm:text-left">
-              <Typography variant="muted" className="text-center sm:text-left">
+              <p className="text-center text-gray-600 text-xs sm:text-left sm:text-sm dark:text-gray-400">
                 {getGreeting()}! 👋
-              </Typography>
-              <Typography variant="h1" className="text-center sm:text-left">
+              </p>
+              <h1 className="scroll-m-20 text-center font-extrabold text-2xl tracking-tight sm:text-left sm:text-3xl md:text-4xl lg:text-5xl">
                 {user.name || user.login}
-              </Typography>
-              <Typography variant="large" className="text-center sm:text-left">
+              </h1>
+              <div className="text-center font-semibold text-base text-gray-900 sm:text-left sm:text-lg dark:text-gray-100">
                 @{user.login}
-              </Typography>
+              </div>
             </div>
 
             {user.bio && (
-              <Typography variant="p" className="text-center sm:text-left">
+              <p className="text-center text-sm leading-6 sm:text-left sm:text-base sm:leading-7 [&:not(:first-child)]:mt-4 sm:[&:not(:first-child)]:mt-6">
                 {user.bio}
-              </Typography>
+              </p>
             )}
 
             {/* Meta Info */}
             <div className="flex flex-wrap justify-center gap-2 text-[var(--secondaryLabel)] text-sm sm:justify-start">
               <div className="flex items-center gap-1.5 rounded-md bg-[var(--control-bg)] px-2.5 py-1">
                 <Briefcase className="h-4 w-4" />
-                <Typography variant="muted">{user.type}</Typography>
+                <p className="text-gray-600 text-xs sm:text-sm dark:text-gray-400">{user.type}</p>
               </div>
               {user.hireable !== null && (
                 <div className="flex items-center gap-1.5 rounded-md border border-[var(--system-green)]/20 bg-[var(--system-green)]/10 px-2.5 py-1">
                   <Award className="h-4 w-4 text-[var(--system-green)]" />
-                  <Typography variant="muted">
+                  <p className="text-gray-600 text-xs sm:text-sm dark:text-gray-400">
                     {user.hireable ? 'Available for Hire' : 'Not Hiring'}
-                  </Typography>
+                  </p>
                 </div>
               )}
               {user.company && (
                 <div className="flex items-center gap-1.5 rounded-md bg-[var(--control-bg)] px-2.5 py-1">
                   <Building2 className="h-4 w-4" />
-                  <Typography variant="muted">{user.company}</Typography>
+                  <p className="text-gray-600 text-xs sm:text-sm dark:text-gray-400">
+                    {user.company}
+                  </p>
                 </div>
               )}
               {user.location && (
                 <div className="flex items-center gap-1.5 rounded-md bg-[var(--control-bg)] px-2.5 py-1">
                   <MapPin className="h-4 w-4" />
-                  <Typography variant="muted">{user.location}</Typography>
+                  <p className="text-gray-600 text-xs sm:text-sm dark:text-gray-400">
+                    {user.location}
+                  </p>
                 </div>
               )}
               <div className="flex items-center gap-1.5 rounded-md bg-[var(--control-bg)] px-2.5 py-1">
                 <Calendar className="h-4 w-4" />
-                <Typography variant="muted">Joined {humanizeDate(user.created_at)}</Typography>
+                <p className="text-gray-600 text-xs sm:text-sm dark:text-gray-400">
+                  Joined {humanizeDate(user.created_at)}
+                </p>
               </div>
             </div>
 
             {/* Action Buttons */}
             <div className="flex flex-wrap justify-center gap-2 sm:justify-start">
               {user.email && (
-                <Typography
-                  variant="a"
+                <a
                   href={`mailto:${user.email}`}
                   className="inline-flex items-center gap-2 rounded-lg border border-[var(--border)]/50 bg-[var(--control-bg)] px-4 py-2 transition-all hover:scale-105 hover:bg-[var(--control-hover-bg)]"
                 >
                   <Mail className="h-4 w-4 text-[var(--label)]" />
-                  <Typography variant="small" className="text-[var(--label)]">
+                  <small className="font-medium text-[var(--label)] text-xs leading-none sm:text-sm">
                     Email
-                  </Typography>
-                </Typography>
+                  </small>
+                </a>
               )}
               {user.twitter_username && (
-                <Typography
-                  variant="a"
+                <a
                   href={`https://twitter.com/${user.twitter_username}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-lg border border-[var(--border)]/50 bg-[var(--control-bg)] px-4 py-2 transition-all hover:scale-105 hover:bg-[var(--control-hover-bg)]"
                 >
                   <X className="h-4 w-4 text-[var(--label)]" />
-                  <Typography variant="small">Twitter</Typography>
-                </Typography>
+                  <small className="font-medium text-xs leading-none sm:text-sm">Twitter</small>
+                </a>
               )}
               {user.blog && (
-                <Typography
-                  variant="a"
+                <a
                   href={user.blog.startsWith('http') ? user.blog : `https://${user.blog}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-lg border border-[var(--border)]/50 bg-[var(--control-bg)] px-4 py-2 transition-all hover:scale-105 hover:bg-[var(--control-hover-bg)]"
                 >
                   <Globe className="h-4 w-4 text-[var(--label)]" />
-                  <Typography variant="small">Website</Typography>
-                </Typography>
+                  <small className="font-medium text-xs leading-none sm:text-sm">Website</small>
+                </a>
               )}
-              <Typography
-                variant="a"
+              <a
                 href={user.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg bg-[var(--system-blue)] px-4 py-2 transition-all hover:scale-105 hover:bg-[var(--system-blue)]/90"
               >
                 <ExternalLink className="h-4 w-4 text-white" />
-                <Typography variant="small" className="text-white">
+                <small className="font-medium text-white text-xs leading-none sm:text-sm">
                   View GitHub
-                </Typography>
-              </Typography>
+                </small>
+              </a>
             </div>
           </div>
         </div>
@@ -241,7 +242,9 @@ export const GitHubUserProfile = ({ user }: GitHubUserProfileProps) => {
               <div className="rounded-lg bg-gradient-to-br from-[var(--system-blue)]/20 to-[var(--system-purple)]/20 p-2 shadow-sm">
                 <BookOpen className="h-4 w-4 text-[var(--system-blue)] sm:h-5 sm:w-5" />
               </div>
-              <Typography variant="large">More Details</Typography>
+              <div className="font-semibold text-base text-gray-900 sm:text-lg dark:text-gray-100">
+                More Details
+              </div>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
               <InfoRow icon={BookOpen} label="Public Repos" value={user.public_repos.toString()} />

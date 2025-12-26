@@ -164,17 +164,17 @@ export function useTasksData() {
 
   // ==================== FETCH DATA ====================
   const { tasks, total, isFetching, error, refetch } = useTaskList({
-      page: currentPage,
-      limit: pageSize,
-      ...(debouncedSearch.length >= 2 ? { title: debouncedSearch } : {}),
-      ...(selectedStatus ? { status: selectedStatus } : {}),
-      ...(selectedPriority ? { priority: selectedPriority } : {}),
-      ...(selectedProjectIds.length > 0 ? { projectIds: selectedProjectIds } : {}),
-      ...(selectedAssigneeId ? { assigneeId: selectedAssigneeId } : {}),
-      ...(selectedCreatorId ? { creatorId: selectedCreatorId } : {}),
-      ...(dateRange.from ? { fromDate: dateRange.from } : {}),
-      ...(dateRange.to ? { toDate: dateRange.to } : {}),
-    });
+    page: currentPage,
+    limit: pageSize,
+    ...(debouncedSearch.length >= 2 ? { title: debouncedSearch } : {}),
+    ...(selectedStatus ? { status: selectedStatus } : {}),
+    ...(selectedPriority ? { priority: selectedPriority } : {}),
+    ...(selectedProjectIds.length > 0 ? { projectIds: selectedProjectIds } : {}),
+    ...(selectedAssigneeId ? { assigneeId: selectedAssigneeId } : {}),
+    ...(selectedCreatorId ? { creatorId: selectedCreatorId } : {}),
+    ...(dateRange.from ? { fromDate: dateRange.from } : {}),
+    ...(dateRange.to ? { toDate: dateRange.to } : {}),
+  });
 
   // ==================== RETURN STATE & HANDLERS ====================
   return {

@@ -101,7 +101,7 @@ export function AlertModal({
       )}
 
       <div className={`flex flex-col items-center space-y-3 text-center ${isDesktop ? '' : 'p-4'}`}>
-        <div className="flex-shrink-0">{getIcon()}</div>
+        <div className="shrink-0">{getIcon()}</div>
         {isDesktop ? (
           <DialogDescription className="text-muted-foreground text-sm">
             {description}

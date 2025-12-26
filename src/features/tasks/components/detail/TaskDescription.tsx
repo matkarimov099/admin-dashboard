@@ -1,5 +1,4 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.tsx';
-import { Typography } from '@/components/ui/typography.tsx';
 
 interface TaskDescriptionProps {
   description?: string;
@@ -13,16 +12,13 @@ export function TaskDescription({ description }: TaskDescriptionProps) {
       </CardHeader>
       <CardContent className="max-h-[500px] overflow-y-auto">
         {description ? (
-          <Typography
-            variant="p"
-            className="whitespace-pre-wrap break-words text-sm leading-relaxed sm:text-base [&:not(:first-child)]:mt-0"
-          >
+          <p className="whitespace-pre-wrap break-words text-sm leading-6 sm:text-base sm:leading-7 [&:not(:first-child)]:mt-0">
             {description}
-          </Typography>
+          </p>
         ) : (
-          <Typography variant="muted" italic>
+          <p className="text-gray-600 text-xs italic sm:text-sm dark:text-gray-400">
             No description provided
-          </Typography>
+          </p>
         )}
       </CardContent>
     </Card>

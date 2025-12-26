@@ -1,261 +1,107 @@
-import type {ColumnDef} from '@tanstack/react-table';
-import {useTranslation} from 'react-i18next';
-import {DataTableColumnHeader} from '@/components/data-table/column-header';
-import {Checkbox} from '@/components/ui/checkbox.tsx';
-// import {DataTableRowActions} from '@/features/users/components/RowActions.tsx';
-import type {User} from '@/features/users/types.ts';
-import {humanizeDateTime} from '@/utils/humanize.ts';
-import {Link} from "react-router";
+import type { ColumnDef } from '@tanstack/react-table';
+import { useTranslation } from 'react-i18next';
+import { DataTableColumnHeader } from '@/components/data-table/column-header';
+import { Checkbox } from '@/components/ui/checkbox.tsx';
+import { DataTableRowActions } from '@/features/users/components/RowActions.tsx';
+import type { User } from '@/features/users/types.ts';
+import { humanizeDateTime } from '@/utils/humanize.ts';
 
 export const useGetColumns = (
-    handleRowDeselection: ((rowId: string) => void) | null | undefined
+  handleRowDeselection: ((rowId: string) => void) | null | undefined
 ): ColumnDef<User>[] => {
-    const {t} = useTranslation();
+  const { t } = useTranslation();
 
-    // Base columns without the select column
-    const baseColumns: ColumnDef<User>[] = [
-        {
-            id: 'rowNumber',
-            header: ({column}) => <DataTableColumnHeader column={column} title="#"/>,
-            cell: ({row}) => row.index + 1,
-            size: 70,
-        },
-        {
-            accessorKey: 'uncodId',
-            header: ({column}) => <DataTableColumnHeader column={column} title={t('transit.declarationName')}/>,
-            cell: ({row}) => (
-                <div className="truncate text-left font-medium">
-                    <h6>
-                        <Link className={"text-blue-900"} to={""}><b>{`${row.original.uncodId}`}</b> </Link>
-                    </h6>
-                </div>
-            ),
-            size: 200,
-        },
-        {
-            accessorKey: 'stateNm',
-            header: ({column}) => <DataTableColumnHeader column={column} title={t('transit.status')}/>,
-            cell: ({row}) => (
-                <div className="truncate text-left font-medium">
-                    {(() => {
-                        const words = row.original.stateNm.split(" ");
-                        return words.length > 2 ? (
-                            <>
-                                {words.slice(0, 2).join(" ")}
-                                <br/>
-                                {words.slice(2).join(" ")}
-                            </>
-                        ) : (
-                            row.original.stateNm
-                        );
-                    })()}
-                </div>
-            ),
-            size: 250,
-        },
-        {
-            accessorKey: 'g21no',
-            header: ({column}) => <DataTableColumnHeader column={column} title={t('transit.carNumber')}/>,
-            cell: ({row}) => {
-                return (
-                    <div className="flex items-center">
-                        <p className="truncate">
-                            {(() => {
-                                const words = row.original.g21no.split(" ");
-                                return words.length > 1 ? (
-                                    <>
-                                        {words.slice(0, 1).join(" ")}
-                                        <br/>
-                                        {words.slice(1).join(" ")}
-                                    </>
-                                ) : (
-                                    row.original.g21no
-                                );
-                            })()}
-                        </p>
-                    </div>
-                );
-            },
-            size: 150,
-        },
-        {
-            accessorKey: 'dlastname',
-            header: ({column}) => <DataTableColumnHeader column={column} title={t('transit.driversName')}/>,
-            cell: ({row}) => {
-                return <div className="max-w-full truncate text-left">
-                    <p className="truncate">{row.original.dlastname} <br/> {row.original.dpassport}</p>
-                </div>;
-            },
-            size: 80,
-        },
-        {
-            accessorKey: 'ARA/IKM/Tovar/BQB',
-            header: ({column}) => <DataTableColumnHeader column={column} title={t('transit.product')}/>,
-            cell: ({row}) => {
-                return <div className="max-w-full truncate text-left">{row.original.role}</div>;
-            },
-            size: 100,
-        },
-        {
-            accessorKey: 'BYD',
-            header: ({column}) => <DataTableColumnHeader column={column} title={t('transit.byd')}/>,
-            cell: ({row}) => {
-                return (
-                    <div className="max-w-full truncate text-left">
-                        {humanizeDateTime(row.original.createdAt)}
-                    </div>
-                );
-            },
-            size: 120,
-        },
-        {
-            id: 'yagona hisob varaqasi',
-            header: ({column}) => <DataTableColumnHeader column={column} title={t('transit.singleAccount')}/>,
-            cell: ({row}) => {
-                return (
-                    <div className="max-w-full truncate text-left">
-                        {humanizeDateTime(row.original.createdAt)}
-                    </div>
-                );
-            },
-            size: 100,
-        },
-        {
-            accessorKey: 'jami_summa',
-            header: ({column}) => <DataTableColumnHeader column={column} title={t('transit.sum')}/>,
-            cell: ({row}) => {
-                return (
-                    <div className="max-w-full truncate text-left">
-                        {row.original.jami_summa}
-                    </div>
-                );
-            },
-            size: 120,
-        },
-        {
-            accessorKey: 'tulagan_summa',
-            header: ({column}) => <DataTableColumnHeader column={column} title={t('transit.paid')}/>,
-            cell: ({row}) => {
-                return (
-                    <div className="max-w-full truncate text-left">
-                        {row.original.tulagan_summa}
-                    </div>
-                );
-            },
-            size: 120,
-        },
-        {
-            accessorKey: 'qolgan_summa',
-            header: ({column}) => <DataTableColumnHeader column={column} title={t('transit.unpaid')}/>,
-            cell: ({row}) => {
-                return (
-                    <div className="max-w-full truncate text-left">
-                        {row.original.qolgan_summa}
-                    </div>
-                );
-            },
-            size: 120,
-        },
-        {
-            accessorKey: 'posts_first_code',
-            header: ({column}) => <DataTableColumnHeader column={column} title={t('transit.sendsCustoms')}/>,
-            cell: ({row}) => {
-                return (
-                    <div className="max-w-full truncate text-left">
-                        {(() => {
-                            const words = row.original?.posts_first_code?.split(" ");
-
-                            if (!words) return null;
-
-                            return words.length > 3 ? (
-                                <>
-                                    {words.slice(0, 3).join(" ")}
-                                    <br/>
-                                    {words.slice(3).join(" ")}
-                                </>
-                            ) : (
-                                row.original.posts_first_code
-                            );
-                        })()}
-                    </div>
-                );
-            },
-            size: 120,
-        },
-        {
-            accessorKey: 'createdAt',
-            header: ({column}) => <DataTableColumnHeader column={column} title={t('transit.destinationCustoms')}/>,
-            cell: ({row}) => {
-                return (
-                    <div className="max-w-full truncate text-left">
-                        {humanizeDateTime(row.original.createdAt)}
-                    </div>
-                );
-            },
-            size: 120,
-        },
-        {
-            accessorKey: 'createdAt',
-            header: ({column}) => <DataTableColumnHeader column={column} title={t('transit.deliveryTime')}/>,
-            cell: ({row}) => {
-                return (
-                    <div className="max-w-full truncate text-left">
-                        {humanizeDateTime(row.original.createdAt)}
-                    </div>
-                );
-            },
-            size: 120,
-        },
-        {
-            accessorKey: 'createdAt',
-            header: ({column}) => <DataTableColumnHeader column={column} title={t('transit.typeOfWarranty')}/>,
-            cell: ({row}) => {
-                return (
-                    <div className="max-w-full truncate text-left">
-                        {humanizeDateTime(row.original.createdAt)}
-                    </div>
-                );
-            },
-            size: 120,
-        },
-        {
-            accessorKey: 'createdAt',
-            header: ({column}) => <DataTableColumnHeader column={column} title={t('transit.numberOfLots')}/>,
-            cell: ({row}) => {
-                return (
-                    <div className="max-w-full truncate text-left">
-                        {humanizeDateTime(row.original.createdAt)}
-                    </div>
-                );
-            },
-            size: 120,
-        },
-        {
-            accessorKey: 'createdAt',
-            header: ({column}) => <DataTableColumnHeader column={column} title={t('transit.numberOfGoods')}/>,
-            cell: ({row}) => {
-                return (
-                    <div className="max-w-full truncate text-left">
-                        {humanizeDateTime(row.original.createdAt)}
-                    </div>
-                );
-            },
-            size: 120,
-        },
-        {
-            accessorKey: 'createdAt',
-            header: ({column}) => <DataTableColumnHeader column={column}
-                                                         title={t('transit.declarationSubmissionTime')}/>,
-            cell: ({row}) => {
-                return (
-                    <div className="max-w-full truncate text-left">
-                        {humanizeDateTime(row.original.createdAt)}
-                    </div>
-                );
-            },
-            size: 120,
-        },
-    ];
+  // Base columns without the select column
+  const baseColumns: ColumnDef<User>[] = [
+    {
+      id: 'rowNumber',
+      header: ({ column }) => <DataTableColumnHeader column={column} title="#" />,
+      cell: ({ row }) => row.index + 1,
+      size: 70,
+    },
+    {
+      accessorKey: 'fullName',
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title={t('users.labels.fullName')} />
+      ),
+      cell: ({ row }) => (
+        <div className="truncate text-left font-medium">
+          {`${row.original.firstName} ${row.original.lastName}`}
+        </div>
+      ),
+      size: 200,
+    },
+    {
+      accessorKey: 'email',
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title={t('users.labels.email')} />
+      ),
+      cell: ({ row }) => {
+        return (
+          <div className="flex space-x-2 truncate">
+            <span className="truncate font-medium">{row.getValue('email')}</span>
+          </div>
+        );
+      },
+      size: 250,
+    },
+    {
+      accessorKey: 'username',
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title={t('users.labels.username')} />
+      ),
+      cell: ({ row }) => {
+        return (
+          <div className="flex items-center truncate">
+            <span className="truncate">{row.original.username}</span>
+          </div>
+        );
+      },
+      size: 150,
+    },
+    {
+      accessorKey: 'position',
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title={t('users.labels.position')} />
+      ),
+      cell: ({ row }) => {
+        return <div className="max-w-full truncate text-left">{row.original?.position}</div>;
+      },
+      size: 80,
+    },
+    {
+      accessorKey: 'role',
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title={t('users.labels.role')} />
+      ),
+      cell: ({ row }) => {
+        return <div className="max-w-full truncate text-left">{row.original.role}</div>;
+      },
+      size: 100,
+    },
+    {
+      accessorKey: 'createdAt',
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title={t('users.labels.createdAt')} />
+      ),
+      cell: ({ row }) => {
+        return (
+          <div className="max-w-full truncate text-left">
+            {humanizeDateTime(row.original.createdAt)}
+          </div>
+        );
+      },
+      size: 120,
+    },
+    {
+      id: 'actions',
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title={t('common.table.actions')} />
+      ),
+      cell: ({ row, table }) => <DataTableRowActions row={row} table={table} />,
+      size: 100,
+    },
+  ];
 
     // Only include the select column if row selection is enabled
     if (handleRowDeselection !== null) {

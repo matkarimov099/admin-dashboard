@@ -2,6 +2,7 @@ import type { MenuConfig } from '@/types/navigation';
 // Import only necessary menu sections
 import dashboard from './dashboard';
 import declarationCreate from './export-import-transit';
+import tasks from './tasks';
 
 /**
  * Main menu configuration
@@ -11,6 +12,8 @@ const menuItems: MenuConfig = {
   items: [
     // Dashboard - Boshqaruv paneli
     dashboard,
+    // Task Management - Vazifalar boshqaruvi
+    tasks,
     // Declaration Create - Group with max 3 level depth
     declarationCreate,
   ],

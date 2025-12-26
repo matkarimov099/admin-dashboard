@@ -1,6 +1,6 @@
 import type { RouteObject } from 'react-router';
 import { Navigate } from 'react-router';
-import { generateRoutes } from '@/config/navigation/sidebar-menu.tsx';
+import { generateRoutes } from '@/config/navigation/modules/routes.tsx';
 
 export const mainRoutes: RouteObject[] = [
   // Default redirect to dashboard

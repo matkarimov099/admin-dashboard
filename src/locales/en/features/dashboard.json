@@ -1,0 +1,51 @@
+{
+  "dashboard": {
+    "title": "Dashboard",
+    "overview": "Welcome to your admin panel. Here's what's happening today.",
+    "greeting": "Good {{timeOfDay}}, {{name}}!",
+    "greetingFallback": "Welcome back!",
+    "timeOfDay": {
+      "morning": "morning",
+      "afternoon": "afternoon",
+      "evening": "evening"
+    },
+    "stats": {
+      "totalUsers": "Total Users",
+      "activeUsers": "Active Users",
+      "totalRevenue": "Total Revenue",
+      "pendingTasks": "Pending Tasks",
+      "completedTasks": "Completed Tasks",
+      "newOrders": "New Orders",
+      "growth": "Growth",
+      "decline": "Decline"
+    },
+    "recentActivity": {
+      "title": "Recent Activity",
+      "viewAll": "View All Activity",
+      "noActivity": "No recent activity",
+      "types": {
+        "userRegistered": "User {{name}} registered",
+        "taskCompleted": "Task '{{task}}' completed by {{name}}",
+        "orderPlaced": "New order #{{orderId}} placed",
+        "paymentReceived": "Payment of ${{amount}} received"
+      }
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "addUser": "Add User",
+      "createTask": "Create Task",
+      "generateReport": "Generate Report",
+      "viewSettings": "View Settings"
+    },
+    "charts": {
+      "revenue": "Revenue",
+      "users": "Users",
+      "tasks": "Tasks",
+      "orders": "Orders",
+      "last7Days": "Last 7 Days",
+      "last30Days": "Last 30 Days",
+      "last90Days": "Last 90 Days",
+      "thisYear": "This Year"
+    }
+  }
+}

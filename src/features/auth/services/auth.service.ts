@@ -17,5 +17,5 @@ export const authService = {
   currentUser: async (): Promise<CurrentUser> => {
     const { data } = await axiosClient.get<CurrentUser>('/auth/me');
     return data;
-  }
+  },
 };

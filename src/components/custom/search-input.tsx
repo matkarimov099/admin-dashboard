@@ -85,7 +85,10 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
 
     return (
       <div className={cn('relative', className)}>
-        <Search className="-translate-y-1/2 pointer-events-none absolute top-1/2 left-3 h-4 w-4 opacity-50" style={{ color: 'var(--label)' }} />
+        <Search
+          className="-translate-y-1/2 pointer-events-none absolute top-1/2 left-3 h-4 w-4 opacity-50"
+          style={{ color: 'var(--label)' }}
+        />
         <Input
           ref={ref}
           placeholder={placeholder}

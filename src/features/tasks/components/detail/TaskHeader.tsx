@@ -10,7 +10,6 @@ import { toast } from 'sonner';
 import { Badge } from '@/components/ui/badge.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip.tsx';
-import { Typography } from '@/components/ui/typography.tsx';
 import type { Task } from '../../types.ts';
 import { PriorityBadge } from '../badges/PriorityBadge.tsx';
 import { StatusBadge } from '../badges/StatusBadge.tsx';
@@ -57,9 +56,9 @@ export function TaskHeader({
           <ArrowLeftIcon className="h-4 w-4" />
         </Button>
         <div className="min-w-0 flex-1">
-          <Typography variant="large" className="mb-2 break-words">
+          <div className="mb-2 break-words font-semibold text-base text-gray-900 sm:text-lg dark:text-gray-100">
             {task.title}
-          </Typography>
+          </div>
           <div className="flex flex-wrap items-center gap-2">
             <Tooltip>
               <TooltipTrigger asChild>
@@ -78,30 +77,30 @@ export function TaskHeader({
                 </button>
               </TooltipTrigger>
               <TooltipContent>
-                <Typography variant="small">Click to copy task URL</Typography>
+                <small className="font-medium text-xs leading-none sm:text-sm">
+                  Click to copy task URL
+                </small>
               </TooltipContent>
             </Tooltip>
             <WorkTypeBadge workType={task.workType} />
             <StatusBadge status={task.status} />
             <PriorityBadge priority={task.priority} />
-            <Typography variant="small" color="secondary" className="flex items-center gap-1.5">
+            <small className="flex items-center gap-1.5 font-medium text-xs leading-none sm:text-sm">
               <span>#{task.taskNumber}</span>
-            </Typography>
+            </small>
 
             {task.project.url ? (
-              <Typography
+              <a
                 target="_blank"
                 href={task.project.url}
-                variant="a"
-                color="secondary"
                 className="flex items-center gap-1.5 text-xs hover:underline"
               >
                 <span>{task.project.name}</span>
-              </Typography>
+              </a>
             ) : (
-              <Typography variant="small" color="secondary">
+              <small className="font-medium text-xs leading-none sm:text-sm">
                 {task.project.name}
-              </Typography>
+              </small>
             )}
           </div>
         </div>

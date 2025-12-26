@@ -1,7 +1,6 @@
 import { AlertTriangle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Typography } from '@/components/ui/typography';
 import type { BurnoutRisk } from '@/features/dashboard/types';
 import { cn } from '@/utils/utils';
 
@@ -45,7 +44,9 @@ export function BurnoutRiskCard({ risks = [] }: BurnoutRiskCardProps) {
         <div className="space-y-4">
           {safeRisks.length === 0 ? (
             <div className="py-8 text-center">
-              <Typography variant="muted">No risk data available</Typography>
+              <p className="text-gray-600 text-xs sm:text-sm dark:text-gray-400">
+                No risk data available
+              </p>
             </div>
           ) : (
             safeRisks.slice(0, 5).map(risk => (
@@ -55,12 +56,12 @@ export function BurnoutRiskCard({ risks = [] }: BurnoutRiskCardProps) {
               >
                 <div className="mb-3 flex items-center justify-between">
                   <div>
-                    <Typography variant="p" className="font-semibold">
+                    <p className="font-semibold text-sm leading-6 sm:text-base sm:leading-7">
                       {risk.userName}
-                    </Typography>
-                    <Typography variant="small" className="text-muted-foreground">
+                    </p>
+                    <small className="font-medium text-muted-foreground text-xs leading-none sm:text-sm">
                       Risk Score: {risk.score.toFixed(0)}/100
-                    </Typography>
+                    </small>
                   </div>
                   <Badge variant={getRiskBadgeVariant(risk.riskLevel)}>
                     {risk.riskLevel.toUpperCase()}
@@ -69,36 +70,39 @@ export function BurnoutRiskCard({ risks = [] }: BurnoutRiskCardProps) {
 
                 <div className="mb-3 grid grid-cols-2 gap-2 text-sm">
                   <div>
-                    <Typography variant="small" className="text-muted-foreground">
+                    <small className="font-medium text-muted-foreground text-xs leading-none sm:text-sm">
                       Overtime: +{risk.factors.overtimeHours.toFixed(1)}h/week
-                    </Typography>
+                    </small>
                   </div>
                   <div>
-                    <Typography variant="small" className="text-muted-foreground">
+                    <small className="font-medium text-muted-foreground text-xs leading-none sm:text-sm">
                       Consecutive: {risk.factors.consecutiveDays} days
-                    </Typography>
+                    </small>
                   </div>
                   <div>
-                    <Typography variant="small" className="text-muted-foreground">
+                    <small className="font-medium text-muted-foreground text-xs leading-none sm:text-sm">
                       Late sessions: {risk.factors.lateNightSessions}
-                    </Typography>
+                    </small>
                   </div>
                   <div>
-                    <Typography variant="small" className="text-muted-foreground">
+                    <small className="font-medium text-muted-foreground text-xs leading-none sm:text-sm">
                       Weekend: {risk.factors.weekendDays} days
-                    </Typography>
+                    </small>
                   </div>
                 </div>
 
                 {Array.isArray(risk.recommendations) && risk.recommendations.length > 0 && (
                   <div className="space-y-1">
-                    <Typography variant="small" className="font-semibold">
+                    <small className="font-semibold text-xs leading-none sm:text-sm">
                       Recommendations:
-                    </Typography>
+                    </small>
                     {risk.recommendations.slice(0, 2).map(rec => (
-                      <Typography key={rec} variant="small" className="text-muted-foreground">
+                      <small
+                        key={rec}
+                        className="font-medium text-muted-foreground text-xs leading-none sm:text-sm"
+                      >
                         • {rec}
-                      </Typography>
+                      </small>
                     ))}
                   </div>
                 )}

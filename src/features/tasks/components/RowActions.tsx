@@ -90,11 +90,7 @@ export function DataTableRowActions({ row }: DataTableRowActionsProps) {
 
       {updateDialogOpen && (
         <Suspense fallback={null}>
-          <UpdateTask
-            open={updateDialogOpen}
-            onOpenChange={setUpdateDialogOpen}
-            task={task}
-          />
+          <UpdateTask open={updateDialogOpen} onOpenChange={setUpdateDialogOpen} task={task} />
         </Suspense>
       )}
 

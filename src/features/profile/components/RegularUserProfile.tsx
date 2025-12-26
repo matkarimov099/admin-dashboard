@@ -2,7 +2,6 @@ import { Briefcase, Calendar, KeyRound, Mail, Shield, User } from 'lucide-react'
 import { motion } from 'motion/react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar.tsx';
 import { Button } from '@/components/ui/button';
-import { Typography } from '@/components/ui/typography';
 import type { CurrentUser } from '@/features/auth/types';
 import { useDisclosure } from '@/hooks/use-disclosure';
 import { humanizeDate } from '@/utils/humanize.ts';
@@ -50,12 +49,12 @@ export const RegularUserProfile = ({ user }: RegularUserProfileProps) => {
           </motion.div>
 
           <div className="space-y-1">
-            <Typography variant="h1" align="center">
+            <h1 className="scroll-m-20 text-center font-extrabold text-2xl tracking-tight sm:text-3xl md:text-4xl lg:text-5xl">
               {getGreeting()}, {user.firstName}! 👋
-            </Typography>
-            <Typography variant="large" align="center">
+            </h1>
+            <div className="text-center font-semibold text-base text-gray-900 sm:text-lg dark:text-gray-100">
               Welcome back to your dashboard
-            </Typography>
+            </div>
           </div>
         </div>
 
@@ -73,8 +72,12 @@ export const RegularUserProfile = ({ user }: RegularUserProfileProps) => {
         >
           <div className="mb-4 flex items-center justify-between">
             <div>
-              <Typography variant="h2">Profile Information</Typography>
-              <Typography variant="muted">Your account details and settings</Typography>
+              <h2 className="scroll-m-20 pb-2 font-semibold text-xl tracking-tight first:mt-0 sm:text-2xl md:text-3xl">
+                Profile Information
+              </h2>
+              <p className="text-gray-600 text-xs sm:text-sm dark:text-gray-400">
+                Your account details and settings
+              </p>
             </div>
             <Button onClick={onOpen} variant="outline" size="icon">
               <KeyRound className="h-5 w-5" />

@@ -131,6 +131,7 @@
       "minutes": "minutes",
       "hours": "hours",
       "days": "days",
+      "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
       "weeks": "weeks",
       "months": "months",
       "years": "years",
@@ -188,21 +189,6 @@
       "permissions": "Permissions",
       "rights": "Rights"
     },
-    "navigation": {
-      "home": "Home",
-      "dashboard": "Dashboard",
-      "menu": "Menu",
-      "sidebar": "Sidebar",
-      "header": "Header",
-      "footer": "Footer",
-      "breadcrumb": "Breadcrumb",
-      "tabs": "Tabs",
-      "links": "Links",
-      "backToHome": "Back to home",
-      "backToList": "Back to list",
-      "goToTop": "Go to top",
-      "goToBottom": "Go to bottom"
-    },
     "table": {
       "actions": "Actions",
       "selectAll": "Select all",
@@ -233,9 +219,7 @@
       "exportCurrentPageCSV": "Export Current Page as CSV",
       "exportCurrentPageExcel": "Export Current Page as Excel",
       "exportAllPagesCSV": "Export All Pages as CSV",
-      "exportAllPagesExcel": "Export All Pages as Excel",
-      "billing": "Billing",
-      "upgradePro": "Upgrade to Pro"
+      "exportAllPagesExcel": "Export All Pages as Excel"
     },
     "pagination": {
       "previous": "Previous",
@@ -255,25 +239,16 @@
       "clearFilters": "Clear filters"
     }
   },
-  "tasks": {
-    "title": "Tasks",
-    "table": "Table",
-    "board": "Board",
-    "details": "Details"
-  },
-  "profile": {
-    "title": "Profile"
-  },
-  "notifications": {
-    "title": "Notifications",
-    "markAllAsRead": "Mark all as read",
-    "noNotifications": "No notifications"
-  },
   "theme": {
     "light": "Light",
     "dark": "Dark",
     "system": "System",
     "toggle": "Toggle theme"
+  },
+  "active-users": {
+    "title": "Users",
+    "registered": "Registered users",
+    "active": "Active users"
   },
   "settingsPanel": {
     "title": "Customize Theme",
@@ -287,9 +262,15 @@
     "font": "Font",
     "radius": "Radius",
     "shadow": "Shadow",
+    "backgroundGradients": "Background Gradients",
+    "backgroundGradientsDescription": "Customize sidebar and header backgrounds",
     "shuffle": "Shuffle",
     "reset": "Reset",
     "customizeTheme": "Customize theme",
+    "sections": {
+      "sidebarGradient": "Sidebar Background",
+      "headerGradient": "Header Background"
+    },
     "variants": {
       "themeMode": {
         "light": "Light",
@@ -331,13 +312,13 @@
         "inter": "Inter",
         "noto-sans": "Noto Sans",
         "nunito-sans": "Nunito Sans",
-        "figtree": "Figtree"
+        "arial": "Arial"
       },
       "fontDescriptions": {
         "inter": "Modern & professional",
         "noto-sans": "Multi-language support",
         "nunito-sans": "Friendly & rounded",
-        "figtree": "Geometric & clean"
+        "arial": "Classic system font"
       },
       "radius": {
         "none": "None",

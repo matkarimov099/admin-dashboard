@@ -1,6 +1,11 @@
 import { Slot } from '@radix-ui/react-slot';
 import { ChevronRight, MoreHorizontal } from 'lucide-react';
-import type { ComponentProps } from 'react';
+import type { ComponentProps, ReactNode } from 'react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { cn } from '@/utils/utils';
 
 function Breadcrumb({ ...props }: ComponentProps<'nav'>) {
@@ -94,6 +99,29 @@ function BreadcrumbEllipsis({ className, ...props }: ComponentProps<'span'>) {
   );
 }
 
+interface BreadcrumbDropdownProps {
+  children: ReactNode;
+  className?: string;
+}
+
+function BreadcrumbDropdown({ children, className }: BreadcrumbDropdownProps) {
+  return (
+    <BreadcrumbItem className={className}>
+      <DropdownMenu>
+        <DropdownMenuTrigger
+          className="flex items-center gap-1 outline-none transition-colors hover:text-primary"
+          aria-label="Toggle menu"
+        >
+          <BreadcrumbEllipsis />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="start" className="min-w-50">
+          {children}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </BreadcrumbItem>
+  );
+}
+
 export {
   Breadcrumb,
   BreadcrumbList,
@@ -102,4 +130,5 @@ export {
   BreadcrumbPage,
   BreadcrumbSeparator,
   BreadcrumbEllipsis,
+  BreadcrumbDropdown,
 };

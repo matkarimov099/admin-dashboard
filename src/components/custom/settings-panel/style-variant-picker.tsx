@@ -11,11 +11,11 @@ export function StyleVariantPicker() {
   const { t } = useTranslation();
   const { config, setStyleVariant } = useThemeConfig();
 
-  // Create translated style variants map
+  // Create a translated style variants map
   const translatedStyleVariants = STYLE_VARIANTS.map(variant => ({
     ...variant,
     label: t(`settingsPanel.variants.styleVariant.${variant.value}`),
-    description: t(`settingsPanel.variants.styleDescriptions.${variant.value}`)
+    description: t(`settingsPanel.variants.styleDescriptions.${variant.value}`),
   }));
 
   return (

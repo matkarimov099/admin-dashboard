@@ -662,12 +662,12 @@ export interface [Feature]Filter {
 
 **Menu Items (har doim PascalCase):**
 ```
-✅ src/menu-items/Dashboard.tsx
-✅ src/menu-items/ExportImportTransit.tsx
-✅ src/menu-items/NewMenu.tsx
+✅ src/modules/Dashboard.tsx
+✅ src/modules/ExportImportTransit.tsx
+✅ src/modules/NewMenu.tsx
 
-❌ src/menu-items/dashboard.tsx
-❌ src/menu-items/export-import-transit.tsx
+❌ src/modules/dashboard.tsx
+❌ src/modules/export-import-transit.tsx
 ```
 
 ---
@@ -848,7 +848,7 @@ export const transitFilterSchema = (intl: IntlShape) => z.object({...});
 // ❌ NOTO'G'RI
 src/pages/auth/login.tsx              // page kebab-case emas
 src/components/user-profile.tsx       // component kebab-case emas
-src/menu-items/dashboard.tsx          // menu item kebab-case emas
+src/modules/dashboard.tsx          // menu item kebab-case emas
 src/services/Auth.service.ts          // service PascalCase emas
 src/services/authService.service.ts   // service camelCase emas
 src/hooks/UseAuth.ts                  // hook PascalCase emas
@@ -860,7 +860,7 @@ src/utils/formatDate.ts               // util camelCase emas
 // ✅ TO'G'RI
 src/pages/auth/Login.tsx              // page PascalCase
 src/components/UserProfile.tsx        // component PascalCase
-src/menu-items/Dashboard.tsx          // menu item PascalCase
+src/modules/Dashboard.tsx          // menu item PascalCase
 src/services/auth.service.ts          // service kebab-case
 src/services/user-profile.service.ts  // multi-word service kebab-case
 src/hooks/use-auth.ts                 // hook kebab-case

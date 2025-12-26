@@ -131,6 +131,7 @@
       "minutes": "дақиқа",
       "hours": "соат",
       "days": "кун",
+      "dayNames": ["Якшанба", "Душанба", "Сешанба", "Чоршанба", "Пайшанба", "Жума", "Шанба"],
       "weeks": "ҳафта",
       "months": "ой",
       "years": "йил",
@@ -189,19 +190,8 @@
       "rights": "Ҳуқуқлари"
     },
     "navigation": {
-      "home": "Бош саҳифа",
       "dashboard": "Бошқарув панели",
-      "menu": "Меню",
-      "sidebar": "Ён панел",
-      "header": "Сарлавҳа",
-      "footer": "Пастки қисм",
-      "breadcrumb": "Йўл харитаси",
-      "tabs": "Варақлар",
-      "links": "Ҳаволалар",
-      "backToHome": "Бош саҳифага қайтиш",
-      "backToList": "Рўйхатга қайтиш",
-      "goToTop": "Юқорига чиқиш",
-      "goToBottom": "Пастга тушиш"
+      "menu": "Меню"
     },
     "table": {
       "actions": "Амаллар",
@@ -233,9 +223,7 @@
       "exportCurrentPageCSV": "Жорий саҳифани CSV сифатида экспорт қилиш",
       "exportCurrentPageExcel": "Жорий саҳифани Excel сифатида экспорт қилиш",
       "exportAllPagesCSV": "Барча саҳифаларни CSV сифатида экспорт қилиш",
-      "exportAllPagesExcel": "Барча саҳифаларни Excel сифатида экспорт қилиш",
-      "billing": "Тўловлар",
-      "upgradePro": "Pro версиясига янгилаш"
+      "exportAllPagesExcel": "Барча саҳифаларни Excel сифатида экспорт қилиш"
     },
     "pagination": {
       "previous": "Олдинги",
@@ -266,14 +254,20 @@
   },
   "notifications": {
     "title": "Билдиришномалар",
-    "markAllAsRead": "Барчасини ўқилган деб белгилаш",
+    "allAsRead": "Барчасини ўқилди",
+    "viewAll": "Барчасини кўриш",
     "noNotifications": "Билдиришномалар йўқ"
   },
+  "active-users": {
+    "title": "Фойдаланувчилар",
+    "registered": "Рўйхатдан ўтган фойдаланувчилар",
+    "active": "Фаол фойдаланувчилар"
+  },
   "theme": {
-    "light": "Ёруқин",
-    "dark": "Қоронғиу",
+    "light": "Ёруғ",
+    "dark": "Қоронғи",
     "system": "Тизим",
-    "toggle": "Тема алмасhtiриш"
+    "toggle": "Тема алмаштириш"
   },
   "settingsPanel": {
     "title": "Темани созлаш",
@@ -287,9 +281,15 @@
     "font": "Шрифт",
     "radius": "Радиус",
     "shadow": "Соя",
+    "backgroundGradients": "Фон Градиентлари",
+    "backgroundGradientsDescription": "Sidebar ва header фонларини созланг",
     "shuffle": "Аралаштириш",
     "reset": "Тиклаш",
     "customizeTheme": "Темани созлаш",
+    "sections": {
+      "sidebarGradient": "Sidebar Фон",
+      "headerGradient": "Header Фон"
+    },
     "variants": {
       "themeMode": {
         "light": "Ёруқин",
@@ -331,13 +331,13 @@
         "inter": "Inter",
         "noto-sans": "Noto Sans",
         "nunito-sans": "Nunito Sans",
-        "figtree": "Figtree"
+        "arial": "Arial"
       },
       "fontDescriptions": {
         "inter": "Замонавий ва профессионал",
         "noto-sans": "Кўп тилли қўллаб-қувватлаш",
         "nunito-sans": "Дўстонаона ваyumалоқ",
-        "figtree": "Геометрик ва тоза"
+        "arial": "Классик тизим шрифти"
       },
       "radius": {
         "none": "Йўқ",

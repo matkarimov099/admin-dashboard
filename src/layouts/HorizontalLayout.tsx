@@ -39,58 +39,40 @@ export const HorizontalLayout = () => {
                         </div>
                     </div>
                 </div>
+  return (
+    <div className="h-screen w-full overflow-hidden bg-background">
+      <div className="flex h-full min-w-0 flex-col bg-background">
+        {/* Top Navigation Bar */}
+        <div
+          className="shrink-0 border-(--sidebar-border) border-b bg-(--sidebar-bg)"
+          style={{
+            background: 'var(--header-gradient, var(--sidebar-bg))',
+            color: 'var(--header-foreground, inherit)',
+          }}
+        >
+          <div className="flex h-16 items-center justify-between px-4 lg:px-6">
+            {/* Left Section - Navigation */}
+            <div className="flex items-center">
+              <HorizontalNav />
+            </div>
 
-                {/*<div className="shrink-0 border-b border-[var(--sidebar-border)] bg-[var(--sidebar-bg)]">*/}
-                {/*    <div className="flex h-14 items-center justify-between px-4 lg:px-6">*/}
-                {/*        */}
-                {/*        /!* Left Section - Navigation *!/*/}
-                {/*        <div className="flex items-center">*/}
-                {/*            <HorizontalNav/>*/}
-                {/*        </div>*/}
-                {/*        /!* Right Section - Actions *!/*/}
-                {/*        <div className="flex items-center gap-1">*/}
-                {/*            <NotificationPopover/>*/}
-                {/*            <LanguageSwitcher/>*/}
-                {/*            <SettingsPanel/>*/}
-                {/*            <ModeToggle/>*/}
-                {/*            <ProfileDropdown/>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                {/* Breadcrumb Navigation */}
+            {/* Right Section - Actions */}
+            <div className="flex items-center gap-1.5">
+              <CurrentTime className="hidden md:flex" />
+              <UsersTooltip className="hidden md:flex" />
+              <NotificationPopover />
+              <LanguageSwitcher />
+              <SettingsPanel />
+              <ModeToggle />
+              <ProfileDropdown />
+            </div>
+          </div>
+        </div>
 
-                <div className="shrink-0 border-b border-[var(--sidebar-border)] bg-[var(--sidebar-bg)]/50 px-4 py-2">
-                    <Breadcrumb className="min-w-0">
-                        <BreadcrumbList className="flex flex-wrap gap-1">
-                            {breadcrumbItems.flatMap((item, index) =>
-                                [
-                                    <BreadcrumbItem key={`item-${index}`} className="min-w-0">
-                                        {item.isActive ? (
-                                            <BreadcrumbPage
-                                                className="max-w-37.5 truncate font-semibold text-primary sm:max-w-50">
-                                                {item.title}
-                                            </BreadcrumbPage>
-                                        ) : item.url ? (
-                                            <BreadcrumbLink asChild>
-                                                <NavLink
-                                                    to={item.url}
-                                                    className="flex items-center gap-2 font-medium text-secondary text-sm transition-colors hover:text-primary"
-                                                >
-                                                    {item.title}
-                                                </NavLink>
-                                            </BreadcrumbLink>
-                                        ) : (
-                                            <span className="font-medium text-secondary text-sm">{item.title}</span>
-                                        )}
-                                    </BreadcrumbItem>,
-                                    index < breadcrumbItems.length - 1 && (
-                                        <BreadcrumbSeparator key={`separator-${index}`} className="text-secondary"/>
-                                    ),
-                                ].filter(Boolean)
-                            )}
-                        </BreadcrumbList>
-                    </Breadcrumb>
-                </div>
+        {/* Breadcrumb Navigation */}
+        <div className="shrink-0 border-(--sidebar-border) border-b bg-(--sidebar-bg)/50 px-4 py-2">
+          <BreadcrumbNav desktopOnly />
+        </div>
 
                 {/* Main Content Area */}
                 <div className="flex min-h-0 min-w-0 flex-1 flex-col p-2 sm:gap-4 sm:p-4">
@@ -123,6 +105,7 @@ export const HorizontalLayout = () => {
                     </Suspense>
                 </div>
             </div>
-        </div>
+    {/* Floating Search Button */}
+      <FloatingSearchButton />    </div>
     );
 };

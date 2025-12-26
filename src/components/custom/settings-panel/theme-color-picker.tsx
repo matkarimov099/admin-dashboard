@@ -13,7 +13,7 @@ export function ThemeColorPicker() {
   const { config, setThemeColor } = useThemeConfig();
 
   return (
-    <div className="grid grid-cols-4 gap-1.5 sm:grid-cols-7">
+    <div className="grid grid-cols-4 gap-1.5 sm:grid-cols-5">
       {THEME_COLORS.map(color => {
         const isSelected = config.themeColor === color.value;
 

@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import { Typography } from '@/components/ui/typography';
 import { cn } from '@/utils/utils.ts';
 
 export const CustomCard = ({
@@ -29,9 +28,14 @@ export const CustomCardTitle = ({
   className?: string;
 }) => {
   return (
-    <Typography variant="h6" className={cn('py-2 text-primary', className)}>
+    <h6
+      className={cn(
+        'scroll-m-20 py-2 font-semibold text-primary text-xs tracking-tight sm:text-sm md:text-base',
+        className
+      )}
+    >
       {children}
-    </Typography>
+    </h6>
   );
 };
 

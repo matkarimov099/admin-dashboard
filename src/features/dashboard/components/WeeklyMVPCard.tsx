@@ -3,7 +3,6 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { Typography } from '@/components/ui/typography';
 import type { MVPResponse } from '@/features/dashboard/types';
 
 interface WeeklyMVPCardProps {
@@ -26,7 +25,9 @@ export function WeeklyMVPCard({ mvpData }: WeeklyMVPCardProps) {
         </CardHeader>
         <CardContent>
           <div className="py-8 text-center">
-            <Typography variant="muted">No MVP data available</Typography>
+            <p className="text-gray-600 text-xs sm:text-sm dark:text-gray-400">
+              No MVP data available
+            </p>
           </div>
         </CardContent>
       </Card>
@@ -57,12 +58,12 @@ export function WeeklyMVPCard({ mvpData }: WeeklyMVPCardProps) {
                 )}
 
                 <div className="flex-1">
-                  <Typography variant="p" className="font-bold">
+                  <p className="font-bold text-sm leading-6 sm:text-base sm:leading-7">
                     {mvp.userName}
-                  </Typography>
-                  <Typography variant="small" className="text-muted-foreground">
+                  </p>
+                  <small className="font-medium text-muted-foreground text-xs leading-none sm:text-sm">
                     Score: {mvp.totalScore.toFixed(0)}/100
-                  </Typography>
+                  </small>
                 </div>
 
                 <div className="text-right">

@@ -1,4 +1,5 @@
 import {lazy, useEffect, useState} from 'react';
+import {useTranslation } from 'react-i18next';
 import {LazyComponent} from '@/components/common/lazy-component.tsx';
 import {DataTable} from '@/components/data-table/data-table.tsx';
 import {useGetColumns} from '@/features/users/components/Columns.tsx';
@@ -9,7 +10,8 @@ import {useUsersData} from '../utils/data-fetching';
 
 const ToolbarOptions = lazy(() => import('@/features/users/components/ToolbarOptions.tsx'));
 const UsersTable = () => {
-    const {
+    const { t } = useTranslation();
+  const {
         total,
         isFetching,
         currentPage,
@@ -39,7 +41,8 @@ const UsersTable = () => {
     const exportConfig = useExportConfig();
     const columns = useGetColumns(null);
 
-    return (
+    // Get column mappings from translations
+  const columnMapping = t('users.table.columns', { returnObjects: true }) as Record<string, string>;return (
         <DataTable
             <User>
             getColumns={() => columns}
@@ -62,7 +65,7 @@ const UsersTable = () => {
                     <ToolbarOptions/>
                 </LazyComponent>
             )}
-            config={usersTableConfig}
+            config={usersTableConfig}columnMapping={columnMapping}
         />
     );
 };

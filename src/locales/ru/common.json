@@ -132,6 +132,7 @@
       "minutes": "минут",
       "hours": "часов",
       "days": "дней",
+      "dayNames": ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
       "weeks": "недель",
       "months": "месяцев",
       "years": "лет",
@@ -189,21 +190,6 @@
       "permissions": "Разрешения",
       "rights": "Права"
     },
-    "navigation": {
-      "home": "Главная",
-      "dashboard": "Панель управления",
-      "menu": "Меню",
-      "sidebar": "Боковая панель",
-      "header": "Шапка",
-      "footer": "Подвал",
-      "breadcrumb": "Хлебные крошки",
-      "tabs": "Вкладки",
-      "links": "Ссылки",
-      "backToHome": "На главную",
-      "backToList": "К списку",
-      "goToTop": "Наверх",
-      "goToBottom": "Вниз"
-    },
     "table": {
       "actions": "Действия",
       "selectAll": "Выбрать все",
@@ -234,9 +220,7 @@
       "exportCurrentPageCSV": "Экспортировать текущую страницу в CSV",
       "exportCurrentPageExcel": "Экспортировать текущую страницу в Excel",
       "exportAllPagesCSV": "Экспортировать все страницы в CSV",
-      "exportAllPagesExcel": "Экспортировать все страницы в Excel",
-      "billing": "Биллинг",
-      "upgradePro": "Обновить до Pro"
+      "exportAllPagesExcel": "Экспортировать все страницы в Excel"
     },
     "pagination": {
       "previous": "Предыдущий",
@@ -256,19 +240,10 @@
       "clearFilters": "Очистить фильтры"
     }
   },
-  "tasks": {
-    "title": "Задачи",
-    "table": "Таблица",
-    "board": "Доска",
-    "details": "Детали"
-  },
-  "profile": {
-    "title": "Профиль"
-  },
-  "notifications": {
-    "title": "Уведомления",
-    "markAllAsRead": "Отметить все как прочитанные",
-    "noNotifications": "Нет уведомлений"
+  "active-users": {
+    "title": "Пользователи",
+    "registered": "Зарегистрированные пользователи",
+    "active": "Активные пользователи"
   },
   "theme": {
     "light": "Светлая",
@@ -288,9 +263,15 @@
     "font": "Шрифт",
     "radius": "Радиус",
     "shadow": "Тень",
+    "backgroundGradients": "Градиенты фона",
+    "backgroundGradientsDescription": "Настройте фон боковой панели и шапки",
     "shuffle": "Перемешать",
     "reset": "Сбросить",
     "customizeTheme": "Настроить тему",
+    "sections": {
+      "sidebarGradient": "Фон боковой панели",
+      "headerGradient": "Фон шапки"
+    },
     "variants": {
       "themeMode": {
         "light": "Светлая",
@@ -332,13 +313,13 @@
         "inter": "Inter",
         "noto-sans": "Noto Sans",
         "nunito-sans": "Nunito Sans",
-        "figtree": "Figtree"
+        "arial": "Arial"
       },
       "fontDescriptions": {
         "inter": "Современный и профессиональный",
         "noto-sans": "Поддержка многих языков",
         "nunito-sans": "Дружелюбный и скруглый",
-        "figtree": "Геометрический и чистый"
+        "arial": "Классический системный шрифт"
       },
       "radius": {
         "none": "Нет",

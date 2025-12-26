@@ -1,5 +1,4 @@
 import { ExternalLink, type LucideIcon } from 'lucide-react';
-import { Typography } from '@/components/ui/typography';
 
 interface InfoRowProps {
   icon: LucideIcon;
@@ -15,8 +14,8 @@ export const InfoRow = ({ icon: Icon, label, value, href }: InfoRowProps) => {
         <Icon className="h-3.5 w-3.5 text-[var(--system-blue)]" />
       </div>
       <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-        <Typography variant="small">{label}</Typography>
-        <Typography variant="small">{value}</Typography>
+        <small className="font-medium text-xs leading-none sm:text-sm">{label}</small>
+        <small className="font-medium text-xs leading-none sm:text-sm">{value}</small>
       </div>
       {href && (
         <ExternalLink className="h-3.5 w-3.5 flex-shrink-0 text-[var(--system-blue)] opacity-0 transition-opacity group-hover:opacity-100" />
@@ -26,9 +25,9 @@ export const InfoRow = ({ icon: Icon, label, value, href }: InfoRowProps) => {
 
   if (href) {
     return (
-      <Typography href={href} target="_blank" rel="noopener noreferrer">
+      <a href={href} target="_blank" rel="noopener noreferrer">
         {content}
-      </Typography>
+      </a>
     );
   }
 

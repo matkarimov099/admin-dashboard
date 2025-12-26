@@ -24,7 +24,7 @@ function PopoverContent({
         align={align}
         sideOffset={sideOffset}
         className={cn(
-          'border bg-content text-primary shadow-lg backdrop-blur',
+          'border bg-white text-primary shadow-lg dark:bg-[#1a1a1c]',
           'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=open]:animate-in',
           'data-[state=closed]:zoom-out-96 data-[state=open]:zoom-in-96',
           'data-[side=bottom]:slide-in-from-top-1 data-[side=left]:slide-in-from-right-1 data-[side=right]:slide-in-from-left-1 data-[side=top]:slide-in-from-bottom-1',

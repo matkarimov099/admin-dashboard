@@ -31,7 +31,7 @@ export function LayoutModePicker() {
   const translatedLayoutModes = LAYOUT_MODES.map(mode => ({
     ...mode,
     label: t(`settingsPanel.variants.layoutMode.${mode.value}`),
-    description: t(`settingsPanel.variants.layoutDescriptions.${mode.value}`)
+    description: t(`settingsPanel.variants.layoutDescriptions.${mode.value}`),
   }));
 
   return (

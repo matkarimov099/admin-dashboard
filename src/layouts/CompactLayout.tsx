@@ -1,26 +1,19 @@
 import { AnimatePresence, motion } from 'motion/react';
 import { Suspense, useId } from 'react';
-import { NavLink, Outlet } from 'react-router';
+import { Outlet } from 'react-router';
+import { BreadcrumbNav } from '@/components/common/breadcrumb-nav';
+import { CurrentTime } from '@/components/common/current-time.tsx';
 import { LanguageSwitcher } from '@/components/common/language-switcher.tsx';
 import { ModeToggle } from '@/components/common/mode-toggle.tsx';
 import { NotificationPopover } from '@/components/common/notification-popover.tsx';
+import { UsersTooltip } from '@/components/common/users-tooltip.tsx';
+import { FloatingSearchButton } from '@/components/custom/floating-search-button';
 import { SettingsPanel } from '@/components/custom/settings-panel.tsx';
 import { AppSidebar } from '@/components/layout/app-sidebar.tsx';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { Spinner } from '@/components/ui/spinner.tsx';
-import { useBreadcrumb } from '@/hooks/use-breadcrumb.ts';
 
 export const CompactLayout = () => {
-  const { breadcrumbItems } = useBreadcrumb();
-
   return (
     <div className="h-screen w-full overflow-hidden bg-background">
       <SidebarProvider defaultOpen={false}>
@@ -28,60 +21,24 @@ export const CompactLayout = () => {
         <SidebarInset className="flex h-full min-w-0 flex-col bg-background">
           {/* Fixed header - does not scroll */}
           <div className="shrink-0 p-2">
-            <header className="glass-strong relative z-50 flex h-12 items-center justify-between gap-2 rounded-lg shadow-sm sm:h-14">
+            <header
+              className="relative z-50 flex h-12 items-center justify-between gap-2 rounded-lg shadow-sm sm:h-14"
+              style={{
+                background: 'var(--header-gradient, var(--card-bg))',
+                color: 'var(--header-foreground, inherit)',
+              }}
+            >
               {/* Left section - sidebar trigger and breadcrumbs */}
               <div className="flex min-w-0 flex-1 items-center gap-2 px-3 sm:gap-3 sm:px-4">
                 {/* Compact sidebar trigger */}
                 <SidebarTrigger className="h-7 w-7 shrink-0 p-0 sm:h-8 sm:w-8" />
-
-                <Breadcrumb className="min-w-0 flex-1">
-                  {/* Mobile: Show only the last item */}
-                  <BreadcrumbList className="flex flex-wrap gap-1 sm:hidden">
-                    {breadcrumbItems.slice(-1).map((item, index) => (
-                      <BreadcrumbItem key={`item-${index}`} className="min-w-0">
-                        <BreadcrumbPage className="max-w-37.5 truncate font-semibold text-primary">
-                          {item.title}
-                        </BreadcrumbPage>
-                      </BreadcrumbItem>
-                    ))}
-                  </BreadcrumbList>
-
-                  {/* Desktop: Show all items */}
-                  <BreadcrumbList className="hidden flex-wrap gap-1 sm:flex">
-                    {breadcrumbItems.flatMap((item, index) =>
-                      [
-                        <BreadcrumbItem key={`item-${index}`} className="min-w-0">
-                          {item.isActive ? (
-                            <BreadcrumbPage className="max-w-37.5 truncate font-semibold text-primary sm:max-w-50">
-                              {item.title}
-                            </BreadcrumbPage>
-                          ) : item.url ? (
-                            <BreadcrumbLink asChild>
-                              <NavLink
-                                to={item.url}
-                                className="flex items-center gap-2 font-medium text-secondary text-sm transition-colors hover:text-primary"
-                              >
-                                {item.title}
-                              </NavLink>
-                            </BreadcrumbLink>
-                          ) : (
-                            <span className="font-medium text-secondary text-sm">{item.title}</span>
-                          )}
-                        </BreadcrumbItem>,
-                        index < breadcrumbItems.length - 1 && (
-                          <BreadcrumbSeparator
-                            key={`separator-${index}`}
-                            className="text-secondary"
-                          />
-                        ),
-                      ].filter(Boolean)
-                    )}
-                  </BreadcrumbList>
-                </Breadcrumb>
+                <BreadcrumbNav />
               </div>
 
               {/* Right section - Actions */}
-              <div className="flex shrink-0 items-center gap-1 px-2">
+              <div className="mr-4 flex items-center gap-1.5">
+                <CurrentTime className="hidden md:flex" />
+                <UsersTooltip className="hidden md:flex" />
                 <NotificationPopover />
                 <LanguageSwitcher />
                 <SettingsPanel />
@@ -124,6 +81,9 @@ export const CompactLayout = () => {
           </div>
         </SidebarInset>
       </SidebarProvider>
+
+      {/* Floating Search Button */}
+      <FloatingSearchButton />
     </div>
   );
 };

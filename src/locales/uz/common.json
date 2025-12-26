@@ -131,6 +131,7 @@
       "minutes": "daqiqa",
       "hours": "soat",
       "days": "kun",
+      "dayNames": ["Yakshanba", "Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma", "Shanba"],
       "weeks": "hafta",
       "months": "oy",
       "years": "yil",
@@ -188,21 +189,6 @@
       "permissions": "Ruxsatnomalari",
       "rights": "Huquqlari"
     },
-    "navigation": {
-      "home": "Bosh sahifa",
-      "dashboard": "Boshqaruv paneli",
-      "menu": "Menyu",
-      "sidebar": "Yon panel",
-      "header": "Sarlavha",
-      "footer": "Pastki qism",
-      "breadcrumb": "Yo'l xaritasi",
-      "tabs": "Varaqlar",
-      "links": "Havolalar",
-      "backToHome": "Bosh sahifaga qaytish",
-      "backToList": "Ro'yxatga qaytish",
-      "goToTop": "Yuqoriga chiqish",
-      "goToBottom": "Pastga tushish"
-    },
     "table": {
       "actions": "Amallar",
       "selectAll": "Barchasini tanlash",
@@ -233,9 +219,7 @@
       "exportCurrentPageCSV": "Joriy sahifani CSV sifatida eksport qilish",
       "exportCurrentPageExcel": "Joriy sahifani Excel sifatida eksport qilish",
       "exportAllPagesCSV": "Barcha sahifalarni CSV sifatida eksport qilish",
-      "exportAllPagesExcel": "Barcha sahifalarni Excel sifatida eksport qilish",
-      "billing": "To'lovlar",
-      "upgradePro": "Pro versiyasiga yangilash"
+      "exportAllPagesExcel": "Barcha sahifalarni Excel sifatida eksport qilish"
     },
     "pagination": {
       "previous": "Oldingi",
@@ -255,25 +239,16 @@
       "clearFilters": "Filterlarni tozalash"
     }
   },
-  "tasks": {
-    "title": "Vazifalar",
-    "table": "Jadval",
-    "board": "Taxta",
-    "details": "Tafsilotlar"
-  },
-  "profile": {
-    "title": "Profil"
-  },
-  "notifications": {
-    "title": "Bildirishnomalar",
-    "markAllAsRead": "Barchasini o'qilgan deb belgilash",
-    "noNotifications": "Bildirishnomalar yo'q"
-  },
   "theme": {
     "light": "Yorqin",
-    "dark": "Qorong'iu",
+    "dark": "Qorong'i",
     "system": "Tizim",
     "toggle": "Tema almashtirish"
+  },
+  "active-users": {
+    "title": "Foydalanuvchilar",
+    "registered": "Ro'yxatdan o'tgan foydalanuvchilar",
+    "active": "Faol foydalanuvchilar"
   },
   "settingsPanel": {
     "title": "Temani sozlash",
@@ -287,9 +262,15 @@
     "font": "Shrift",
     "radius": "Radius",
     "shadow": "Soya",
+    "backgroundGradients": "Fon Gradiyentlari",
+    "backgroundGradientsDescription": "Sidebar va header fonlarini sozlang",
     "shuffle": "Aralashtirish",
     "reset": "Tiklash",
     "customizeTheme": "Temani sozlash",
+    "sections": {
+      "sidebarGradient": "Sidebar Fon",
+      "headerGradient": "Header Fon"
+    },
     "variants": {
       "themeMode": {
         "light": "Yorqin",
@@ -331,13 +312,13 @@
         "inter": "Inter",
         "noto-sans": "Noto Sans",
         "nunito-sans": "Nunito Sans",
-        "figtree": "Figtree"
+        "arial": "Arial"
       },
       "fontDescriptions": {
         "inter": "Zamonaviy va professional",
         "noto-sans": "Ko'p tilli qo'llab-quvvatlash",
         "nunito-sans": "Do'stonona va yumaloq",
-        "figtree": "Geometrik va toza"
+        "arial": "Klassik tizim shrifti"
       },
       "radius": {
         "none": "Yo'q",

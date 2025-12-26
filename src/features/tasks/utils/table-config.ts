@@ -2,8 +2,8 @@ import type { TableConfig } from '@/components/data-table/utils/table-config';
 
 export const tasksTableConfig: Partial<TableConfig> = {
   // Feature flags
-  enableRowSelection: false,
-  enableClickRowSelect: false,
+  enableRowSelection: true,
+  enableClickRowSelect: true,
   enableKeyboardNavigation: true,
   enableSearch: true,
   enableDateFilter: false,

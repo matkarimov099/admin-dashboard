@@ -1,289 +1,292 @@
 import {
-    type ColumnDef,
-    type ColumnResizeMode,
-    type ColumnSizingState,
-    flexRender,
-    getCoreRowModel,
-    getFacetedRowModel,
-    getFacetedUniqueValues,
-    getFilteredRowModel,
-    getPaginationRowModel,
-    getSortedRowModel,
-    useReactTable,
+  type ColumnDef,
+  type ColumnResizeMode,
+  type ColumnSizingState,
+  flexRender,
+  getCoreRowModel,
+  getFacetedRowModel,
+  getFacetedUniqueValues,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  useReactTable,
 } from '@tanstack/react-table';
 import type * as React from 'react';
-import {useCallback, useEffect, useMemo, useRef, useState} from 'react';
-import {useTranslation} from 'react-i18next';
-import {DataTableToolbar} from '@/components/data-table/toolbar.tsx';
-import {Skeleton} from '@/components/ui/skeleton';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { DataTableToolbar } from '@/components/data-table/toolbar.tsx';
+import { Skeleton } from '@/components/ui/skeleton';
 import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
 } from '@/components/ui/table';
-import {DataTableResizer} from './data-table-resizer';
-import {useTableColumnResize} from './hooks/use-table-column-resize';
-import {DataTablePagination} from './pagination';
-import type {ExportConfig, ToolbarRenderProps, ToolbarSections} from './types';
+import { DataTableResizer } from './data-table-resizer';
+import { useTableColumnResize } from './hooks/use-table-column-resize';
+import { DataTablePagination } from './pagination';
+import type { ExportConfig, ToolbarRenderProps, ToolbarSections } from './types';
 import {
-    cleanupColumnResizing,
-    initializeColumnSizes,
-    trackColumnResizing,
+  cleanupColumnResizing,
+  initializeColumnSizes,
+  trackColumnResizing,
 } from './utils/column-sizing';
-import {createKeyboardNavigationHandler} from './utils/keyboard-navigation';
-import {type TableConfig, useTableConfig} from './utils/table-config';
+import { createKeyboardNavigationHandler } from './utils/keyboard-navigation';
+import { type TableConfig, useTableConfig } from './utils/table-config';
 
 // Types for table handlers
 type ColumnOrderUpdater = (prev: string[]) => string[];
 type RowSelectionUpdater = (prev: Record<string, boolean>) => Record<string, boolean>;
 
 interface DataTableProps<TData> {
-    // Allow overriding the table configuration
-    config?: Partial<TableConfig>;
+  // Allow overriding the table configuration
+  config?: Partial<TableConfig>;
 
-    // Column definitions generator
-    getColumns: (
-        handleRowDeselection: ((rowId: string) => void) | null | undefined
-    ) => ColumnDef<TData>[];
+  // Column definitions generator
+  getColumns: (
+    handleRowDeselection: ((rowId: string) => void) | null | undefined
+  ) => ColumnDef<TData>[];
 
-    // Data to display in the table
-    data: TData[];
+  // Data to display in the table
+  data: TData[];
 
-    // Total count for pagination
-    totalItems: number;
+  // Total count for pagination
+  totalItems: number;
 
-    // Export configuration
-    exportConfig?: ExportConfig;
+  // Export configuration
+  exportConfig?: ExportConfig;
 
-    // ID field in TData for tracking selected items
-    idField: keyof TData;
+  // ID field in TData for tracking selected items
+  idField: keyof TData;
 
-    // Custom page size options
-    pageSizeOptions?: number[];
+  // Custom page size options
+  pageSizeOptions?: number[];
 
-    // Custom toolbar content render function
-    renderToolbarContent?: (props: ToolbarRenderProps<TData>) => React.ReactNode | ToolbarSections;
+  // Custom toolbar content render function
+  renderToolbarContent?: (props: ToolbarRenderProps<TData>) => React.ReactNode | ToolbarSections;
 
-    // Loading state
-    isLoading?: boolean;
+  // Loading state
+  isLoading?: boolean;
 
-    // Pagination props
-    currentPage?: number;
-    pageSize?: number;
-    onPageChange?: (page: number) => void;
-    onPageSizeChange?: (size: number) => void;
+  // Pagination props
+  currentPage?: number;
+  pageSize?: number;
+  onPageChange?: (page: number) => void;
+  onPageSizeChange?: (size: number) => void;
 
-    // Sorting props
-    sorting?: Array<{ id: string; desc: boolean }>;
-    onSortingChange?: (
-        updaterOrValue:
-            | Array<{ id: string; desc: boolean }>
-            | ((prev: Array<{ id: string; desc: boolean }>) => Array<{ id: string; desc: boolean }>)
-    ) => void;
+  // Sorting props
+  sorting?: Array<{ id: string; desc: boolean }>;
+  onSortingChange?: (
+    updaterOrValue:
+      | Array<{ id: string; desc: boolean }>
+      | ((prev: Array<{ id: string; desc: boolean }>) => Array<{ id: string; desc: boolean }>)
+  ) => void;
 
-    // Search props
-    searchValue?: string;
-    onSearchChange?: (value: string) => void;
+  // Search props
+  searchValue?: string;
+  onSearchChange?: (value: string) => void;
+
+  // Column mapping for translations
+  columnMapping?: Record<string, string>;
 }
 
-export function DataTable<TData>(
-    {
-        config = {},
-        getColumns,
-        data,
-        totalItems,
-        exportConfig,
-        idField = 'id' as keyof TData,
-        pageSizeOptions,
-        renderToolbarContent,
-        isLoading = false,
-        currentPage = 1,
-        pageSize = 10,
-        onPageChange,
-        onPageSizeChange,
-        sorting: externalSorting = [],
-        onSortingChange,
-        searchValue: externalSearchValue = '',
-        onSearchChange,
-    }: DataTableProps<TData>) {
-    const {t} = useTranslation();
+export function DataTable<TData>({
+  config = {},
+  getColumns,
+  data,
+  totalItems,
+  exportConfig,
+  idField = 'id' as keyof TData,
+  pageSizeOptions,
+  renderToolbarContent,
+  isLoading = false,
+  currentPage = 1,
+  pageSize = 10,
+  onPageChange,
+  onPageSizeChange,
+  sorting: externalSorting = [],
+  onSortingChange,
+  searchValue: externalSearchValue = '',
+  onSearchChange,
+  columnMapping,
+}: DataTableProps<TData>) {
+  const { t } = useTranslation();
 
-    // Load table configuration with any overrides
-    const tableConfig = useTableConfig(config);
+  // Load table configuration with any overrides
+  const tableConfig = useTableConfig(config);
 
-    // Table ID for localStorage storage - generate a default if not provided
-    const tableId = tableConfig.columnResizingTableId || 'data-table-default';
+  // Table ID for localStorage storage - generate a default if not provided
+  const tableId = tableConfig.columnResizingTableId || 'data-table-default';
 
-    // Use our custom hook for a column resizing
-    const {columnSizing, setColumnSizing, resetColumnSizing} = useTableColumnResize(
-        tableId,
-        tableConfig.enableColumnResizing
-    );
+  // Use our custom hook for a column resizing
+  const { columnSizing, setColumnSizing, resetColumnSizing } = useTableColumnResize(
+    tableId,
+    tableConfig.enableColumnResizing
+  );
 
-    // Column order state (managed separately from the URL state as it's persisted in localStorage)
-    const [columnOrder, setColumnOrder] = useState<string[]>([]);
+  // Column order state (managed separately from the URL state as it's persisted in localStorage)
+  const [columnOrder, setColumnOrder] = useState<string[]>([]);
 
-    // Column visibility state (managed separately and persisted in localStorage)
-    const [columnVisibility, setColumnVisibility] = useState<Record<string, boolean>>({});
+  // Column visibility state (managed separately and persisted in localStorage)
+  const [columnVisibility, setColumnVisibility] = useState<Record<string, boolean>>({});
 
-    // PERFORMANCE FIX: Use only one selection state as the source of truth
-    const [selectedItemIds, setSelectedItemIds] = useState<Record<string | number, boolean>>({});
+  // PERFORMANCE FIX: Use only one selection state as the source of truth
+  const [selectedItemIds, setSelectedItemIds] = useState<Record<string | number, boolean>>({});
 
-    // No sorting from filters - use external sorting if provided, otherwise internal
-    const [sorting, setSorting] = useState<Array<{ id: string; desc: boolean }>>(externalSorting);
+  // No sorting from filters - use external sorting if provided, otherwise internal
+  const [sorting, setSorting] = useState<Array<{ id: string; desc: boolean }>>(externalSorting);
 
-    // Global filter state for search
-    const [globalFilter, setGlobalFilter] = useState<string>('');
+  // Global filter state for search
+  const [globalFilter, setGlobalFilter] = useState<string>('');
 
-    // Search state - use external search if manual, otherwise internal
-    const [searchTerm, setSearchTerm] = useState<string>(externalSearchValue);
+  // Search state - use external search if manual, otherwise internal
+  const [searchTerm, setSearchTerm] = useState<string>(externalSearchValue);
 
-    // Update internal search when external search changes
-    useEffect(() => {
-        if (tableConfig.manualSearching) {
-            setSearchTerm(externalSearchValue);
-        }
-    }, [externalSearchValue, tableConfig.manualSearching]);
+  // Update internal search when external search changes
+  useEffect(() => {
+    if (tableConfig.manualSearching) {
+      setSearchTerm(externalSearchValue);
+    }
+  }, [externalSearchValue, tableConfig.manualSearching]);
 
-    // Handle search change
-    const handleSearchChange = useCallback(
-        (value: string) => {
-            if (tableConfig.manualSearching && onSearchChange) {
-                // Manual search - call external handler
-                onSearchChange(value);
-            } else {
-                // Internal search - use global filter
-                setGlobalFilter(value);
-            }
-            setSearchTerm(value);
-        },
-        [tableConfig.manualSearching, onSearchChange]
-    );
+  // Handle search change
+  const handleSearchChange = useCallback(
+    (value: string) => {
+      if (tableConfig.manualSearching && onSearchChange) {
+        // Manual search - call external handler
+        onSearchChange(value);
+      } else {
+        // Internal search - use global filter
+        setGlobalFilter(value);
+      }
+      setSearchTerm(value);
+    },
+    [tableConfig.manualSearching, onSearchChange]
+  );
 
-    // Get the current search value
-    const currentSearchValue = tableConfig.manualSearching ? searchTerm : globalFilter;
+  // Get the current search value
+  const currentSearchValue = tableConfig.manualSearching ? searchTerm : globalFilter;
 
-    // Update internal sorting when external sorting changes
-    useEffect(() => {
-        if (tableConfig.manualSorting) {
-            setSorting(externalSorting);
-        }
-    }, [externalSorting, tableConfig.manualSorting]);
+  // Update internal sorting when external sorting changes
+  useEffect(() => {
+    if (tableConfig.manualSorting) {
+      setSorting(externalSorting);
+    }
+  }, [externalSorting, tableConfig.manualSorting]);
 
-    // Handle sorting change
-    const handleSortingChange = useCallback(
-        (
-            updaterOrValue:
-                | Array<{ id: string; desc: boolean }>
-                | ((prev: Array<{ id: string; desc: boolean }>) => Array<{ id: string; desc: boolean }>)
-        ) => {
-            if (tableConfig.manualSorting && onSortingChange) {
-                onSortingChange(updaterOrValue);
-            } else {
-                // Internal sorting
-                setSorting(updaterOrValue);
-            }
-        },
-        [tableConfig.manualSorting, onSortingChange]
-    );
+  // Handle sorting change
+  const handleSortingChange = useCallback(
+    (
+      updaterOrValue:
+        | Array<{ id: string; desc: boolean }>
+        | ((prev: Array<{ id: string; desc: boolean }>) => Array<{ id: string; desc: boolean }>)
+    ) => {
+      if (tableConfig.manualSorting && onSortingChange) {
+        onSortingChange(updaterOrValue);
+      } else {
+        // Internal sorting
+        setSorting(updaterOrValue);
+      }
+    },
+    [tableConfig.manualSorting, onSortingChange]
+  );
 
-    // Get current data items - already provided as prop
-    const dataItems = useMemo(() => data || [], [data]);
+  // Get current data items - already provided as prop
+  const dataItems = useMemo(() => data || [], [data]);
 
-    // PERFORMANCE FIX: Derive rowSelection from selectedItemIds using memoization
-    const rowSelection = useMemo(() => {
-        if (!dataItems.length) return {};
+  // PERFORMANCE FIX: Derive rowSelection from selectedItemIds using memoization
+  const rowSelection = useMemo(() => {
+    if (!dataItems.length) return {};
 
-        // Map selectedItemIds to row indices for the table
-        const selection: Record<string, boolean> = {};
+    // Map selectedItemIds to row indices for the table
+    const selection: Record<string, boolean> = {};
 
-        dataItems.forEach((item, index) => {
-            const itemId = String(item[idField]);
-            if (selectedItemIds[itemId]) {
-                selection[String(index)] = true;
-            }
+    dataItems.forEach((item, index) => {
+      const itemId = String(item[idField]);
+      if (selectedItemIds[itemId]) {
+        selection[String(index)] = true;
+      }
+    });
+
+    return selection;
+  }, [dataItems, selectedItemIds, idField]);
+
+  // Calculate total selected items - memoize to avoid recalculation
+  const totalSelectedItems = useMemo(() => Object.keys(selectedItemIds).length, [selectedItemIds]);
+
+  // PERFORMANCE FIX: Optimized row deselection handler
+  const handleRowDeselection = useCallback(
+    (rowId: string) => {
+      if (!dataItems.length) return;
+
+      const rowIndex = Number.parseInt(rowId, 10);
+      const item = dataItems[rowIndex];
+
+      if (item) {
+        const itemId = String(item[idField]);
+        setSelectedItemIds(prev => {
+          // Remove this item ID from selection
+          const next = { ...prev };
+          delete next[itemId];
+          return next;
         });
+      }
+    },
+    [dataItems, idField]
+  );
 
-        return selection;
-    }, [dataItems, selectedItemIds, idField]);
+  // Clear all selections
+  const clearAllSelections = useCallback(() => {
+    setSelectedItemIds({});
+  }, []);
 
-    // Calculate total selected items - memoize to avoid recalculation
-    const totalSelectedItems = useMemo(() => Object.keys(selectedItemIds).length, [selectedItemIds]);
+  // PERFORMANCE FIX: Optimized row selection handler
+  const handleRowSelectionChange = useCallback(
+    (updaterOrValue: RowSelectionUpdater | Record<string, boolean>) => {
+      // Determine the new row selection value
+      const newRowSelection =
+        typeof updaterOrValue === 'function' ? updaterOrValue(rowSelection) : updaterOrValue;
 
-    // PERFORMANCE FIX: Optimized row deselection handler
-    const handleRowDeselection = useCallback(
-        (rowId: string) => {
-            if (!dataItems.length) return;
+      // Batch update selectedItemIds based on the new row selection
+      setSelectedItemIds(prev => {
+        const next = { ...prev };
 
+        // Process changes for the current page
+        if (dataItems.length) {
+          // First, handle explicit selections in newRowSelection
+          for (const [rowId, isSelected] of Object.entries(newRowSelection)) {
             const rowIndex = Number.parseInt(rowId, 10);
-            const item = dataItems[rowIndex];
+            if (rowIndex >= 0 && rowIndex < dataItems.length) {
+              const item = dataItems[rowIndex];
+              const itemId = String(item[idField]);
 
-            if (item) {
-                const itemId = String(item[idField]);
-                setSelectedItemIds(prev => {
-                    // Remove this item ID from selection
-                    const next = {...prev};
-                    delete next[itemId];
-                    return next;
-                });
+              if (isSelected) {
+                next[itemId] = true;
+              } else {
+                delete next[itemId];
+              }
             }
-        },
-        [dataItems, idField]
-    );
+          }
 
-    // Clear all selections
-    const clearAllSelections = useCallback(() => {
-        setSelectedItemIds({});
-    }, []);
+          // Then handle implicit deselection (rows that were selected but aren't in newRowSelection)
+          dataItems.forEach((item, index) => {
+            const itemId = String(item[idField]);
+            const rowId = String(index);
 
-    // PERFORMANCE FIX: Optimized row selection handler
-    const handleRowSelectionChange = useCallback(
-        (updaterOrValue: RowSelectionUpdater | Record<string, boolean>) => {
-            // Determine the new row selection value
-            const newRowSelection =
-                typeof updaterOrValue === 'function' ? updaterOrValue(rowSelection) : updaterOrValue;
+            // If an item was selected but isn't in the new selection, deselect it
+            if (prev[itemId] && newRowSelection[rowId] === undefined) {
+              delete next[itemId];
+            }
+          });
+        }
 
-            // Batch update selectedItemIds based on the new row selection
-            setSelectedItemIds(prev => {
-                const next = {...prev};
-
-                // Process changes for the current page
-                if (dataItems.length) {
-                    // First, handle explicit selections in newRowSelection
-                    for (const [rowId, isSelected] of Object.entries(newRowSelection)) {
-                        const rowIndex = Number.parseInt(rowId, 10);
-                        if (rowIndex >= 0 && rowIndex < dataItems.length) {
-                            const item = dataItems[rowIndex];
-                            const itemId = String(item[idField]);
-
-                            if (isSelected) {
-                                next[itemId] = true;
-                            } else {
-                                delete next[itemId];
-                            }
-                        }
-                    }
-
-                    // Then handle implicit deselection (rows that were selected but aren't in newRowSelection)
-                    dataItems.forEach((item, index) => {
-                        const itemId = String(item[idField]);
-                        const rowId = String(index);
-
-                        // If an item was selected but isn't in the new selection, deselect it
-                        if (prev[itemId] && newRowSelection[rowId] === undefined) {
-                            delete next[itemId];
-                        }
-                    });
-                }
-
-                return next;
-            });
-        },
-        [dataItems, rowSelection, idField]
-    );
+        return next;
+      });
+    },
+    [dataItems, rowSelection, idField]
+  );
 
     // Get selected items data
     const getSelectedItems = useCallback(async () => {
@@ -512,90 +515,76 @@ export function DataTable<TData>(
         }
     }, [table, tableId]);
 
-    const [isScrolled, setIsScrolled] = useState(false);
+  return (
+    <div className="data-table-wrapper">
+      {/* Toolbar */}
+      {tableConfig.enableToolbar && (
+        <DataTableToolbar
+          table={table}
+          getSelectedItems={getSelectedItems}
+          getAllItems={getAllItems}
+          config={tableConfig}
+          resetColumnSizing={() => {
+            resetColumnSizing();
+            // Force a small delay and then refresh the UI
+            setTimeout(() => {
+              window.dispatchEvent(new Event('resize'));
+            }, 100);
+          }}
+          resetColumnOrder={resetColumnOrder}
+          tableId={tableId}
+          exportConfig={exportConfig}
+          columnMapping={columnMapping || exportConfig?.columnMapping}
+          searchValue={currentSearchValue}
+          onSearchChange={handleSearchChange}
+          customToolbarComponent={renderToolbarContent?.({
+            selectedRows: dataItems.filter(item => selectedItemIds[String(item[idField])]),
+            allSelectedIds: Object.keys(selectedItemIds),
+            totalSelectedCount: totalSelectedItems,
+            resetSelection: clearAllSelections,
+          })}
+        />
+      )}
 
-    const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
-        const scrollLeft = e.currentTarget.scrollLeft;
-
-        console.log(scrollLeft)
-        setIsScrolled(scrollLeft > 0);
-    };
-
-    return (
-        <div className="data-table-wrapper">
-            {/* Toolbar */}
-            {tableConfig.enableToolbar && (
-                <DataTableToolbar
-                    table={table}
-                    getSelectedItems={getSelectedItems}
-                    getAllItems={getAllItems}
-                    config={tableConfig}
-                    resetColumnSizing={() => {
-                        resetColumnSizing();
-                        // Force a small delay and then refresh the UI
-                        setTimeout(() => {
-                            window.dispatchEvent(new Event('resize'));
-                        }, 100);
+      <div
+        ref={tableContainerRef}
+        className="table-container"
+        aria-label="Data table"
+        role="region"
+        onKeyDown={tableConfig.enableKeyboardNavigation ? handleKeyDown : undefined}
+      >
+        <Table
+          className={`${tableConfig.enableColumnResizing ? 'resizable-table' : ''} text-foreground`}
+          style={{ tableLayout: 'fixed' }}
+        >
+          <TableHeader>
+            {table.getHeaderGroups().map(headerGroup => (
+              <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map(header => (
+                  <TableHead
+                    className="group/th relative border-border border-b bg-muted text-left font-semibold text-foreground"
+                    key={header.id}
+                    colSpan={header.colSpan}
+                    scope="col"
+                    tabIndex={-1}
+                    style={{
+                      width: header.getSize(),
+                      minWidth: header.column.columnDef.minSize || header.getSize(),
+                      maxWidth: header.column.columnDef.maxSize,
                     }}
-                    resetColumnOrder={resetColumnOrder}
-                    tableId={tableId}
-                    exportConfig={exportConfig}
-                    columnMapping={exportConfig?.columnMapping}
-                    searchValue={currentSearchValue}
-                    onSearchChange={handleSearchChange}
-                    customToolbarComponent={renderToolbarContent?.({
-                        selectedRows: dataItems.filter(item => selectedItemIds[String(item[idField])]),
-                        allSelectedIds: Object.keys(selectedItemIds),
-                        totalSelectedCount: totalSelectedItems,
-                        resetSelection: clearAllSelections,
-                    })}
-                />
-            )}
-            <div
-                ref={tableContainerRef}
-                onScroll={handleScroll}
-                className="table-container relative overflow-x-auto"
-                aria-label="Data table"
-                role="region"
-                onKeyDown={tableConfig.enableKeyboardNavigation ? handleKeyDown : undefined}
-            >
-                <Table
-                    className={`table-fixed w-full ${tableConfig.enableColumnResizing ? 'resizable-table' : ''} text-foreground`}
-                >
-                    <TableHeader>
-                        {table.getHeaderGroups().map(headerGroup => (
-                            <TableRow key={headerGroup.id}>
-                                {headerGroup.headers.map((header, index) => (
-                                    <TableHead
-                                        key={header.id}
-                                        colSpan={header.colSpan}
-                                        scope="col"
-                                        tabIndex={-1}
-                                        data-column-resizing={header.column.getIsResizing() ? 'true' : undefined}
-                                        className={`
-                                              group/th relative border-border border-b border-l bg-blue-50 dark:bg-neutral-700
-                                              text-left font-semibold text-foreground
-                                              sticky top-0
-                                               ${index === 1 && isScrolled ? `sticky left-0 z-30 bg-card border-r` : ''}
-                                            `}
-                                        style={{
-                                            width: header.getSize(),
-                                            minWidth: header.column.columnDef.minSize || header.getSize(),
-                                            maxWidth: header.column.columnDef.maxSize,
-                                        }}
-                                    >
-                                        {header.isPlaceholder
-                                            ? null
-                                            : flexRender(header.column.columnDef.header, header.getContext())}
-
-                                        {tableConfig.enableColumnResizing && header.column.getCanResize() && (
-                                            <DataTableResizer header={header}/>
-                                        )}
-                                    </TableHead>
-                                ))}
-                            </TableRow>
-                        ))}
-                    </TableHeader>
+                    data-column-resizing={header.column.getIsResizing() ? 'true' : undefined}
+                  >
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(header.column.columnDef.header, header.getContext())}
+                    {tableConfig.enableColumnResizing && header.column.getCanResize() && (
+                      <DataTableResizer header={header} />
+                    )}
+                  </TableHead>
+                ))}
+              </TableRow>
+            ))}
+          </TableHeader>
 
                     {/* ================= BODY ================= */}
                     <TableBody>

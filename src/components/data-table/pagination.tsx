@@ -14,7 +14,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Typography } from '@/components/ui/typography';
 
 const getButtonSizeClass = (size: 'sm' | 'default' | 'lg') => {
   switch (size) {
@@ -49,16 +48,14 @@ export function DataTablePagination<TData>({
   return (
     <div className="flex items-center justify-between data-table-pagination py-2">
       <div className="pagination-info text-muted-foreground text-sm">
-        {t('common.pagination.showing')} {totalSelectedItems} {t('common.pagination.of_total')} {totalItems} {t('common.pagination.items')}
+        {t('common.pagination.showing')} {totalSelectedItems} {t('common.pagination.of_total')}{' '}
+        {totalItems} {t('common.pagination.items')}
       </div>
       <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:gap-4 lg:gap-6">
         <div className="flex items-center space-x-2" data-slot="pagination-select">
-          <Typography
-            variant="small"
-            className="hidden whitespace-nowrap font-medium text-foreground sm:block"
-          >
+          <small className="hidden whitespace-nowrap font-medium text-foreground leading-none sm:block">
             {t('common.pagination.per_page')}
-          </Typography>
+          </small>
           <Select
             value={`${table.getState().pagination.pageSize}`}
             onValueChange={value => {
@@ -94,7 +91,8 @@ export function DataTablePagination<TData>({
           </Select>
         </div>
         <div className="flex items-center justify-center font-medium text-foreground text-sm">
-          {t('common.pagination.page')} {table.getState().pagination.pageIndex + 1} {t('common.pagination.of')} {table.getPageCount() || 1}
+          {t('common.pagination.page')} {table.getState().pagination.pageIndex + 1}{' '}
+          {t('common.pagination.of')} {table.getPageCount() || 1}
         </div>
         <div className="flex items-center space-x-2">
           <Button

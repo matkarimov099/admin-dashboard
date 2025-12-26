@@ -1,161 +1,51 @@
-import {ChevronDown, ChevronRightIcon} from 'lucide-react';
-import {useEffect, useState} from 'react';
-import {useTranslation} from 'react-i18next';
-import {LocalizedNavLink} from '@/components/layout/localized-nav-link.tsx';
-import {Popover, PopoverContent, PopoverTrigger} from '@/components/ui/popover';
 import {
     SidebarGroup,
-    SidebarGroupLabel,
-    SidebarMenu,
-    SidebarMenuButton,
-    SidebarMenuItem,
-    SidebarMenuSub,
-    SidebarMenuSubButton,
-    SidebarMenuSubItem,
-} from '@/components/ui/sidebar.tsx';
-import {mainMenuItems} from '@/config/navigation/sidebar-menu.tsx';
+
+    SidebarMenu} from '@/components/ui/sidebar.tsx';
+import menuItems from '@/config/navigation/modules';
 import {useAuthContext} from '@/hooks/use-auth-context.ts';
-import {useCurrentPath} from '@/hooks/use-current-path.ts';
-import {useSidebar} from '@/hooks/use-sidebar';
-import {cn} from '@/utils/utils';
+import type { MenuGroupConfig, MenuItemConfig} from '@/types/navigation';
+import { NavCollapse } from './nav-collapse';
+import {NavGroup} from './nav-group';
+import {NavItem} from './nav-item';
 
+/**
+ * NavMain component
+ * Main navigation component with support for:
+ * - Menu groups with headers
+ * - Multi-level nesting (3+ levels)
+ * - Collapsible menu items
+ * - Role-based access control
+ * - Icons, chips, and badges
+ * - Breadcrumb control
+ * - Auto-expand active items
+ */
 export function NavMain() {
-    const {t} = useTranslation();
-    const currentPath = useCurrentPath();
-    const {state} = useSidebar();
+
     const {hasRole} = useAuthContext();
-    const isCollapsed = state === 'collapsed';
-    const [openItems, setOpenItems] = useState<string[]>([]);
 
-    // Auto-open a menu if it has an active subitem
-    useEffect(() => {
-        const shouldBeOpen: string[] = [];
 
-        for (const item of mainMenuItems) {
-            if (item.items && item.items.length > 0) {
-                const hasActiveSubItem = item.items.some(subItem => subItem.url === currentPath);
-                if (hasActiveSubItem) {
-                    shouldBeOpen.push(item.title);
-                }
-            }
-        }
-
-        // Only update if there's a difference
-        if (shouldBeOpen.length > 0) {
-            setOpenItems(prev => {
-                return [...new Set([...prev, ...shouldBeOpen])];
-            });
-        }
-    }, [currentPath]);
-
-    return (
-        <SidebarGroup>
-            <SidebarGroupLabel
-                className={cn(
-                    'px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-200',
-                    isCollapsed ? 'text-transparent' : 'text-gray-600 dark:text-gray-400'
-                )}
-            >
-                {t('common.navigation.menu')}
-            </SidebarGroupLabel>
-
-            <SidebarMenu className="space-y-1">
-                {mainMenuItems
-                    .filter(item => {
-                        // For parent items without URL, check if they have any visible subitems
-                        if (!item.url || item.url.trim() === '') {
-                            // If item has roles restriction, check user has those roles
-                            if (item.roles && item.roles.length > 0 && !hasRole(item.roles)) {
-                                return false;
-                            }
-                            // Check if any subitems are visible
-                            if (item.items && item.items.length > 0) {
-                                return item.items.some(subItem => {
-                                    if (!subItem.roles || subItem.roles.length === 0) return true;
-                                    return hasRole(subItem.roles);
-                                });
-                            }
-                            return true;
-                        }
-                        // For items with URL, check role permissions
-                        if (!item.roles || item.roles.length === 0) return true;
+    // Filter menu items based on roles
+                                const visibleItems = menuItems.items.filter((item: MenuItemConfig | MenuGroupConfig) => {
+                        if (item.roles && item.roles.length > 0) {
                         return hasRole(item.roles);
-                    })
-                    .map(item => {
-                        // Get the current path for comparison
-                        const currentPath = location.pathname;
+                    }
+                    return true;
+                        });
 
-                        // Check if this item or any of its subitems is active
-                        const hasActiveSubItem = item.items?.some(subItem => subItem.url === currentPath);
-                        const isDirectlyActive = item.url && item.url !== '' && item.url === currentPath;
-                        const isParentActive = hasActiveSubItem || isDirectlyActive;
-                        const hasSubItems = item.items && item.items.length > 0;
-                        // For collapsed sidebar with subitems
-                        if (isCollapsed && hasSubItems && (!item.url || item.url.trim() === '')) {
-                            return (
-                                <SidebarMenuItem key={item.title}>
-                                    <Popover>
-                                        <PopoverTrigger asChild>
-                                            <SidebarMenuButton
-                                                tooltip={t(item.title)}
-                                                className={cn(
-                                                    'relative h-9 w-9 rounded-lg p-0 transition-all duration-200',
-                                                    'text-gray-800 hover:bg-(--color-primary)! hover:text-white! dark:text-gray-200',
-                                                    isParentActive &&
-                                                    'font-semibold! text-(--color-primary)! hover:bg-(--color-primary-hover)!'
-                                                )}
-                                            >
-                                                <div className="flex items-center justify-center">{item.icon}</div>
-                                            </SidebarMenuButton>
-                                        </PopoverTrigger>
-                                        <PopoverContent
-                                            side="right"
-                                            align="start"
-                                            className="w-48 rounded-lg p-2 shadow-lg"
-                                        >
-                                            <div className="mb-2 border-(--sidebar-border) border-b pb-2">
-                                                <div
-                                                    className="flex items-center gap-2 px-1 font-medium text-gray-800 text-sm dark:text-gray-200">
-                                                    {t(item.title)}
-                                                </div>
-                                            </div>
-                                            <div className="space-y-1">
-                                                {item.items
-                                                    ?.filter(subItem => {
-                                                        // If no roles specified, visible to all
-                                                        if (!subItem.roles || subItem.roles.length === 0) return true;
-                                                        // Check if user has required roles
-                                                        return hasRole(subItem.roles);
-                                                    })
-                                                    .map(subItem => {
-                                                        const isSubActive = subItem.url === currentPath;
-                                                        return (
-                                                            <LocalizedNavLink
-                                                                key={subItem.title}
-                                                                to={subItem.url}
-                                                                className="group block"
-                                                            >
-                                                                <div
-                                                                    className={cn(
-                                                                        'flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors duration-200',
-                                                                        'text-gray-700 hover:bg-(--color-primary) hover:text-white dark:text-gray-200',
-                                                                        isSubActive && 'font-semibold text-(--color-primary)'
-                                                                    )}
-                                                                >
-                                                                    {t(subItem.title)}
-                                                                </div>
-                                                            </LocalizedNavLink>
-                                                        );
-                                                    })}
-                                            </div>
-                                        </PopoverContent>
-                                    </Popover>
-                                </SidebarMenuItem>
-                            );
+
+                            return <>{visibleItems.map((item: MenuItemConfig | MenuGroupConfig) => renderMenuItem(item
+                            ))}</>;
                         }
 
-                        // For regular items (with or without subitems)
-                        const isOpen = openItems.includes(item.title);
+                        /**
+ * Helper function to render menu items based on type
+                        */
+function renderMenuItem(item: MenuItemConfig | MenuGroupConfig) {
+  // Handle groups
+  if (item.type === 'group') {
+    return <NavGroup key={item.id} group={item as MenuGroupConfig} />;
+  }
 
                         const toggleOpen = () => {
                             setOpenItems(prev =>
@@ -281,4 +171,22 @@ export function NavMain() {
             </SidebarMenu>
         </SidebarGroup>
     );
+}
+
+/**
+ * Helper function to render individual menu items by type
+ */
+function renderMenuItemByType(item: MenuItemConfig) {
+  switch (item.type) {
+    case 'collapse':
+      return <NavCollapse key={item.id} item={item} />;
+    case 'item':
+      return <NavItem key={item.id} item={item} />;
+    default:
+      // If an item has children but no explicit type, treat as collapse
+      if (item.children || item.items) {
+        return <NavCollapse key={item.id} item={item} />;
+      }
+      return <NavItem key={item.id} item={item} />;
+  }
 }

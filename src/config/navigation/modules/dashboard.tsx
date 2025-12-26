@@ -1,4 +1,5 @@
 import { BarChart3, ChartNoAxesCombinedIcon, Home } from 'lucide-react';
+import { lazy } from 'react';
 import type { MenuItemConfig } from '@/types/navigation';
 
 /**
@@ -19,6 +20,7 @@ const dashboard: MenuItemConfig = {
       path: '/dashboard',
       icon: <Home />,
       roles: [],
+      component: lazy(() => import('@/pages/dashboard/Dashboard.tsx')),
       breadcrumbs: true,
     },
     {
@@ -28,6 +30,7 @@ const dashboard: MenuItemConfig = {
       path: '/dashboard/analytics',
       icon: <BarChart3 />,
       roles: [],
+      component: lazy(() => import('@/pages/dashboard/DashboardAnalytics.tsx')),
       breadcrumbs: true,
     },
   ],

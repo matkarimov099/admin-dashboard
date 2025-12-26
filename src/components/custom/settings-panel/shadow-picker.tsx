@@ -41,7 +41,7 @@ export function ShadowPicker() {
   const translatedShadowOptions = SHADOW_OPTIONS.map(shadow => ({
     ...shadow,
     label: t(`settingsPanel.variants.shadow.${shadow.value}`),
-    description: t(`settingsPanel.variants.shadowDescriptions.${shadow.value}`)
+    description: t(`settingsPanel.variants.shadowDescriptions.${shadow.value}`),
   }));
 
   return (

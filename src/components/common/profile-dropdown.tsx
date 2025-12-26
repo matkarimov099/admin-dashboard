@@ -1,6 +1,6 @@
-import {BadgeCheck, CreditCard, LogOut, Sparkles, User} from 'lucide-react';
-import {NavLink} from 'react-router';
+import {BadgeCheck, CreditCard, LogOut, Sparkles, User, UserRoundIcon} from 'lucide-react';
 import {useTranslation} from 'react-i18next';
+import {NavLink} from 'react-router';
 import AvatarImg from "../../assets/images/logo/hacker.png";
 import {Avatar, AvatarFallback, AvatarImage} from '@/components/ui/avatar';
 import {Button} from '@/components/ui/button';

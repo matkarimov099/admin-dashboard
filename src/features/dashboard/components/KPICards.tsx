@@ -1,7 +1,6 @@
 import { Activity, Clock, FolderKanban, TrendingUp, Users } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Typography } from '@/components/ui/typography';
 import { useTranslation } from 'react-i18next';
+import { Card, CardContent } from '@/components/ui/card';
 import type { DashboardKPIs } from '@/features/dashboard/types';
 
 interface KPICardsProps {
@@ -65,12 +64,12 @@ export function KPICards({ kpis }: KPICardsProps) {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div className="flex-1">
-                <Typography variant="small" className="text-muted-foreground">
+                <small className="font-medium text-muted-foreground text-xs leading-none sm:text-sm">
                   {card.title}
-                </Typography>
-                <Typography variant="h2" className="mt-2">
+                </small>
+                <h2 className="mt-2 scroll-m-20 pb-2 font-semibold text-xl tracking-tight first:mt-0 sm:text-2xl md:text-3xl">
                   {card.value}
-                </Typography>
+                </h2>
               </div>
               <div className={`rounded-full p-3 ${card.bgColor}`}>
                 <card.icon className={`h-5 w-5 ${card.color}`} />

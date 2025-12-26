@@ -1,4 +1,5 @@
 import type {
+  BackgroundGradient,
   BorderRadius,
   FontFamily,
   LayoutMode,
@@ -56,7 +57,6 @@ export const STYLE_VARIANTS: ThemeOption<StyleVariant>[] = [
     description: 'Professional appearance',
   },
 ];
-
 
 // ============================
 // Theme Color Options
@@ -124,10 +124,10 @@ export const FONT_FAMILIES: ThemeOption<FontFamily>[] = [
     description: 'Friendly & rounded',
   },
   {
-    value: 'figtree',
-    label: 'Figtree',
-    previewFont: 'Figtree, ui-sans-serif, system-ui, sans-serif',
-    description: 'Geometric & clean',
+    value: 'arial',
+    label: 'Arial',
+    previewFont: '"Open Sans", Arial, Helvetica, sans-serif',
+    description: 'Classic system font',
   },
 ];
 
@@ -256,10 +256,14 @@ export const SHADOW_VALUES = {
 // ============================
 
 export const CSS_FONT_FAMILIES = {
-  inter: 'Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
-  'noto-sans': '"Noto Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
-  'nunito-sans': '"Nunito Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
-  figtree: 'Figtree, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+  inter:
+    'Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+  'noto-sans':
+    '"Noto Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+  'nunito-sans':
+    '"Nunito Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+  arial:
+    '"Open Sans", Arial, Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
 } as const;
 
 // ============================
@@ -268,9 +272,11 @@ export const CSS_FONT_FAMILIES = {
 
 export const GOOGLE_FONTS_MAP = {
   inter: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
-  'noto-sans': 'https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap',
-  'nunito-sans': 'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap',
-  figtree: 'https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap',
+  'noto-sans':
+    'https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap',
+  'nunito-sans':
+    'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap',
+  arial: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap',
 } as const;
 
 // ============================
@@ -370,3 +376,209 @@ export const THEME_COLOR_HSL = {
     950: '176 84% 10%',
   },
 } as const;
+
+// ============================
+// Background Gradient Options
+// ============================
+
+// Light mode gradients - bright and vibrant
+export const LIGHT_MODE_GRADIENTS: ThemeOption<BackgroundGradient>[] = [
+  {
+    value: 'default',
+    label: 'None',
+    description: 'Solid color (no gradient)',
+    previewColor: '',
+  },
+  {
+    value: 'light-gradient1',
+    label: 'Blue Cyan',
+    description: 'Blue to cyan gradient',
+    previewColor: 'linear-gradient(to right, #2563eb 0%, #06b6d4 100%)',
+  },
+  {
+    value: 'light-gradient2',
+    label: 'Fire',
+    description: 'Red to yellow gradient',
+    previewColor: 'linear-gradient(to right, #ef4444 0%, #fbbf24 100%)',
+  },
+  {
+    value: 'light-gradient3',
+    label: 'Ocean',
+    description: 'Indigo to teal gradient',
+    previewColor: 'linear-gradient(to right, #6366f1 0%, #14b8a6 100%)',
+  },
+  {
+    value: 'light-gradient4',
+    label: 'Sky',
+    description: 'Cyan to light cyan gradient',
+    previewColor: 'linear-gradient(to right, #06b6d4 0%, #a5f3fc 100%)',
+  },
+  {
+    value: 'light-gradient5',
+    label: 'Forest',
+    description: 'Lime to teal gradient',
+    previewColor: 'linear-gradient(to right, #84cc16 0%, #14b8a6 100%)',
+  },
+];
+
+// Dark mode gradients - deep and contrasting
+export const DARK_MODE_GRADIENTS: ThemeOption<BackgroundGradient>[] = [
+  {
+    value: 'default',
+    label: 'None',
+    description: 'Solid color (no gradient)',
+    previewColor: '',
+  },
+  {
+    value: 'dark-gradient1',
+    label: 'Blue Cyan',
+    description: 'Deep blue to bright cyan gradient',
+    previewColor: 'linear-gradient(to right, #1e3a8a 0%, #22d3ee 100%)',
+  },
+  {
+    value: 'dark-gradient2',
+    label: 'Fire',
+    description: 'Deep red to orange gradient',
+    previewColor: 'linear-gradient(to right, #991b1b 0%, #f97316 100%)',
+  },
+  {
+    value: 'dark-gradient3',
+    label: 'Ocean',
+    description: 'Deep indigo to cyan gradient',
+    previewColor: 'linear-gradient(to right, #4338ca 0%, #06b6d4 100%)',
+  },
+  {
+    value: 'dark-gradient4',
+    label: 'Sky',
+    description: 'Dark cyan to bright cyan gradient',
+    previewColor: 'linear-gradient(to right, #155e75 0%, #67e8f9 100%)',
+  },
+  {
+    value: 'dark-gradient5',
+    label: 'Forest',
+    description: 'Dark green to emerald gradient',
+    previewColor: 'linear-gradient(to right, #4d7c0f 0%, #34d399 100%)',
+  },
+];
+
+// Combined list for all gradients
+export const BACKGROUND_GRADIENTS = [...LIGHT_MODE_GRADIENTS, ...DARK_MODE_GRADIENTS];
+
+// Gradient color schemes for text and interactive elements
+export const GRADIENT_COLOR_SCHEMES = {
+  default: {
+    foreground: 'default',
+    accent: 'default',
+    accentForeground: 'default',
+    ring: 'default',
+  },
+  // Light mode gradients - use dark text with gradient-colored accents
+  'light-gradient1': {
+    foreground: '#0f172a',
+    accent: 'rgba(6, 182, 212, 0.15)', // cyan accent
+    accentForeground: '#0f172a',
+    ring: 'rgba(6, 182, 212, 0.3)',
+    primary: '#06b6d4',
+  },
+  'light-gradient2': {
+    foreground: '#0f172a',
+    accent: 'rgba(251, 191, 36, 0.15)', // yellow accent
+    accentForeground: '#0f172a',
+    ring: 'rgba(251, 191, 36, 0.3)',
+    primary: '#fbbf24',
+  },
+  'light-gradient3': {
+    foreground: '#0f172a',
+    accent: 'rgba(20, 184, 166, 0.15)', // teal accent
+    accentForeground: '#0f172a',
+    ring: 'rgba(20, 184, 166, 0.3)',
+    primary: '#14b8a6',
+  },
+  'light-gradient4': {
+    foreground: '#0f172a',
+    accent: 'rgba(165, 243, 252, 0.3)', // light cyan accent (more opacity for visibility)
+    accentForeground: '#0f172a',
+    ring: 'rgba(6, 182, 212, 0.3)',
+    primary: '#06b6d4',
+  },
+  'light-gradient5': {
+    foreground: '#0f172a',
+    accent: 'rgba(20, 184, 166, 0.15)', // teal accent
+    accentForeground: '#0f172a',
+    ring: 'rgba(20, 184, 166, 0.3)',
+    primary: '#14b8a6',
+  },
+  // Dark mode gradients - use white text with gradient-colored accents
+  'dark-gradient1': {
+    foreground: '#ffffff',
+    accent: 'rgba(34, 211, 238, 0.15)', // cyan accent
+    accentForeground: '#ffffff',
+    ring: 'rgba(34, 211, 238, 0.3)',
+    primary: '#22d3ee',
+  },
+  'dark-gradient2': {
+    foreground: '#ffffff',
+    accent: 'rgba(249, 115, 22, 0.15)', // orange accent
+    accentForeground: '#ffffff',
+    ring: 'rgba(249, 115, 22, 0.3)',
+    primary: '#f97316',
+  },
+  'dark-gradient3': {
+    foreground: '#ffffff',
+    accent: 'rgba(6, 182, 212, 0.15)', // cyan accent
+    accentForeground: '#ffffff',
+    ring: 'rgba(6, 182, 212, 0.3)',
+    primary: '#06b6d4',
+  },
+  'dark-gradient4': {
+    foreground: '#ffffff',
+    accent: 'rgba(103, 232, 249, 0.15)', // bright cyan accent
+    accentForeground: '#ffffff',
+    ring: 'rgba(103, 232, 249, 0.3)',
+    primary: '#67e8f9',
+  },
+  'dark-gradient5': {
+    foreground: '#ffffff',
+    accent: 'rgba(52, 211, 153, 0.15)', // emerald accent
+    accentForeground: '#ffffff',
+    ring: 'rgba(52, 211, 153, 0.3)',
+    primary: '#34d399',
+  },
+} as const;
+
+// Sidebar gradients - vertical (top to bottom)
+export const SIDEBAR_GRADIENT_VALUES = {
+  default: 'none',
+  // Light mode gradients - vibrant and highly contrasting
+  'light-gradient1': 'linear-gradient(to bottom, #2563eb 0%, #06b6d4 100%)',
+  'light-gradient2': 'linear-gradient(to bottom, #ef4444 0%, #fbbf24 100%)',
+  'light-gradient3': 'linear-gradient(to bottom, #6366f1 0%, #14b8a6 100%)',
+  'light-gradient4': 'linear-gradient(to bottom, #06b6d4 0%, #a5f3fc 100%)',
+  'light-gradient5': 'linear-gradient(to bottom, #84cc16 0%, #14b8a6 100%)',
+  // Dark mode gradients - deeper colors with strong contrast
+  'dark-gradient1': 'linear-gradient(to bottom, #1e3a8a 0%, #22d3ee 100%)',
+  'dark-gradient2': 'linear-gradient(to bottom, #991b1b 0%, #f97316 100%)',
+  'dark-gradient3': 'linear-gradient(to bottom, #4338ca 0%, #06b6d4 100%)',
+  'dark-gradient4': 'linear-gradient(to bottom, #155e75 0%, #67e8f9 100%)',
+  'dark-gradient5': 'linear-gradient(to bottom, #4d7c0f 0%, #34d399 100%)',
+} as const;
+
+// Header gradients - horizontal (left to right)
+export const HEADER_GRADIENT_VALUES = {
+  default: 'none',
+  // Light mode gradients - vibrant and highly contrasting
+  'light-gradient1': 'linear-gradient(to right, #2563eb 0%, #06b6d4 100%)',
+  'light-gradient2': 'linear-gradient(to right, #ef4444 0%, #fbbf24 100%)',
+  'light-gradient3': 'linear-gradient(to right, #6366f1 0%, #14b8a6 100%)',
+  'light-gradient4': 'linear-gradient(to right, #06b6d4 0%, #a5f3fc 100%)',
+  'light-gradient5': 'linear-gradient(to right, #84cc16 0%, #14b8a6 100%)',
+  // Dark mode gradients - deeper colors with strong contrast
+  'dark-gradient1': 'linear-gradient(to right, #1e3a8a 0%, #22d3ee 100%)',
+  'dark-gradient2': 'linear-gradient(to right, #991b1b 0%, #f97316 100%)',
+  'dark-gradient3': 'linear-gradient(to right, #4338ca 0%, #06b6d4 100%)',
+  'dark-gradient4': 'linear-gradient(to right, #155e75 0%, #67e8f9 100%)',
+  'dark-gradient5': 'linear-gradient(to right, #4d7c0f 0%, #34d399 100%)',
+} as const;
+
+// Legacy export for backward compatibility
+export const GRADIENT_VALUES = HEADER_GRADIENT_VALUES;

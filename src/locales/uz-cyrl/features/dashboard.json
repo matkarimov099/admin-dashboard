@@ -1,0 +1,51 @@
+{
+  "dashboard": {
+    "title": "Бошқарув панели",
+    "overview": "Админ панелингизга хуш келибсиз. Бугун нима қилаяпти.",
+    "greeting": "Ҳайрли {{timeOfDay}}, {{name}}!",
+    "greetingFallback": "Хуш келибсиз!",
+    "timeOfDay": {
+      "morning": "эрталаб",
+      "afternoon": "тушидан сўнг",
+      "evening": "кечаси"
+    },
+    "stats": {
+      "totalUsers": "Жами фойдаланувчилар",
+      "activeUsers": "Фаол фойдаланувчилар",
+      "totalRevenue": "Жами даромад",
+      "pendingTasks": "Кутмоқда вазифалар",
+      "completedTasks": "Бажарилган вазифалар",
+      "newOrders": "Янги заказлар",
+      "growth": "Ўсиш",
+      "decline": "Камайиш"
+    },
+    "recentActivity": {
+      "title": "Сўнгги фаолият",
+      "viewAll": "Барча фаолиятни кўриш",
+      "noActivity": "Сўнгги фаолият йўқ",
+      "types": {
+        "userRegistered": "Фойдаланувчи {{name}} рўйхатдан ўтди",
+        "taskCompleted": "'{{task}}' вазифаси {{name}} томонидан бажарилди",
+        "orderPlaced": "#{{orderId}} заказа берилди",
+        "paymentReceived": "${{amount}} тўлов қабул қилинди"
+      }
+    },
+    "quickActions": {
+      "title": "Тезкор амаллар",
+      "addUser": "Фойдаланувчи қўшиш",
+      "createTask": "Вазифа яратиш",
+      "generateReport": "Ҳисобот яратиш",
+      "viewSettings": "Созламаларни кўриш"
+    },
+    "charts": {
+      "revenue": "Даромад",
+      "users": "Фойдаланувчилар",
+      "tasks": "Вазифалар",
+      "orders": "Заказлар",
+      "last7Days": "Ухирги 7 кун",
+      "last30Days": "Ухирги 30 кун",
+      "last90Days": "Ухирги 90 кун",
+      "thisYear": "Шу йил"
+    }
+  }
+}

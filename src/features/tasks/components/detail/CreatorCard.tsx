@@ -2,7 +2,6 @@ import { UserIcon } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar.tsx';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.tsx';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip.tsx';
-import { Typography } from '@/components/ui/typography.tsx';
 import type { User } from '@/features/users/types.ts';
 import { getUserFullName, getUserInitials } from '../../utils/task-helpers.ts';
 
@@ -16,7 +15,7 @@ export function CreatorCard({ creator }: CreatorCardProps) {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <UserIcon className="h-4 w-4" />
-          <Typography variant="label">Created By</Typography>
+          <p>Created By</p>
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -30,20 +29,14 @@ export function CreatorCard({ creator }: CreatorCardProps) {
                 </AvatarFallback>
               </Avatar>
               <div className="flex min-w-0 flex-col">
-                <Typography variant="small" weight="medium" truncate>
-                  {getUserFullName(creator)}
-                </Typography>
-                <Typography variant="muted" truncate>
-                  @{creator.username}
-                </Typography>
+                <p>{getUserFullName(creator)}</p>
+                <p>@{creator.username}</p>
               </div>
             </div>
           </TooltipTrigger>
           <TooltipContent>
-            <Typography variant="small" weight="medium">
-              {getUserFullName(creator)}
-            </Typography>
-            <Typography variant="muted">@{creator.username}</Typography>
+            <p>{getUserFullName(creator)}</p>
+            <p>@{creator.username}</p>
           </TooltipContent>
         </Tooltip>
       </CardContent>

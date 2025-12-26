@@ -15,7 +15,7 @@ export function FontPicker() {
   const translatedFontFamilies = FONT_FAMILIES.map(font => ({
     ...font,
     label: t(`settingsPanel.variants.fonts.${font.value}`),
-    description: t(`settingsPanel.variants.fontDescriptions.${font.value}`)
+    description: t(`settingsPanel.variants.fontDescriptions.${font.value}`),
   }));
 
   return (
