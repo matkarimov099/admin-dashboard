@@ -190,7 +190,7 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
     }
   }, [config, isDarkMode]);
 
-  // Listen to system theme changes when theme is 'system'
+  // Listen to system theme changes when the theme is 'system'
   useEffect(() => {
     if (theme !== 'system' || typeof window === 'undefined') return;
 

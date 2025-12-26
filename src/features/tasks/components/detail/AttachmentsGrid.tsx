@@ -25,17 +25,14 @@ function AttachmentItem({ asset }: AttachmentItemProps) {
   const { mutate: deleteAsset, isPending: isDeleting } = useDeleteTaskAsset();
 
   const handleDelete = () => {
-    deleteAsset(
-      { assetId: asset.asset.id },
-      {
-        onSuccess: response => {
-          toast.success(response?.message || 'File deleted successfully');
-        },
-        onError: error => {
-          toast.error(error.message || 'Failed to delete file');
-        },
-      }
-    );
+    deleteAsset(asset.asset.id, {
+      onSuccess: response => {
+        toast.success(response?.message || 'File deleted successfully');
+      },
+      onError: error => {
+        toast.error(error.message || 'Failed to delete file');
+      },
+    });
   };
 
   return (

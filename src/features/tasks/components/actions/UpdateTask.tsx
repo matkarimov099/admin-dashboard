@@ -2,6 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { ExternalLinkIcon, Trash2Icon } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 import { DateTimePicker } from '@/components/custom/date-time-picker';
 import { FileUploader } from '@/components/custom/file-uploader';
@@ -38,7 +39,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { PriorityBadge } from '@/features/tasks/components/badges/PriorityBadge.tsx';
 import { StatusBadge } from '@/features/tasks/components/badges/StatusBadge.tsx';
 import { useGetUsers } from '@/features/users/hooks/use-users';
-import { useDeleteTaskAsset, useGetTasks, useUpdateTask } from '../../hooks/use-tasks';
+import { useDeleteTaskAsset, useTaskList, useUpdateTask } from '../../hooks/use-tasks';
 import { type TaskUpdateSchema, taskUpdateSchema } from '../../schema/tasks.schema';
 import type { Task, TaskUpdate } from '../../types';
 import { TaskPriorityOptions, TaskStatusOptions, TaskWorkTypeOptions } from '../../types';
@@ -50,6 +51,7 @@ interface UpdateTaskProps {
 }
 
 function UpdateTask({ task, open, onOpenChange }: UpdateTaskProps) {
+  const { t } = useTranslation();
   const { mutate: updateTask, isPending } = useUpdateTask();
   const { mutate: deleteAsset, isPending: isDeletingAsset } = useDeleteTaskAsset();
   const [addAssetIds, setAddAssetIds] = useState<string[]>([]);
@@ -67,24 +69,23 @@ function UpdateTask({ task, open, onOpenChange }: UpdateTaskProps) {
 
   const [taskSearch, setTaskSearch] = useState('');
 
-  const { data: tasksResponse, isFetching: isFetchingTasks } = useGetTasks(
-    open ? { page: 1, limit: 20, title: taskSearch || undefined } : undefined,
-    'dropdown'
+  const { tasks, isFetching: isFetchingTasks } = useTaskList(
+    open ? { page: 1, limit: 20, title: taskSearch || undefined } : undefined
   );
   const taskOptions = useMemo(
     () =>
-      (tasksResponse?.data.data ?? [])
+      (tasks ?? [])
         .filter(t => t.id !== task.id)
         .map(t => ({
           taskKey: t.taskKey,
           title: t.title,
           id: t.id,
         })),
-    [tasksResponse?.data.data, task.id]
+    [tasks, task.id]
   );
 
   const form = useForm<TaskUpdateSchema>({
-    resolver: zodResolver(taskUpdateSchema()),
+    resolver: zodResolver(taskUpdateSchema(t)),
     defaultValues: {
       title: '',
       description: '',
@@ -148,17 +149,14 @@ function UpdateTask({ task, open, onOpenChange }: UpdateTaskProps) {
   }
 
   const handleRemoveExistingAsset = (assetId: string) => {
-    deleteAsset(
-      { assetId },
-      {
-        onSuccess: response => {
-          toast.success(response?.message || 'File deleted successfully');
-        },
-        onError: error => {
-          toast.error(error.message || 'Failed to delete file');
-        },
-      }
-    );
+    deleteAsset(assetId, {
+      onSuccess: response => {
+        toast.success(response?.message || 'File deleted successfully');
+      },
+      onError: error => {
+        toast.error(error.message || 'Failed to delete file');
+      },
+    });
   };
 
   return (
