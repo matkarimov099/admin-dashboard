@@ -57,13 +57,13 @@ export function BreadcrumbNav({ mobileOnly = false, desktopOnly = false }: Bread
                   <BreadcrumbLink asChild>
                     <NavLink
                       to={breadcrumbItems[0].url}
-                      className="flex items-center gap-2 font-medium text-secondary text-sm transition-colors hover:text-primary"
+                      className="flex items-center gap-2 font-semibold text-secondary text-sm transition-colors hover:text-primary"
                     >
                       {breadcrumbItems[0].title}
                     </NavLink>
                   </BreadcrumbLink>
                 ) : (
-                  <span className="font-medium text-secondary text-sm">
+                  <span className="font-semibold text-secondary text-sm">
                     {breadcrumbItems[0].title}
                   </span>
                 )}
@@ -78,12 +78,12 @@ export function BreadcrumbNav({ mobileOnly = false, desktopOnly = false }: Bread
                     {item.url ? (
                       <NavLink
                         to={item.url}
-                        className="flex w-full cursor-pointer items-center px-3 py-2 font-medium text-blue text-sm transition-colors hover:underline"
+                        className="flex w-full cursor-pointer items-center px-3 py-2 font-semibold text-blue text-sm transition-colors hover:underline"
                       >
                         {item.title}
                       </NavLink>
                     ) : (
-                      <span className="flex items-center px-3 py-2 font-medium text-muted-foreground text-sm">
+                      <span className="flex items-center px-3 py-2 font-semibold text-muted-foreground text-sm">
                         {item.title}
                       </span>
                     )}
@@ -95,7 +95,7 @@ export function BreadcrumbNav({ mobileOnly = false, desktopOnly = false }: Bread
 
               {/* Last item (active) */}
               <BreadcrumbItem className="min-w-0">
-                <BreadcrumbPage className="max-w-37.5 truncate font-semibold text-primary sm:max-w-50">
+                <BreadcrumbPage className="max-w-37.5 truncate font-bold text-primary sm:max-w-50">
                   {breadcrumbItems[breadcrumbItems.length - 1].title}
                 </BreadcrumbPage>
               </BreadcrumbItem>
@@ -106,20 +106,20 @@ export function BreadcrumbNav({ mobileOnly = false, desktopOnly = false }: Bread
               [
                 <BreadcrumbItem key={`item-${index}`} className="min-w-0">
                   {item.isActive ? (
-                    <BreadcrumbPage className="max-w-37.5 truncate font-semibold text-primary sm:max-w-50">
+                    <BreadcrumbPage className="max-w-37.5 truncate font-bold text-primary sm:max-w-50">
                       {item.title}
                     </BreadcrumbPage>
                   ) : item.url ? (
                     <BreadcrumbLink asChild>
                       <NavLink
                         to={item.url}
-                        className="flex items-center gap-2 font-medium text-secondary text-sm transition-colors hover:text-primary"
+                        className="flex items-center gap-2 font-semibold text-secondary text-sm transition-colors hover:text-primary"
                       >
                         {item.title}
                       </NavLink>
                     </BreadcrumbLink>
                   ) : (
-                    <span className="font-medium text-secondary text-sm">{item.title}</span>
+                    <span className="font-semibold text-secondary text-sm">{item.title}</span>
                   )}
                 </BreadcrumbItem>,
                 index < breadcrumbItems.length - 1 && (
@@ -140,7 +140,7 @@ export function BreadcrumbNav({ mobileOnly = false, desktopOnly = false }: Bread
       <BreadcrumbList className="flex flex-wrap gap-1 sm:hidden">
         {breadcrumbItems.slice(-1).map((item, index) => (
           <BreadcrumbItem key={`item-${index}`} className="min-w-0">
-            <BreadcrumbPage className="max-w-37.5 truncate font-semibold text-primary">
+            <BreadcrumbPage className="max-w-37.5 truncate font-bold text-primary">
               {item.title}
             </BreadcrumbPage>
           </BreadcrumbItem>
@@ -157,13 +157,13 @@ export function BreadcrumbNav({ mobileOnly = false, desktopOnly = false }: Bread
                 <BreadcrumbLink asChild>
                   <NavLink
                     to={breadcrumbItems[0].url}
-                    className="flex items-center gap-2 font-medium text-secondary text-sm transition-colors hover:text-primary"
+                    className="flex items-center gap-2 font-semibold text-secondary text-sm transition-colors hover:text-primary"
                   >
                     {breadcrumbItems[0].title}
                   </NavLink>
                 </BreadcrumbLink>
               ) : (
-                <span className="font-medium text-secondary text-sm">
+                <span className="font-semibold text-secondary text-sm">
                   {breadcrumbItems[0].title}
                 </span>
               )}
@@ -178,12 +178,12 @@ export function BreadcrumbNav({ mobileOnly = false, desktopOnly = false }: Bread
                   {item.url ? (
                     <NavLink
                       to={item.url}
-                      className="flex w-full cursor-pointer items-center font-medium text-blue text-sm transition-colors hover:underline"
+                      className="flex w-full cursor-pointer items-center font-semibold text-blue text-sm transition-colors hover:underline"
                     >
                       {item.title}
                     </NavLink>
                   ) : (
-                    <span className="flex items-center font-medium text-muted-foreground text-sm">
+                    <span className="flex items-center font-semibold text-muted-foreground text-sm">
                       {item.title}
                     </span>
                   )}
@@ -195,7 +195,7 @@ export function BreadcrumbNav({ mobileOnly = false, desktopOnly = false }: Bread
 
             {/* Last item (active) */}
             <BreadcrumbItem className="min-w-0">
-              <BreadcrumbPage className="max-w-37.5 truncate font-semibold text-primary sm:max-w-50">
+              <BreadcrumbPage className="max-w-37.5 truncate font-bold text-primary sm:max-w-50">
                 {breadcrumbItems[breadcrumbItems.length - 1].title}
               </BreadcrumbPage>
             </BreadcrumbItem>
@@ -206,20 +206,20 @@ export function BreadcrumbNav({ mobileOnly = false, desktopOnly = false }: Bread
             [
               <BreadcrumbItem key={`item-${index}`} className="min-w-0">
                 {item.isActive ? (
-                  <BreadcrumbPage className="max-w-37.5 truncate font-semibold text-primary sm:max-w-50">
+                  <BreadcrumbPage className="max-w-37.5 truncate font-bold text-primary sm:max-w-50">
                     {item.title}
                   </BreadcrumbPage>
                 ) : item.url ? (
                   <BreadcrumbLink asChild>
                     <NavLink
                       to={item.url}
-                      className="flex items-center gap-2 font-medium text-secondary text-sm transition-colors hover:text-primary"
+                      className="flex items-center gap-2 font-semibold text-secondary text-sm transition-colors hover:text-primary"
                     >
                       {item.title}
                     </NavLink>
                   </BreadcrumbLink>
                 ) : (
-                  <span className="font-medium text-secondary text-sm">{item.title}</span>
+                  <span className="font-semibold text-secondary text-sm">{item.title}</span>
                 )}
               </BreadcrumbItem>,
               index < breadcrumbItems.length - 1 && (

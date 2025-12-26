@@ -70,7 +70,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
             'flex cursor-pointer items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-all duration-200',
             'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
             // Active state - only text color
-            isActive && 'font-medium text-(--color-primary)! hover:text-(--color-primary)!',
+            isActive && 'font-bold text-(--color-primary)! hover:text-(--color-primary)!',
             // Inactive state
             !isActive && 'text-gray-700 hover:text-gray-700! dark:text-white dark:hover:text-white!'
           )}
@@ -149,7 +149,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
             )}
 
             {/* Title */}
-            {!isCollapsed && <span className="flex-1 font-medium text-[13px]">{titleText}</span>}
+            {!isCollapsed && <span className="flex-1 font-bold">{titleText}</span>}
 
             {/* Badges and chips (only when expanded) */}
             {!isCollapsed && (item.chip || item.badge !== undefined) && (
