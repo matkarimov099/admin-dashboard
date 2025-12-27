@@ -117,12 +117,22 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
         asChild
         tooltip={isCollapsed ? tooltipText : undefined}
         className={cn(
-          'relative h-fit w-full rounded-md transition-all duration-200',
-          'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
-          // Active state - only text color
-          isActive && 'font-medium text-(--color-primary)! hover:text-(--color-primary)!',
-          // Inactive state
-          !isActive && 'text-gray-700 hover:text-gray-700! dark:text-white dark:hover:text-white!',
+          'relative h-9 w-full rounded-sm px-2 transition-all duration-200',
+
+          // oddiy holat
+          'hover:!bg-[var(--color-primary)] hover:!text-white text-gray-900 dark:text-gray-200',
+
+          // ACTIVE holat
+          isActive && [
+            // light mode → ochiq havorang
+            'bg-blue-100 font-semibold text-[var(--color-primary)]',
+
+            // dark mode → qora / to‘q fon
+            'dark:bg-black/50 dark:text-[var(--color-primary)]',
+
+            // hover paytida
+            'hover:!bg-[var(--color-primary-hover)]',
+          ],
           // Collapsed sidebar specific styles
           isCollapsed ? 'size-9 justify-center p-0' : 'px-2.5'
         )}
@@ -139,9 +149,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
               <span
                 className={cn(
                   'flex shrink-0 items-center justify-center transition-colors duration-200',
-                  isCollapsed ? 'size-6' : 'size-5',
-                  isActive && 'text-(--color-primary) hover:text-(--color-primary)!',
-                  !isActive && 'hover:text-current'
+                  isCollapsed ? 'size-6' : 'size-5'
                 )}
               >
                 {item.icon}
@@ -149,7 +157,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
             )}
 
             {/* Title */}
-            {!isCollapsed && <span className="flex-1 font-medium text-[13px]">{titleText}</span>}
+            {!isCollapsed && <span className="flex-1 font-medium text-[14px]">{titleText}</span>}
 
             {/* Badges and chips (only when expanded) */}
             {!isCollapsed && (item.chip || item.badge !== undefined) && (

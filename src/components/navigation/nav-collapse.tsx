@@ -142,7 +142,7 @@ export function NavCollapse({ item }: NavCollapseProps) {
             {/* Title */}
             <span
               className={cn(
-                'flex-1 truncate font-medium text-[13px] transition-colors duration-200',
+                'flex-1 truncate font-medium text-[14px] transition-colors duration-200',
                 isParentActive && 'text-(--color-primary)',
                 !isParentActive && 'text-gray-700 dark:text-white'
               )}

@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { Suspense, useId } from 'react';
 import { Outlet } from 'react-router';
 import { BreadcrumbNav } from '@/components/common/breadcrumb-nav';
-import { CurrentTime } from '@/components/common/current-time';
+// import { CurrentTime } from '@/components/common/current-time';
 import { LanguageSwitcher } from '@/components/common/language-switcher.tsx';
 import { ModeToggle } from '@/components/common/mode-toggle.tsx';
 import { NotificationPopover } from '@/components/common/notification-popover.tsx';
@@ -25,7 +25,7 @@ export const HorizontalLayout = () => {
             color: 'var(--header-foreground, inherit)',
           }}
         >
-          <div className="flex h-16 items-center justify-between px-4 lg:px-6">
+          <div className="flex h-15 items-center justify-between px-4 lg:px-6">
             {/* Left Section - Navigation */}
             <div className="flex items-center">
               <HorizontalNav />
@@ -33,7 +33,7 @@ export const HorizontalLayout = () => {
 
             {/* Right Section - Actions */}
             <div className="flex items-center gap-1.5">
-              <CurrentTime className="hidden md:flex" />
+              {/*<CurrentTime className="hidden md:flex" />*/}
               <UsersTooltip className="hidden md:flex" />
               <NotificationPopover />
               <LanguageSwitcher />
@@ -71,7 +71,7 @@ export const HorizontalLayout = () => {
                 className="flex min-h-0 min-w-0 flex-1 flex-col"
               >
                 {/* Main content */}
-                <main className="flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto overflow-x-hidden rounded-lg bg-content p-4 shadow-md">
+                <main className="">
                   <Outlet />
                 </main>
               </motion.div>

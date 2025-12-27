@@ -1,7 +1,7 @@
 import type * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import logo from '@/assets/logo.png';
+import Logo from '@/assets/logo.png';
 import { LocalizedNavLink } from '@/components/layout/localized-nav-link';
 import { NavMain } from '@/components/navigation/nav-main.tsx';
 import { NavSecondary } from '@/components/navigation/nav-secondary.tsx';
@@ -44,41 +44,39 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton
-              size="sm"
+              size="lg"
               asChild
               className={cn(
-                'group h-11 w-full transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
-                'hover:border-(--color-primary)/30 hover:bg-(--color-primary)/10!',
-                isCollapsed && 'h-11 w-11 justify-center px-0'
+                'group transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)] hover:bg-(--color-primary)/10!',
+                isCollapsed && 'justify-center px-2'
               )}
             >
-              <LocalizedNavLink
-                to="/"
-                className={cn(
-                  'flex items-center',
-                  isCollapsed ? 'justify-center' : 'justify-start gap-2.5'
-                )}
-              >
+              <LocalizedNavLink to="/" className="flex items-center gap-2">
                 <div
                   className={cn(
-                    'relative flex items-center justify-center rounded-md transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
-                    isCollapsed ? 'size-9' : 'size-10',
-                    'shrink-0'
+                    'relative flex items-center justify-center rounded-lg transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
+                    isCollapsed ? 'size-8' : 'size-8'
                   )}
                 >
-                  <img
-                    src={logo}
-                    alt={t('app.name')}
-                    className={cn(
-                      'relative z-10 object-contain transition-transform duration-300 group-hover:scale-110',
-                      isCollapsed ? 'size-9' : 'size-10'
-                    )}
-                  />
+                  {/* Dynamic icon based on the collapse state */}
+                  {isCollapsed ? (
+                    <img
+                      src={Logo}
+                      alt="Logo"
+                      className="relative z-10 size-7 transition-transform duration-300 group-hover:scale-110"
+                    />
+                  ) : (
+                    <img
+                      src={Logo}
+                      alt="Logo"
+                      className="relative z-10 size-7 transition-transform duration-300 group-hover:scale-110"
+                    />
+                  )}
                 </div>
 
                 {!isCollapsed && (
-                  <div className="text-left leading-tight transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]">
-                    <span className="truncate font-bold text-(--color-primary) text-base tracking-wide">
+                  <div className="text-left text-sm leading-tight transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]">
+                    <span className="truncate font-bold font-sans text-(--color-primary) text-xl tracking-wide">
                       {t('app.name')}
                     </span>
                   </div>

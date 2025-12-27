@@ -26,7 +26,6 @@ function collectRouteItems(items: MenuItemConfig[]): MenuItemConfig[] {
       routeItems.push(...collectRouteItems(item.items));
     }
   }
-
   return routeItems;
 }
 

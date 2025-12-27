@@ -9,6 +9,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { useGetUsers } from '@/features/users/hooks/use-users';
+import { useAuthContext } from '@/hooks/use-auth-context.ts';
 import type { TaskPriority, TaskStatus } from '../types';
 import { TaskPriorityOptions, TaskStatusOptions } from '../types';
 import { PriorityBadge } from './badges/PriorityBadge.tsx';
@@ -39,7 +40,7 @@ export function ToolbarOptions({
 }: ToolbarOptionsProps) {
   const { data: usersResponse } = useGetUsers({ page: 1, limit: 100 });
   const users = usersResponse?.data.data ?? [];
-
+  const { hasRole } = useAuthContext();
   const hasActiveFilters =
     selectedStatus || selectedPriority || selectedProjectIds.length > 0 || selectedAssigneeId;
 
@@ -53,7 +54,7 @@ export function ToolbarOptions({
   return {
     left: (
       <Suspense fallback={<div className="h-10 w-32 animate-pulse rounded-md bg-muted" />}>
-        <CreateTask />
+        {hasRole(['admin']) && <CreateTask />}
       </Suspense>
     ),
     right: (

@@ -8,6 +8,9 @@
 	--radius-md: 6px;
 	--radius-lg: 8px;
 	--radius-pill: 9999px;
+	--text-sm: 14px;
+	--text-md: 15px;
+	--text-lg: 18px;
 
 	/* Motion (snappy, smooth) */
 	--motion-short: 120ms;

@@ -9,8 +9,9 @@ import type { MenuItemConfig } from '@/types/navigation';
 const dashboard: MenuItemConfig = {
   id: 'dashboard',
   title: 'navigation.dashboard.title',
-  type: 'collapse',
+  type: 'item',
   icon: <ChartNoAxesCombinedIcon />,
+  component: lazy(() => import('@/pages/dashboard/Dashboard.tsx')),
   roles: [], // Accessible to all authenticated users
   items: [
     {
