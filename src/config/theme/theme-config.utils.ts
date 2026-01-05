@@ -1,86 +1,20 @@
 import {
-  BACKGROUND_GRADIENTS,
   BORDER_RADIUS_OPTIONS,
   BORDER_RADIUS_VALUES,
   CSS_FONT_FAMILIES,
   FONT_FAMILIES,
-  HEADER_GRADIENT_VALUES,
   LAYOUT_MODES,
   SHADOW_OPTIONS,
   SHADOW_VALUES,
-  SIDEBAR_GRADIENT_VALUES,
   STYLE_VARIANTS,
   THEME_COLOR_HSL,
   THEME_COLORS,
 } from './theme-config.constants';
-import type { BackgroundGradient, ThemeConfig } from './theme-config.types';
-
-// ============================
-// Glassmorphism Color Scheme
-// ============================
-
-/**
- * Generate glassmorphism color scheme
- * Uses semi-transparent backgrounds with blur for modern glass effect
- */
-function generateGlassmorphismScheme(isDark: boolean) {
-  if (isDark) {
-    // Dark mode glassmorphism
-    return {
-      foreground: '#ffffff',
-      foregroundSecondary: '#e2e8f0',
-      accent: 'rgba(255, 255, 255, 0.1)',
-      accentForeground: '#ffffff',
-      hover: 'rgba(255, 255, 255, 0.15)',
-      active: 'rgba(255, 255, 255, 0.2)',
-      border: 'rgba(255, 255, 255, 0.1)',
-      separator: 'rgba(255, 255, 255, 0.1)',
-      overlay: 'rgba(0, 0, 0, 0.4)',
-      ring: 'rgba(255, 255, 255, 0.4)',
-      primary: '#60a5fa',
-      primaryForeground: '#0f172a',
-    };
-  } else {
-    // Light mode glassmorphism
-    return {
-      foreground: '#0f172a',
-      foregroundSecondary: '#475569',
-      accent: 'rgba(255, 255, 255, 0.5)',
-      accentForeground: '#0f172a',
-      hover: 'rgba(255, 255, 255, 0.6)',
-      active: 'rgba(255, 255, 255, 0.7)',
-      border: 'rgba(255, 255, 255, 0.3)',
-      separator: 'rgba(255, 255, 255, 0.2)',
-      overlay: 'rgba(255, 255, 255, 0.5)',
-      ring: 'rgba(15, 23, 42, 0.3)',
-      primary: '#1e40af',
-      primaryForeground: '#ffffff',
-    };
-  }
-}
+import type { ThemeConfig } from './theme-config.types';
 
 // ============================
 // CSS Variable Generation
 // ============================
-
-/**
- * Converts gradient to the appropriate mode (light/dark) based on the current theme
- */
-function convertGradientForTheme(
-  gradient: BackgroundGradient,
-  isDark: boolean
-): BackgroundGradient {
-  if (gradient === 'default') return gradient;
-
-  // Extract number from the gradient (e.g., 'light-gradient1' -> '1')
-  const match = gradient.match(/(\d+)$/);
-  if (!match) return gradient;
-
-  const number = match[1];
-
-  // Convert to appropriate mode
-  return (isDark ? `dark-gradient${number}` : `light-gradient${number}`) as BackgroundGradient;
-}
 
 /**
  * Generates CSS variables object from theme config
@@ -98,10 +32,6 @@ export function generateCSSVariables(
   if (isDark === undefined) {
     isDark = typeof window !== 'undefined' && document.documentElement.classList.contains('dark');
   }
-
-  // Convert gradients to the appropriate mode based on the current theme
-  const sidebarGradient = convertGradientForTheme(config.sidebarGradient, isDark);
-  const headerGradient = convertGradientForTheme(config.headerGradient, isDark);
 
   // Apply font family
   cssVars['--font-sans'] = CSS_FONT_FAMILIES[config.fontFamily];
@@ -203,48 +133,6 @@ export function generateCSSVariables(
   cssVars['--color-error'] = '#ef4444';
   cssVars['--color-info'] = '#06b6d4';
 
-  // Apply background gradients with a glassmorphism effect
-  if (sidebarGradient !== 'default') {
-    cssVars['--sidebar-gradient'] = SIDEBAR_GRADIENT_VALUES[sidebarGradient];
-
-    // Generate a glassmorphism color scheme
-    const glassScheme = generateGlassmorphismScheme(isDark);
-
-    cssVars['--sidebar-foreground'] = glassScheme.foreground;
-    cssVars['--sidebar-primary-foreground'] = glassScheme.foreground;
-    cssVars['--sidebar-foreground-secondary'] = glassScheme.foregroundSecondary;
-    cssVars['--sidebar-accent'] = glassScheme.accent;
-    cssVars['--sidebar-accent-foreground'] = glassScheme.accentForeground;
-    cssVars['--sidebar-hover'] = glassScheme.hover;
-    cssVars['--sidebar-active'] = glassScheme.active;
-    cssVars['--sidebar-border'] = glassScheme.border;
-    cssVars['--sidebar-separator'] = glassScheme.separator;
-    cssVars['--sidebar-overlay'] = glassScheme.overlay;
-    cssVars['--sidebar-ring'] = glassScheme.ring;
-    cssVars['--sidebar-primary'] = glassScheme.primary;
-    cssVars['--sidebar-primary-foreground'] = glassScheme.primaryForeground;
-  }
-
-  if (headerGradient !== 'default') {
-    cssVars['--header-gradient'] = HEADER_GRADIENT_VALUES[headerGradient];
-
-    // Generate a glassmorphism color scheme
-    const glassScheme = generateGlassmorphismScheme(isDark);
-
-    cssVars['--header-foreground'] = glassScheme.foreground;
-    cssVars['--header-foreground-secondary'] = glassScheme.foregroundSecondary;
-    cssVars['--header-accent'] = glassScheme.accent;
-    cssVars['--header-accent-foreground'] = glassScheme.accentForeground;
-    cssVars['--header-hover'] = glassScheme.hover;
-    cssVars['--header-active'] = glassScheme.active;
-    cssVars['--header-border'] = glassScheme.border;
-    cssVars['--header-separator'] = glassScheme.separator;
-    cssVars['--header-overlay'] = glassScheme.overlay;
-    cssVars['--header-ring'] = glassScheme.ring;
-    cssVars['--header-primary'] = glassScheme.primary;
-    cssVars['--header-primary-foreground'] = glassScheme.primaryForeground;
-  }
-
   return cssVars;
 }
 
@@ -265,7 +153,5 @@ export function randomizeConfig(): ThemeConfig {
     borderRadius: getRandomItem(BORDER_RADIUS_OPTIONS),
     shadow: getRandomItem(SHADOW_OPTIONS),
     layoutMode: getRandomItem(LAYOUT_MODES),
-    sidebarGradient: getRandomItem(BACKGROUND_GRADIENTS),
-    headerGradient: getRandomItem(BACKGROUND_GRADIENTS),
   };
 }

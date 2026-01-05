@@ -1,7 +1,6 @@
 import { createContext, type ReactNode, useEffect, useState } from 'react';
 import { DEFAULT_THEME_CONFIG } from '@/config/theme/theme-config.defaults';
 import type {
-  BackgroundGradient,
   BorderRadius,
   FontFamily,
   LayoutMode,
@@ -37,40 +36,8 @@ function loadInitialConfig(): ThemeConfig {
         configWithoutBaseColor.themeColor = 'blue';
       }
 
-      // Add default gradient values if missing
-      const validGradients = [
-        'default',
-        'light-gradient1',
-        'light-gradient2',
-        'light-gradient3',
-        'light-gradient4',
-        'light-gradient5',
-        'dark-gradient1',
-        'dark-gradient2',
-        'dark-gradient3',
-        'dark-gradient4',
-        'dark-gradient5',
-      ];
-      if (
-        !configWithoutBaseColor.sidebarGradient ||
-        !validGradients.includes(configWithoutBaseColor.sidebarGradient)
-      ) {
-        configWithoutBaseColor.sidebarGradient = DEFAULT_THEME_CONFIG.sidebarGradient;
-      }
-      if (
-        !configWithoutBaseColor.headerGradient ||
-        !validGradients.includes(configWithoutBaseColor.headerGradient)
-      ) {
-        configWithoutBaseColor.headerGradient = DEFAULT_THEME_CONFIG.headerGradient;
-      }
-
       // Save cleaned config if needed
-      if (
-        parsed.baseColor ||
-        !validThemeColors.includes(parsed.themeColor) ||
-        !parsed.sidebarGradient ||
-        !parsed.headerGradient
-      ) {
+      if (parsed.baseColor || !validThemeColors.includes(parsed.themeColor)) {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(configWithoutBaseColor));
       }
 
@@ -91,8 +58,6 @@ const initialContextValue: ThemeConfigContextValue = {
   setBorderRadius: () => null,
   setShadow: () => null,
   setLayoutMode: () => null,
-  setSidebarGradient: () => null,
-  setHeaderGradient: () => null,
   randomize: () => null,
   reset: () => null,
 };
@@ -132,27 +97,6 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
       Object.entries(cssVars).forEach(([key, value]) => {
         root.style.setProperty(key, value);
       });
-
-      // Remove gradient variables if 'default' is selected
-      if (initialConfig.sidebarGradient === 'default') {
-        root.style.removeProperty('--sidebar-gradient');
-        root.style.removeProperty('--sidebar-foreground');
-        root.style.removeProperty('--sidebar-primary-foreground');
-        root.style.removeProperty('--sidebar-accent');
-        root.style.removeProperty('--sidebar-accent-foreground');
-        root.style.removeProperty('--sidebar-ring');
-        root.style.removeProperty('--sidebar-primary');
-        root.removeAttribute('data-sidebar-gradient-active');
-      } else {
-        root.setAttribute('data-sidebar-gradient-active', 'true');
-      }
-      if (initialConfig.headerGradient === 'default') {
-        root.style.removeProperty('--header-gradient');
-        root.style.removeProperty('--header-foreground');
-        root.style.removeProperty('--header-accent');
-        root.style.removeProperty('--header-accent-foreground');
-        root.style.removeProperty('--header-primary');
-      }
     }
 
     return initialConfig;
@@ -167,27 +111,6 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
     Object.entries(cssVars).forEach(([key, value]) => {
       root.style.setProperty(key, value);
     });
-
-    // Remove gradient variables if 'default' is selected
-    if (config.sidebarGradient === 'default') {
-      root.style.removeProperty('--sidebar-gradient');
-      root.style.removeProperty('--sidebar-foreground');
-      root.style.removeProperty('--sidebar-primary-foreground');
-      root.style.removeProperty('--sidebar-accent');
-      root.style.removeProperty('--sidebar-accent-foreground');
-      root.style.removeProperty('--sidebar-ring');
-      root.style.removeProperty('--sidebar-primary');
-      root.removeAttribute('data-sidebar-gradient-active');
-    } else {
-      root.setAttribute('data-sidebar-gradient-active', 'true');
-    }
-    if (config.headerGradient === 'default') {
-      root.style.removeProperty('--header-gradient');
-      root.style.removeProperty('--header-foreground');
-      root.style.removeProperty('--header-accent');
-      root.style.removeProperty('--header-accent-foreground');
-      root.style.removeProperty('--header-primary');
-    }
   }, [config, isDarkMode]);
 
   // Listen to system theme changes when the theme is 'system'
@@ -203,27 +126,6 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
       Object.entries(cssVars).forEach(([key, value]) => {
         root.style.setProperty(key, value);
       });
-
-      // Remove gradient variables if 'default' is selected
-      if (config.sidebarGradient === 'default') {
-        root.style.removeProperty('--sidebar-gradient');
-        root.style.removeProperty('--sidebar-foreground');
-        root.style.removeProperty('--sidebar-primary-foreground');
-        root.style.removeProperty('--sidebar-accent');
-        root.style.removeProperty('--sidebar-accent-foreground');
-        root.style.removeProperty('--sidebar-ring');
-        root.style.removeProperty('--sidebar-primary');
-        root.removeAttribute('data-sidebar-gradient-active');
-      } else {
-        root.setAttribute('data-sidebar-gradient-active', 'true');
-      }
-      if (config.headerGradient === 'default') {
-        root.style.removeProperty('--header-gradient');
-        root.style.removeProperty('--header-foreground');
-        root.style.removeProperty('--header-accent');
-        root.style.removeProperty('--header-accent-foreground');
-        root.style.removeProperty('--header-primary');
-      }
     };
 
     mediaQuery.addEventListener('change', handleSystemThemeChange);
@@ -272,14 +174,6 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
     setConfig(prev => ({ ...prev, layoutMode: mode }));
   };
 
-  const setSidebarGradient = (gradient: BackgroundGradient) => {
-    setConfig(prev => ({ ...prev, sidebarGradient: gradient }));
-  };
-
-  const setHeaderGradient = (gradient: BackgroundGradient) => {
-    setConfig(prev => ({ ...prev, headerGradient: gradient }));
-  };
-
   const randomize = () => {
     const randomConfig = randomizeConfig();
     setConfig(randomConfig);
@@ -297,8 +191,6 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
     setBorderRadius,
     setShadow,
     setLayoutMode,
-    setSidebarGradient,
-    setHeaderGradient,
     randomize,
     reset,
   };

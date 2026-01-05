@@ -25,6 +25,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
+import { Textarea } from '@/components/ui/textarea.tsx';
 import { cn } from '@/utils/utils.ts';
 import {
   type AutoTransportDeclarationSchema,
@@ -159,10 +160,6 @@ export function AutoTransportForm() {
                 )}
               />
             </div>
-          </Card>
-
-          {/* Section 2: Декларация информация */}
-          <Card className="p-4 sm:p-6">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <FormField
                 control={form.control}
@@ -186,7 +183,7 @@ export function AutoTransportForm() {
                     <FormLabel>1. Тип декларации</FormLabel>
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
-                        <SelectTrigger>
+                        <SelectTrigger className="w-full">
                           <SelectValue placeholder="Выберите тип декларации" />
                         </SelectTrigger>
                       </FormControl>
@@ -203,7 +200,7 @@ export function AutoTransportForm() {
             </div>
           </Card>
 
-          {/* Section 3: Экспортёр/Грузоотправитель */}
+          {/* Section 2: Экспортёр/Грузоотправитель */}
           <Card className="p-4 sm:p-6">
             <h3 className="mb-4 font-semibold text-base">2. Экспортёр/Грузоотправитель</h3>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -243,7 +240,7 @@ export function AutoTransportForm() {
                     <FormLabel>Мамлакат</FormLabel>
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
-                        <SelectTrigger>
+                        <SelectTrigger className="w-full">
                           <SelectValue placeholder="Мамлакат танланг" />
                         </SelectTrigger>
                       </FormControl>
@@ -267,11 +264,7 @@ export function AutoTransportForm() {
                   <FormItem className="md:col-span-3">
                     <FormLabel>Қўшимча маълумот</FormLabel>
                     <FormControl>
-                      <textarea
-                        {...field}
-                        className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                        placeholder="Введите дополнительную информацию"
-                      />
+                      <Textarea {...field} placeholder="Введите дополнительную информацию" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

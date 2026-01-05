@@ -20,21 +20,6 @@ export type Shadow = 'none' | 'small' | 'default' | 'medium' | 'large';
 // Layout Mode Options
 export type LayoutMode = 'vertical' | 'horizontal' | 'compact';
 
-// Background Gradient Options
-// Separate gradients for light and dark mode
-export type BackgroundGradient =
-  | 'default'
-  | 'light-gradient1'
-  | 'light-gradient2'
-  | 'light-gradient3'
-  | 'light-gradient4'
-  | 'light-gradient5'
-  | 'dark-gradient1'
-  | 'dark-gradient2'
-  | 'dark-gradient3'
-  | 'dark-gradient4'
-  | 'dark-gradient5';
-
 // ============================
 // Configuration Interfaces
 // ============================
@@ -47,8 +32,6 @@ export interface ThemeConfig {
   borderRadius: BorderRadius;
   shadow: Shadow;
   layoutMode: LayoutMode;
-  sidebarGradient: BackgroundGradient;
-  headerGradient: BackgroundGradient;
 }
 
 // Context value interface
@@ -60,8 +43,6 @@ export interface ThemeConfigContextValue {
   setBorderRadius: (radius: BorderRadius) => void;
   setShadow: (shadow: Shadow) => void;
   setLayoutMode: (mode: LayoutMode) => void;
-  setSidebarGradient: (gradient: BackgroundGradient) => void;
-  setHeaderGradient: (gradient: BackgroundGradient) => void;
   randomize: () => void;
   reset: () => void;
 }
