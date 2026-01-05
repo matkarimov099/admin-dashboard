@@ -130,17 +130,17 @@ export function RadioOptions({
             className={cn(
               'group flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-2 transition-all',
               // Border colors
-              isSelected
-                ? 'border-[var(--color-primary)]'
-                : 'border-gray-300 dark:border-gray-600',
+              isSelected ? 'border-(--color-primary)' : 'border-gray-300 dark:border-gray-600',
               // Background colors
               isSelected
                 ? 'bg-[color-mix(in_srgb,var(--color-primary)_15%,transparent)]'
                 : 'bg-background',
-              // Hover states - theme color based background only
-              !isSelected && !option.disabled && 'hover:bg-[color-mix(in_srgb,var(--color-primary)_5%,transparent)]',
+              // Hover states - theme color-based background only
+              !isSelected &&
+                !option.disabled &&
+                'hover:bg-[color-mix(in_srgb,var(--color-primary)_5%,transparent)]',
               // Shadow
-              'hover:shadow-md',
+              'hover:shadow-sm',
               // Disabled state
               option.disabled && 'cursor-not-allowed opacity-50'
             )}

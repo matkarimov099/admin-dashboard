@@ -82,7 +82,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           {loading ? (
             <div className="flex items-center justify-center">
               <Spinner
-                className={cn('!size-4', prefersReducedMotion ? '' : 'animate-spin')}
+                className={cn('size-4!', prefersReducedMotion ? '' : 'animate-spin')}
                 aria-hidden="true"
               />
               {(loadingText || children) && (

@@ -122,10 +122,7 @@
       "vehicleRegistrationNumber": {
         "required": "Давлат рақами киритилиши шарт"
       },
-      "vehicleRegistrationCountry": {
-        "required": "Рўйхатдан ўтган мамлакат танланиши шарт"
-      },
-      "vehicleModel": {
+      "vehicleBrand": {
         "required": "Модели ва маркаси киритилиши шарт"
       },
       "vinNumber": {
@@ -256,5 +253,69 @@
       },
       "submit": "Шакллантириш"
     }
+  },
+
+  "declarationForm": {
+    "title": "Юк божхона декларацияси",
+    "header": "Умумий маълумотлар",
+    "note": "Изоҳ",
+    "notePlaceholder": "Изоҳни киритинг",
+    "noteInfo": "Декларацияга қўшимча изоҳ",
+    "status": "Декларация статуси",
+    "statusPlaceholder": "Статусни танланг",
+    "statusInfo": "Декларация статуси тўғрисида маълумот",
+    "version": "Версия",
+    "versionInfo": "Версия тўғрисида маълумот",
+    "versionWorking": "Ишчи",
+    "versionFormatted": "Расмийлаштирилган",
+    "versionCancelled": "Бекор қилинган",
+    "versionDraft": "Қуллама",
+    "declarationNumber": "Юк божхона декларацияси №",
+    "declarationNumberPlaceholder": "Декларация рақамини киритинг",
+    "declarationNumberInfo": "Рўйхатдан ўтказилганда бериладиган юк божхона декларациясининг нойоб рақами",
+    "declarationType": "1. Декларация тури",
+    "declarationTypePlaceholder": "Декларация турини танланг",
+    "declarationTypeInfo": "Декларация тури тўғрисида маълумот",
+    "declarationTypeExport": "Экспорт",
+    "declarationTypeReexport": "Реэкспорт",
+    "declarationTypeImport": "Эркин муомалага чиқариш",
+    "exporterName": "Номи",
+    "exporterNamePlaceholder": "Ташкилот номини киритинг",
+    "exporterNameInfo": "Экспортёр компаниясининг тўлиқ юридик номи",
+    "exporterAddress": "Манзил",
+    "exporterAddressPlaceholder": "Манзилни киритинг",
+    "exporterAddressInfo": "Экспортёр компаниясининг ҳақиқий манзили",
+    "exporterCountry": "Мамлакат",
+    "exporterCountryPlaceholder": "Мамлакатни танланг",
+    "exporterCountryInfo": "Юк жўнатиладиган мамлакат (мамлакатлар таснифлагичи бўйича код)",
+    "exporterAdditionalInfo": "Қўшимча маълумот",
+    "exporterAdditionalInfoPlaceholder": "Қўшимча маълумотни киритинг",
+    "exporterAdditionalInfoInfo": "Экспортёр ҳақида қўшимча маълумот (ИНН, ОКПО ва бошқа маълумотлар)",
+    "additionalSheet": "3. Қўшимча варақ",
+    "additionalSheetPlaceholder": "1/1",
+    "additionalSheetInfo": "Қўшимча варақ тўғрисида маълумот",
+    "specialDispatch": "4. Ed.Spec",
+    "specialDispatchPlaceholder": "Тўлдирилмайди",
+    "specialDispatchInfo": "Майдон тўлдирилмайди",
+    "totalItems": "5. Товар умумий номи",
+    "totalItemsPlaceholder": "Номи умумий сони",
+    "totalItemsInfo": "Номи умумий сони тўғрисида маълумот",
+    "totalPlaces": "6. Жойлар сони",
+    "totalPlacesPlaceholder": "Тўлдирилмайди",
+    "totalPlacesInfo": "Майдон тўлдирилмайди",
+    "customsPost": "Божхона постини танланг",
+    "customsPostPlaceholder": "Постни танланг",
+    "date": "Сана",
+    "datePlaceholder": "ДД.ММ.ГГГГ",
+    "registrationNumber": "Рўйхатдан ўтиш рақами",
+    "registrationNumberPlaceholder": "Рақамни киритинг",
+    "sendButton": "BYuD ни юбориш",
+    "sendButtonInfo": "Божхона қийматлари рўйхатига BYuD ни юбориш",
+    "deleteButton": "Олиб ташлаш",
+    "deleteButtonInfo": "Божхона декларациясини божхона қийматлари рўйхатидан олиб ташлаш",
+    "sendButtonShort": "Юбориш",
+    "deleteButtonShort": "Delete",
+    "cancel": "Бекор қилиш",
+    "save": "Сақлаш"
   }
 }

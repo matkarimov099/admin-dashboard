@@ -1,11 +1,19 @@
-import { enUS } from 'date-fns/locale';
+import type { Month } from 'date-fns';
+import { enUS, type Locale, ru, uz, uzCyrl } from 'date-fns/locale';
 import { ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import * as React from 'react';
 import { type DayButton, DayPicker, getDefaultClassNames } from 'react-day-picker';
-
 import { Button } from '@/components/ui/button';
 import { buttonVariants } from '@/components/ui/button-variants.tsx';
 import { cn } from '@/utils/utils';
+
+// Short weekday names for all languages
+const shortWeekdays = {
+  en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+  ru: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+  uz: ['Yak', 'Dush', 'Sesh', 'Chor', 'Pay', 'Jum', 'Shan'],
+  uzcyrl: ['Як', 'Душ', 'Сеш', 'Чор', 'Пай', 'Жум', 'Шан'],
+};
 
 function Calendar({
   className,
@@ -13,6 +21,7 @@ function Calendar({
   showOutsideDays = true,
   captionLayout = 'label',
   buttonVariant = 'ghost',
+  language = 'en',
   formatters,
   components,
   size = 'default',
@@ -20,15 +29,59 @@ function Calendar({
 }: React.ComponentProps<typeof DayPicker> & {
   buttonVariant?: React.ComponentProps<typeof Button>['variant'];
   size?: 'default' | 'large' | 'full';
+  language?: string;
 }) {
   const defaultClassNames = getDefaultClassNames();
 
+  // Map language to date-fns locale object
+  const getDateFnsLocale = (lang: string) => {
+    switch (lang) {
+      case 'uz':
+        return uz;
+      case 'uzcyrl':
+        return uzCyrl;
+      case 'ru':
+        return ru;
+      case 'en':
+      default:
+        return enUS;
+    }
+  };
+
+  const locale = getDateFnsLocale(language);
+
+  // Map language code to BCP 47 locale code for toLocaleString
+  const getLocaleCode = (lang: string): string => {
+    switch (lang) {
+      case 'uz':
+        return 'uz-Latn';
+      case 'uzcyrl':
+        return 'uz-Cyrl';
+      case 'ru':
+        return 'ru-RU';
+      case 'en':
+      default:
+        return 'en-US';
+    }
+  };
+
+  const localeCode = getLocaleCode(language);
+
+  // Get short weekday names for the current language
+  const getShortWeekday = (date: Date): string => {
+    const dayIndex = date.getDay();
+    return (
+      shortWeekdays[language as keyof typeof shortWeekdays]?.[dayIndex] ||
+      shortWeekdays.en[dayIndex]
+    );
+  };
+
   return (
     <DayPicker
-      locale={enUS}
+      locale={locale}
       showOutsideDays={showOutsideDays}
       className={cn(
-        'group/calendar bg-background p-1 [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent',
+        'group/calendar bg-background in-data-[slot=card-content]:bg-transparent in-data-[slot=popover-content]:bg-transparent p-1',
         size === 'default' && '[--cell-size:--spacing(8)]',
         size === 'large' && '[--cell-size:--spacing(10)]',
         size === 'full' && 'w-full [--cell-size:--spacing(12)]',
@@ -39,7 +92,17 @@ function Calendar({
       captionLayout={captionLayout}
       formatters={{
         formatMonthDropdown: date => {
-          return date.toLocaleString('en', { month: 'short' });
+          // Use locale's own month formatting if available
+          const localeWithMonth = locale as Locale;
+          if (localeWithMonth.localize?.month) {
+            return localeWithMonth.localize.month(date.getMonth() as Month);
+          }
+          // Fallback to toLocaleString
+          return date.toLocaleString(localeCode, { month: 'long' });
+        },
+        formatWeekdayName: date => {
+          // Always use short weekday names from our custom mapping
+          return getShortWeekday(date);
         },
         ...formatters,
       }}

@@ -245,6 +245,45 @@
     "system": "Tizim",
     "toggle": "Tema almashtirish"
   },
+  "calendar": {
+    "months": [
+      "Yanvar",
+      "Fevral",
+      "Mart",
+      "Aprel",
+      "May",
+      "Iyun",
+      "Iyul",
+      "Avgust",
+      "Sentabr",
+      "Oktabr",
+      "Noyabr",
+      "Dekabr"
+    ],
+    "monthsShort": [
+      "Yan",
+      "Fev",
+      "Mar",
+      "Apr",
+      "May",
+      "Iyn",
+      "Iyl",
+      "Avg",
+      "Sen",
+      "Okt",
+      "Noy",
+      "Dek"
+    ],
+    "weekdays": [
+      "Yak",
+      "Dush",
+      "Sesh",
+      "Chor",
+      "Pay",
+      "Jum",
+      "Shan"
+    ]
+  },
   "active-users": {
     "title": "Foydalanuvchilar",
     "registered": "Ro'yxatdan o'tgan foydalanuvchilar",

@@ -1,5 +1,7 @@
+import { InfoIcon } from 'lucide-react';
 import type * as React from 'react';
 
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { cn } from '@/utils/utils';
 
 function Card({ className, ...props }: React.ComponentProps<'div'>) {
@@ -28,13 +30,36 @@ function CardHeader({ className, ...props }: React.ComponentProps<'div'>) {
   );
 }
 
-function CardTitle({ className, ...props }: React.ComponentProps<'div'>) {
+interface CardTitleProps extends React.ComponentProps<'div'> {
+  infoTitle?: React.ReactNode;
+}
+
+function CardTitle({ className, infoTitle, children, ...props }: CardTitleProps) {
   return (
     <div
       data-slot="card-title"
-      className={cn('font font-semibold text-primary leading-none', className)}
+      className={cn(
+        'font flex items-center gap-2 font-semibold text-primary leading-none',
+        className
+      )}
       {...props}
-    />
+    >
+      {children}
+      {infoTitle && (
+        <Popover>
+          <PopoverTrigger asChild>
+            <InfoIcon
+              strokeWidth={2.2}
+              className="h-4 w-4 shrink-0 cursor-help"
+              style={{ color: 'var(--color-primary)' }}
+            />
+          </PopoverTrigger>
+          <PopoverContent className="max-h-[60vh] w-fit max-w-xl overflow-y-auto">
+            {typeof infoTitle === 'string' ? <p className="text-sm">{infoTitle}</p> : infoTitle}
+          </PopoverContent>
+        </Popover>
+      )}
+    </div>
   );
 }
 
