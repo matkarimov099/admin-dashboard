@@ -316,6 +316,87 @@
     "sendButtonShort": "Yuborish",
     "deleteButtonShort": "Delete",
     "cancel": "Bekor qilish",
-    "save": "Saqlash"
+    "save": "Saqlash",
+    "exporterSectionTitle": "2. Eksportyer/Yuk jo'natuvchi",
+    "infoNumberTitle": "7. Ma'lumot raqami",
+
+    "infoLabel": {
+      "noteInfo": "Deklaratsiyaga qo'shimcha izoh",
+      "statusInfo": {
+        "title": "Deklaratsiya statuslari:",
+        "new": "Birlamchi deklaratsiya topshirish",
+        "reregistration": "Tovar chiqarilishidan oldin ma'lumotlarni o'zgartirish",
+        "redesign": "Tovarlar chiqarilgandan keyin ma'lumotlarni o'zgartirish"
+      },
+      "versionInfo": {
+        "title": "Deklaratsiya versiyalari:",
+        "working": "Qoralama, to'ldirilmoqda",
+        "formatted": "Topshirishga tayyor deklaratsiya",
+        "cancelled": "Bekor qilingan deklaratsiya",
+        "draft": "To'ldirishning boshlang'ich bosqichi"
+      },
+      "declarationNumberInfo": "Ro'yxatdan o'tkazilganda beriladigan yuk bojxona deklaratsiyasining noyob raqami",
+      "declarationTypeInfo": {
+        "title": "1. Deklaratsiya turi",
+        "subsection1": "Birinchi bo'limda tovarlarning ko'chirilish yo'nalishi ko'rsatiladi — «IM»",
+        "subsection2": "Ikkinchi bo'limda bojxona rejimining ikki xonali kodi Bojxona rejimlari klassifikatoriga ko'ra ko'rsatiladi",
+        "subsection3": "Uchinchi bo'lim to'ldirilmaydi"
+      },
+      "exporterNameInfo": "Eksportyer kompaniyasining to'liq yuridik nomi",
+      "exporterAddressInfo": "Eksportyer kompaniyasining haqiqiy manzili",
+      "exporterCountryInfo": "Yuk jo'natiladigan mamlakat (mamlakatlar tasniflagichi bo'yicha kod)",
+      "exporterAdditionalInfoInfo": "Eksportyer haqida qo'shimcha ma'lumot (INN, OKPO va boshqa ma'lumotlar)",
+      "exporterSectionInfo": {
+        "title": "2. Eksportyer/yuk jo'natuvchi",
+        "description": "Transport hujjatlarida yuk jo'natuvchi sifatida ko'rsatilgan shaxs haqida ma'lumotlar kiritiladi.",
+        "label": "Qismda ko'rsatiladi:",
+        "individualPerson": {
+          "title": "Agar yuk jo'natuvchi jismoniy shaxs bo'lsa:",
+          "description": "jismoniy shaxsning familiyasi, ismi, sharifi, yashash joyi (dunyo mamlakatlari klassifikatoriga ko'ra mamlakatning qisqa nomi va manzil)"
+        },
+        "legalEntity": {
+          "title": "Agar yuk jo'natuvchi yuridik shaxs bo'lsa:",
+          "description": "uning qisqa nomi va joylashuvi (dunyo mamlakatlari klassifikatoriga ko'ra mamlakatning qisqa nomi va manzil)"
+        },
+        "exampleLabel": "Masalan:",
+        "individualPersonExample": "Jismoniy shaxs:",
+        "individualPersonExampleText": "\"Alibayev Nuridin Kamalovich\nQozog'iston, Olmaota shahri, Suyunbay prospekti, 450-uy\"",
+        "legalEntityExample": "Yuridik shaxs:",
+        "legalEntityExampleText": "\"\"Ros-Torg\" MCHJ\nRossiya, Ivanovo shahri, Smirnov ko'chasi, 62-uy\"",
+        "additionalInfo": "Agar yuk jo'natuvchi tovarni boshqa shaxs topshirig'i bilan yuborsa yoki boshqa o'xshash holatlarda qismda avval yuk jo'natuvchining qisqa nomi va joylashuvi (yuridik manzil), keyin topshiruvchi shaxsning qisqa nomi va joylashuvi (yuridik manzil) ko'rsatiladi.",
+        "additionalExample": "\"\"Ros-Torg\" MCHJ\nRossiya, Ximki shahri, Karlova ko'chasi, 362-uy\n\"Faraon\" MCHJ topshirig'i bilan\nRossiya, Moskva shahri, Katta Polyanka ko'chasi, 563\"",
+        "note1": "Elektron BYuD'da jo'natuvchi va jo'natuvchi tomonidan qabul qilingan tovar haqida (BYuDning 9-grafasida ko'rsatilgan shaxs bilan tashqi savdo shartnomasi (shartnoma, bitim) tuzgan shaxs) va boshqa ma'lumotlar tovarga hamroh bo'luvchi hujjatlarda ko'rsatilgan har bir ma'lumot alohida ajratilgan maydonda ko'rsatiladi.",
+        "note2": "Qog'oz shaklida tovarlarni deklaratsiyalashda qo'shimcha varaqda qism to'ldirilmaydi."
+      },
+      "additionalSheetInfo": {
+        "title": "3. Qo'shimcha varaq",
+        "description": "Birinchi bo'limda varaqning tartib raqami, ikkinchi bo'limda asosiy va barcha qo'shimcha varaqlarni o'z ichiga olgan holda taqdim etiladigan BYuD varaqlarining umumiy soni ko'rsatiladi.",
+        "exampleLabel": "Masalan:",
+        "example1": "Agar ikkita qo'shimcha varaq bilan bitta BYuD bo'lsa, BYuD o'zida — «1/3», birinchi qo'shimcha varaqda — «2/3», ikkinchisida — «3/3» ko'rsatilishi kerak",
+        "example2": "Agar BYUdda qo'shimcha varaq bo'lmasa, «1/1» ko'rsatiladi",
+        "note": "Elektron shaklda tovarlarni deklaratsiyalashda qismda, ushbu bobda belgilangan tartibda, varaqning tartib raqami va BYuD varaqlarining umumiy soni ko'rsatiladi, agar elektron BYuD qog'ozga chop etilsa."
+      },
+      "totalItemsInfo": {
+        "title": "5. Tovar umumiy nomi",
+        "description": "Qismda BYUding 31-grafasida ko'rsatilgan tovarlarning umumiy soni ko'rsatiladi. Bu son BYUding 31-grafasining to'ldirilgan soniga mos kelishi kerak.",
+        "note": "Eslatma: 31-grafadagi har bir tovar pozitsiyasi alohida nom sifatida hisoblanadi"
+      },
+      "totalPlacesInfo": "Maydon to'ldirilmaydi",
+      "specialDispatchInfo": "Maydon to'ldirilmaydi",
+      "customsPostInfo": {
+        "title": "7. BYuD ro'yxatdan o'tish raqami",
+        "description": "Qismda BYuD topshiriladigan bojxona postining ",
+        "description2": "besh xonali raqamli kodi",
+        "description3": "Bojxona postlari klassifikatoriga ko'ra ko'rsatiladi.",
+        "exampleLabel": "Kod misoli:",
+        "note": "Kod 5 raqamdan iborat va tovarlarni rasmiylashtiriladigan bojxona postida belgilanadi"
+      },
+      "fieldNotFilledInfo": {
+        "warning": "Diqqat!",
+        "message": "Ushbu rejimda bu qism to'ldirilmaydi!"
+      },
+      "sendToRegisterInfo": "Bojxona qiymatlari reestriga BYuD ni yuborish",
+      "deleteFromRegisterInfo": "Bojxona deklaratsiyasini bojxona qiymatlari registridan olib tashlash"
+    }
   }
 }

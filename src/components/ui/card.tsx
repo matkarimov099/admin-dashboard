@@ -54,7 +54,7 @@ function CardTitle({ className, infoTitle, children, ...props }: CardTitleProps)
               style={{ color: 'var(--color-primary)' }}
             />
           </PopoverTrigger>
-          <PopoverContent className="max-h-[60vh] w-fit max-w-xl overflow-y-auto">
+          <PopoverContent className="max-h-[60vh] w-[calc(100vw-2rem)] sm:w-fit md:max-w-md lg:max-w-xl overflow-y-auto">
             {typeof infoTitle === 'string' ? <p className="text-sm">{infoTitle}</p> : infoTitle}
           </PopoverContent>
         </Popover>

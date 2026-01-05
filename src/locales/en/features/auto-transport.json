@@ -316,6 +316,87 @@
     "sendButtonShort": "Send",
     "deleteButtonShort": "Delete",
     "cancel": "Cancel",
-    "save": "Save"
+    "save": "Save",
+    "exporterSectionTitle": "2. Exporter/Consignor",
+    "infoNumberTitle": "7. Registration Number",
+
+    "infoLabel": {
+      "noteInfo": "Additional note to the declaration",
+      "statusInfo": {
+        "title": "Declaration statuses:",
+        "new": "Initial declaration submission",
+        "reregistration": "Change of goods information before release",
+        "redesign": "Change of information after goods release"
+      },
+      "versionInfo": {
+        "title": "Declaration versions:",
+        "working": "Draft, in progress of filling",
+        "formatted": "Declaration ready for submission",
+        "cancelled": "Cancelled declaration",
+        "draft": "Initial stage of filling"
+      },
+      "declarationNumberInfo": "Unique number of the customs declaration assigned upon registration",
+      "declarationTypeInfo": {
+        "title": "1. Declaration Type",
+        "subsection1": "The first subdivision indicates the direction of goods movement — «IM»",
+        "subsection2": "The second subdivision indicates the two-digit customs regime code according to the Customs Regimes Classifier",
+        "subsection3": "the third subdivision is not filled"
+      },
+      "exporterNameInfo": "Full legal name of the exporter company",
+      "exporterAddressInfo": "Actual address of the exporter company",
+      "exporterCountryInfo": "Country of dispatch of goods (code according to countries classifier)",
+      "exporterAdditionalInfoInfo": "Additional information about the exporter (TIN, OKPO and other details)",
+      "exporterSectionInfo": {
+        "title": "2. Exporter/Consignor",
+        "description": "The graph indicates information about the person specified in the transport documents as the sender of goods.",
+        "label": "The graph indicates:",
+        "individualPerson": {
+          "title": "If the consignor is an individual person:",
+          "description": "surname, first name, patronymic of the individual person, his place of residence (short name of the country according to the World Countries Classifier and address)"
+        },
+        "legalEntity": {
+          "title": "If the consignor is a legal entity:",
+          "description": "its short name and location (short name of the country according to the World Countries Classifier and address)"
+        },
+        "exampleLabel": "For example:",
+        "individualPersonExample": "Individual person:",
+        "individualPersonExampleText": "\"Alibaev Nuridin Kamalovich\nKazakhstan, Almaty, Suyunbay Avenue, house 450\"",
+        "legalEntityExample": "Legal entity:",
+        "legalEntityExampleText": "\"LLC \"Ros-Torg\"\nRussia, Ivanovo, Smirnov street, 62\"",
+        "additionalInfo": "If the consignor sends the goods on behalf of another person or in other similar cases, the graph first indicates the short name and location (legal address) of the consignor, then the short name and location (legal address) of the person on whose behalf the sender sends the goods.",
+        "additionalExample": "\"LLC \"Ros-Torg\"\nRussia, Khimki, Karlova street, 362\non behalf of LLC \"Faraon\"\nRussia, Moscow, Bolshaya Polyanka street, 563\"",
+        "note1": "In the electronic GTD, each piece of information about the sender and the person on whose behalf the sender accepts the goods (the person who concluded the foreign trade contract (agreement, agreement) with the person indicated in column 9 of the GTD) and other persons indicated in the accompanying documents is indicated in a separate field.",
+        "note2": "When declaring goods in paper form, the graph is not filled in on additional sheets."
+      },
+      "additionalSheetInfo": {
+        "title": "3. Additional sheets",
+        "description": "The first subdivision indicates the serial number of the sheet, the second — the total number of GTD sheets presented, including the main and all additional sheets.",
+        "exampleLabel": "For example:",
+        "example1": "If there is one GTD with two additional sheets, the GTD itself should indicate — «1/3», in the first additional sheet — «2/3», in the second — «3/3»",
+        "example2": "If the GTD has no additional sheets, «1/1» is indicated",
+        "note": "When declaring goods in electronic form, the column indicates the serial number of the sheet and the total number of GTD sheets, in the order established in this subparagraph, if the electronic GTD were printed on paper."
+      },
+      "totalItemsInfo": {
+        "title": "5. Total item names",
+        "description": "The column indicates the total number of item names specified in columns 31 of the GTD. This number must correspond to the number of filled columns 31 of the GTD.",
+        "note": "Note: Each item position in column 31 is considered a separate name"
+      },
+      "totalPlacesInfo": "Field not filled",
+      "specialDispatchInfo": "Field not filled",
+      "customsPostInfo": {
+        "title": "7. GTD registration number",
+        "description": "The column indicates the ",
+        "description2": "five-digit numeric code",
+        "description3": "of the customs post to which the GTD will be submitted, according to the Classifier of customs posts.",
+        "exampleLabel": "Code example:",
+        "note": "The code consists of 5 digits and is determined by the customs post where the goods are processed"
+      },
+      "fieldNotFilledInfo": {
+        "warning": "Attention!",
+        "message": "In this mode, this column is not filled!"
+      },
+      "sendToRegisterInfo": "Send customs value declaration to customs values register",
+      "deleteFromRegisterInfo": "Remove customs declaration from customs values register"
+    }
   }
 }

@@ -1,4 +1,8 @@
+import { useTranslations } from '@/hooks/use-translations';
+
 export function FieldNotFilledInfo() {
+  const { t } = useTranslations();
+
   return (
     <div className="space-y-2 text-sm">
       <div className="flex items-center gap-2 text-amber-600 dark:text-amber-500">
@@ -14,9 +18,9 @@ export function FieldNotFilledInfo() {
             clipRule="evenodd"
           />
         </svg>
-        <p className="font-semibold">Внимание!</p>
+        <p className="font-semibold">{t('declarationForm.infoLabel.fieldNotFilledInfo.warning')}</p>
       </div>
-      <p className="text-muted-foreground">В этом режиме данная графа не заполняется!</p>
+      <p className="text-muted-foreground">{t('declarationForm.infoLabel.fieldNotFilledInfo.message')}</p>
     </div>
   );
 }

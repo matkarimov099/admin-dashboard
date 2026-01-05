@@ -27,6 +27,7 @@ import {
 import { Separator } from '@/components/ui/separator';
 import { Textarea } from '@/components/ui/textarea.tsx';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { useTranslations } from '@/hooks/use-translations';
 import { customsPosts } from '@/data/posts';
 import { cn } from '@/utils/utils.ts';
 import {
@@ -85,6 +86,7 @@ const defaultValues: AutoTransportDeclarationSchema = {
 };
 
 export function AutoTransportForm() {
+  const { t } = useTranslations();
   const form = useForm<AutoTransportDeclarationSchema>({
     resolver: zodResolver(autoTransportDeclarationSchema),
     defaultValues,
@@ -102,7 +104,7 @@ export function AutoTransportForm() {
       <div className="mb-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <TruckIcon className="size-6 text-primary" />
-          <h1 className="font-bold text-md">Грузовая Таможенная Декларация</h1>
+          <h1 className="font-bold text-md">{t('declarationForm.title')}</h1>
         </div>
       </div>
 
@@ -119,11 +121,11 @@ export function AutoTransportForm() {
                     name="header.declarationNumber"
                     render={({ field }) => (
                       <FormItem className="w-full">
-                        <FormLabel infoLabel="Дополнительное примечание к декларации">
-                          Примечание
+                        <FormLabel infoLabel={t('declarationForm.infoLabel.noteInfo')}>
+                          {t('declarationForm.note')}
                         </FormLabel>
                         <FormControl>
-                          <Input {...field} placeholder="Введите примечание" />
+                          <Input {...field} placeholder={t('declarationForm.notePlaceholder')} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -138,11 +140,11 @@ export function AutoTransportForm() {
                     name="header.typeCode"
                     render={({ field }) => (
                       <FormItem className="w-full">
-                        <FormLabel infoLabel={<DeclarationStatusInfo />}>Статус декларация</FormLabel>
+                        <FormLabel infoLabel={<DeclarationStatusInfo />}>{t('declarationForm.status')}</FormLabel>
                         <Select onValueChange={field.onChange} value={field.value}>
                           <FormControl>
                             <SelectTrigger className="w-full">
-                              <SelectValue placeholder="Статус танланг" />
+                              <SelectValue placeholder={t('declarationForm.statusPlaceholder')} />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
@@ -164,14 +166,14 @@ export function AutoTransportForm() {
                     name="header.version"
                     render={({ field }) => (
                       <FormItem className="w-full">
-                        <FormLabel infoLabel={<VersionInfo />}>Версия</FormLabel>
+                        <FormLabel infoLabel={<VersionInfo />}>{t('declarationForm.version')}</FormLabel>
                         <FormControl>
                           <RadioOptions
                             options={[
-                              { value: 'working', label: 'Рабочая' },
-                              { value: 'formatted', label: 'Оформленная' },
-                              { value: 'cancelled', label: 'Аннулированная' },
-                              { value: 'draft', label: 'Черновик' },
+                              { value: 'working', label: t('declarationForm.versionWorking') },
+                              { value: 'formatted', label: t('declarationForm.versionFormatted') },
+                              { value: 'cancelled', label: t('declarationForm.versionCancelled') },
+                              { value: 'draft', label: t('declarationForm.versionDraft') },
                             ]}
                             value={field.value}
                             onValueChange={field.onChange}
@@ -192,11 +194,11 @@ export function AutoTransportForm() {
                   name="header.declarationNumber"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel infoLabel="Уникальный номер таможенной декларации, присваиваемый при регистрации">
-                        Грузовая Таможенная Декларация №
+                      <FormLabel infoLabel={t('declarationForm.declarationNumberInfo')}>
+                        {t('declarationForm.declarationNumber')}
                       </FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder="Введите номер декларации" />
+                        <Input {...field} placeholder={t('declarationForm.declarationNumberPlaceholder')} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -208,17 +210,17 @@ export function AutoTransportForm() {
                   name="header.declarationType"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel infoLabel={<DeclarationTypeInfo />}>1. Тип декларации</FormLabel>
+                      <FormLabel infoLabel={<DeclarationTypeInfo />}>{t('declarationForm.declarationType')}</FormLabel>
                       <Select onValueChange={field.onChange} value={field.value}>
                         <FormControl>
                           <SelectTrigger className="w-full">
-                            <SelectValue placeholder="Выберите тип декларации" />
+                            <SelectValue placeholder={t('declarationForm.declarationTypePlaceholder')} />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="EKS">Экспорт</SelectItem>
-                          <SelectItem value="RE">Реэкспорт</SelectItem>
-                          <SelectItem value="IM">Выпуск для свободного обращения</SelectItem>
+                          <SelectItem value="EKS">{t('declarationForm.declarationTypeExport')}</SelectItem>
+                          <SelectItem value="RE">{t('declarationForm.declarationTypeReexport')}</SelectItem>
+                          <SelectItem value="IM">{t('declarationForm.declarationTypeImport')}</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
@@ -232,7 +234,7 @@ export function AutoTransportForm() {
             {/* Section 2: Exporter/Shipper */}
             <Card className="p-4 sm:p-6">
               <CardTitle infoTitle={<ExporterSectionInfo />}>
-                2. Экспортёр/Грузоотправитель
+                {t('declarationForm.exporterSectionTitle')}
               </CardTitle>
               <CardContent className="flex flex-col gap-4 p-4">
                 <FormField
@@ -240,11 +242,11 @@ export function AutoTransportForm() {
                   name="exporter.name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel infoLabel="Полное юридическое название компании экспортера">
-                        Номи
+                      <FormLabel infoLabel={t('declarationForm.infoLabel.exporterNameInfo')}>
+                        {t('declarationForm.exporterName')}
                       </FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder="Введите название компании" />
+                        <Input {...field} placeholder={t('declarationForm.exporterNamePlaceholder')} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -256,9 +258,9 @@ export function AutoTransportForm() {
                   name="exporter.address"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel infoLabel="Фактический адрес компании экспортера">Адрес</FormLabel>
+                      <FormLabel infoLabel={t('declarationForm.infoLabel.exporterAddressInfo')}>{t('declarationForm.exporterAddress')}</FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder="Введите адрес компании" />
+                        <Input {...field} placeholder={t('declarationForm.exporterAddressPlaceholder')} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -270,13 +272,13 @@ export function AutoTransportForm() {
                   name="countryDetails.departureCountry"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel infoLabel="Страна отправления товаров (код по классификатору стран)">
-                        Мамлакат
+                      <FormLabel infoLabel={t('declarationForm.infoLabel.exporterCountryInfo')}>
+                        {t('declarationForm.exporterCountry')}
                       </FormLabel>
                       <Select onValueChange={field.onChange} value={field.value}>
                         <FormControl>
                           <SelectTrigger className="w-full">
-                            <SelectValue placeholder="Мамлакат танланг" />
+                            <SelectValue placeholder={t('declarationForm.exporterCountryPlaceholder')} />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
@@ -297,11 +299,11 @@ export function AutoTransportForm() {
                   name="exporter.inn"
                   render={({ field }) => (
                     <FormItem className="md:col-span-3">
-                      <FormLabel infoLabel="Дополнительная информация об экспортере (ИНН, ОКПО и другие реквизиты). Дополнительная информация об экспортере (ИНН, ОКПО и другие реквизиты)">
-                        Қўшимча маълумот
+                      <FormLabel infoLabel={t('declarationForm.infoLabel.exporterAdditionalInfoInfo')}>
+                        {t('declarationForm.exporterAdditionalInfo')}
                       </FormLabel>
                       <FormControl>
-                        <Textarea {...field} placeholder="Введите дополнительную информацию" />
+                        <Textarea {...field} placeholder={t('declarationForm.exporterAdditionalInfoPlaceholder')} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -318,9 +320,9 @@ export function AutoTransportForm() {
                   name="header.additionalSheet"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel infoLabel={<AdditionalSheetInfo />}>3. Qo'shimcha varaq</FormLabel>
+                      <FormLabel infoLabel={<AdditionalSheetInfo />}>{t('declarationForm.additionalSheet')}</FormLabel>
                       <FormControl>
-                        <Input {...field} type="number" placeholder="1/1" />
+                        <Input {...field} type="number" placeholder={t('declarationForm.additionalSheetPlaceholder')} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -332,9 +334,9 @@ export function AutoTransportForm() {
                   name="header.specialDispatch"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel infoLabel={<FieldNotFilledInfo />}>4. Ed.Spec</FormLabel>
+                      <FormLabel infoLabel={<FieldNotFilledInfo />}>{t('declarationForm.specialDispatch')}</FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder="Не заполняется" disabled />
+                        <Input {...field} placeholder={t('declarationForm.specialDispatchPlaceholder')} disabled />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -346,9 +348,9 @@ export function AutoTransportForm() {
                   name="header.totalItemsNamed"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel infoLabel={<TotalItemNamesInfo />}>5. Tovar umumiy nomi</FormLabel>
+                      <FormLabel infoLabel={<TotalItemNamesInfo />}>{t('declarationForm.totalItems')}</FormLabel>
                       <FormControl>
-                        <Input {...field} type="number" placeholder="Общее число наименований" />
+                        <Input {...field} type="number" placeholder={t('declarationForm.totalItemsPlaceholder')} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -360,9 +362,9 @@ export function AutoTransportForm() {
                   name="header.totalPlaces"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel infoLabel={<FieldNotFilledInfo />}>6. Joylar soni</FormLabel>
+                      <FormLabel infoLabel={<FieldNotFilledInfo />}>{t('declarationForm.totalPlaces')}</FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder="Не заполняется" disabled />
+                        <Input {...field} placeholder={t('declarationForm.totalPlacesPlaceholder')} disabled />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -373,7 +375,7 @@ export function AutoTransportForm() {
           </div>
           {/*Section 4: Information number */}
           <Card className="p-4 sm:p-6">
-            <CardTitle infoTitle={<CustomsPostCodeInfo />}>7. Ma'lumot raqami</CardTitle>
+            <CardTitle infoTitle={<CustomsPostCodeInfo />}>{t('declarationForm.infoNumberTitle')}</CardTitle>
             <CardContent className="p-4">
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
                 {/* Customs Post-Select */}
@@ -383,11 +385,11 @@ export function AutoTransportForm() {
                     name="header.customsPost"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Божхона постини танланг</FormLabel>
+                        <FormLabel>{t('declarationForm.customsPost')}</FormLabel>
                         <Select onValueChange={field.onChange} value={field.value}>
                           <FormControl>
                             <SelectTrigger className="w-full">
-                              <SelectValue placeholder="Пост танланг" />
+                              <SelectValue placeholder={t('declarationForm.customsPostPlaceholder')} />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
@@ -409,8 +411,8 @@ export function AutoTransportForm() {
                   <DatePicker
                     value={infoDate}
                     onChange={setInfoDate}
-                    placeholder="ДД.ММ.ГГГГ"
-                    label="Сана"
+                    placeholder={t('declarationForm.datePlaceholder')}
+                    label={t('declarationForm.date')}
                   />
                 </div>
                 {/* Input Field */}
@@ -420,9 +422,9 @@ export function AutoTransportForm() {
                     name="header.referenceNumber"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Регистрация номери</FormLabel>
+                        <FormLabel>{t('declarationForm.registrationNumber')}</FormLabel>
                         <FormControl>
-                          <Input {...field} placeholder="Номерни киритинг" />
+                          <Input {...field} placeholder={t('declarationForm.registrationNumberPlaceholder')} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -440,11 +442,11 @@ export function AutoTransportForm() {
                           className="w-full justify-center sm:text-sm"
                           leftIcon={<Send className="h-4 w-4 shrink-0 text-(--color-primary)" />}
                         >
-                          <span className="ml-2 hidden sm:inline">BYuD ni yuborish</span>
+                          <span className="ml-2 hidden sm:inline">{t('declarationForm.sendButtonShort')}</span>
                         </Button>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Bojxona qiymatlari reestriga BYuD ni yuborish</p>
+                        <p>{t('declarationForm.infoLabel.sendToRegisterInfo')}</p>
                       </TooltipContent>
                     </Tooltip>
                     <Tooltip>
@@ -454,11 +456,11 @@ export function AutoTransportForm() {
                           className="w-full justify-center sm:text-sm"
                           leftIcon={<Trash2Icon className="h-4 w-4 shrink-0 text-(--system-red)" />}
                         >
-                          <span className="ml-2 hidden sm:inline">Olib tashlash</span>
+                          <span className="ml-2 hidden sm:inline">{t('declarationForm.deleteButtonShort')}</span>
                         </Button>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Bojxona deklaratsiyasini bojxona qiymatlari registridan olib tashlash</p>
+                        <p>{t('declarationForm.infoLabel.deleteFromRegisterInfo')}</p>
                       </TooltipContent>
                     </Tooltip>
                   </div>
@@ -469,10 +471,10 @@ export function AutoTransportForm() {
           {/* Action Buttons */}
           <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
             <Button type="button" variant="outline" className="w-full sm:w-auto">
-              Отмена
+              {t('declarationForm.cancel')}
             </Button>
             <Button type="submit" variant="primary" className="w-full sm:w-auto">
-              Сохранить
+              {t('declarationForm.save')}
             </Button>
           </div>
         </form>

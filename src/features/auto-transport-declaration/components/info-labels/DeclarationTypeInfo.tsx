@@ -1,18 +1,20 @@
+import { useTranslations } from '@/hooks/use-translations';
+
 export function DeclarationTypeInfo() {
+  const { t } = useTranslations();
+
   return (
     <div className="space-y-2 text-sm">
-      <p className="font-semibold">графа 1. «Тип декларации»</p>
+      <p className="font-semibold">{t('declarationForm.infoLabel.declarationTypeInfo.title')}</p>
       <div className="space-y-1">
         <div>
-          В <span className="font-medium">первом подразделе</span> графы указывается направление
-          перемещения товаров — «ИМ»
+          В <span className="font-medium">первом подразделе</span> графы {t('declarationForm.infoLabel.declarationTypeInfo.subsection1')}
         </div>
         <div>
-          В <span className="font-medium">втором подразделе</span> графы указывается двузначный код
-          таможенного режима согласно Классификатору таможенных режимов
+          В <span className="font-medium">втором подразделе</span> графы {t('declarationForm.infoLabel.declarationTypeInfo.subsection2')}
         </div>
         <div>
-          <span className="font-medium">третий подраздел</span> графы не заполняется
+          <span className="font-medium">третий подраздел</span> графы {t('declarationForm.infoLabel.declarationTypeInfo.subsection3')}
         </div>
       </div>
     </div>
