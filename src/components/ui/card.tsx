@@ -9,7 +9,7 @@ function Card({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="card"
       className={cn(
-        'flex flex-col gap-6 rounded-lg border bg-card py-6 text-primary shadow-sm backdrop-blur',
+        'flex flex-col gap-6 rounded-lg border bg-card px-4 py-6 text-primary shadow-sm backdrop-blur',
         className
       )}
       {...props}
@@ -32,16 +32,14 @@ function CardHeader({ className, ...props }: React.ComponentProps<'div'>) {
 
 interface CardTitleProps extends React.ComponentProps<'div'> {
   infoTitle?: React.ReactNode;
+  rightSection?: React.ReactNode;
 }
 
-function CardTitle({ className, infoTitle, children, ...props }: CardTitleProps) {
+function CardTitle({ className, infoTitle, rightSection, children, ...props }: CardTitleProps) {
   return (
     <div
       data-slot="card-title"
-      className={cn(
-        'font flex items-center gap-2 font-semibold text-primary leading-none',
-        className
-      )}
+      className={cn('flex items-center gap-2 font-semibold text-primary leading-none', className)}
       {...props}
     >
       {children}
@@ -54,11 +52,12 @@ function CardTitle({ className, infoTitle, children, ...props }: CardTitleProps)
               style={{ color: 'var(--color-primary)' }}
             />
           </PopoverTrigger>
-          <PopoverContent className="max-h-[60vh] w-[calc(100vw-2rem)] sm:w-fit md:max-w-md lg:max-w-xl overflow-y-auto">
+          <PopoverContent className="max-h-[60vh] w-[calc(100vw-2rem)] overflow-y-auto sm:w-fit md:max-w-md lg:max-w-xl">
             {typeof infoTitle === 'string' ? <p className="text-sm">{infoTitle}</p> : infoTitle}
           </PopoverContent>
         </Popover>
       )}
+      {rightSection && <div className="ml-auto">{rightSection}</div>}
     </div>
   );
 }

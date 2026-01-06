@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { Send, Trash2Icon, TruckIcon } from 'lucide-react';
+import { CirclePlusIcon, Send, Trash2Icon, TruckIcon } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -101,17 +101,62 @@ export function AutoTransportForm() {
   return (
     <div className="container mx-auto p-1 md:p-6">
       <div className="mb-6 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <TruckIcon className="size-6 text-primary" />
-          <h1 className="font-bold text-md">{t('declarationForm.title')}</h1>
+        <div className="flex items-center gap-2">
+          <TruckIcon className="size-6 text-(--color-primary)" />
+          <h1 className="font-bold text-md uppercase">
+            {t('declarationForm.title')}: <span className="font-normal">EK20260000879</span>
+          </h1>
         </div>
       </div>
 
+      <div className="grid grid-cols-8 grid-rows-8 gap-1">
+        <Card className="col-span-4 row-span-3">
+          <CardTitle
+            infoTitle={<ExporterSectionInfo />}
+            rightSection={
+              <Button size="icon" variant="ghost">
+                <CirclePlusIcon strokeWidth={2.2} className="text-(--color-primary)" />
+              </Button>
+            }
+          >
+            2.Отправитель/экспортер
+          </CardTitle>
+        </Card>
+        <Card className="col-span-2 col-start-5">
+          <CardTitle infoTitle={<DeclarationTypeInfo />}>1.Тип декларации</CardTitle>
+        </Card>
+        <Card className="col-span-2 col-start-7 row-span-2">
+          <CardTitle infoTitle="“A” grafa (faqatgina qogʻoz shakldagi BYDning qushimcha varaqlarida).">
+            A
+          </CardTitle>
+        </Card>
+        <Card className="col-span-2 col-start-7 row-start-3">
+          <CardTitle infoTitle={<CustomsPostCodeInfo />}>7.Справочный номер</CardTitle>
+        </Card>
+        <Card className="col-span-4 col-start-1 row-span-2 row-start-4">6</Card>
+        <Card className="col-span-4 col-start-5 row-span-2 row-start-4">8</Card>
+        <Card className="col-start-5 row-start-2">
+          <CardTitle>3.Доб. лист</CardTitle>
+        </Card>
+        <Card className="col-start-6 row-start-2">
+          <CardTitle>Отгр. спец.</CardTitle>
+        </Card>
+        <Card className="col-start-5 row-start-3">11</Card>
+        <Card className="col-start-6 row-start-3">12</Card>
+        <Card className="col-span-4 row-span-2 row-start-6">13</Card>
+        <Card className="col-span-2 col-start-5 row-start-6">14</Card>
+        <Card className="col-span-2 col-start-7 row-start-6">15</Card>
+        <Card className="col-span-2 col-start-5 row-start-7">16</Card>
+        <Card className="col-span-2 col-start-7 row-start-7">17</Card>
+        <Card className="col-span-4 row-start-8">18</Card>
+        <Card className="col-span-4 col-start-5 row-start-8">19</Card>
+      </div>
+
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="mt-12 space-y-4">
           {/* Section 1: Note, Radio Options, and Status */}
-          <Card className="p-4 sm:p-6">
-            <CardContent className="flex flex-col gap-4 p-4">
+          <Card>
+            <CardContent className="flex flex-col gap-4">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
                 {/* Примечание */}
                 <div className="sm:col-span-1">
