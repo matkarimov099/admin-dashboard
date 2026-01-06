@@ -42,7 +42,6 @@ function Calendar({
         return uzCyrl;
       case 'ru':
         return ru;
-      case 'en':
       default:
         return enUS;
     }
@@ -59,7 +58,6 @@ function Calendar({
         return 'uz-Cyrl';
       case 'ru':
         return 'ru-RU';
-      case 'en':
       default:
         return 'en-US';
     }

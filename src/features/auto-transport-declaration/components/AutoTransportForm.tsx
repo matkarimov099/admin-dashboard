@@ -1,13 +1,14 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Send, Trash2Icon, TrashIcon, TruckIcon } from 'lucide-react';
+
+import { Send, Trash2Icon, TruckIcon } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+
 import { toast } from 'sonner';
 import { DatePicker } from '@/components/custom/date-picker.tsx';
 import { RadioOptions } from '@/components/custom/radio-options';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
-import { Checkbox } from '@/components/ui/checkbox';
 import {
   Form,
   FormControl,
@@ -24,12 +25,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Separator } from '@/components/ui/separator';
 import { Textarea } from '@/components/ui/textarea.tsx';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
-import { useTranslations } from '@/hooks/use-translations';
 import { customsPosts } from '@/data/posts';
-import { cn } from '@/utils/utils.ts';
+import { useTranslations } from '@/hooks/use-translations';
 import {
   type AutoTransportDeclarationSchema,
   autoTransportDeclarationSchema,
@@ -140,7 +139,9 @@ export function AutoTransportForm() {
                     name="header.typeCode"
                     render={({ field }) => (
                       <FormItem className="w-full">
-                        <FormLabel infoLabel={<DeclarationStatusInfo />}>{t('declarationForm.status')}</FormLabel>
+                        <FormLabel infoLabel={<DeclarationStatusInfo />}>
+                          {t('declarationForm.status')}
+                        </FormLabel>
                         <Select onValueChange={field.onChange} value={field.value}>
                           <FormControl>
                             <SelectTrigger className="w-full">
@@ -166,7 +167,9 @@ export function AutoTransportForm() {
                     name="header.version"
                     render={({ field }) => (
                       <FormItem className="w-full">
-                        <FormLabel infoLabel={<VersionInfo />}>{t('declarationForm.version')}</FormLabel>
+                        <FormLabel infoLabel={<VersionInfo />}>
+                          {t('declarationForm.version')}
+                        </FormLabel>
                         <FormControl>
                           <RadioOptions
                             options={[
@@ -198,7 +201,10 @@ export function AutoTransportForm() {
                         {t('declarationForm.declarationNumber')}
                       </FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder={t('declarationForm.declarationNumberPlaceholder')} />
+                        <Input
+                          {...field}
+                          placeholder={t('declarationForm.declarationNumberPlaceholder')}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -210,17 +216,27 @@ export function AutoTransportForm() {
                   name="header.declarationType"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel infoLabel={<DeclarationTypeInfo />}>{t('declarationForm.declarationType')}</FormLabel>
+                      <FormLabel infoLabel={<DeclarationTypeInfo />}>
+                        {t('declarationForm.declarationType')}
+                      </FormLabel>
                       <Select onValueChange={field.onChange} value={field.value}>
                         <FormControl>
                           <SelectTrigger className="w-full">
-                            <SelectValue placeholder={t('declarationForm.declarationTypePlaceholder')} />
+                            <SelectValue
+                              placeholder={t('declarationForm.declarationTypePlaceholder')}
+                            />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="EKS">{t('declarationForm.declarationTypeExport')}</SelectItem>
-                          <SelectItem value="RE">{t('declarationForm.declarationTypeReexport')}</SelectItem>
-                          <SelectItem value="IM">{t('declarationForm.declarationTypeImport')}</SelectItem>
+                          <SelectItem value="EKS">
+                            {t('declarationForm.declarationTypeExport')}
+                          </SelectItem>
+                          <SelectItem value="RE">
+                            {t('declarationForm.declarationTypeReexport')}
+                          </SelectItem>
+                          <SelectItem value="IM">
+                            {t('declarationForm.declarationTypeImport')}
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
@@ -246,7 +262,10 @@ export function AutoTransportForm() {
                         {t('declarationForm.exporterName')}
                       </FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder={t('declarationForm.exporterNamePlaceholder')} />
+                        <Input
+                          {...field}
+                          placeholder={t('declarationForm.exporterNamePlaceholder')}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -258,9 +277,14 @@ export function AutoTransportForm() {
                   name="exporter.address"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel infoLabel={t('declarationForm.infoLabel.exporterAddressInfo')}>{t('declarationForm.exporterAddress')}</FormLabel>
+                      <FormLabel infoLabel={t('declarationForm.infoLabel.exporterAddressInfo')}>
+                        {t('declarationForm.exporterAddress')}
+                      </FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder={t('declarationForm.exporterAddressPlaceholder')} />
+                        <Input
+                          {...field}
+                          placeholder={t('declarationForm.exporterAddressPlaceholder')}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -278,7 +302,9 @@ export function AutoTransportForm() {
                       <Select onValueChange={field.onChange} value={field.value}>
                         <FormControl>
                           <SelectTrigger className="w-full">
-                            <SelectValue placeholder={t('declarationForm.exporterCountryPlaceholder')} />
+                            <SelectValue
+                              placeholder={t('declarationForm.exporterCountryPlaceholder')}
+                            />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
@@ -299,11 +325,16 @@ export function AutoTransportForm() {
                   name="exporter.inn"
                   render={({ field }) => (
                     <FormItem className="md:col-span-3">
-                      <FormLabel infoLabel={t('declarationForm.infoLabel.exporterAdditionalInfoInfo')}>
+                      <FormLabel
+                        infoLabel={t('declarationForm.infoLabel.exporterAdditionalInfoInfo')}
+                      >
                         {t('declarationForm.exporterAdditionalInfo')}
                       </FormLabel>
                       <FormControl>
-                        <Textarea {...field} placeholder={t('declarationForm.exporterAdditionalInfoPlaceholder')} />
+                        <Textarea
+                          {...field}
+                          placeholder={t('declarationForm.exporterAdditionalInfoPlaceholder')}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -320,9 +351,15 @@ export function AutoTransportForm() {
                   name="header.additionalSheet"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel infoLabel={<AdditionalSheetInfo />}>{t('declarationForm.additionalSheet')}</FormLabel>
+                      <FormLabel infoLabel={<AdditionalSheetInfo />}>
+                        {t('declarationForm.additionalSheet')}
+                      </FormLabel>
                       <FormControl>
-                        <Input {...field} type="number" placeholder={t('declarationForm.additionalSheetPlaceholder')} />
+                        <Input
+                          {...field}
+                          type="number"
+                          placeholder={t('declarationForm.additionalSheetPlaceholder')}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -334,9 +371,15 @@ export function AutoTransportForm() {
                   name="header.specialDispatch"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel infoLabel={<FieldNotFilledInfo />}>{t('declarationForm.specialDispatch')}</FormLabel>
+                      <FormLabel infoLabel={<FieldNotFilledInfo />}>
+                        {t('declarationForm.specialDispatch')}
+                      </FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder={t('declarationForm.specialDispatchPlaceholder')} disabled />
+                        <Input
+                          {...field}
+                          placeholder={t('declarationForm.specialDispatchPlaceholder')}
+                          disabled
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -348,9 +391,15 @@ export function AutoTransportForm() {
                   name="header.totalItemsNamed"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel infoLabel={<TotalItemNamesInfo />}>{t('declarationForm.totalItems')}</FormLabel>
+                      <FormLabel infoLabel={<TotalItemNamesInfo />}>
+                        {t('declarationForm.totalItems')}
+                      </FormLabel>
                       <FormControl>
-                        <Input {...field} type="number" placeholder={t('declarationForm.totalItemsPlaceholder')} />
+                        <Input
+                          {...field}
+                          type="number"
+                          placeholder={t('declarationForm.totalItemsPlaceholder')}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -362,9 +411,15 @@ export function AutoTransportForm() {
                   name="header.totalPlaces"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel infoLabel={<FieldNotFilledInfo />}>{t('declarationForm.totalPlaces')}</FormLabel>
+                      <FormLabel infoLabel={<FieldNotFilledInfo />}>
+                        {t('declarationForm.totalPlaces')}
+                      </FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder={t('declarationForm.totalPlacesPlaceholder')} disabled />
+                        <Input
+                          {...field}
+                          placeholder={t('declarationForm.totalPlacesPlaceholder')}
+                          disabled
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -375,7 +430,9 @@ export function AutoTransportForm() {
           </div>
           {/*Section 4: Information number */}
           <Card className="p-4 sm:p-6">
-            <CardTitle infoTitle={<CustomsPostCodeInfo />}>{t('declarationForm.infoNumberTitle')}</CardTitle>
+            <CardTitle infoTitle={<CustomsPostCodeInfo />}>
+              {t('declarationForm.infoNumberTitle')}
+            </CardTitle>
             <CardContent className="p-4">
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
                 {/* Customs Post-Select */}
@@ -389,7 +446,9 @@ export function AutoTransportForm() {
                         <Select onValueChange={field.onChange} value={field.value}>
                           <FormControl>
                             <SelectTrigger className="w-full">
-                              <SelectValue placeholder={t('declarationForm.customsPostPlaceholder')} />
+                              <SelectValue
+                                placeholder={t('declarationForm.customsPostPlaceholder')}
+                              />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
@@ -424,7 +483,10 @@ export function AutoTransportForm() {
                       <FormItem>
                         <FormLabel>{t('declarationForm.registrationNumber')}</FormLabel>
                         <FormControl>
-                          <Input {...field} placeholder={t('declarationForm.registrationNumberPlaceholder')} />
+                          <Input
+                            {...field}
+                            placeholder={t('declarationForm.registrationNumberPlaceholder')}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -442,7 +504,9 @@ export function AutoTransportForm() {
                           className="w-full justify-center sm:text-sm"
                           leftIcon={<Send className="h-4 w-4 shrink-0 text-(--color-primary)" />}
                         >
-                          <span className="ml-2 hidden sm:inline">{t('declarationForm.sendButtonShort')}</span>
+                          <span className="ml-2 hidden sm:inline">
+                            {t('declarationForm.sendButtonShort')}
+                          </span>
                         </Button>
                       </TooltipTrigger>
                       <TooltipContent>
@@ -456,7 +520,9 @@ export function AutoTransportForm() {
                           className="w-full justify-center sm:text-sm"
                           leftIcon={<Trash2Icon className="h-4 w-4 shrink-0 text-(--system-red)" />}
                         >
-                          <span className="ml-2 hidden sm:inline">{t('declarationForm.deleteButtonShort')}</span>
+                          <span className="ml-2 hidden sm:inline">
+                            {t('declarationForm.deleteButtonShort')}
+                          </span>
                         </Button>
                       </TooltipTrigger>
                       <TooltipContent>
