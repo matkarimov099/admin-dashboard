@@ -64,7 +64,7 @@ export function ToolbarOptions({
             onStatusChange(value === 'all' ? undefined : (value as TaskStatus))
           }
         >
-          <SelectTrigger className="w-full sm:w-auto sm:min-w-35">
+          <SelectTrigger aria-label="All Statuses" className="w-full sm:w-auto sm:min-w-35">
             <SelectValue placeholder="All Statuses" />
           </SelectTrigger>
           <SelectContent>
