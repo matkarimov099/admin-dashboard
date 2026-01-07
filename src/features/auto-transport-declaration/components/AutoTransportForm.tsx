@@ -58,10 +58,10 @@ export function AutoTransportForm() {
             infoTitle={<Column2Info />}
             rightSection={
               <div className="flex items-center gap-2">
-                <Button size="icon" variant="ghost">
+                <Button hoverText="Eksportchilar katalogi" size="icon" variant="ghost">
                   <CirclePlusIcon strokeWidth={2.2} className="text-(--color-primary)" />
                 </Button>
-                <Button size="icon" variant="ghost">
+                <Button hoverText="Yuklarni jo'natuvchi qo'llanma" size="icon" variant="ghost">
                   <CirclePlusIcon strokeWidth={2.2} className="text-(--color-primary)" />
                 </Button>
               </div>

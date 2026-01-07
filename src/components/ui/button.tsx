@@ -5,6 +5,7 @@ import { buttonVariants } from '@/components/ui/button-variants';
 import { useReducedMotion } from '@/hooks/use-reduced-motion';
 import { cn } from '@/utils/utils';
 import { Spinner } from './spinner';
+import { Tooltip, TooltipContent, TooltipTrigger } from './tooltip';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -16,6 +17,7 @@ export interface ButtonProps
   isVisible?: boolean;
   loading?: boolean;
   loadingText?: string;
+  hoverText?: string | React.ReactNode;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -31,6 +33,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       isVisible = true,
       loading = false,
       loadingText,
+      hoverText,
       onClick,
       children,
       ...props
@@ -50,10 +53,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const Comp = asChild ? Slot : 'button';
 
-    // Apply reduced motion classes if the user prefers reduced motion
     const motionAwareClassName = React.useMemo(() => {
       if (prefersReducedMotion) {
-        // Remove animation and transform classes for reduced motion
         const baseClasses = buttonVariants({ variant, size });
         const reducedMotionClasses = baseClasses
           .replace(/hover:-translate-y-\S+/g, '')
@@ -68,47 +69,58 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       return cn(buttonVariants({ variant, size }), className);
     }, [variant, size, className, prefersReducedMotion]);
 
-    return (
-      isVisible && (
-        <Comp
-          className={motionAwareClassName}
-          ref={ref}
-          onClick={handleClick}
-          disabled={loading || props.disabled}
-          aria-describedby={loading ? loadingId : undefined}
-          aria-busy={loading}
-          {...props}
-        >
-          {loading ? (
-            <div className="flex items-center justify-center">
-              <Spinner
-                className={cn('size-4!', prefersReducedMotion ? '' : 'animate-spin')}
-                aria-hidden="true"
-              />
-              {(loadingText || children) && (
-                <span className="ml-2 opacity-70" id={loadingId} aria-live="polite">
-                  {loadingText || children}
-                </span>
-              )}
-            </div>
-          ) : (
-            <div className="flex items-center justify-center gap-2">
-              {!hideIcon && leftIcon && (
-                <span className="flex items-center" aria-hidden="true">
-                  {leftIcon}
-                </span>
-              )}
-              <Slottable>{children}</Slottable>
-              {!hideIcon && rightIcon && (
-                <span className="flex items-center" aria-hidden="true">
-                  {rightIcon}
-                </span>
-              )}
-            </div>
-          )}
-        </Comp>
-      )
+    const buttonContent = (
+      <Comp
+        className={motionAwareClassName}
+        ref={ref}
+        onClick={handleClick}
+        disabled={loading || props.disabled}
+        aria-describedby={loading ? loadingId : undefined}
+        aria-busy={loading}
+        {...props}
+      >
+        {loading ? (
+          <div className="flex items-center justify-center">
+            <Spinner
+              className={cn('size-4!', prefersReducedMotion ? '' : 'animate-spin')}
+              aria-hidden="true"
+            />
+            {(loadingText || children) && (
+              <span className="ml-2 opacity-70" id={loadingId} aria-live="polite">
+                {loadingText || children}
+              </span>
+            )}
+          </div>
+        ) : (
+          <div className="flex items-center justify-center gap-2">
+            {!hideIcon && leftIcon && (
+              <span className="flex items-center" aria-hidden="true">
+                {leftIcon}
+              </span>
+            )}
+            <Slottable>{children}</Slottable>
+            {!hideIcon && rightIcon && (
+              <span className="flex items-center" aria-hidden="true">
+                {rightIcon}
+              </span>
+            )}
+          </div>
+        )}
+      </Comp>
     );
+
+    if (!isVisible) return null;
+
+    if (hoverText) {
+      return (
+        <Tooltip>
+          <TooltipTrigger asChild>{buttonContent}</TooltipTrigger>
+          <TooltipContent>{typeof hoverText === 'string' ? hoverText : hoverText}</TooltipContent>
+        </Tooltip>
+      );
+    }
+
+    return buttonContent;
   }
 );
 Button.displayName = 'Button';
