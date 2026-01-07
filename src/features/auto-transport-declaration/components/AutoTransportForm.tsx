@@ -57,9 +57,14 @@ export function AutoTransportForm() {
           <CardTitle
             infoTitle={<Column2Info />}
             rightSection={
-              <Button size="icon" variant="ghost">
-                <CirclePlusIcon strokeWidth={2.2} className="text-(--color-primary)" />
-              </Button>
+              <div className="flex items-center gap-2">
+                <Button size="icon" variant="ghost">
+                  <CirclePlusIcon strokeWidth={2.2} className="text-(--color-primary)" />
+                </Button>
+                <Button size="icon" variant="ghost">
+                  <CirclePlusIcon strokeWidth={2.2} className="text-(--color-primary)" />
+                </Button>
+              </div>
             }
           >
             2.Отправитель/экспортер

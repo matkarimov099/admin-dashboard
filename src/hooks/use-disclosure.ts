@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 
 /**
- * Custom hook for managing disclosure state (modals, dropdowns, etc.)
+ * Custom hook for managing disclosure state (column-modals, dropdowns, etc.)
  * Provides open/close state and handlers
  */
 export function useDisclosure(initialState = false) {

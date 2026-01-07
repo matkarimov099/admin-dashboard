@@ -61,7 +61,7 @@
 	--shadow-input: var(--shadow-sm);
 }
 
-/* React Photo View z-index fix for modals */
+/* React Photo View z-index fix for column-modals */
 /* Ensure PhotoView appears above modal overlays */
 .PhotoView-Portal {
 	z-index: 99999;
