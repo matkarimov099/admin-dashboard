@@ -396,7 +396,72 @@
         "message": "Ushbu rejimda bu qism to'ldirilmaydi!"
       },
       "sendToRegisterInfo": "Bojxona qiymatlari reestriga BYuD ni yuborish",
-      "deleteFromRegisterInfo": "Bojxona deklaratsiyasini bojxona qiymatlari registridan olib tashlash"
+      "deleteFromRegisterInfo": "Bojxona deklaratsiyasini bojxona qiymatlari registridan olib tashlash",
+      "importerSectionInfo": {
+        "title": "8. Importer/Yuk qabul qiluvchi",
+        "description": "Qismda yuk qabul qiluvchi va importyer tovarlari haqida ma'lumotlar kiritiladi.",
+        "label": "Qismda ko'rsatiladi:",
+        "sameEntity": {
+          "title": "Agar importyer va yuk qabul qiluvchi bir xil shaxs bo'lsa:",
+          "individualPerson": {
+            "title": "Jismoniy shaxs - rezident:",
+            "description": "jismoniy shaxsning familiyasi, ismi, sharifi va doimiy yashash joyi, shuningdek telefon raqami",
+            "example": "\"Qabirov Abdukarim Soliyev\nSamarqand viloyati, Samarqand shahri, Sherdor ko'chasi, 6-uy, 14-xonadon, telefon: 8-366-999-99-99\""
+          },
+          "individualPersonNonResident": {
+            "title": "Jismoniy shaxs - nerezident:",
+            "description": "jismoniy shaxsning familiyasi, ismi, sharifi va doimiy yashash joyi, shuningdek telefon raqami"
+          },
+          "legalEntity": {
+            "title": "Yuridik shaxs:",
+            "description": "uning qisqa nomi va joylashuvi (yuridik manzil), telefon raqami, shuningdek elektron pochta manzili (agar bo'lsa)",
+            "example": "\"Trans group\" MCHJ\nToshkent shahri, Yunusobod tumani, O'ch terak ko'chasi, 3-uy, 19-xonadon, telefon: +99871-999-99-99, elektron pochta: pochta@pochta.uz\""
+          },
+          "structuralUnit": {
+            "title": "Agar importyer va yuk qabul qiluvchi nomidan yuridik shaxsning tarkibiy bo'linmasi chiqib tursa:",
+            "description": "tarkibiy bo'linmaning qisqa nomi, joylashuvi (yuridik manzil), telefon raqami va elektron pochta manzili (agar bo'lsa), shuningdek yuqorida sanalgan ma'lumotlar yuridik shaxs haqida ko'rsatiladi",
+            "example": "\"Vodiy-Farg'ona\" MCHJ\nFarg'ona viloyati, Farg'ona shahri, San'at ko'chasi, 2-uy, telefon: 8-373-999-99-99, elektron pochta: pochta@pochta.uz\nVodiy MCHJ filiali\nAndijon viloyati, Andijon shahri, Bobur ko'chasi, 597-uy, telefon: 8-374-999-99-99, elektron pochta: pochta@pochta.uz\""
+          }
+        },
+        "differentEntity": {
+          "title": "Agar importyer va yuk qabul qiluvchi turli shaxslar bo'lsa, ya'ni qabul qiluvchi tovarni importyer topshirig'i bilan yetkazib bersa yoki boshqa o'xshash holatlarda:",
+          "description": "qismda avval yuk qabul qiluvchining qisqa nomi, joylashuvi (yuridik manzil) va telefon raqami, keyin importyerning (tovarni topshirgan shaxsning) qisqa nomi va joylashuvi (yuridik manzil) ko'rsatiladi",
+          "example": "\"Xolis\" MCHJ\nToshkent viloyati, Chinaz tumani, Ukituvchilar ko'chasi, 17-uy, telefon: +998XX-XXX-XX-XX\nTamminot AJ topshirig'i bilan, Toshkent shahri, Shayxontohur tumani, A. Xo'jayev ko'chasi, 310-uy"
+        },
+        "sameAsColumn9": "Agar 9-grafada importyer haqida ma'lumotlar ko'rsatilgan bo'lsa, ushbu qismda importyer haqida ma'lumotlar ko'rsatish shart emas",
+        "topRightSection": {
+          "title": "Qismning o'ng yuqori qismida «№» belgisidan keyin agar yuk qabul qiluvchilar quyidagilar bo'lsa:",
+          "individualResident": "jismoniy shaxslar — rezidentlar bo'lsa, «00000001» kodi ko'rsatiladi",
+          "individualNonResident": "jismoniy shaxslar — nerezidentlar bo'lsa, «00000002» kodi ko'rsatiladi",
+          "stateShare": "ustav kapitalida davlat ulushi bo'lgan tashkilotlar bo'lsa, «00000003» kodi ko'rsatiladi",
+          "diplomatic": "diplomatik vakolatxonalari va konsullik muassasalar bo'lsa, «99999999» kodi ko'rsatiladi",
+          "internationalOrg": "xalqaro hukumatlararo tashkilotlar vakolatxonalari, chet davlatlar hukumat tashkilotlarining iqtisodiy, texnik hamkorlik va gumanitar yordam ko'rsatish bo'yicha vakolatxonalari, doimiy muassasalar bo'lsa, «88888888» kodi ko'rsatiladi",
+          "other": "yuqorida 4-bobdan 27-bobgacha ko'rsatilmagan shaxslar bo'lsa, ma'lumotlar ko'rsatilmaydi"
+        },
+        "bottomSection": {
+          "title": "Qismning pastki qismida «№» belgisidan keyin yuk qabul qiluvchining INN kodi ko'rsatiladi, agar yuk qabul qiluvchi nomidan uning tarkibiy bo'linmasi chiqib tursa, tarkibiy bo'linmaning INN kodi, keyin «/» belgisidan keyin O'zbekiston Respublikasi tumanlari va shaharlari klassifikatoriga muvofiq tuman (shahar) kodi yuridik manzil (jismoniy shaxsning doimiy yashash joyi) bo'yicha ko'rsatiladi",
+          "noTin": "INN yoki JSHSHIRga ega bo'lmagan shaxslar tomonidan tovarlarni deklaratsiyalashda «999999999» kodi ko'rsatiladi"
+        },
+        "note": "Qog'oz shaklida tovarlarni deklaratsiyalashda qo'shimcha varaqda qism to'ldirilmaydi"
+      },
+      "financialSettlementInfo": {
+        "title": "9. Moliyaviy tartibga solishga mas'ul shaxs",
+        "description": "Qismda tashqi savdo shartnomasini (shartnoma, bitim) tuzgan va mazkur tashqi savdo shartnomasi (shartnoma, bitim) bo'yicha hisob-kitobdan mas'ul bo'lgan yuridik shaxsning qisqa nomi, joylashuvi (yuridik manzil), telefon raqami va elektron pochta manzili (agar bo'lsa) yoki jismoniy shaxsning familiyasi, ismi, sharifi, yashash joyi, shuningdek telefon raqami ko'rsatiladi",
+        "topRightSection": {
+          "title": "Qismning o'ng yuqori qismida «№» belgisidan keyin agar quyidagilar bo'lsa:",
+          "individualResident": "jismoniy shaxslar — rezidentlar bo'lsa, «00000001» kodi ko'rsatiladi",
+          "individualNonResident": "jismoniy shaxslar — nerezidentlar bo'lsa, «00000002» kodi ko'rsatiladi",
+          "stateShare": "ustav kapitalida davlat ulushi bo'lgan tashkilotlar bo'lsa, «00000003» kodi ko'rsatiladi",
+          "diplomatic": "diplomatik vakolatxonalari va konsullik muassasalar bo'lsa, «99999999» kodi ko'rsatiladi",
+          "internationalOrg": "xalqaro hukumatlararo tashkilotlar vakolatxonalari, chet davlatlar hukumat tashkilotlarining iqtisodiy, texnik hamkorlik va gumanitar yordam ko'rsatish bo'yicha vakolatxonalari, doimiy muassasalar bo'lsa, «88888888» kodi ko'rsatiladi",
+          "other": "yuqorida 4-bobdan 7-bobgacha ko'rsatilmagan shaxslar bo'lsa, ma'lumotlar ko'rsatilmaydi"
+        },
+        "bottomSection": {
+          "title": "Qismning pastki qismida «№» belgisidan keyin moliyaviy tartibga solishga mas'ul shaxsning INN (agar jismoniy shaxs bo'lsa, JSHSHIR) kodi ko'rsatiladi, keyin «/» belgisidan keyin uning yuridik manzili (jismoniy shaxsning doimiy yashash joyi) bo'yicha O'zbekiston Respublikasi tumanlari va shaharlari klassifikatoriga muvofiq tuman (shahar) kodi ko'rsatiladi",
+          "noTin": "INN yoki JSHSHIRga ega bo'lmagan shaxslar tomonidan tovarlarni deklaratsiyalashda «999999999» kodi ko'rsatiladi"
+        },
+        "note": "Tovarlarni bepul asosdagi bitimlar bo'yicha ko'chirishda qism to'ldirilmaydi"
+      }
     }
   }
 }

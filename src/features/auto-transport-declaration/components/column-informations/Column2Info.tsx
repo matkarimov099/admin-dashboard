@@ -1,6 +1,6 @@
 import { useTranslations } from '@/hooks/use-translations';
 
-export function ExporterSectionInfo() {
+export function Column2Info() {
   const { t } = useTranslations();
 
   return (
@@ -13,14 +13,18 @@ export function ExporterSectionInfo() {
         <p className="font-medium">{t('declarationForm.infoLabel.exporterSectionInfo.label')}</p>
 
         <div className="rounded-md border border-border bg-muted/50 p-3">
-          <p className="mb-2 font-medium">{t('declarationForm.infoLabel.exporterSectionInfo.individualPerson.title')}</p>
+          <p className="mb-2 font-medium">
+            {t('declarationForm.infoLabel.exporterSectionInfo.individualPerson.title')}
+          </p>
           <p className="text-muted-foreground">
             {t('declarationForm.infoLabel.exporterSectionInfo.individualPerson.description')}
           </p>
         </div>
 
         <div className="rounded-md border border-border bg-muted/50 p-3">
-          <p className="mb-2 font-medium">{t('declarationForm.infoLabel.exporterSectionInfo.legalEntity.title')}</p>
+          <p className="mb-2 font-medium">
+            {t('declarationForm.infoLabel.exporterSectionInfo.legalEntity.title')}
+          </p>
           <p className="text-muted-foreground">
             {t('declarationForm.infoLabel.exporterSectionInfo.legalEntity.description')}
           </p>
@@ -28,15 +32,21 @@ export function ExporterSectionInfo() {
       </div>
 
       <div className="space-y-2">
-        <p className="font-medium">{t('declarationForm.infoLabel.exporterSectionInfo.exampleLabel')}</p>
+        <p className="font-medium">
+          {t('declarationForm.infoLabel.exporterSectionInfo.exampleLabel')}
+        </p>
         <div className="space-y-1 rounded-md border border-border bg-muted/50 p-3">
           <p className="text-muted-foreground">
-            <span className="font-medium">{t('declarationForm.infoLabel.exporterSectionInfo.individualPersonExample')}</span>
+            <span className="font-medium">
+              {t('declarationForm.infoLabel.exporterSectionInfo.individualPersonExample')}
+            </span>
             <br />
             {t('declarationForm.infoLabel.exporterSectionInfo.individualPersonExampleText')}
           </p>
           <p className="text-muted-foreground">
-            <span className="font-medium">{t('declarationForm.infoLabel.exporterSectionInfo.legalEntityExample')}</span>
+            <span className="font-medium">
+              {t('declarationForm.infoLabel.exporterSectionInfo.legalEntityExample')}
+            </span>
             <br />
             {t('declarationForm.infoLabel.exporterSectionInfo.legalEntityExampleText')}
           </p>

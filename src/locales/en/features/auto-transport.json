@@ -396,7 +396,72 @@
         "message": "In this mode, this column is not filled!"
       },
       "sendToRegisterInfo": "Send customs value declaration to customs values register",
-      "deleteFromRegisterInfo": "Remove customs declaration from customs values register"
+      "deleteFromRegisterInfo": "Remove customs declaration from customs values register",
+      "importerSectionInfo": {
+        "title": "8. Importer/Consignee",
+        "description": "The graph indicates information about the recipient and importer of goods.",
+        "label": "The graph indicates:",
+        "sameEntity": {
+          "title": "If importer and recipient of goods are the same person:",
+          "individualPerson": {
+            "title": "for an individual person:",
+            "description": "his surname, first name, patronymic and address of his permanent place of residence, as well as phone number",
+            "example": "\"Qabirov Abdukarim Soliyev\nSamarkand region, Samarkand city, Sherdor street, house 6, apartment 8, phone: 8-366-999-99-99\""
+          },
+          "individualPersonNonResident": {
+            "title": "for an individual person — non-resident:",
+            "description": "his surname, first name, patronymic and address of his permanent place of residence, as well as phone number"
+          },
+          "legalEntity": {
+            "title": "for a legal entity:",
+            "description": "its short name and location (legal address), phone number, as well as email address (if available)",
+            "example": "\"LLC \"Trans group\"\nTashkent city, Yunusabad district, O'ch terak street, house 3, apartment 19, phone: +99871-999-99-99, email: pochta@pochta.uz\""
+          },
+          "structuralUnit": {
+            "title": "If a structural subdivision of a legal entity acts on behalf of the importer and recipient:",
+            "description": "short name, location (legal address), phone number and email address (if available) of the structural subdivision are specified, as well as the above-mentioned information about the legal entity",
+            "example": "\"LLC \"Vodiy-Farg'ona\"\nFergana region, Fergana city, Sanoat street, house 2, phone: 8-373-999-99-99, email: pochta@pochta.uz\nbranch of LLC \"Vodiy\"\nAndijan region, Andijan city, Bobur street, house 597, phone: 8-374-999-99-99, email: pochta@pochta.uz\""
+          }
+        },
+        "differentEntity": {
+          "title": "If importer and recipient are different persons:",
+          "description": "i.e., the recipient supplies the goods on behalf of the importer, or in other similar cases, the graph first indicates the short name and location (legal address) and phone number of the recipient, then the short name and location (legal address) of the importer (the person on whose behalf the goods are supplied)",
+          "example": "LLC \"Kholis\" \nTashkent region, Chinaz district, Ukituvchilar street, house 17, phone: +998XX-XXX-XX-XX \non behalf of JSC \"Taminot\", Tashkent city, Shaykhontohur district, A. Khojaev street, house 310."
+        },
+        "sameAsColumn9": "If information about the importer is indicated in column 9 of the GTD, then it is not required to indicate information about the importer in this graph after the recipient",
+        "topRightSection": {
+          "title": "In the upper right part of the graph after the sign «№», if the recipients are:",
+          "individualResident": "individual persons — residents, code «00000001» is indicated",
+          "individualNonResident": "individual persons — non-residents, code «00000002» is indicated",
+          "stateShare": "organizations with a state share in the authorized capital, code «00000003» is indicated",
+          "diplomatic": "diplomatic missions and consular institutions, code «99999999» is indicated",
+          "internationalOrg": "missions of intergovernmental organizations, missions of foreign government organizations for economic, technical cooperation and humanitarian assistance, permanent institutions, code «88888888» is indicated",
+          "other": "persons not mentioned in paragraphs twenty-fourth to twenty-eighth of this subparagraph, then data are not indicated"
+        },
+        "bottomSection": {
+          "title": "In the lower part of the graph after the sign «№», the TIN of the recipient is indicated, and in case when a structural subdivision acts on behalf of the recipient, the TIN of the structural subdivision is indicated, then after the sign «/» the code of the district (city) in accordance with the Classifier of districts and cities of the Republic of Uzbekistan, given in Appendix No. 15 to this Instruction, according to the legal address (permanent place of residence of the individual person) is indicated",
+          "noTin": "When declaring goods moved by persons without TIN, code «999999999» is indicated"
+        },
+        "note": "When declaring goods in paper form, the graph is not filled in on additional sheets"
+      },
+      "financialSettlementInfo": {
+        "title": "9. Person responsible for financial settlement",
+        "description": "The graph indicates the short name, location (legal address), phone number and email address (if available) of a legal entity or the surname, first name, patronymic, place of residence, as well as phone number of an individual person, who concluded the foreign trade contract (agreement, agreement) and is responsible for settlements under this foreign trade contract (agreement, agreement)",
+        "topRightSection": {
+          "title": "In the upper part of the graph after the sign «№», if the persons are:",
+          "individualResident": "individual persons — residents, code «00000001» is indicated",
+          "individualNonResident": "individual persons — non-residents, code «00000002» is indicated",
+          "stateShare": "organizations with a state share in the authorized capital, code «00000003» is indicated",
+          "diplomatic": "diplomatic missions and consular institutions, code «99999999» is indicated",
+          "internationalOrg": "missions of intergovernmental organizations, missions of foreign government organizations for economic, technical cooperation and humanitarian assistance, permanent institutions, code «88888888» is indicated",
+          "other": "persons not mentioned in paragraphs fourth to eighth of this subparagraph, then data are not indicated"
+        },
+        "bottomSection": {
+          "title": "In the lower part of the graph after the sign «№», the TIN (if individual person, then PINFL) of the person responsible for financial settlement is indicated, then after the sign «/» the code of the district (city) in accordance with the Classifier of districts and cities of the Republic of Uzbekistan, given in Appendix No. 15 to this Instruction, according to his legal address (permanent place of residence of the individual person) is indicated",
+          "noTin": "When declaring goods moved by persons without TIN or PINFL, code «999999999» is indicated"
+        },
+        "note": "The graph is not filled in the case of movement of goods under gratuitous transactions"
+      }
     }
   }
 }

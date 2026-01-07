@@ -57,7 +57,7 @@ function CardTitle({ className, infoTitle, rightSection, children, ...props }: C
           </PopoverContent>
         </Popover>
       )}
-      {rightSection && <div className="ml-auto">{rightSection}</div>}
+      {rightSection && <div className="-my-3 ml-auto">{rightSection}</div>}
     </div>
   );
 }
