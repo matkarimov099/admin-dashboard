@@ -66,7 +66,16 @@ export function AutoTransportForm() {
           </CardTitle>
         </Card>
         <Card className="col-span-2 col-start-5">
-          <CardTitle infoTitle={<Column1Info />}>1.Тип декларации</CardTitle>
+          <CardTitle
+            infoTitle={<Column1Info />}
+            rightSection={
+              <Button size="icon" variant="ghost">
+                <CirclePlusIcon strokeWidth={2.2} className="text-(--color-primary)" />
+              </Button>
+            }
+          >
+            1.Тип декларации
+          </CardTitle>
         </Card>
         <Card className="col-start-5 row-start-2">
           <CardTitle infoTitle={<Column3Info />}>3.Доб. лист</CardTitle>
