@@ -107,7 +107,7 @@ function FormLabel({ className, required, infoLabel, children, ...props }: FormL
               className="mr-1 h-4.5! w-4.5! cursor-help text-(--color-primary)"
             />
           </PopoverTrigger>
-          <PopoverContent className="w-[calc(100vw-2rem)] sm:w-96 md:max-w-md lg:max-w-xl max-h-[60vh] overflow-y-auto">
+          <PopoverContent className="max-h-[60vh] w-[calc(100vw-2rem)] overflow-y-auto sm:w-96 md:max-w-md lg:max-w-xl">
             {typeof infoLabel === 'string' ? <p className="text-sm">{infoLabel}</p> : infoLabel}
           </PopoverContent>
         </Popover>

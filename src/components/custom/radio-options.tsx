@@ -152,8 +152,8 @@ export function RadioOptions({
               aria-label={`${name}-radio-${option.value}`}
               className={cn(
                 'border-gray-400 dark:border-gray-500',
-                'data-[state=checked]:border-[var(--color-primary)] data-[state=checked]:bg-[var(--color-primary)]',
-                'data-[state=checked]:[&_svg]:!fill-white data-[state=checked]:[&_svg]:!stroke-white'
+                'data-[state=checked]:border-(--color-primary) data-[state=checked]:bg-(--color-primary)',
+                'data-[state=checked]:[&_svg]:fill-white! data-[state=checked]:[&_svg]:stroke-white!'
               )}
             />
             <div className="flex flex-1 items-center justify-between gap-2">
