@@ -3,7 +3,7 @@ import { ColumnAInfo } from '@/features/auto-transport-declaration/components/co
 
 export function ColumnA() {
   return (
-    <Card className="col-span-2 col-start-7 row-span-2 row-start-1">
+    <Card className="col-span-2 col-start-7 row-span-2 row-start-1 gap-y-3">
       <CardTitle infoTitle={<ColumnAInfo />}>A</CardTitle>
     </Card>
   );

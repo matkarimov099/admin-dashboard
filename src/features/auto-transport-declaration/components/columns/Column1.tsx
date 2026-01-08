@@ -24,7 +24,7 @@ interface Column1Props {
 
 export function Column1({ form, onSubmit }: Column1Props) {
   return (
-    <Card className="col-span-2 col-start-5">
+    <Card className="col-span-2 col-start-5 gap-y-3">
       <CardTitle
         infoTitle={<Column1Info />}
         rightSection={
@@ -41,7 +41,7 @@ export function Column1({ form, onSubmit }: Column1Props) {
       >
         1.Тип декларации
       </CardTitle>
-      <CardContent>
+      <CardContent className="p-0">
         <Form {...form}>
           <form
             onSubmit={e => {

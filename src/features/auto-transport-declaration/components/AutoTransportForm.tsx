@@ -54,7 +54,7 @@ export function AutoTransportForm() {
     console.log(data);
   }
   return (
-    <div className="p-1 md:p-6">
+    <div className="container mx-auto p-1 md:p-6">
       <div className="mb-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <TruckIcon className="size-6 text-(--color-primary)" />
@@ -64,7 +64,7 @@ export function AutoTransportForm() {
         </div>
       </div>
 
-      <div className="grid grid-cols-8 grid-rows-12 gap-1">
+      <div className="grid grid-cols-8 grid-rows-12 gap-0.5">
         {/*Column 2*/}
         <Column2 form={form} onSubmit={onSubmit} />
         {/*Column 1*/}

@@ -21,7 +21,7 @@ interface Column2Props {
 
 export function Column2({ form, onSubmit }: Column2Props) {
   return (
-    <Card className="col-span-4 row-span-3">
+    <Card className="col-span-4 row-span-3 gap-y-3">
       <CardTitle
         infoTitle={<Column2Info />}
         rightSection={
@@ -37,7 +37,7 @@ export function Column2({ form, onSubmit }: Column2Props) {
       >
         2.Отправитель/экспортер
       </CardTitle>
-      <CardContent>
+      <CardContent className="px-0 py-2">
         <Form {...form}>
           <form
             onSubmit={e => {
@@ -50,7 +50,7 @@ export function Column2({ form, onSubmit }: Column2Props) {
               name="exporter.name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel required>Yuk jo'natuvchining nomi</FormLabel>
+                  {/*<FormLabel required>Yuk jo'natuvchining nomi</FormLabel>*/}
                   <FormControl>
                     <Input
                       inputSize="md"
@@ -67,7 +67,7 @@ export function Column2({ form, onSubmit }: Column2Props) {
               name="exporter.address"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel required>Manzil</FormLabel>
+                  {/*<FormLabel required>Manzil</FormLabel>*/}
                   <FormControl>
                     <Input inputSize="md" placeholder="Manzilni ko'rsating" {...field} />
                   </FormControl>
@@ -81,7 +81,7 @@ export function Column2({ form, onSubmit }: Column2Props) {
               name="exporter.name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Qo'shimcha ma'lumot</FormLabel>
+                  {/*<FormLabel>Qo'shimcha ma'lumot</FormLabel>*/}
                   <FormControl>
                     <Input inputSize="md" placeholder="Qo'shimcha ma'lumot ko'rsating" {...field} />
                   </FormControl>
@@ -95,7 +95,7 @@ export function Column2({ form, onSubmit }: Column2Props) {
               name="exporter.name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Eksportchi nomi</FormLabel>
+                  {/*<FormLabel>Eksportchi nomi</FormLabel>*/}
                   <FormControl>
                     <Input
                       inputSize="md"
@@ -107,13 +107,13 @@ export function Column2({ form, onSubmit }: Column2Props) {
                 </FormItem>
               )}
             />
-            <div className="flex items-center justify-end gap-x-2">
+            <div className="flex items-center justify-end">
               <FormField
                 control={form.control}
                 name="exporter.name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel required>Mamlakat</FormLabel>
+                    {/*<FormLabel required>Mamlakat</FormLabel>*/}
                     <FormControl>
                       <Input inputSize="md" placeholder="Mamlakat kodini kiriting" {...field} />
                     </FormControl>
@@ -121,15 +121,6 @@ export function Column2({ form, onSubmit }: Column2Props) {
                   </FormItem>
                 )}
               />
-              <Button
-                hoverText="Mamlakat tanlash"
-                type="button"
-                size="icon"
-                variant="ghost"
-                className="mt-5"
-              >
-                <CirclePlusIcon strokeWidth={2.2} className="text-(--color-primary)" />
-              </Button>
             </div>
           </form>
         </Form>

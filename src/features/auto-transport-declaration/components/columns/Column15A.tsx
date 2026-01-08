@@ -3,7 +3,7 @@ import { Column15AInfo } from '@/features/auto-transport-declaration/components/
 
 export function Column15A() {
   return (
-    <Card className="col-start-7 row-start-6">
+    <Card className="col-start-7 row-start-6 gap-y-3">
       <CardTitle infoTitle={<Column15AInfo />}>15a.Код страны отпр.</CardTitle>
     </Card>
   );
