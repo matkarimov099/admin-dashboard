@@ -1,6 +1,7 @@
+import { InfoIcon } from 'lucide-react';
 import * as React from 'react';
 import { forwardRef } from 'react';
-
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { useReducedMotion } from '@/hooks/use-reduced-motion';
 import { cn } from '@/utils/utils';
 
@@ -14,6 +15,7 @@ export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   separator?: ' ' | ',' | '-';
+  infoText?: string;
 };
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -33,6 +35,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       separator,
       value,
       onChange,
+      infoText,
       'aria-describedby': ariaDescribedBy,
       ...props
     },
@@ -120,7 +123,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           </label>
         )}
 
-        {leftIcon || rightIcon || suffix || prefix ? (
+        {leftIcon || rightIcon || suffix || prefix || infoText ? (
           <div className="relative w-full">
             {leftIcon && (
               <span className="-translate-y-1/2 pointer-events-none absolute top-1/2 left-3 text-secondary">
@@ -139,7 +142,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               className={cn(
                 motionAwareClassName,
                 (leftIcon || prefix) && 'pl-10',
-                (rightIcon || suffix) && 'pr-10'
+                (rightIcon || suffix || infoText) && 'pr-10'
               )}
               ref={ref}
               value={displayValue}
@@ -148,15 +151,25 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               aria-invalid={error ? 'true' : undefined}
               {...props}
             />
-            {rightIcon && (
+            {rightIcon && !infoText && (
               <span className="-translate-y-1/2 pointer-events-none absolute top-1/2 right-3 text-secondary">
                 {rightIcon}
               </span>
             )}
-            {suffix && !rightIcon && (
+            {suffix && !rightIcon && !infoText && (
               <span className="-translate-y-1/2 pointer-events-none absolute top-1/2 right-3 text-secondary">
                 {suffix}
               </span>
+            )}
+            {infoText && (
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <InfoIcon className="-translate-y-1/2 absolute top-1/2 right-2.5 size-4.5! text-(--color-primary) transition-colors hover:text-primary" />
+                </TooltipTrigger>
+                <TooltipContent side="top">
+                  <p>{infoText}</p>
+                </TooltipContent>
+              </Tooltip>
             )}
           </div>
         ) : (

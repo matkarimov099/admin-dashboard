@@ -1,5 +1,11 @@
 import type { VariantProps } from 'class-variance-authority';
-import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
+import {
+  CheckIcon,
+  ChevronDownIcon,
+  ChevronsDownIcon,
+  ChevronsUpDownIcon,
+  XIcon,
+} from 'lucide-react';
 import * as React from 'react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
@@ -13,37 +19,22 @@ import {
   CommandList,
 } from '@/components/ui/command';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { getLocalizedCountries } from '@/utils/country-helpers.ts';
 import { cn } from '@/utils/utils';
 
 // ============================================================================
 // Types
 // ============================================================================
 
-export interface DeclarationTypeOption {
-  code: string;
-  type: string;
-  name: string;
-  npa?: string;
-  disabled?: boolean;
-  icon?: React.ReactNode;
-  shortcut?: string;
-  className?: string;
-}
-
-export interface DeclarationTypesPopoverProps
+export interface CountrySelectProps
   extends Omit<React.ComponentProps<typeof Popover>, 'onChange' | 'value'> {
   /**
-   * Array of declaration type options to display in the command menu
-   */
-  data: DeclarationTypeOption[];
-
-  /**
-   * Currently selected declaration type code
+   * Currently selected country code
    */
   value?: string;
 
   /**
-   * Callback when selection changes (returns declaration type code)
+   * Callback when selection changes (returns country code)
    */
   onChange?: (value: string) => void;
 
@@ -113,28 +104,29 @@ export interface DeclarationTypesPopoverProps
   className?: string;
 
   /**
-   * Whether to show NPA (normative legal act) information
+   * Locale for country names (en, ru, uz, uzcyrl)
    */
-  showNpa?: boolean;
+  locale?: string;
+
+  /**
+   * Show country flags
+   */
+  showFlags?: boolean;
 }
 
 // ============================================================================
 // Component
 // ============================================================================
 
-export const DeclarationTypesPopover = React.forwardRef<
-  React.ElementRef<typeof Popover>,
-  DeclarationTypesPopoverProps
->(
+export const CountrySelect = React.forwardRef<React.ElementRef<typeof Popover>, CountrySelectProps>(
   ({
-    data = [],
     value,
     onChange,
     trigger,
     size = 'default',
-    placeholder = 'Search declaration type...',
+    placeholder = 'Search country...',
     heading,
-    emptyText = 'No declaration type found.',
+    emptyText = 'No country found.',
     displayValue,
     popoverWidth = 400,
     align = 'center',
@@ -143,7 +135,8 @@ export const DeclarationTypesPopover = React.forwardRef<
     onClear,
     closeOnSelect = true,
     className,
-    showNpa = false,
+    locale = 'en',
+    showFlags = true,
     open,
     onOpenChange,
     ...props
@@ -157,24 +150,21 @@ export const DeclarationTypesPopover = React.forwardRef<
       setInternalOpen(newOpen);
     };
 
-    const selectedOption = data.find(item => item.code === value);
+    // Get localized countries
+    const countries = React.useMemo(() => getLocalizedCountries(locale), [locale]);
 
-    // Filter data by search query (search in type, name, and code)
+    const selectedOption = countries.find(item => item.code === value);
+
+    // Filter data by search query (search in name and code)
     const filteredData = React.useMemo(() => {
-      if (!searchQuery.trim()) return data;
+      if (!searchQuery.trim()) return countries;
       const query = searchQuery.toLowerCase();
-      return data.filter(
-        item =>
-          item.type.toLowerCase().includes(query) ||
-          item.name.toLowerCase().includes(query) ||
-          item.code.toLowerCase().includes(query)
+      return countries.filter(
+        item => item.name.toLowerCase().includes(query) || item.code.toLowerCase().includes(query)
       );
-    }, [data, searchQuery]);
+    }, [countries, searchQuery]);
 
-    const handleSelect = (selectedValue: string) => {
-      // Extract the actual code from the unique value (format: "code-type" or "code")
-      const selectedCode = selectedValue.split('-')[0];
-
+    const handleSelect = (selectedCode: string) => {
       // If clicking the same value and allowClear is enabled, clear it
       if (allowClear && selectedCode === value) {
         onClear?.();
@@ -197,9 +187,9 @@ export const DeclarationTypesPopover = React.forwardRef<
     const getDisplayLabel = () => {
       if (displayValue) return displayValue;
       if (selectedOption) {
-        return `${selectedOption.type} ${selectedOption.code} ${selectedOption.name}`;
+        return `${selectedOption.code} - ${selectedOption.name}`;
       }
-      return 'Select declaration type...';
+      return placeholder || 'Select country...';
     };
 
     // Default trigger button
@@ -208,23 +198,31 @@ export const DeclarationTypesPopover = React.forwardRef<
         variant="outline"
         size={size}
         className={cn(
-          'w-full justify-between text-left font-normal',
+          'justify-between! w-full font-normal text-left!',
           !value && 'text-muted-foreground',
           className
         )}
       >
-        <span className="truncate">{getDisplayLabel()}</span>
-        <div className="flex items-center gap-1">
+        <span className="flex flex-1 items-center gap-2 truncate">
+          {showFlags && selectedOption && (
+            <span
+              className={`fi fi-${selectedOption.countryId.toLowerCase()}`}
+              style={{ fontSize: '1.25em' }}
+            />
+          )}
+          {getDisplayLabel()}
+        </span>
+        <div className="flex shrink-0 items-center gap-1.5">
           {allowClear && value && (
             <button
               type="button"
               onClick={handleClear}
               className="rounded-sm opacity-70 hover:opacity-100 focus:outline-none focus:ring-(--color-primary) focus:ring-2 focus:ring-inset"
             >
-              ✕
+              <XIcon className="size-4!" />
             </button>
           )}
-          <ChevronsUpDownIcon className="size-4 shrink-0 opacity-50" />
+          <ChevronDownIcon className="size-4! opacity-50" />
         </div>
       </Button>
     );
@@ -242,43 +240,34 @@ export const DeclarationTypesPopover = React.forwardRef<
               <CommandGroup heading={heading}>
                 {filteredData.map((item, index) => {
                   const isSelected = item.code === value;
-                  // Use unique value combining code and type to avoid hover conflicts
-                  const uniqueValue = `${item.code}-${item.type}`;
                   return (
                     <CommandItem
                       key={`${item.code}-${index}`}
-                      value={uniqueValue}
+                      value={item.code}
                       onSelect={handleSelect}
-                      disabled={item.disabled}
+                      disabled={false}
                       className={cn(
-                        'cursor-pointer rounded-md p-2! text-sm',
+                        'cursor-pointer rounded-md p-2 text-sm',
                         'transition-colors duration-150',
                         'data-[selected=true]:bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)]',
                         'hover:bg-muted/50',
-                        isSelected && 'bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)]',
-                        'p-1'
+                        isSelected && 'bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)]'
                       )}
                     >
-                      {item.icon && <span className="mr-2 shrink-0">{item.icon}</span>}
                       <div className="flex flex-1 items-center gap-2">
-                        <span className="min-w-7.5 font-bold text-sm">{item.type}</span>
-                        <span className="min-w-6.25 font-medium text-muted-foreground text-sm">
+                        {showFlags && (
+                          <span
+                            className={`fi fi-${item.countryId.toLowerCase()}`}
+                            style={{ fontSize: '1.25em' }}
+                          />
+                        )}
+                        <span className="min-w-8.75 font-medium text-muted-foreground text-sm">
                           {item.code}
                         </span>
-                        <span className="text-sm">
-                          {item.name}
-                          {showNpa && item.npa && (
-                            <span className="text-muted-foreground text-xs"> ({item.npa})</span>
-                          )}
-                        </span>
+                        <span className="text-sm">{item.name}</span>
                       </div>
                       {showCheckIcon && isSelected && (
                         <CheckIcon className="ml-auto size-4 shrink-0 text-(--color-primary)" />
-                      )}
-                      {item.shortcut && (
-                        <span className="ml-auto text-muted-foreground text-xs">
-                          {item.shortcut}
-                        </span>
                       )}
                     </CommandItem>
                   );
@@ -292,6 +281,6 @@ export const DeclarationTypesPopover = React.forwardRef<
   }
 );
 
-DeclarationTypesPopover.displayName = 'DeclarationTypesPopover';
+CountrySelect.displayName = 'CountrySelect';
 
-export default DeclarationTypesPopover;
+export default CountrySelect;

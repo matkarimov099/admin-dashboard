@@ -31,7 +31,7 @@ export function Column1({ form, onSubmit }: Column1Props) {
           <DeclarationTypesPopover
             showNpa={true}
             trigger={
-              <Button size="icon" variant="ghost">
+              <Button size="icon" variant="ghost" hoverText="Deklaratsiya turini tanlang">
                 <CirclePlusIcon strokeWidth={2.2} className="text-(--color-primary)" />
               </Button>
             }

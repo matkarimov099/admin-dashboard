@@ -54,6 +54,7 @@
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
     "exceljs": "^4.4.0",
+    "flag-icons": "^7.5.0",
     "i18next": "^25.7.3",
     "jwt-decode": "^4.0.0",
     "lucide-react": "^0.511.0",

@@ -2,6 +2,7 @@ import { StrictMode, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import '@/styles/index.css';
 import 'react-photo-view/dist/react-photo-view.css';
+import 'flag-icons/css/flag-icons.min.css';
 import '@/i18n';
 import { App } from '@/App.tsx';
 import { AppLoader } from '@/components/common/app-loader.tsx';

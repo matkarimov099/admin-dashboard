@@ -1,0 +1,6806 @@
+[
+  {
+    "order": "1",
+    "code": "020",
+    "countryId": "AD",
+    "name": "Andorra",
+    "language": "GB"
+  },
+  {
+    "order": "1",
+    "code": "020",
+    "countryId": "AD",
+    "name": "Andorra",
+    "language": "OZ"
+  },
+  {
+    "order": "1",
+    "code": "020",
+    "countryId": "AD",
+    "name": "Андорра",
+    "language": "RU"
+  },
+  {
+    "order": "1",
+    "code": "020",
+    "countryId": "AD",
+    "name": "Андорра",
+    "language": "UZ"
+  },
+  {
+    "order": "2",
+    "code": "660",
+    "countryId": "AI",
+    "name": "Anguilla",
+    "language": "GB"
+  },
+  {
+    "order": "2",
+    "code": "660",
+    "countryId": "AI",
+    "name": "Angil'ya",
+    "language": "OZ"
+  },
+  {
+    "order": "2",
+    "code": "660",
+    "countryId": "AI",
+    "name": "Ангилья",
+    "language": "RU"
+  },
+  {
+    "order": "2",
+    "code": "660",
+    "countryId": "AI",
+    "name": "Ангилъя",
+    "language": "UZ"
+  },
+  {
+    "order": "3",
+    "code": "784",
+    "countryId": "AE",
+    "name": "UAE",
+    "language": "GB"
+  },
+  {
+    "order": "3",
+    "code": "784",
+    "countryId": "AE",
+    "name": "BAA",
+    "language": "OZ"
+  },
+  {
+    "order": "3",
+    "code": "784",
+    "countryId": "AE",
+    "name": "ОАЭ",
+    "language": "RU"
+  },
+  {
+    "order": "3",
+    "code": "784",
+    "countryId": "AE",
+    "name": "БАА",
+    "language": "UZ"
+  },
+  {
+    "order": "4",
+    "code": "008",
+    "countryId": "AL",
+    "name": "Albania",
+    "language": "GB"
+  },
+  {
+    "order": "4",
+    "code": "008",
+    "countryId": "AL",
+    "name": "Albaniston",
+    "language": "OZ"
+  },
+  {
+    "order": "4",
+    "code": "008",
+    "countryId": "AL",
+    "name": "Албания",
+    "language": "RU"
+  },
+  {
+    "order": "4",
+    "code": "008",
+    "countryId": "AL",
+    "name": "Албанистон",
+    "language": "UZ"
+  },
+  {
+    "order": "5",
+    "code": "004",
+    "countryId": "AF",
+    "name": "Afghanistan",
+    "language": "GB"
+  },
+  {
+    "order": "5",
+    "code": "004",
+    "countryId": "AF",
+    "name": "Afg'oniston",
+    "language": "OZ"
+  },
+  {
+    "order": "5",
+    "code": "004",
+    "countryId": "AF",
+    "name": "Афганистан",
+    "language": "RU"
+  },
+  {
+    "order": "5",
+    "code": "004",
+    "countryId": "AF",
+    "name": "Афғонистон",
+    "language": "UZ"
+  },
+  {
+    "order": "6",
+    "code": "051",
+    "countryId": "AM",
+    "name": "Armenia",
+    "language": "GB"
+  },
+  {
+    "order": "6",
+    "code": "051",
+    "countryId": "AM",
+    "name": "Armaniston",
+    "language": "OZ"
+  },
+  {
+    "order": "6",
+    "code": "051",
+    "countryId": "AM",
+    "name": "Армения",
+    "language": "RU"
+  },
+  {
+    "order": "6",
+    "code": "051",
+    "countryId": "AM",
+    "name": "Арманистон",
+    "language": "UZ"
+  },
+  {
+    "order": "7",
+    "code": "028",
+    "countryId": "AG",
+    "name": "Antigua and Barbuda",
+    "language": "GB"
+  },
+  {
+    "order": "7",
+    "code": "028",
+    "countryId": "AG",
+    "name": "Antigua va Barbuda",
+    "language": "OZ"
+  },
+  {
+    "order": "7",
+    "code": "028",
+    "countryId": "AG",
+    "name": "Антигуа и Барбуда",
+    "language": "RU"
+  },
+  {
+    "order": "7",
+    "code": "028",
+    "countryId": "AG",
+    "name": "Антигуа ва Барбуда",
+    "language": "UZ"
+  },
+  {
+    "order": "8",
+    "code": "530",
+    "countryId": "AN",
+    "name": "Netherlands Antilles",
+    "language": "GB"
+  },
+  {
+    "order": "8",
+    "code": "530",
+    "countryId": "AN",
+    "name": "Niderlandiya Antillalari",
+    "language": "OZ"
+  },
+  {
+    "order": "8",
+    "code": "530",
+    "countryId": "AN",
+    "name": "Нидерландские Антиллы",
+    "language": "RU"
+  },
+  {
+    "order": "8",
+    "code": "530",
+    "countryId": "AN",
+    "name": "Нидерландия Антиллалари",
+    "language": "UZ"
+  },
+  {
+    "order": "9",
+    "code": "024",
+    "countryId": "AO",
+    "name": "Angola",
+    "language": "GB"
+  },
+  {
+    "order": "9",
+    "code": "024",
+    "countryId": "AO",
+    "name": "Angola",
+    "language": "OZ"
+  },
+  {
+    "order": "9",
+    "code": "024",
+    "countryId": "AO",
+    "name": "Ангола",
+    "language": "RU"
+  },
+  {
+    "order": "9",
+    "code": "024",
+    "countryId": "AO",
+    "name": "Ангола",
+    "language": "UZ"
+  },
+  {
+    "order": "10",
+    "code": "010",
+    "countryId": "AQ",
+    "name": "Antarctica",
+    "language": "GB"
+  },
+  {
+    "order": "10",
+    "code": "010",
+    "countryId": "AQ",
+    "name": "Antarktida",
+    "language": "OZ"
+  },
+  {
+    "order": "10",
+    "code": "010",
+    "countryId": "AQ",
+    "name": "Антарктида",
+    "language": "RU"
+  },
+  {
+    "order": "10",
+    "code": "010",
+    "countryId": "AQ",
+    "name": "Антарктида",
+    "language": "UZ"
+  },
+  {
+    "order": "11",
+    "code": "032",
+    "countryId": "AR",
+    "name": "Argentina",
+    "language": "GB"
+  },
+  {
+    "order": "11",
+    "code": "032",
+    "countryId": "AR",
+    "name": "Argentina",
+    "language": "OZ"
+  },
+  {
+    "order": "11",
+    "code": "032",
+    "countryId": "AR",
+    "name": "Аргентина",
+    "language": "RU"
+  },
+  {
+    "order": "11",
+    "code": "032",
+    "countryId": "AR",
+    "name": "Аргентина",
+    "language": "UZ"
+  },
+  {
+    "order": "12",
+    "code": "016",
+    "countryId": "AS",
+    "name": "American Samoa",
+    "language": "GB"
+  },
+  {
+    "order": "12",
+    "code": "016",
+    "countryId": "AS",
+    "name": "Amerika Samoasi",
+    "language": "OZ"
+  },
+  {
+    "order": "12",
+    "code": "016",
+    "countryId": "AS",
+    "name": "Американское Самоа",
+    "language": "RU"
+  },
+  {
+    "order": "12",
+    "code": "016",
+    "countryId": "AS",
+    "name": "Америка Самоаси",
+    "language": "UZ"
+  },
+  {
+    "order": "13",
+    "code": "040",
+    "countryId": "AT",
+    "name": "Austria",
+    "language": "GB"
+  },
+  {
+    "order": "13",
+    "code": "040",
+    "countryId": "AT",
+    "name": "Avstriya ",
+    "language": "OZ"
+  },
+  {
+    "order": "13",
+    "code": "040",
+    "countryId": "AT",
+    "name": "Австрия",
+    "language": "RU"
+  },
+  {
+    "order": "13",
+    "code": "040",
+    "countryId": "AT",
+    "name": "Австрия ",
+    "language": "UZ"
+  },
+  {
+    "order": "14",
+    "code": "036",
+    "countryId": "AU",
+    "name": "Australia",
+    "language": "GB"
+  },
+  {
+    "order": "14",
+    "code": "036",
+    "countryId": "AU",
+    "name": "Avstraliya  ",
+    "language": "OZ"
+  },
+  {
+    "order": "14",
+    "code": "036",
+    "countryId": "AU",
+    "name": "Австралия",
+    "language": "RU"
+  },
+  {
+    "order": "14",
+    "code": "036",
+    "countryId": "AU",
+    "name": "Австралия  ",
+    "language": "UZ"
+  },
+  {
+    "order": "15",
+    "code": "533",
+    "countryId": "AW",
+    "name": "Aruba",
+    "language": "GB"
+  },
+  {
+    "order": "15",
+    "code": "533",
+    "countryId": "AW",
+    "name": "Aruba",
+    "language": "OZ"
+  },
+  {
+    "order": "15",
+    "code": "533",
+    "countryId": "AW",
+    "name": "Аруба",
+    "language": "RU"
+  },
+  {
+    "order": "15",
+    "code": "533",
+    "countryId": "AW",
+    "name": "Аруба",
+    "language": "UZ"
+  },
+  {
+    "order": "16",
+    "code": "248",
+    "countryId": "AX",
+    "name": "Aland Islands",
+    "language": "GB"
+  },
+  {
+    "order": "16",
+    "code": "248",
+    "countryId": "AX",
+    "name": "Alandiya orollari",
+    "language": "OZ"
+  },
+  {
+    "order": "16",
+    "code": "248",
+    "countryId": "AX",
+    "name": "Аландские о-ва",
+    "language": "RU"
+  },
+  {
+    "order": "16",
+    "code": "248",
+    "countryId": "AX",
+    "name": "Аландия ороллари",
+    "language": "UZ"
+  },
+  {
+    "order": "17",
+    "code": "031",
+    "countryId": "AZ",
+    "name": "Azerbaijan",
+    "language": "GB"
+  },
+  {
+    "order": "17",
+    "code": "031",
+    "countryId": "AZ",
+    "name": "Ozarbayjon",
+    "language": "OZ"
+  },
+  {
+    "order": "17",
+    "code": "031",
+    "countryId": "AZ",
+    "name": "Азербайджан",
+    "language": "RU"
+  },
+  {
+    "order": "17",
+    "code": "031",
+    "countryId": "AZ",
+    "name": "Озарбайжон",
+    "language": "UZ"
+  },
+  {
+    "order": "18",
+    "code": "070",
+    "countryId": "BA",
+    "name": "Bosnia and Herzegovina",
+    "language": "GB"
+  },
+  {
+    "order": "18",
+    "code": "070",
+    "countryId": "BA",
+    "name": "Bosniya va Gersegovina",
+    "language": "OZ"
+  },
+  {
+    "order": "18",
+    "code": "070",
+    "countryId": "BA",
+    "name": "Босния и Герцеговина",
+    "language": "RU"
+  },
+  {
+    "order": "18",
+    "code": "070",
+    "countryId": "BA",
+    "name": "Босния ва Герцеговина",
+    "language": "UZ"
+  },
+  {
+    "order": "19",
+    "code": "052",
+    "countryId": "BB",
+    "name": "Barbados",
+    "language": "GB"
+  },
+  {
+    "order": "19",
+    "code": "052",
+    "countryId": "BB",
+    "name": "Barbados   ",
+    "language": "OZ"
+  },
+  {
+    "order": "19",
+    "code": "052",
+    "countryId": "BB",
+    "name": "Барбадос",
+    "language": "RU"
+  },
+  {
+    "order": "19",
+    "code": "052",
+    "countryId": "BB",
+    "name": "Барбадос   ",
+    "language": "UZ"
+  },
+  {
+    "order": "20",
+    "code": "050",
+    "countryId": "BD",
+    "name": "Bangladesh",
+    "language": "GB"
+  },
+  {
+    "order": "20",
+    "code": "050",
+    "countryId": "BD",
+    "name": "Bangladesh  ",
+    "language": "OZ"
+  },
+  {
+    "order": "20",
+    "code": "050",
+    "countryId": "BD",
+    "name": "Бангладеш",
+    "language": "RU"
+  },
+  {
+    "order": "20",
+    "code": "050",
+    "countryId": "BD",
+    "name": "Бангладеш  ",
+    "language": "UZ"
+  },
+  {
+    "order": "21",
+    "code": "056",
+    "countryId": "BE",
+    "name": "Belgium",
+    "language": "GB"
+  },
+  {
+    "order": "21",
+    "code": "056",
+    "countryId": "BE",
+    "name": "Belgiya",
+    "language": "OZ"
+  },
+  {
+    "order": "21",
+    "code": "056",
+    "countryId": "BE",
+    "name": "Бельгия",
+    "language": "RU"
+  },
+  {
+    "order": "21",
+    "code": "056",
+    "countryId": "BE",
+    "name": "Белгия",
+    "language": "UZ"
+  },
+  {
+    "order": "22",
+    "code": "854",
+    "countryId": "BF",
+    "name": "Burkina Faso",
+    "language": "GB"
+  },
+  {
+    "order": "22",
+    "code": "854",
+    "countryId": "BF",
+    "name": "Burkina-Faso",
+    "language": "OZ"
+  },
+  {
+    "order": "22",
+    "code": "854",
+    "countryId": "BF",
+    "name": "Буркина-Фасо",
+    "language": "RU"
+  },
+  {
+    "order": "22",
+    "code": "854",
+    "countryId": "BF",
+    "name": "Буркина-Фасо",
+    "language": "UZ"
+  },
+  {
+    "order": "23",
+    "code": "100",
+    "countryId": "BG",
+    "name": "Bulgaria",
+    "language": "GB"
+  },
+  {
+    "order": "23",
+    "code": "100",
+    "countryId": "BG",
+    "name": "Bolgariya  ",
+    "language": "OZ"
+  },
+  {
+    "order": "23",
+    "code": "100",
+    "countryId": "BG",
+    "name": "Болгария",
+    "language": "RU"
+  },
+  {
+    "order": "23",
+    "code": "100",
+    "countryId": "BG",
+    "name": "Болгария  ",
+    "language": "UZ"
+  },
+  {
+    "order": "24",
+    "code": "048",
+    "countryId": "BH",
+    "name": "Bahrain",
+    "language": "GB"
+  },
+  {
+    "order": "24",
+    "code": "048",
+    "countryId": "BH",
+    "name": "Baxreyn",
+    "language": "OZ"
+  },
+  {
+    "order": "24",
+    "code": "048",
+    "countryId": "BH",
+    "name": "Бахрейн",
+    "language": "RU"
+  },
+  {
+    "order": "24",
+    "code": "048",
+    "countryId": "BH",
+    "name": "Бахрейн",
+    "language": "UZ"
+  },
+  {
+    "order": "25",
+    "code": "108",
+    "countryId": "BI",
+    "name": "Burundi",
+    "language": "GB"
+  },
+  {
+    "order": "25",
+    "code": "108",
+    "countryId": "BI",
+    "name": "Burundiya  ",
+    "language": "OZ"
+  },
+  {
+    "order": "25",
+    "code": "108",
+    "countryId": "BI",
+    "name": "Бурунди",
+    "language": "RU"
+  },
+  {
+    "order": "25",
+    "code": "108",
+    "countryId": "BI",
+    "name": "Бурундия  ",
+    "language": "UZ"
+  },
+  {
+    "order": "26",
+    "code": "204",
+    "countryId": "BJ",
+    "name": "Benin",
+    "language": "GB"
+  },
+  {
+    "order": "26",
+    "code": "204",
+    "countryId": "BJ",
+    "name": "Benin",
+    "language": "OZ"
+  },
+  {
+    "order": "26",
+    "code": "204",
+    "countryId": "BJ",
+    "name": "Бенин",
+    "language": "RU"
+  },
+  {
+    "order": "26",
+    "code": "204",
+    "countryId": "BJ",
+    "name": "Бенин",
+    "language": "UZ"
+  },
+  {
+    "order": "27",
+    "code": "000",
+    "countryId": "XX",
+    "name": "Noma'lum",
+    "language": "OZ"
+  },
+  {
+    "order": "27",
+    "code": "000",
+    "countryId": "XX",
+    "name": "Номаълум",
+    "language": "UZ"
+  },
+  {
+    "order": "28",
+    "code": "060",
+    "countryId": "BM",
+    "name": "Bermuda",
+    "language": "GB"
+  },
+  {
+    "order": "28",
+    "code": "060",
+    "countryId": "BM",
+    "name": "Bermud orollari",
+    "language": "OZ"
+  },
+  {
+    "order": "28",
+    "code": "060",
+    "countryId": "BM",
+    "name": "Бермудские о-ва",
+    "language": "RU"
+  },
+  {
+    "order": "28",
+    "code": "060",
+    "countryId": "BM",
+    "name": "Бермуд ороллари",
+    "language": "UZ"
+  },
+  {
+    "order": "29",
+    "code": "096",
+    "countryId": "BN",
+    "name": "Brunei Darussalam",
+    "language": "GB"
+  },
+  {
+    "order": "29",
+    "code": "096",
+    "countryId": "BN",
+    "name": "Bruney-Darussalom",
+    "language": "OZ"
+  },
+  {
+    "order": "29",
+    "code": "096",
+    "countryId": "BN",
+    "name": "Бруней-Даруссалам",
+    "language": "RU"
+  },
+  {
+    "order": "29",
+    "code": "096",
+    "countryId": "BN",
+    "name": "Бруней-Даруссалом",
+    "language": "UZ"
+  },
+  {
+    "order": "30",
+    "code": "068",
+    "countryId": "BO",
+    "name": "Bolivia",
+    "language": "GB"
+  },
+  {
+    "order": "30",
+    "code": "068",
+    "countryId": "BO",
+    "name": "Boliviya  ",
+    "language": "OZ"
+  },
+  {
+    "order": "30",
+    "code": "068",
+    "countryId": "BO",
+    "name": "Боливия",
+    "language": "RU"
+  },
+  {
+    "order": "30",
+    "code": "068",
+    "countryId": "BO",
+    "name": "Боливия  ",
+    "language": "UZ"
+  },
+  {
+    "order": "31",
+    "code": "076",
+    "countryId": "BR",
+    "name": "Brazil",
+    "language": "GB"
+  },
+  {
+    "order": "31",
+    "code": "076",
+    "countryId": "BR",
+    "name": "Braziliya  ",
+    "language": "OZ"
+  },
+  {
+    "order": "31",
+    "code": "076",
+    "countryId": "BR",
+    "name": "Бразилия",
+    "language": "RU"
+  },
+  {
+    "order": "31",
+    "code": "076",
+    "countryId": "BR",
+    "name": "Бразилия  ",
+    "language": "UZ"
+  },
+  {
+    "order": "32",
+    "code": "044",
+    "countryId": "BS",
+    "name": "Bahamas",
+    "language": "GB"
+  },
+  {
+    "order": "32",
+    "code": "044",
+    "countryId": "BS",
+    "name": "Bagama orollari",
+    "language": "OZ"
+  },
+  {
+    "order": "32",
+    "code": "044",
+    "countryId": "BS",
+    "name": "Багамские о-ва",
+    "language": "RU"
+  },
+  {
+    "order": "32",
+    "code": "044",
+    "countryId": "BS",
+    "name": "Багама ороллари",
+    "language": "UZ"
+  },
+  {
+    "order": "33",
+    "code": "064",
+    "countryId": "BT",
+    "name": "Bhutan",
+    "language": "GB"
+  },
+  {
+    "order": "33",
+    "code": "064",
+    "countryId": "BT",
+    "name": "Butan",
+    "language": "OZ"
+  },
+  {
+    "order": "33",
+    "code": "064",
+    "countryId": "BT",
+    "name": "Бутан",
+    "language": "RU"
+  },
+  {
+    "order": "33",
+    "code": "064",
+    "countryId": "BT",
+    "name": "Бутан",
+    "language": "UZ"
+  },
+  {
+    "order": "34",
+    "code": "074",
+    "countryId": "BV",
+    "name": "Bouvet Island",
+    "language": "GB"
+  },
+  {
+    "order": "34",
+    "code": "074",
+    "countryId": "BV",
+    "name": "Buve oroli",
+    "language": "OZ"
+  },
+  {
+    "order": "34",
+    "code": "074",
+    "countryId": "BV",
+    "name": "Остров Буве",
+    "language": "RU"
+  },
+  {
+    "order": "34",
+    "code": "074",
+    "countryId": "BV",
+    "name": "Буве ороли",
+    "language": "UZ"
+  },
+  {
+    "order": "35",
+    "code": "072",
+    "countryId": "BW",
+    "name": "Botswana",
+    "language": "GB"
+  },
+  {
+    "order": "35",
+    "code": "072",
+    "countryId": "BW",
+    "name": "Botsvana",
+    "language": "OZ"
+  },
+  {
+    "order": "35",
+    "code": "072",
+    "countryId": "BW",
+    "name": "Ботсвана",
+    "language": "RU"
+  },
+  {
+    "order": "35",
+    "code": "072",
+    "countryId": "BW",
+    "name": "Ботсвана",
+    "language": "UZ"
+  },
+  {
+    "order": "36",
+    "code": "112",
+    "countryId": "BY",
+    "name": "Belarus",
+    "language": "GB"
+  },
+  {
+    "order": "36",
+    "code": "112",
+    "countryId": "BY",
+    "name": "Belarus ",
+    "language": "OZ"
+  },
+  {
+    "order": "36",
+    "code": "112",
+    "countryId": "BY",
+    "name": "Беларусь",
+    "language": "RU"
+  },
+  {
+    "order": "36",
+    "code": "112",
+    "countryId": "BY",
+    "name": "Беларусь",
+    "language": "UZ"
+  },
+  {
+    "order": "37",
+    "code": "084",
+    "countryId": "BZ",
+    "name": "Belize",
+    "language": "GB"
+  },
+  {
+    "order": "37",
+    "code": "084",
+    "countryId": "BZ",
+    "name": "Beliz  ",
+    "language": "OZ"
+  },
+  {
+    "order": "37",
+    "code": "084",
+    "countryId": "BZ",
+    "name": "Белиз",
+    "language": "RU"
+  },
+  {
+    "order": "37",
+    "code": "084",
+    "countryId": "BZ",
+    "name": "Белиз  ",
+    "language": "UZ"
+  },
+  {
+    "order": "38",
+    "code": "124",
+    "countryId": "CA",
+    "name": "Canada",
+    "language": "GB"
+  },
+  {
+    "order": "38",
+    "code": "124",
+    "countryId": "CA",
+    "name": "Kanada  ",
+    "language": "OZ"
+  },
+  {
+    "order": "38",
+    "code": "124",
+    "countryId": "CA",
+    "name": "Канада",
+    "language": "RU"
+  },
+  {
+    "order": "38",
+    "code": "124",
+    "countryId": "CA",
+    "name": "Канада  ",
+    "language": "UZ"
+  },
+  {
+    "order": "39",
+    "code": "166",
+    "countryId": "CC",
+    "name": "Cocos (Keeling) Islands",
+    "language": "GB"
+  },
+  {
+    "order": "39",
+    "code": "166",
+    "countryId": "CC",
+    "name": "Kokos (Kiling) orollari",
+    "language": "OZ"
+  },
+  {
+    "order": "39",
+    "code": "166",
+    "countryId": "CC",
+    "name": "Кокосовые (Килинг) о-ва",
+    "language": "RU"
+  },
+  {
+    "order": "39",
+    "code": "166",
+    "countryId": "CC",
+    "name": "Кокос (Килинг) ороллари",
+    "language": "UZ"
+  },
+  {
+    "order": "40",
+    "code": "180",
+    "countryId": "CD",
+    "name": "Democratic Republic of the Congo",
+    "language": "GB"
+  },
+  {
+    "order": "40",
+    "code": "180",
+    "countryId": "CD",
+    "name": "Kongo Demokratik Respublikasi",
+    "language": "OZ"
+  },
+  {
+    "order": "40",
+    "code": "180",
+    "countryId": "CD",
+    "name": "Демократическая Республика Конго",
+    "language": "RU"
+  },
+  {
+    "order": "40",
+    "code": "180",
+    "countryId": "CD",
+    "name": "Конго Демократик Республикаси",
+    "language": "UZ"
+  },
+  {
+    "order": "41",
+    "code": "140",
+    "countryId": "CF",
+    "name": "Central African Republic",
+    "language": "GB"
+  },
+  {
+    "order": "41",
+    "code": "140",
+    "countryId": "CF",
+    "name": "MAR",
+    "language": "OZ"
+  },
+  {
+    "order": "41",
+    "code": "140",
+    "countryId": "CF",
+    "name": "ЦАР",
+    "language": "RU"
+  },
+  {
+    "order": "41",
+    "code": "140",
+    "countryId": "CF",
+    "name": "МАР",
+    "language": "UZ"
+  },
+  {
+    "order": "42",
+    "code": "178",
+    "countryId": "CG",
+    "name": "Congo",
+    "language": "GB"
+  },
+  {
+    "order": "42",
+    "code": "178",
+    "countryId": "CG",
+    "name": "Kongo",
+    "language": "OZ"
+  },
+  {
+    "order": "42",
+    "code": "178",
+    "countryId": "CG",
+    "name": "Конго",
+    "language": "RU"
+  },
+  {
+    "order": "42",
+    "code": "178",
+    "countryId": "CG",
+    "name": "Конго",
+    "language": "UZ"
+  },
+  {
+    "order": "43",
+    "code": "756",
+    "countryId": "CH",
+    "name": "Switzerland",
+    "language": "GB"
+  },
+  {
+    "order": "43",
+    "code": "756",
+    "countryId": "CH",
+    "name": "Shveysariya",
+    "language": "OZ"
+  },
+  {
+    "order": "43",
+    "code": "756",
+    "countryId": "CH",
+    "name": "Швейцария",
+    "language": "RU"
+  },
+  {
+    "order": "43",
+    "code": "756",
+    "countryId": "CH",
+    "name": "Швейцария",
+    "language": "UZ"
+  },
+  {
+    "order": "44",
+    "code": "384",
+    "countryId": "CI",
+    "name": "Cote d'Ivoire",
+    "language": "GB"
+  },
+  {
+    "order": "44",
+    "code": "384",
+    "countryId": "CI",
+    "name": "Kot-d'Ivuar",
+    "language": "OZ"
+  },
+  {
+    "order": "44",
+    "code": "384",
+    "countryId": "CI",
+    "name": "Кот-д'Ивуар",
+    "language": "RU"
+  },
+  {
+    "order": "44",
+    "code": "384",
+    "countryId": "CI",
+    "name": "Кот-дъИвуар",
+    "language": "UZ"
+  },
+  {
+    "order": "45",
+    "code": "000",
+    "countryId": "XX",
+    "name": "Неизвестный",
+    "language": "RU"
+  },
+  {
+    "order": "46",
+    "code": "152",
+    "countryId": "CL",
+    "name": "Chile",
+    "language": "GB"
+  },
+  {
+    "order": "46",
+    "code": "152",
+    "countryId": "CL",
+    "name": "Chili",
+    "language": "OZ"
+  },
+  {
+    "order": "46",
+    "code": "152",
+    "countryId": "CL",
+    "name": "Чили",
+    "language": "RU"
+  },
+  {
+    "order": "46",
+    "code": "152",
+    "countryId": "CL",
+    "name": "Чили",
+    "language": "UZ"
+  },
+  {
+    "order": "47",
+    "code": "120",
+    "countryId": "CM",
+    "name": "Cameroon",
+    "language": "GB"
+  },
+  {
+    "order": "47",
+    "code": "120",
+    "countryId": "CM",
+    "name": "Kamerun",
+    "language": "OZ"
+  },
+  {
+    "order": "47",
+    "code": "120",
+    "countryId": "CM",
+    "name": "Камерун",
+    "language": "RU"
+  },
+  {
+    "order": "47",
+    "code": "120",
+    "countryId": "CM",
+    "name": "Камерун",
+    "language": "UZ"
+  },
+  {
+    "order": "48",
+    "code": "156",
+    "countryId": "CN",
+    "name": "China",
+    "language": "GB"
+  },
+  {
+    "order": "48",
+    "code": "156",
+    "countryId": "CN",
+    "name": "Xitoy",
+    "language": "OZ"
+  },
+  {
+    "order": "48",
+    "code": "156",
+    "countryId": "CN",
+    "name": "Китай",
+    "language": "RU"
+  },
+  {
+    "order": "48",
+    "code": "156",
+    "countryId": "CN",
+    "name": "Хитой",
+    "language": "UZ"
+  },
+  {
+    "order": "49",
+    "code": "170",
+    "countryId": "CO",
+    "name": "Colombia",
+    "language": "GB"
+  },
+  {
+    "order": "49",
+    "code": "170",
+    "countryId": "CO",
+    "name": "Kolumbiya  ",
+    "language": "OZ"
+  },
+  {
+    "order": "49",
+    "code": "170",
+    "countryId": "CO",
+    "name": "Колумбия",
+    "language": "RU"
+  },
+  {
+    "order": "49",
+    "code": "170",
+    "countryId": "CO",
+    "name": "Колумбия  ",
+    "language": "UZ"
+  },
+  {
+    "order": "50",
+    "code": "188",
+    "countryId": "CR",
+    "name": "Costa Rica",
+    "language": "GB"
+  },
+  {
+    "order": "50",
+    "code": "188",
+    "countryId": "CR",
+    "name": "Kosta-Rika",
+    "language": "OZ"
+  },
+  {
+    "order": "50",
+    "code": "188",
+    "countryId": "CR",
+    "name": "Коста-Рика",
+    "language": "RU"
+  },
+  {
+    "order": "50",
+    "code": "188",
+    "countryId": "CR",
+    "name": "Коста-Рика",
+    "language": "UZ"
+  },
+  {
+    "order": "51",
+    "code": "192",
+    "countryId": "CU",
+    "name": "Cuba",
+    "language": "GB"
+  },
+  {
+    "order": "51",
+    "code": "192",
+    "countryId": "CU",
+    "name": "Kuba",
+    "language": "OZ"
+  },
+  {
+    "order": "51",
+    "code": "192",
+    "countryId": "CU",
+    "name": "Куба",
+    "language": "RU"
+  },
+  {
+    "order": "51",
+    "code": "192",
+    "countryId": "CU",
+    "name": "Куба",
+    "language": "UZ"
+  },
+  {
+    "order": "52",
+    "code": "132",
+    "countryId": "CV",
+    "name": "Cabo Verde",
+    "language": "GB"
+  },
+  {
+    "order": "52",
+    "code": "132",
+    "countryId": "CV",
+    "name": "Kabo-Verde ",
+    "language": "OZ"
+  },
+  {
+    "order": "52",
+    "code": "132",
+    "countryId": "CV",
+    "name": "Кабо-Верде",
+    "language": "RU"
+  },
+  {
+    "order": "52",
+    "code": "132",
+    "countryId": "CV",
+    "name": "Кабо-Верде ",
+    "language": "UZ"
+  },
+  {
+    "order": "53",
+    "code": "162",
+    "countryId": "CX",
+    "name": "Christmas Island",
+    "language": "GB"
+  },
+  {
+    "order": "53",
+    "code": "162",
+    "countryId": "CX",
+    "name": "Rojdestvo oroli",
+    "language": "OZ"
+  },
+  {
+    "order": "53",
+    "code": "162",
+    "countryId": "CX",
+    "name": "Остров Рождества",
+    "language": "RU"
+  },
+  {
+    "order": "53",
+    "code": "162",
+    "countryId": "CX",
+    "name": "Рождество ороли",
+    "language": "UZ"
+  },
+  {
+    "order": "54",
+    "code": "196",
+    "countryId": "CY",
+    "name": "Cyprus",
+    "language": "GB"
+  },
+  {
+    "order": "54",
+    "code": "196",
+    "countryId": "CY",
+    "name": "Kipr",
+    "language": "OZ"
+  },
+  {
+    "order": "54",
+    "code": "196",
+    "countryId": "CY",
+    "name": "Кипр",
+    "language": "RU"
+  },
+  {
+    "order": "54",
+    "code": "196",
+    "countryId": "CY",
+    "name": "Кипр",
+    "language": "UZ"
+  },
+  {
+    "order": "55",
+    "code": "203",
+    "countryId": "CZ",
+    "name": "Czech Republic",
+    "language": "GB"
+  },
+  {
+    "order": "55",
+    "code": "203",
+    "countryId": "CZ",
+    "name": "Chehiya",
+    "language": "OZ"
+  },
+  {
+    "order": "55",
+    "code": "203",
+    "countryId": "CZ",
+    "name": "Чехия",
+    "language": "RU"
+  },
+  {
+    "order": "55",
+    "code": "203",
+    "countryId": "CZ",
+    "name": "Чеҳия",
+    "language": "UZ"
+  },
+  {
+    "order": "56",
+    "code": "276",
+    "countryId": "DE",
+    "name": "Germany",
+    "language": "GB"
+  },
+  {
+    "order": "56",
+    "code": "276",
+    "countryId": "DE",
+    "name": "Germaniya",
+    "language": "OZ"
+  },
+  {
+    "order": "56",
+    "code": "276",
+    "countryId": "DE",
+    "name": "Германия",
+    "language": "RU"
+  },
+  {
+    "order": "56",
+    "code": "276",
+    "countryId": "DE",
+    "name": "Германия",
+    "language": "UZ"
+  },
+  {
+    "order": "57",
+    "code": "262",
+    "countryId": "DJ",
+    "name": "Djibouti",
+    "language": "GB"
+  },
+  {
+    "order": "57",
+    "code": "262",
+    "countryId": "DJ",
+    "name": "Jibuti",
+    "language": "OZ"
+  },
+  {
+    "order": "57",
+    "code": "262",
+    "countryId": "DJ",
+    "name": "Джибути",
+    "language": "RU"
+  },
+  {
+    "order": "57",
+    "code": "262",
+    "countryId": "DJ",
+    "name": "Жибути",
+    "language": "UZ"
+  },
+  {
+    "order": "58",
+    "code": "208",
+    "countryId": "DK",
+    "name": "Denmark",
+    "language": "GB"
+  },
+  {
+    "order": "58",
+    "code": "208",
+    "countryId": "DK",
+    "name": "Daniya",
+    "language": "OZ"
+  },
+  {
+    "order": "58",
+    "code": "208",
+    "countryId": "DK",
+    "name": "Дания",
+    "language": "RU"
+  },
+  {
+    "order": "58",
+    "code": "208",
+    "countryId": "DK",
+    "name": "Дания",
+    "language": "UZ"
+  },
+  {
+    "order": "59",
+    "code": "212",
+    "countryId": "DM",
+    "name": "Dominica",
+    "language": "GB"
+  },
+  {
+    "order": "59",
+    "code": "212",
+    "countryId": "DM",
+    "name": "Dominika  ",
+    "language": "OZ"
+  },
+  {
+    "order": "59",
+    "code": "212",
+    "countryId": "DM",
+    "name": "Доминика",
+    "language": "RU"
+  },
+  {
+    "order": "59",
+    "code": "212",
+    "countryId": "DM",
+    "name": "Доминика  ",
+    "language": "UZ"
+  },
+  {
+    "order": "60",
+    "code": "214",
+    "countryId": "DO",
+    "name": "Dominican Republic",
+    "language": "GB"
+  },
+  {
+    "order": "60",
+    "code": "214",
+    "countryId": "DO",
+    "name": "Dominika Respublikasi",
+    "language": "OZ"
+  },
+  {
+    "order": "60",
+    "code": "214",
+    "countryId": "DO",
+    "name": "Доминиканская Республика",
+    "language": "RU"
+  },
+  {
+    "order": "60",
+    "code": "214",
+    "countryId": "DO",
+    "name": "Доминика Республикаси",
+    "language": "UZ"
+  },
+  {
+    "order": "61",
+    "code": "012",
+    "countryId": "DZ",
+    "name": "Algeria",
+    "language": "GB"
+  },
+  {
+    "order": "61",
+    "code": "012",
+    "countryId": "DZ",
+    "name": "Aljir  ",
+    "language": "OZ"
+  },
+  {
+    "order": "61",
+    "code": "012",
+    "countryId": "DZ",
+    "name": "Алжир",
+    "language": "RU"
+  },
+  {
+    "order": "61",
+    "code": "012",
+    "countryId": "DZ",
+    "name": "Алжир  ",
+    "language": "UZ"
+  },
+  {
+    "order": "62",
+    "code": "218",
+    "countryId": "EC",
+    "name": "Ecuador",
+    "language": "GB"
+  },
+  {
+    "order": "62",
+    "code": "218",
+    "countryId": "EC",
+    "name": "Ekvador",
+    "language": "OZ"
+  },
+  {
+    "order": "62",
+    "code": "218",
+    "countryId": "EC",
+    "name": "Эквадор",
+    "language": "RU"
+  },
+  {
+    "order": "62",
+    "code": "218",
+    "countryId": "EC",
+    "name": "Эквадор",
+    "language": "UZ"
+  },
+  {
+    "order": "63",
+    "code": "233",
+    "countryId": "EE",
+    "name": "Estonia",
+    "language": "GB"
+  },
+  {
+    "order": "63",
+    "code": "233",
+    "countryId": "EE",
+    "name": "Estoniya",
+    "language": "OZ"
+  },
+  {
+    "order": "63",
+    "code": "233",
+    "countryId": "EE",
+    "name": "Эстония",
+    "language": "RU"
+  },
+  {
+    "order": "63",
+    "code": "233",
+    "countryId": "EE",
+    "name": "Эстония",
+    "language": "UZ"
+  },
+  {
+    "order": "64",
+    "code": "818",
+    "countryId": "EG",
+    "name": "Egypt",
+    "language": "GB"
+  },
+  {
+    "order": "64",
+    "code": "818",
+    "countryId": "EG",
+    "name": "Misr  ",
+    "language": "OZ"
+  },
+  {
+    "order": "64",
+    "code": "818",
+    "countryId": "EG",
+    "name": "Египет",
+    "language": "RU"
+  },
+  {
+    "order": "64",
+    "code": "818",
+    "countryId": "EG",
+    "name": "Миср  ",
+    "language": "UZ"
+  },
+  {
+    "order": "65",
+    "code": "732",
+    "countryId": "EH",
+    "name": "Western Sahara",
+    "language": "GB"
+  },
+  {
+    "order": "65",
+    "code": "732",
+    "countryId": "EH",
+    "name": "Sadr",
+    "language": "OZ"
+  },
+  {
+    "order": "65",
+    "code": "732",
+    "countryId": "EH",
+    "name": "САДР",
+    "language": "RU"
+  },
+  {
+    "order": "65",
+    "code": "732",
+    "countryId": "EH",
+    "name": "Садр",
+    "language": "UZ"
+  },
+  {
+    "order": "66",
+    "code": "232",
+    "countryId": "ER",
+    "name": "Eritrea",
+    "language": "GB"
+  },
+  {
+    "order": "66",
+    "code": "232",
+    "countryId": "ER",
+    "name": "Eritreya",
+    "language": "OZ"
+  },
+  {
+    "order": "66",
+    "code": "232",
+    "countryId": "ER",
+    "name": "Эритрея",
+    "language": "RU"
+  },
+  {
+    "order": "66",
+    "code": "232",
+    "countryId": "ER",
+    "name": "Эритрея",
+    "language": "UZ"
+  },
+  {
+    "order": "67",
+    "code": "724",
+    "countryId": "ES",
+    "name": "Spain",
+    "language": "GB"
+  },
+  {
+    "order": "67",
+    "code": "724",
+    "countryId": "ES",
+    "name": "Ispaniya",
+    "language": "OZ"
+  },
+  {
+    "order": "67",
+    "code": "724",
+    "countryId": "ES",
+    "name": "Испания",
+    "language": "RU"
+  },
+  {
+    "order": "67",
+    "code": "724",
+    "countryId": "ES",
+    "name": "Испания",
+    "language": "UZ"
+  },
+  {
+    "order": "68",
+    "code": "231",
+    "countryId": "ET",
+    "name": "Ethiopia",
+    "language": "GB"
+  },
+  {
+    "order": "68",
+    "code": "231",
+    "countryId": "ET",
+    "name": "Efiopiya  ",
+    "language": "OZ"
+  },
+  {
+    "order": "68",
+    "code": "231",
+    "countryId": "ET",
+    "name": "Эфиопия",
+    "language": "RU"
+  },
+  {
+    "order": "68",
+    "code": "231",
+    "countryId": "ET",
+    "name": "Эфиопия  ",
+    "language": "UZ"
+  },
+  {
+    "order": "69",
+    "code": "246",
+    "countryId": "FI",
+    "name": "Finland",
+    "language": "GB"
+  },
+  {
+    "order": "69",
+    "code": "246",
+    "countryId": "FI",
+    "name": "Finlandiya",
+    "language": "OZ"
+  },
+  {
+    "order": "69",
+    "code": "246",
+    "countryId": "FI",
+    "name": "Финляндия",
+    "language": "RU"
+  },
+  {
+    "order": "69",
+    "code": "246",
+    "countryId": "FI",
+    "name": "Финландия",
+    "language": "UZ"
+  },
+  {
+    "order": "70",
+    "code": "242",
+    "countryId": "FJ",
+    "name": "Fiji",
+    "language": "GB"
+  },
+  {
+    "order": "70",
+    "code": "242",
+    "countryId": "FJ",
+    "name": "Fiji",
+    "language": "OZ"
+  },
+  {
+    "order": "70",
+    "code": "242",
+    "countryId": "FJ",
+    "name": "Фиджи",
+    "language": "RU"
+  },
+  {
+    "order": "70",
+    "code": "242",
+    "countryId": "FJ",
+    "name": "Фижи",
+    "language": "UZ"
+  },
+  {
+    "order": "71",
+    "code": "238",
+    "countryId": "FK",
+    "name": "Falkland Islands (Malvinas)",
+    "language": "GB"
+  },
+  {
+    "order": "71",
+    "code": "238",
+    "countryId": "FK",
+    "name": "Folklend orollari  ",
+    "language": "OZ"
+  },
+  {
+    "order": "71",
+    "code": "238",
+    "countryId": "FK",
+    "name": "Фолклендские о-ва",
+    "language": "RU"
+  },
+  {
+    "order": "71",
+    "code": "238",
+    "countryId": "FK",
+    "name": "Фолкленд ороллари  ",
+    "language": "UZ"
+  },
+  {
+    "order": "72",
+    "code": "583",
+    "countryId": "FM",
+    "name": "Micronesia (FS)",
+    "language": "GB"
+  },
+  {
+    "order": "72",
+    "code": "583",
+    "countryId": "FM",
+    "name": "Mikroneziya (FSh)",
+    "language": "OZ"
+  },
+  {
+    "order": "72",
+    "code": "583",
+    "countryId": "FM",
+    "name": "Микронезия (ФШ)",
+    "language": "RU"
+  },
+  {
+    "order": "72",
+    "code": "583",
+    "countryId": "FM",
+    "name": "Микронезия (ФШ)",
+    "language": "UZ"
+  },
+  {
+    "order": "73",
+    "code": "234",
+    "countryId": "FO",
+    "name": "Faroe Islands",
+    "language": "GB"
+  },
+  {
+    "order": "73",
+    "code": "234",
+    "countryId": "FO",
+    "name": "Fareri",
+    "language": "OZ"
+  },
+  {
+    "order": "73",
+    "code": "234",
+    "countryId": "FO",
+    "name": "Фареры",
+    "language": "RU"
+  },
+  {
+    "order": "73",
+    "code": "234",
+    "countryId": "FO",
+    "name": "Фарери",
+    "language": "UZ"
+  },
+  {
+    "order": "74",
+    "code": "250",
+    "countryId": "FR",
+    "name": "France",
+    "language": "GB"
+  },
+  {
+    "order": "74",
+    "code": "250",
+    "countryId": "FR",
+    "name": "Fransiya",
+    "language": "OZ"
+  },
+  {
+    "order": "74",
+    "code": "250",
+    "countryId": "FR",
+    "name": "Франция",
+    "language": "RU"
+  },
+  {
+    "order": "74",
+    "code": "250",
+    "countryId": "FR",
+    "name": "Франция",
+    "language": "UZ"
+  },
+  {
+    "order": "75",
+    "code": "266",
+    "countryId": "GA",
+    "name": "Gabon",
+    "language": "GB"
+  },
+  {
+    "order": "75",
+    "code": "266",
+    "countryId": "GA",
+    "name": "Gabon",
+    "language": "OZ"
+  },
+  {
+    "order": "75",
+    "code": "266",
+    "countryId": "GA",
+    "name": "Габон",
+    "language": "RU"
+  },
+  {
+    "order": "75",
+    "code": "266",
+    "countryId": "GA",
+    "name": "Габон",
+    "language": "UZ"
+  },
+  {
+    "order": "76",
+    "code": "826",
+    "countryId": "GB",
+    "name": "United Kingdom",
+    "language": "GB"
+  },
+  {
+    "order": "76",
+    "code": "826",
+    "countryId": "GB",
+    "name": "Buyuk Britaniya",
+    "language": "OZ"
+  },
+  {
+    "order": "76",
+    "code": "826",
+    "countryId": "GB",
+    "name": "Великобритания",
+    "language": "RU"
+  },
+  {
+    "order": "76",
+    "code": "826",
+    "countryId": "GB",
+    "name": "Буюк Британия",
+    "language": "UZ"
+  },
+  {
+    "order": "77",
+    "code": "308",
+    "countryId": "GD",
+    "name": "Grenada",
+    "language": "GB"
+  },
+  {
+    "order": "77",
+    "code": "308",
+    "countryId": "GD",
+    "name": "Grenada",
+    "language": "OZ"
+  },
+  {
+    "order": "77",
+    "code": "308",
+    "countryId": "GD",
+    "name": "Гренада",
+    "language": "RU"
+  },
+  {
+    "order": "77",
+    "code": "308",
+    "countryId": "GD",
+    "name": "Гренада",
+    "language": "UZ"
+  },
+  {
+    "order": "78",
+    "code": "268",
+    "countryId": "GE",
+    "name": "Georgia",
+    "language": "GB"
+  },
+  {
+    "order": "78",
+    "code": "268",
+    "countryId": "GE",
+    "name": "Gruziya",
+    "language": "OZ"
+  },
+  {
+    "order": "78",
+    "code": "268",
+    "countryId": "GE",
+    "name": "Грузия",
+    "language": "RU"
+  },
+  {
+    "order": "78",
+    "code": "268",
+    "countryId": "GE",
+    "name": "Грузия",
+    "language": "UZ"
+  },
+  {
+    "order": "79",
+    "code": "254",
+    "countryId": "GF",
+    "name": "French Guiana",
+    "language": "GB"
+  },
+  {
+    "order": "79",
+    "code": "254",
+    "countryId": "GF",
+    "name": "Gviana",
+    "language": "OZ"
+  },
+  {
+    "order": "79",
+    "code": "254",
+    "countryId": "GF",
+    "name": "Гвиана",
+    "language": "RU"
+  },
+  {
+    "order": "79",
+    "code": "254",
+    "countryId": "GF",
+    "name": "Гвиана",
+    "language": "UZ"
+  },
+  {
+    "order": "80",
+    "code": "831",
+    "countryId": "GG",
+    "name": "Guernsey",
+    "language": "GB"
+  },
+  {
+    "order": "80",
+    "code": "831",
+    "countryId": "GG",
+    "name": "Gernsi",
+    "language": "OZ"
+  },
+  {
+    "order": "80",
+    "code": "831",
+    "countryId": "GG",
+    "name": "Гернси",
+    "language": "RU"
+  },
+  {
+    "order": "80",
+    "code": "831",
+    "countryId": "GG",
+    "name": "Гернси",
+    "language": "UZ"
+  },
+  {
+    "order": "81",
+    "code": "288",
+    "countryId": "GH",
+    "name": "Ghana",
+    "language": "GB"
+  },
+  {
+    "order": "81",
+    "code": "288",
+    "countryId": "GH",
+    "name": "Gana",
+    "language": "OZ"
+  },
+  {
+    "order": "81",
+    "code": "288",
+    "countryId": "GH",
+    "name": "Гана",
+    "language": "RU"
+  },
+  {
+    "order": "81",
+    "code": "288",
+    "countryId": "GH",
+    "name": "Гана",
+    "language": "UZ"
+  },
+  {
+    "order": "82",
+    "code": "292",
+    "countryId": "GI",
+    "name": "Gibraltar",
+    "language": "GB"
+  },
+  {
+    "order": "82",
+    "code": "292",
+    "countryId": "GI",
+    "name": "Gibraltar  ",
+    "language": "OZ"
+  },
+  {
+    "order": "82",
+    "code": "292",
+    "countryId": "GI",
+    "name": "Гибралтар",
+    "language": "RU"
+  },
+  {
+    "order": "82",
+    "code": "292",
+    "countryId": "GI",
+    "name": "Гибралтар  ",
+    "language": "UZ"
+  },
+  {
+    "order": "83",
+    "code": "304",
+    "countryId": "GL",
+    "name": "Greenland",
+    "language": "GB"
+  },
+  {
+    "order": "83",
+    "code": "304",
+    "countryId": "GL",
+    "name": "Grenlandiya",
+    "language": "OZ"
+  },
+  {
+    "order": "83",
+    "code": "304",
+    "countryId": "GL",
+    "name": "Гренландия",
+    "language": "RU"
+  },
+  {
+    "order": "83",
+    "code": "304",
+    "countryId": "GL",
+    "name": "Гренландия",
+    "language": "UZ"
+  },
+  {
+    "order": "84",
+    "code": "270",
+    "countryId": "GM",
+    "name": "Gambia",
+    "language": "GB"
+  },
+  {
+    "order": "84",
+    "code": "270",
+    "countryId": "GM",
+    "name": "Gambiya",
+    "language": "OZ"
+  },
+  {
+    "order": "84",
+    "code": "270",
+    "countryId": "GM",
+    "name": "Гамбия",
+    "language": "RU"
+  },
+  {
+    "order": "84",
+    "code": "270",
+    "countryId": "GM",
+    "name": "Гамбия",
+    "language": "UZ"
+  },
+  {
+    "order": "85",
+    "code": "324",
+    "countryId": "GN",
+    "name": "Guinea",
+    "language": "GB"
+  },
+  {
+    "order": "85",
+    "code": "324",
+    "countryId": "GN",
+    "name": "Gvineya",
+    "language": "OZ"
+  },
+  {
+    "order": "85",
+    "code": "324",
+    "countryId": "GN",
+    "name": "Гвинея",
+    "language": "RU"
+  },
+  {
+    "order": "85",
+    "code": "324",
+    "countryId": "GN",
+    "name": "Гвинея",
+    "language": "UZ"
+  },
+  {
+    "order": "86",
+    "code": "312",
+    "countryId": "GP",
+    "name": "Guadeloupe",
+    "language": "GB"
+  },
+  {
+    "order": "86",
+    "code": "312",
+    "countryId": "GP",
+    "name": "Gvadelupa",
+    "language": "OZ"
+  },
+  {
+    "order": "86",
+    "code": "312",
+    "countryId": "GP",
+    "name": "Гваделупа",
+    "language": "RU"
+  },
+  {
+    "order": "86",
+    "code": "312",
+    "countryId": "GP",
+    "name": "Гваделупа",
+    "language": "UZ"
+  },
+  {
+    "order": "87",
+    "code": "226",
+    "countryId": "GQ",
+    "name": "Equatorial Guinea",
+    "language": "GB"
+  },
+  {
+    "order": "87",
+    "code": "226",
+    "countryId": "GQ",
+    "name": "Ekvatorial Gvineya",
+    "language": "OZ"
+  },
+  {
+    "order": "87",
+    "code": "226",
+    "countryId": "GQ",
+    "name": "Экваториальная Гвинея",
+    "language": "RU"
+  },
+  {
+    "order": "87",
+    "code": "226",
+    "countryId": "GQ",
+    "name": "Экваториал Гвинея",
+    "language": "UZ"
+  },
+  {
+    "order": "88",
+    "code": "300",
+    "countryId": "GR",
+    "name": "Greece",
+    "language": "GB"
+  },
+  {
+    "order": "88",
+    "code": "300",
+    "countryId": "GR",
+    "name": "Gretsiya",
+    "language": "OZ"
+  },
+  {
+    "order": "88",
+    "code": "300",
+    "countryId": "GR",
+    "name": "Греция",
+    "language": "RU"
+  },
+  {
+    "order": "88",
+    "code": "300",
+    "countryId": "GR",
+    "name": "Греция",
+    "language": "UZ"
+  },
+  {
+    "order": "89",
+    "code": "239",
+    "countryId": "GS",
+    "name": "South Georgia and the South Sandwich Islands",
+    "language": "GB"
+  },
+  {
+    "order": "89",
+    "code": "239",
+    "countryId": "GS",
+    "name": "Janubiy Jorjiya va Janubiy Sandvich orollari",
+    "language": "OZ"
+  },
+  {
+    "order": "89",
+    "code": "239",
+    "countryId": "GS",
+    "name": "Южная Джорджия и Южные Сандвичевы острова",
+    "language": "RU"
+  },
+  {
+    "order": "89",
+    "code": "239",
+    "countryId": "GS",
+    "name": "Жанубий Жоржия ва Жанубий Сандвич ороллари",
+    "language": "UZ"
+  },
+  {
+    "order": "90",
+    "code": "320",
+    "countryId": "GT",
+    "name": "Guatemala",
+    "language": "GB"
+  },
+  {
+    "order": "90",
+    "code": "320",
+    "countryId": "GT",
+    "name": "Gvatemala",
+    "language": "OZ"
+  },
+  {
+    "order": "90",
+    "code": "320",
+    "countryId": "GT",
+    "name": "Гватемала",
+    "language": "RU"
+  },
+  {
+    "order": "90",
+    "code": "320",
+    "countryId": "GT",
+    "name": "Гватемала",
+    "language": "UZ"
+  },
+  {
+    "order": "91",
+    "code": "316",
+    "countryId": "GU",
+    "name": "Guam",
+    "language": "GB"
+  },
+  {
+    "order": "91",
+    "code": "316",
+    "countryId": "GU",
+    "name": "Guam",
+    "language": "OZ"
+  },
+  {
+    "order": "91",
+    "code": "316",
+    "countryId": "GU",
+    "name": "Гуам",
+    "language": "RU"
+  },
+  {
+    "order": "91",
+    "code": "316",
+    "countryId": "GU",
+    "name": "Гуам",
+    "language": "UZ"
+  },
+  {
+    "order": "92",
+    "code": "624",
+    "countryId": "GW",
+    "name": "Guinea-Bissau",
+    "language": "GB"
+  },
+  {
+    "order": "92",
+    "code": "624",
+    "countryId": "GW",
+    "name": "Gvineya-Bisau",
+    "language": "OZ"
+  },
+  {
+    "order": "92",
+    "code": "624",
+    "countryId": "GW",
+    "name": "Гвинея-Бисау",
+    "language": "RU"
+  },
+  {
+    "order": "92",
+    "code": "624",
+    "countryId": "GW",
+    "name": "Гвинея-Бисау",
+    "language": "UZ"
+  },
+  {
+    "order": "93",
+    "code": "328",
+    "countryId": "GY",
+    "name": "Guyana",
+    "language": "GB"
+  },
+  {
+    "order": "93",
+    "code": "328",
+    "countryId": "GY",
+    "name": "Gayana  ",
+    "language": "OZ"
+  },
+  {
+    "order": "93",
+    "code": "328",
+    "countryId": "GY",
+    "name": "Гайана",
+    "language": "RU"
+  },
+  {
+    "order": "93",
+    "code": "328",
+    "countryId": "GY",
+    "name": "Гаяна  ",
+    "language": "UZ"
+  },
+  {
+    "order": "94",
+    "code": "344",
+    "countryId": "HK",
+    "name": "Hong Kong",
+    "language": "GB"
+  },
+  {
+    "order": "94",
+    "code": "344",
+    "countryId": "HK",
+    "name": "Gonkong  ",
+    "language": "OZ"
+  },
+  {
+    "order": "94",
+    "code": "344",
+    "countryId": "HK",
+    "name": "Гонконг",
+    "language": "RU"
+  },
+  {
+    "order": "94",
+    "code": "344",
+    "countryId": "HK",
+    "name": "Гонконг  ",
+    "language": "UZ"
+  },
+  {
+    "order": "95",
+    "code": "334",
+    "countryId": "HM",
+    "name": "Heard Island and McDonald Islands",
+    "language": "GB"
+  },
+  {
+    "order": "95",
+    "code": "334",
+    "countryId": "HM",
+    "name": "Herd va Makdonald",
+    "language": "OZ"
+  },
+  {
+    "order": "95",
+    "code": "334",
+    "countryId": "HM",
+    "name": "Херд и Макдональд",
+    "language": "RU"
+  },
+  {
+    "order": "95",
+    "code": "334",
+    "countryId": "HM",
+    "name": "Ҳерд ва Макдоналд",
+    "language": "UZ"
+  },
+  {
+    "order": "96",
+    "code": "340",
+    "countryId": "HN",
+    "name": "Honduras",
+    "language": "GB"
+  },
+  {
+    "order": "96",
+    "code": "340",
+    "countryId": "HN",
+    "name": "Gonduras",
+    "language": "OZ"
+  },
+  {
+    "order": "96",
+    "code": "340",
+    "countryId": "HN",
+    "name": "Гондурас",
+    "language": "RU"
+  },
+  {
+    "order": "96",
+    "code": "340",
+    "countryId": "HN",
+    "name": "Гондурас",
+    "language": "UZ"
+  },
+  {
+    "order": "97",
+    "code": "191",
+    "countryId": "HR",
+    "name": "Croatia",
+    "language": "GB"
+  },
+  {
+    "order": "97",
+    "code": "191",
+    "countryId": "HR",
+    "name": "Xorvatiya",
+    "language": "OZ"
+  },
+  {
+    "order": "97",
+    "code": "191",
+    "countryId": "HR",
+    "name": "Хорватия",
+    "language": "RU"
+  },
+  {
+    "order": "97",
+    "code": "191",
+    "countryId": "HR",
+    "name": "Хорватия",
+    "language": "UZ"
+  },
+  {
+    "order": "98",
+    "code": "332",
+    "countryId": "HT",
+    "name": "Haiti",
+    "language": "GB"
+  },
+  {
+    "order": "98",
+    "code": "332",
+    "countryId": "HT",
+    "name": "Gaiti  ",
+    "language": "OZ"
+  },
+  {
+    "order": "98",
+    "code": "332",
+    "countryId": "HT",
+    "name": "Гаити",
+    "language": "RU"
+  },
+  {
+    "order": "98",
+    "code": "332",
+    "countryId": "HT",
+    "name": "Гаити  ",
+    "language": "UZ"
+  },
+  {
+    "order": "99",
+    "code": "348",
+    "countryId": "HU",
+    "name": "Hungary",
+    "language": "GB"
+  },
+  {
+    "order": "99",
+    "code": "348",
+    "countryId": "HU",
+    "name": "Vengriya ",
+    "language": "OZ"
+  },
+  {
+    "order": "99",
+    "code": "348",
+    "countryId": "HU",
+    "name": "Венгрия",
+    "language": "RU"
+  },
+  {
+    "order": "99",
+    "code": "348",
+    "countryId": "HU",
+    "name": "Венгрия ",
+    "language": "UZ"
+  },
+  {
+    "order": "100",
+    "code": "360",
+    "countryId": "ID",
+    "name": "Indonesia",
+    "language": "GB"
+  },
+  {
+    "order": "100",
+    "code": "360",
+    "countryId": "ID",
+    "name": "Indoneziya",
+    "language": "OZ"
+  },
+  {
+    "order": "100",
+    "code": "360",
+    "countryId": "ID",
+    "name": "Индонезия",
+    "language": "RU"
+  },
+  {
+    "order": "100",
+    "code": "360",
+    "countryId": "ID",
+    "name": "Индонезия",
+    "language": "UZ"
+  },
+  {
+    "order": "101",
+    "code": "372",
+    "countryId": "IE",
+    "name": "Ireland",
+    "language": "GB"
+  },
+  {
+    "order": "101",
+    "code": "372",
+    "countryId": "IE",
+    "name": "Irlandiya",
+    "language": "OZ"
+  },
+  {
+    "order": "101",
+    "code": "372",
+    "countryId": "IE",
+    "name": "Ирландия",
+    "language": "RU"
+  },
+  {
+    "order": "101",
+    "code": "372",
+    "countryId": "IE",
+    "name": "Ирландия",
+    "language": "UZ"
+  },
+  {
+    "order": "102",
+    "code": "376",
+    "countryId": "IL",
+    "name": "Israel",
+    "language": "GB"
+  },
+  {
+    "order": "102",
+    "code": "376",
+    "countryId": "IL",
+    "name": "Isroil",
+    "language": "OZ"
+  },
+  {
+    "order": "102",
+    "code": "376",
+    "countryId": "IL",
+    "name": "Израиль",
+    "language": "RU"
+  },
+  {
+    "order": "102",
+    "code": "376",
+    "countryId": "IL",
+    "name": "Исроил",
+    "language": "UZ"
+  },
+  {
+    "order": "103",
+    "code": "833",
+    "countryId": "IM",
+    "name": "Isle of Man",
+    "language": "GB"
+  },
+  {
+    "order": "103",
+    "code": "833",
+    "countryId": "IM",
+    "name": "Men oroli",
+    "language": "OZ"
+  },
+  {
+    "order": "103",
+    "code": "833",
+    "countryId": "IM",
+    "name": "Остров Мэн",
+    "language": "RU"
+  },
+  {
+    "order": "103",
+    "code": "833",
+    "countryId": "IM",
+    "name": "Мен ороли",
+    "language": "UZ"
+  },
+  {
+    "order": "104",
+    "code": "356",
+    "countryId": "IN",
+    "name": "India",
+    "language": "GB"
+  },
+  {
+    "order": "104",
+    "code": "356",
+    "countryId": "IN",
+    "name": "Hindiston",
+    "language": "OZ"
+  },
+  {
+    "order": "104",
+    "code": "356",
+    "countryId": "IN",
+    "name": "Индия",
+    "language": "RU"
+  },
+  {
+    "order": "104",
+    "code": "356",
+    "countryId": "IN",
+    "name": "Ҳиндистон",
+    "language": "UZ"
+  },
+  {
+    "order": "105",
+    "code": "086",
+    "countryId": "IO",
+    "name": "British Indian Ocean Territory",
+    "language": "GB"
+  },
+  {
+    "order": "105",
+    "code": "086",
+    "countryId": "IO",
+    "name": "Britaniya territoriyasi",
+    "language": "OZ"
+  },
+  {
+    "order": "105",
+    "code": "086",
+    "countryId": "IO",
+    "name": "Британская территория",
+    "language": "RU"
+  },
+  {
+    "order": "105",
+    "code": "086",
+    "countryId": "IO",
+    "name": "Британия территорияси",
+    "language": "UZ"
+  },
+  {
+    "order": "106",
+    "code": "368",
+    "countryId": "IQ",
+    "name": "Iraq",
+    "language": "GB"
+  },
+  {
+    "order": "106",
+    "code": "368",
+    "countryId": "IQ",
+    "name": "Iroq",
+    "language": "OZ"
+  },
+  {
+    "order": "106",
+    "code": "368",
+    "countryId": "IQ",
+    "name": "Ирак",
+    "language": "RU"
+  },
+  {
+    "order": "106",
+    "code": "368",
+    "countryId": "IQ",
+    "name": "Ироқ",
+    "language": "UZ"
+  },
+  {
+    "order": "107",
+    "code": "364",
+    "countryId": "IR",
+    "name": "Islamic Republic of Iran",
+    "language": "GB"
+  },
+  {
+    "order": "107",
+    "code": "364",
+    "countryId": "IR",
+    "name": "Eron",
+    "language": "OZ"
+  },
+  {
+    "order": "107",
+    "code": "364",
+    "countryId": "IR",
+    "name": "Иран",
+    "language": "RU"
+  },
+  {
+    "order": "107",
+    "code": "364",
+    "countryId": "IR",
+    "name": "Эрон",
+    "language": "UZ"
+  },
+  {
+    "order": "108",
+    "code": "352",
+    "countryId": "IS",
+    "name": "Iceland",
+    "language": "GB"
+  },
+  {
+    "order": "108",
+    "code": "352",
+    "countryId": "IS",
+    "name": "Islandiya  ",
+    "language": "OZ"
+  },
+  {
+    "order": "108",
+    "code": "352",
+    "countryId": "IS",
+    "name": "Исландия",
+    "language": "RU"
+  },
+  {
+    "order": "108",
+    "code": "352",
+    "countryId": "IS",
+    "name": "Исландия  ",
+    "language": "UZ"
+  },
+  {
+    "order": "109",
+    "code": "380",
+    "countryId": "IT",
+    "name": "Italy",
+    "language": "GB"
+  },
+  {
+    "order": "109",
+    "code": "380",
+    "countryId": "IT",
+    "name": "Italiya",
+    "language": "OZ"
+  },
+  {
+    "order": "109",
+    "code": "380",
+    "countryId": "IT",
+    "name": "Италия",
+    "language": "RU"
+  },
+  {
+    "order": "109",
+    "code": "380",
+    "countryId": "IT",
+    "name": "Италия",
+    "language": "UZ"
+  },
+  {
+    "order": "110",
+    "code": "832",
+    "countryId": "JE",
+    "name": "Jersey",
+    "language": "GB"
+  },
+  {
+    "order": "110",
+    "code": "832",
+    "countryId": "JE",
+    "name": "Jersi",
+    "language": "OZ"
+  },
+  {
+    "order": "110",
+    "code": "832",
+    "countryId": "JE",
+    "name": "Джерси",
+    "language": "RU"
+  },
+  {
+    "order": "110",
+    "code": "832",
+    "countryId": "JE",
+    "name": "Жерси",
+    "language": "UZ"
+  },
+  {
+    "order": "111",
+    "code": "388",
+    "countryId": "JM",
+    "name": "Jamaica",
+    "language": "GB"
+  },
+  {
+    "order": "111",
+    "code": "388",
+    "countryId": "JM",
+    "name": "Yamayka ",
+    "language": "OZ"
+  },
+  {
+    "order": "111",
+    "code": "388",
+    "countryId": "JM",
+    "name": "Ямайка",
+    "language": "RU"
+  },
+  {
+    "order": "111",
+    "code": "388",
+    "countryId": "JM",
+    "name": "Ямайка ",
+    "language": "UZ"
+  },
+  {
+    "order": "112",
+    "code": "400",
+    "countryId": "JO",
+    "name": "Jordan",
+    "language": "GB"
+  },
+  {
+    "order": "112",
+    "code": "400",
+    "countryId": "JO",
+    "name": "Iordaniya  ",
+    "language": "OZ"
+  },
+  {
+    "order": "112",
+    "code": "400",
+    "countryId": "JO",
+    "name": "Иордания",
+    "language": "RU"
+  },
+  {
+    "order": "112",
+    "code": "400",
+    "countryId": "JO",
+    "name": "Иордания  ",
+    "language": "UZ"
+  },
+  {
+    "order": "113",
+    "code": "392",
+    "countryId": "JP",
+    "name": "Japan",
+    "language": "GB"
+  },
+  {
+    "order": "113",
+    "code": "392",
+    "countryId": "JP",
+    "name": "Yaponiya  ",
+    "language": "OZ"
+  },
+  {
+    "order": "113",
+    "code": "392",
+    "countryId": "JP",
+    "name": "Япония",
+    "language": "RU"
+  },
+  {
+    "order": "113",
+    "code": "392",
+    "countryId": "JP",
+    "name": "Япония  ",
+    "language": "UZ"
+  },
+  {
+    "order": "114",
+    "code": "404",
+    "countryId": "KE",
+    "name": "Kenya",
+    "language": "GB"
+  },
+  {
+    "order": "114",
+    "code": "404",
+    "countryId": "KE",
+    "name": "Keniya  ",
+    "language": "OZ"
+  },
+  {
+    "order": "114",
+    "code": "404",
+    "countryId": "KE",
+    "name": "Кения",
+    "language": "RU"
+  },
+  {
+    "order": "114",
+    "code": "404",
+    "countryId": "KE",
+    "name": "Кения  ",
+    "language": "UZ"
+  },
+  {
+    "order": "115",
+    "code": "417",
+    "countryId": "KG",
+    "name": "Kyrgyzstan",
+    "language": "GB"
+  },
+  {
+    "order": "115",
+    "code": "417",
+    "countryId": "KG",
+    "name": "Qirg'iziston",
+    "language": "OZ"
+  },
+  {
+    "order": "115",
+    "code": "417",
+    "countryId": "KG",
+    "name": "Кыргызстан",
+    "language": "RU"
+  },
+  {
+    "order": "115",
+    "code": "417",
+    "countryId": "KG",
+    "name": "Қирғизистон",
+    "language": "UZ"
+  },
+  {
+    "order": "116",
+    "code": "116",
+    "countryId": "KH",
+    "name": "Cambodia",
+    "language": "GB"
+  },
+  {
+    "order": "116",
+    "code": "116",
+    "countryId": "KH",
+    "name": "Kamboja",
+    "language": "OZ"
+  },
+  {
+    "order": "116",
+    "code": "116",
+    "countryId": "KH",
+    "name": "Камбоджа",
+    "language": "RU"
+  },
+  {
+    "order": "116",
+    "code": "116",
+    "countryId": "KH",
+    "name": "Камбожа",
+    "language": "UZ"
+  },
+  {
+    "order": "117",
+    "code": "296",
+    "countryId": "KI",
+    "name": "Kiribati",
+    "language": "GB"
+  },
+  {
+    "order": "117",
+    "code": "296",
+    "countryId": "KI",
+    "name": "Kiribati",
+    "language": "OZ"
+  },
+  {
+    "order": "117",
+    "code": "296",
+    "countryId": "KI",
+    "name": "Кирибати",
+    "language": "RU"
+  },
+  {
+    "order": "117",
+    "code": "296",
+    "countryId": "KI",
+    "name": "Кирибати",
+    "language": "UZ"
+  },
+  {
+    "order": "118",
+    "code": "174",
+    "countryId": "KM",
+    "name": "Comoros",
+    "language": "GB"
+  },
+  {
+    "order": "118",
+    "code": "174",
+    "countryId": "KM",
+    "name": "Komor orollari  ",
+    "language": "OZ"
+  },
+  {
+    "order": "118",
+    "code": "174",
+    "countryId": "KM",
+    "name": "Коморские о-ва",
+    "language": "RU"
+  },
+  {
+    "order": "118",
+    "code": "174",
+    "countryId": "KM",
+    "name": "Комор ороллари  ",
+    "language": "UZ"
+  },
+  {
+    "order": "119",
+    "code": "659",
+    "countryId": "KN",
+    "name": "Saint Kitts and Nevis",
+    "language": "GB"
+  },
+  {
+    "order": "119",
+    "code": "659",
+    "countryId": "KN",
+    "name": "Sent-Kits va Nevis",
+    "language": "OZ"
+  },
+  {
+    "order": "119",
+    "code": "659",
+    "countryId": "KN",
+    "name": "Сент-Китс и Невис",
+    "language": "RU"
+  },
+  {
+    "order": "119",
+    "code": "659",
+    "countryId": "KN",
+    "name": "Сент-Китс ва Невис",
+    "language": "UZ"
+  },
+  {
+    "order": "120",
+    "code": "408",
+    "countryId": "KP",
+    "name": "Democratic People's Republic of Korea",
+    "language": "GB"
+  },
+  {
+    "order": "120",
+    "code": "408",
+    "countryId": "KP",
+    "name": "Koreya (KXDR)",
+    "language": "OZ"
+  },
+  {
+    "order": "120",
+    "code": "408",
+    "countryId": "KP",
+    "name": "Корея (КНДР)",
+    "language": "RU"
+  },
+  {
+    "order": "120",
+    "code": "408",
+    "countryId": "KP",
+    "name": "Корея (КХДР)",
+    "language": "UZ"
+  },
+  {
+    "order": "121",
+    "code": "410",
+    "countryId": "KR",
+    "name": "Republic of Korea",
+    "language": "GB"
+  },
+  {
+    "order": "121",
+    "code": "410",
+    "countryId": "KR",
+    "name": "Koreya Respublikasi",
+    "language": "OZ"
+  },
+  {
+    "order": "121",
+    "code": "410",
+    "countryId": "KR",
+    "name": "Республика Корея",
+    "language": "RU"
+  },
+  {
+    "order": "121",
+    "code": "410",
+    "countryId": "KR",
+    "name": "Корея Республикаси",
+    "language": "UZ"
+  },
+  {
+    "order": "122",
+    "code": "414",
+    "countryId": "KW",
+    "name": "Kuwait",
+    "language": "GB"
+  },
+  {
+    "order": "122",
+    "code": "414",
+    "countryId": "KW",
+    "name": "Quvayt",
+    "language": "OZ"
+  },
+  {
+    "order": "122",
+    "code": "414",
+    "countryId": "KW",
+    "name": "Кувейт",
+    "language": "RU"
+  },
+  {
+    "order": "122",
+    "code": "414",
+    "countryId": "KW",
+    "name": "Қувайт",
+    "language": "UZ"
+  },
+  {
+    "order": "123",
+    "code": "136",
+    "countryId": "KY",
+    "name": "Cayman Islands",
+    "language": "GB"
+  },
+  {
+    "order": "123",
+    "code": "136",
+    "countryId": "KY",
+    "name": "Kayman orollari ",
+    "language": "OZ"
+  },
+  {
+    "order": "123",
+    "code": "136",
+    "countryId": "KY",
+    "name": "Острова Кайман",
+    "language": "RU"
+  },
+  {
+    "order": "123",
+    "code": "136",
+    "countryId": "KY",
+    "name": "Кайман ороллари ",
+    "language": "UZ"
+  },
+  {
+    "order": "124",
+    "code": "398",
+    "countryId": "KZ",
+    "name": "Kazakhstan",
+    "language": "GB"
+  },
+  {
+    "order": "124",
+    "code": "398",
+    "countryId": "KZ",
+    "name": "Qozog'iston",
+    "language": "OZ"
+  },
+  {
+    "order": "124",
+    "code": "398",
+    "countryId": "KZ",
+    "name": "Республика Казахстан",
+    "language": "RU"
+  },
+  {
+    "order": "124",
+    "code": "398",
+    "countryId": "KZ",
+    "name": "Қозоғистон",
+    "language": "UZ"
+  },
+  {
+    "order": "125",
+    "code": "418",
+    "countryId": "LA",
+    "name": "Lao People's Democratic Republic",
+    "language": "GB"
+  },
+  {
+    "order": "125",
+    "code": "418",
+    "countryId": "LA",
+    "name": "Laos",
+    "language": "OZ"
+  },
+  {
+    "order": "125",
+    "code": "418",
+    "countryId": "LA",
+    "name": "Лаос",
+    "language": "RU"
+  },
+  {
+    "order": "125",
+    "code": "418",
+    "countryId": "LA",
+    "name": "Лаос",
+    "language": "UZ"
+  },
+  {
+    "order": "126",
+    "code": "422",
+    "countryId": "LB",
+    "name": "Lebanon",
+    "language": "GB"
+  },
+  {
+    "order": "126",
+    "code": "422",
+    "countryId": "LB",
+    "name": "Livan",
+    "language": "OZ"
+  },
+  {
+    "order": "126",
+    "code": "422",
+    "countryId": "LB",
+    "name": "Ливан",
+    "language": "RU"
+  },
+  {
+    "order": "126",
+    "code": "422",
+    "countryId": "LB",
+    "name": "Ливан",
+    "language": "UZ"
+  },
+  {
+    "order": "127",
+    "code": "662",
+    "countryId": "LC",
+    "name": "Saint Lucia",
+    "language": "GB"
+  },
+  {
+    "order": "127",
+    "code": "662",
+    "countryId": "LC",
+    "name": "Sent-Lyusiya",
+    "language": "OZ"
+  },
+  {
+    "order": "127",
+    "code": "662",
+    "countryId": "LC",
+    "name": "Сент-Люсия",
+    "language": "RU"
+  },
+  {
+    "order": "127",
+    "code": "662",
+    "countryId": "LC",
+    "name": "Сент-Люсия",
+    "language": "UZ"
+  },
+  {
+    "order": "128",
+    "code": "438",
+    "countryId": "LI",
+    "name": "Liechtenstein",
+    "language": "GB"
+  },
+  {
+    "order": "128",
+    "code": "438",
+    "countryId": "LI",
+    "name": "Lixtenshteyn",
+    "language": "OZ"
+  },
+  {
+    "order": "128",
+    "code": "438",
+    "countryId": "LI",
+    "name": "Лихтенштейн",
+    "language": "RU"
+  },
+  {
+    "order": "128",
+    "code": "438",
+    "countryId": "LI",
+    "name": "Лихтенштейн",
+    "language": "UZ"
+  },
+  {
+    "order": "129",
+    "code": "144",
+    "countryId": "LK",
+    "name": "Sri Lanka",
+    "language": "GB"
+  },
+  {
+    "order": "129",
+    "code": "144",
+    "countryId": "LK",
+    "name": "Shri-Lanka ",
+    "language": "OZ"
+  },
+  {
+    "order": "129",
+    "code": "144",
+    "countryId": "LK",
+    "name": "Шри-Ланка",
+    "language": "RU"
+  },
+  {
+    "order": "129",
+    "code": "144",
+    "countryId": "LK",
+    "name": "Шри-Ланка ",
+    "language": "UZ"
+  },
+  {
+    "order": "130",
+    "code": "430",
+    "countryId": "LR",
+    "name": "Liberia",
+    "language": "GB"
+  },
+  {
+    "order": "130",
+    "code": "430",
+    "countryId": "LR",
+    "name": "Liberiya  ",
+    "language": "OZ"
+  },
+  {
+    "order": "130",
+    "code": "430",
+    "countryId": "LR",
+    "name": "Либерия",
+    "language": "RU"
+  },
+  {
+    "order": "130",
+    "code": "430",
+    "countryId": "LR",
+    "name": "Либерия  ",
+    "language": "UZ"
+  },
+  {
+    "order": "131",
+    "code": "426",
+    "countryId": "LS",
+    "name": "Lesotho",
+    "language": "GB"
+  },
+  {
+    "order": "131",
+    "code": "426",
+    "countryId": "LS",
+    "name": "Lesoto",
+    "language": "OZ"
+  },
+  {
+    "order": "131",
+    "code": "426",
+    "countryId": "LS",
+    "name": "Лесото",
+    "language": "RU"
+  },
+  {
+    "order": "131",
+    "code": "426",
+    "countryId": "LS",
+    "name": "Лесото",
+    "language": "UZ"
+  },
+  {
+    "order": "132",
+    "code": "440",
+    "countryId": "LT",
+    "name": "Lithuania",
+    "language": "GB"
+  },
+  {
+    "order": "132",
+    "code": "440",
+    "countryId": "LT",
+    "name": "Litva",
+    "language": "OZ"
+  },
+  {
+    "order": "132",
+    "code": "440",
+    "countryId": "LT",
+    "name": "Литва",
+    "language": "RU"
+  },
+  {
+    "order": "132",
+    "code": "440",
+    "countryId": "LT",
+    "name": "Литва",
+    "language": "UZ"
+  },
+  {
+    "order": "133",
+    "code": "442",
+    "countryId": "LU",
+    "name": "Luxembourg",
+    "language": "GB"
+  },
+  {
+    "order": "133",
+    "code": "442",
+    "countryId": "LU",
+    "name": "Lyuksemburg",
+    "language": "OZ"
+  },
+  {
+    "order": "133",
+    "code": "442",
+    "countryId": "LU",
+    "name": "Люксембург",
+    "language": "RU"
+  },
+  {
+    "order": "133",
+    "code": "442",
+    "countryId": "LU",
+    "name": "Люксембург",
+    "language": "UZ"
+  },
+  {
+    "order": "134",
+    "code": "428",
+    "countryId": "LV",
+    "name": "Latvia",
+    "language": "GB"
+  },
+  {
+    "order": "134",
+    "code": "428",
+    "countryId": "LV",
+    "name": "Latviya",
+    "language": "OZ"
+  },
+  {
+    "order": "134",
+    "code": "428",
+    "countryId": "LV",
+    "name": "Латвия",
+    "language": "RU"
+  },
+  {
+    "order": "134",
+    "code": "428",
+    "countryId": "LV",
+    "name": "Латвия",
+    "language": "UZ"
+  },
+  {
+    "order": "135",
+    "code": "434",
+    "countryId": "LY",
+    "name": "Libya",
+    "language": "GB"
+  },
+  {
+    "order": "135",
+    "code": "434",
+    "countryId": "LY",
+    "name": "Liviya",
+    "language": "OZ"
+  },
+  {
+    "order": "135",
+    "code": "434",
+    "countryId": "LY",
+    "name": "Ливия",
+    "language": "RU"
+  },
+  {
+    "order": "135",
+    "code": "434",
+    "countryId": "LY",
+    "name": "Ливия",
+    "language": "UZ"
+  },
+  {
+    "order": "136",
+    "code": "504",
+    "countryId": "MA",
+    "name": "Morocco",
+    "language": "GB"
+  },
+  {
+    "order": "136",
+    "code": "504",
+    "countryId": "MA",
+    "name": "Marokko",
+    "language": "OZ"
+  },
+  {
+    "order": "136",
+    "code": "504",
+    "countryId": "MA",
+    "name": "Марокко",
+    "language": "RU"
+  },
+  {
+    "order": "136",
+    "code": "504",
+    "countryId": "MA",
+    "name": "Марокко",
+    "language": "UZ"
+  },
+  {
+    "order": "137",
+    "code": "492",
+    "countryId": "MC",
+    "name": "Monaco",
+    "language": "GB"
+  },
+  {
+    "order": "137",
+    "code": "492",
+    "countryId": "MC",
+    "name": "Monako",
+    "language": "OZ"
+  },
+  {
+    "order": "137",
+    "code": "492",
+    "countryId": "MC",
+    "name": "Монако",
+    "language": "RU"
+  },
+  {
+    "order": "137",
+    "code": "492",
+    "countryId": "MC",
+    "name": "Монако",
+    "language": "UZ"
+  },
+  {
+    "order": "138",
+    "code": "498",
+    "countryId": "MD",
+    "name": "Republic of Moldova",
+    "language": "GB"
+  },
+  {
+    "order": "138",
+    "code": "498",
+    "countryId": "MD",
+    "name": "Moldova  ",
+    "language": "OZ"
+  },
+  {
+    "order": "138",
+    "code": "498",
+    "countryId": "MD",
+    "name": "Молдова",
+    "language": "RU"
+  },
+  {
+    "order": "138",
+    "code": "498",
+    "countryId": "MD",
+    "name": "Молдова  ",
+    "language": "UZ"
+  },
+  {
+    "order": "139",
+    "code": "499",
+    "countryId": "ME",
+    "name": "Montenegro",
+    "language": "GB"
+  },
+  {
+    "order": "139",
+    "code": "499",
+    "countryId": "ME",
+    "name": "Chernogoriya",
+    "language": "OZ"
+  },
+  {
+    "order": "139",
+    "code": "499",
+    "countryId": "ME",
+    "name": "Черногория",
+    "language": "RU"
+  },
+  {
+    "order": "139",
+    "code": "499",
+    "countryId": "ME",
+    "name": "Черногория",
+    "language": "UZ"
+  },
+  {
+    "order": "140",
+    "code": "000",
+    "countryId": "XX",
+    "name": "Unknown",
+    "language": "GB"
+  },
+  {
+    "order": "141",
+    "code": "450",
+    "countryId": "MG",
+    "name": "Madagascar",
+    "language": "GB"
+  },
+  {
+    "order": "141",
+    "code": "450",
+    "countryId": "MG",
+    "name": "Madagaskar",
+    "language": "OZ"
+  },
+  {
+    "order": "141",
+    "code": "450",
+    "countryId": "MG",
+    "name": "Мадагаскар",
+    "language": "RU"
+  },
+  {
+    "order": "141",
+    "code": "450",
+    "countryId": "MG",
+    "name": "Мадагаскар",
+    "language": "UZ"
+  },
+  {
+    "order": "142",
+    "code": "584",
+    "countryId": "MH",
+    "name": "Marshall Islands",
+    "language": "GB"
+  },
+  {
+    "order": "142",
+    "code": "584",
+    "countryId": "MH",
+    "name": "Marshal orollari",
+    "language": "OZ"
+  },
+  {
+    "order": "142",
+    "code": "584",
+    "countryId": "MH",
+    "name": "Маршалловы о-ва",
+    "language": "RU"
+  },
+  {
+    "order": "142",
+    "code": "584",
+    "countryId": "MH",
+    "name": "Маршал ороллари",
+    "language": "UZ"
+  },
+  {
+    "order": "143",
+    "code": "807",
+    "countryId": "MK",
+    "name": "Macedonia",
+    "language": "GB"
+  },
+  {
+    "order": "143",
+    "code": "807",
+    "countryId": "MK",
+    "name": "Makedoniya",
+    "language": "OZ"
+  },
+  {
+    "order": "143",
+    "code": "807",
+    "countryId": "MK",
+    "name": "Македония",
+    "language": "RU"
+  },
+  {
+    "order": "143",
+    "code": "807",
+    "countryId": "MK",
+    "name": "Македония",
+    "language": "UZ"
+  },
+  {
+    "order": "144",
+    "code": "466",
+    "countryId": "ML",
+    "name": "Mali",
+    "language": "GB"
+  },
+  {
+    "order": "144",
+    "code": "466",
+    "countryId": "ML",
+    "name": "Mali",
+    "language": "OZ"
+  },
+  {
+    "order": "144",
+    "code": "466",
+    "countryId": "ML",
+    "name": "Мали",
+    "language": "RU"
+  },
+  {
+    "order": "144",
+    "code": "466",
+    "countryId": "ML",
+    "name": "Мали",
+    "language": "UZ"
+  },
+  {
+    "order": "145",
+    "code": "104",
+    "countryId": "MM",
+    "name": "Myanmar",
+    "language": "GB"
+  },
+  {
+    "order": "145",
+    "code": "104",
+    "countryId": "MM",
+    "name": "M'yanma",
+    "language": "OZ"
+  },
+  {
+    "order": "145",
+    "code": "104",
+    "countryId": "MM",
+    "name": "Мьянма",
+    "language": "RU"
+  },
+  {
+    "order": "145",
+    "code": "104",
+    "countryId": "MM",
+    "name": "Мъянма",
+    "language": "UZ"
+  },
+  {
+    "order": "146",
+    "code": "496",
+    "countryId": "MN",
+    "name": "Mongolia",
+    "language": "GB"
+  },
+  {
+    "order": "146",
+    "code": "496",
+    "countryId": "MN",
+    "name": "Mongoliya",
+    "language": "OZ"
+  },
+  {
+    "order": "146",
+    "code": "496",
+    "countryId": "MN",
+    "name": "Монголия",
+    "language": "RU"
+  },
+  {
+    "order": "146",
+    "code": "496",
+    "countryId": "MN",
+    "name": "Монголия",
+    "language": "UZ"
+  },
+  {
+    "order": "147",
+    "code": "446",
+    "countryId": "MO",
+    "name": "Macao",
+    "language": "GB"
+  },
+  {
+    "order": "147",
+    "code": "446",
+    "countryId": "MO",
+    "name": "Makao",
+    "language": "OZ"
+  },
+  {
+    "order": "147",
+    "code": "446",
+    "countryId": "MO",
+    "name": "Макао",
+    "language": "RU"
+  },
+  {
+    "order": "147",
+    "code": "446",
+    "countryId": "MO",
+    "name": "Макао",
+    "language": "UZ"
+  },
+  {
+    "order": "148",
+    "code": "580",
+    "countryId": "MP",
+    "name": "Northern Mariana Islands",
+    "language": "GB"
+  },
+  {
+    "order": "148",
+    "code": "580",
+    "countryId": "MP",
+    "name": "Shimoliy Marianna orollari",
+    "language": "OZ"
+  },
+  {
+    "order": "148",
+    "code": "580",
+    "countryId": "MP",
+    "name": "Северные Марианские о-ва",
+    "language": "RU"
+  },
+  {
+    "order": "148",
+    "code": "580",
+    "countryId": "MP",
+    "name": "Шимолий Марианна ороллари",
+    "language": "UZ"
+  },
+  {
+    "order": "149",
+    "code": "474",
+    "countryId": "MQ",
+    "name": "Martinique",
+    "language": "GB"
+  },
+  {
+    "order": "149",
+    "code": "474",
+    "countryId": "MQ",
+    "name": "Martinika",
+    "language": "OZ"
+  },
+  {
+    "order": "149",
+    "code": "474",
+    "countryId": "MQ",
+    "name": "Мартиника",
+    "language": "RU"
+  },
+  {
+    "order": "149",
+    "code": "474",
+    "countryId": "MQ",
+    "name": "Мартиника",
+    "language": "UZ"
+  },
+  {
+    "order": "150",
+    "code": "478",
+    "countryId": "MR",
+    "name": "Mauritania",
+    "language": "GB"
+  },
+  {
+    "order": "150",
+    "code": "478",
+    "countryId": "MR",
+    "name": "Mavritaniya",
+    "language": "OZ"
+  },
+  {
+    "order": "150",
+    "code": "478",
+    "countryId": "MR",
+    "name": "Мавритания",
+    "language": "RU"
+  },
+  {
+    "order": "150",
+    "code": "478",
+    "countryId": "MR",
+    "name": "Мавритания",
+    "language": "UZ"
+  },
+  {
+    "order": "151",
+    "code": "500",
+    "countryId": "MS",
+    "name": "Montserrat",
+    "language": "GB"
+  },
+  {
+    "order": "151",
+    "code": "500",
+    "countryId": "MS",
+    "name": "Montserrat",
+    "language": "OZ"
+  },
+  {
+    "order": "151",
+    "code": "500",
+    "countryId": "MS",
+    "name": "Монтсеррат",
+    "language": "RU"
+  },
+  {
+    "order": "151",
+    "code": "500",
+    "countryId": "MS",
+    "name": "Монтсеррат",
+    "language": "UZ"
+  },
+  {
+    "order": "152",
+    "code": "470",
+    "countryId": "MT",
+    "name": "Malta",
+    "language": "GB"
+  },
+  {
+    "order": "152",
+    "code": "470",
+    "countryId": "MT",
+    "name": "Mal'ta",
+    "language": "OZ"
+  },
+  {
+    "order": "152",
+    "code": "470",
+    "countryId": "MT",
+    "name": "Мальта",
+    "language": "RU"
+  },
+  {
+    "order": "152",
+    "code": "470",
+    "countryId": "MT",
+    "name": "Малъта",
+    "language": "UZ"
+  },
+  {
+    "order": "153",
+    "code": "480",
+    "countryId": "MU",
+    "name": "Mauritius",
+    "language": "GB"
+  },
+  {
+    "order": "153",
+    "code": "480",
+    "countryId": "MU",
+    "name": "Mavrikiy ",
+    "language": "OZ"
+  },
+  {
+    "order": "153",
+    "code": "480",
+    "countryId": "MU",
+    "name": "Маврикий",
+    "language": "RU"
+  },
+  {
+    "order": "153",
+    "code": "480",
+    "countryId": "MU",
+    "name": "Маврикий ",
+    "language": "UZ"
+  },
+  {
+    "order": "154",
+    "code": "462",
+    "countryId": "MV",
+    "name": "Maldives",
+    "language": "GB"
+  },
+  {
+    "order": "154",
+    "code": "462",
+    "countryId": "MV",
+    "name": "Maldiva",
+    "language": "OZ"
+  },
+  {
+    "order": "154",
+    "code": "462",
+    "countryId": "MV",
+    "name": "Мальдивы",
+    "language": "RU"
+  },
+  {
+    "order": "154",
+    "code": "462",
+    "countryId": "MV",
+    "name": "Малдива",
+    "language": "UZ"
+  },
+  {
+    "order": "155",
+    "code": "454",
+    "countryId": "MW",
+    "name": "Malawi",
+    "language": "GB"
+  },
+  {
+    "order": "155",
+    "code": "454",
+    "countryId": "MW",
+    "name": "Malavi",
+    "language": "OZ"
+  },
+  {
+    "order": "155",
+    "code": "454",
+    "countryId": "MW",
+    "name": "Малави",
+    "language": "RU"
+  },
+  {
+    "order": "155",
+    "code": "454",
+    "countryId": "MW",
+    "name": "Малави",
+    "language": "UZ"
+  },
+  {
+    "order": "156",
+    "code": "484",
+    "countryId": "MX",
+    "name": "Mexico",
+    "language": "GB"
+  },
+  {
+    "order": "156",
+    "code": "484",
+    "countryId": "MX",
+    "name": "Meksika",
+    "language": "OZ"
+  },
+  {
+    "order": "156",
+    "code": "484",
+    "countryId": "MX",
+    "name": "Мексика",
+    "language": "RU"
+  },
+  {
+    "order": "156",
+    "code": "484",
+    "countryId": "MX",
+    "name": "Мексика",
+    "language": "UZ"
+  },
+  {
+    "order": "157",
+    "code": "458",
+    "countryId": "MY",
+    "name": "Malaysia",
+    "language": "GB"
+  },
+  {
+    "order": "157",
+    "code": "458",
+    "countryId": "MY",
+    "name": "Malayziya",
+    "language": "OZ"
+  },
+  {
+    "order": "157",
+    "code": "458",
+    "countryId": "MY",
+    "name": "Малайзия",
+    "language": "RU"
+  },
+  {
+    "order": "157",
+    "code": "458",
+    "countryId": "MY",
+    "name": "Малайзия",
+    "language": "UZ"
+  },
+  {
+    "order": "158",
+    "code": "508",
+    "countryId": "MZ",
+    "name": "Mozambique",
+    "language": "GB"
+  },
+  {
+    "order": "158",
+    "code": "508",
+    "countryId": "MZ",
+    "name": "Mozambik",
+    "language": "OZ"
+  },
+  {
+    "order": "158",
+    "code": "508",
+    "countryId": "MZ",
+    "name": "Мозамбик",
+    "language": "RU"
+  },
+  {
+    "order": "158",
+    "code": "508",
+    "countryId": "MZ",
+    "name": "Мозамбик",
+    "language": "UZ"
+  },
+  {
+    "order": "159",
+    "code": "516",
+    "countryId": "NA",
+    "name": "Namibia",
+    "language": "GB"
+  },
+  {
+    "order": "159",
+    "code": "516",
+    "countryId": "NA",
+    "name": "Namibiya  ",
+    "language": "OZ"
+  },
+  {
+    "order": "159",
+    "code": "516",
+    "countryId": "NA",
+    "name": "Намибия",
+    "language": "RU"
+  },
+  {
+    "order": "159",
+    "code": "516",
+    "countryId": "NA",
+    "name": "Намибия  ",
+    "language": "UZ"
+  },
+  {
+    "order": "160",
+    "code": "540",
+    "countryId": "NC",
+    "name": "New Caledonia",
+    "language": "GB"
+  },
+  {
+    "order": "160",
+    "code": "540",
+    "countryId": "NC",
+    "name": "Yangi Kaledoniya",
+    "language": "OZ"
+  },
+  {
+    "order": "160",
+    "code": "540",
+    "countryId": "NC",
+    "name": "Новая Каледония",
+    "language": "RU"
+  },
+  {
+    "order": "160",
+    "code": "540",
+    "countryId": "NC",
+    "name": "Янги Каледония",
+    "language": "UZ"
+  },
+  {
+    "order": "161",
+    "code": "562",
+    "countryId": "NE",
+    "name": "Niger",
+    "language": "GB"
+  },
+  {
+    "order": "161",
+    "code": "562",
+    "countryId": "NE",
+    "name": "Niger",
+    "language": "OZ"
+  },
+  {
+    "order": "161",
+    "code": "562",
+    "countryId": "NE",
+    "name": "Нигер",
+    "language": "RU"
+  },
+  {
+    "order": "161",
+    "code": "562",
+    "countryId": "NE",
+    "name": "Нигер",
+    "language": "UZ"
+  },
+  {
+    "order": "162",
+    "code": "574",
+    "countryId": "NF",
+    "name": "Norfolk Island",
+    "language": "GB"
+  },
+  {
+    "order": "162",
+    "code": "574",
+    "countryId": "NF",
+    "name": "Norfolk oroli",
+    "language": "OZ"
+  },
+  {
+    "order": "162",
+    "code": "574",
+    "countryId": "NF",
+    "name": "Остров Норфолк",
+    "language": "RU"
+  },
+  {
+    "order": "162",
+    "code": "574",
+    "countryId": "NF",
+    "name": "Норфолк ороли",
+    "language": "UZ"
+  },
+  {
+    "order": "163",
+    "code": "566",
+    "countryId": "NG",
+    "name": "Nigeria",
+    "language": "GB"
+  },
+  {
+    "order": "163",
+    "code": "566",
+    "countryId": "NG",
+    "name": "Nigeriya",
+    "language": "OZ"
+  },
+  {
+    "order": "163",
+    "code": "566",
+    "countryId": "NG",
+    "name": "Нигерия",
+    "language": "RU"
+  },
+  {
+    "order": "163",
+    "code": "566",
+    "countryId": "NG",
+    "name": "Нигерия",
+    "language": "UZ"
+  },
+  {
+    "order": "164",
+    "code": "558",
+    "countryId": "NI",
+    "name": "Nicaragua",
+    "language": "GB"
+  },
+  {
+    "order": "164",
+    "code": "558",
+    "countryId": "NI",
+    "name": "Nikaragua",
+    "language": "OZ"
+  },
+  {
+    "order": "164",
+    "code": "558",
+    "countryId": "NI",
+    "name": "Никарагуа",
+    "language": "RU"
+  },
+  {
+    "order": "164",
+    "code": "558",
+    "countryId": "NI",
+    "name": "Никарагуа",
+    "language": "UZ"
+  },
+  {
+    "order": "165",
+    "code": "528",
+    "countryId": "NL",
+    "name": "Netherlands",
+    "language": "GB"
+  },
+  {
+    "order": "165",
+    "code": "528",
+    "countryId": "NL",
+    "name": "Niderlandiya ",
+    "language": "OZ"
+  },
+  {
+    "order": "165",
+    "code": "528",
+    "countryId": "NL",
+    "name": "Нидерланды",
+    "language": "RU"
+  },
+  {
+    "order": "165",
+    "code": "528",
+    "countryId": "NL",
+    "name": "Нидерландия ",
+    "language": "UZ"
+  },
+  {
+    "order": "166",
+    "code": "578",
+    "countryId": "NO",
+    "name": "Norway",
+    "language": "GB"
+  },
+  {
+    "order": "166",
+    "code": "578",
+    "countryId": "NO",
+    "name": "Norvegiya  ",
+    "language": "OZ"
+  },
+  {
+    "order": "166",
+    "code": "578",
+    "countryId": "NO",
+    "name": "Норвегия",
+    "language": "RU"
+  },
+  {
+    "order": "166",
+    "code": "578",
+    "countryId": "NO",
+    "name": "Норвегия  ",
+    "language": "UZ"
+  },
+  {
+    "order": "167",
+    "code": "524",
+    "countryId": "NP",
+    "name": "Nepal",
+    "language": "GB"
+  },
+  {
+    "order": "167",
+    "code": "524",
+    "countryId": "NP",
+    "name": "Nepal",
+    "language": "OZ"
+  },
+  {
+    "order": "167",
+    "code": "524",
+    "countryId": "NP",
+    "name": "Непал",
+    "language": "RU"
+  },
+  {
+    "order": "167",
+    "code": "524",
+    "countryId": "NP",
+    "name": "Непал",
+    "language": "UZ"
+  },
+  {
+    "order": "168",
+    "code": "520",
+    "countryId": "NR",
+    "name": "Nauru",
+    "language": "GB"
+  },
+  {
+    "order": "168",
+    "code": "520",
+    "countryId": "NR",
+    "name": "Nauru",
+    "language": "OZ"
+  },
+  {
+    "order": "168",
+    "code": "520",
+    "countryId": "NR",
+    "name": "Науру",
+    "language": "RU"
+  },
+  {
+    "order": "168",
+    "code": "520",
+    "countryId": "NR",
+    "name": "Науру",
+    "language": "UZ"
+  },
+  {
+    "order": "169",
+    "code": "570",
+    "countryId": "NU",
+    "name": "Niue",
+    "language": "GB"
+  },
+  {
+    "order": "169",
+    "code": "570",
+    "countryId": "NU",
+    "name": "Niue",
+    "language": "OZ"
+  },
+  {
+    "order": "169",
+    "code": "570",
+    "countryId": "NU",
+    "name": "Ниуэ",
+    "language": "RU"
+  },
+  {
+    "order": "169",
+    "code": "570",
+    "countryId": "NU",
+    "name": "Ниуе",
+    "language": "UZ"
+  },
+  {
+    "order": "170",
+    "code": "554",
+    "countryId": "NZ",
+    "name": "New Zealand",
+    "language": "GB"
+  },
+  {
+    "order": "170",
+    "code": "554",
+    "countryId": "NZ",
+    "name": "Yangi Zelandiya",
+    "language": "OZ"
+  },
+  {
+    "order": "170",
+    "code": "554",
+    "countryId": "NZ",
+    "name": "Новая Зеландия",
+    "language": "RU"
+  },
+  {
+    "order": "170",
+    "code": "554",
+    "countryId": "NZ",
+    "name": "Янги Зеландия",
+    "language": "UZ"
+  },
+  {
+    "order": "171",
+    "code": "512",
+    "countryId": "OM",
+    "name": "Oman",
+    "language": "GB"
+  },
+  {
+    "order": "171",
+    "code": "512",
+    "countryId": "OM",
+    "name": "Omon",
+    "language": "OZ"
+  },
+  {
+    "order": "171",
+    "code": "512",
+    "countryId": "OM",
+    "name": "Оман",
+    "language": "RU"
+  },
+  {
+    "order": "171",
+    "code": "512",
+    "countryId": "OM",
+    "name": "Омон",
+    "language": "UZ"
+  },
+  {
+    "order": "172",
+    "code": "591",
+    "countryId": "PA",
+    "name": "Panama",
+    "language": "GB"
+  },
+  {
+    "order": "172",
+    "code": "591",
+    "countryId": "PA",
+    "name": "Panama",
+    "language": "OZ"
+  },
+  {
+    "order": "172",
+    "code": "591",
+    "countryId": "PA",
+    "name": "Панама",
+    "language": "RU"
+  },
+  {
+    "order": "172",
+    "code": "591",
+    "countryId": "PA",
+    "name": "Панама",
+    "language": "UZ"
+  },
+  {
+    "order": "173",
+    "code": "604",
+    "countryId": "PE",
+    "name": "Peru",
+    "language": "GB"
+  },
+  {
+    "order": "173",
+    "code": "604",
+    "countryId": "PE",
+    "name": "Peru",
+    "language": "OZ"
+  },
+  {
+    "order": "173",
+    "code": "604",
+    "countryId": "PE",
+    "name": "Перу",
+    "language": "RU"
+  },
+  {
+    "order": "173",
+    "code": "604",
+    "countryId": "PE",
+    "name": "Перу",
+    "language": "UZ"
+  },
+  {
+    "order": "174",
+    "code": "258",
+    "countryId": "PF",
+    "name": "French Polynesia",
+    "language": "GB"
+  },
+  {
+    "order": "174",
+    "code": "258",
+    "countryId": "PF",
+    "name": "Fransuz Polineziyasi",
+    "language": "OZ"
+  },
+  {
+    "order": "174",
+    "code": "258",
+    "countryId": "PF",
+    "name": "Французская Полинезия",
+    "language": "RU"
+  },
+  {
+    "order": "174",
+    "code": "258",
+    "countryId": "PF",
+    "name": "Француз Полинезияси",
+    "language": "UZ"
+  },
+  {
+    "order": "175",
+    "code": "598",
+    "countryId": "PG",
+    "name": "Papua New Guinea",
+    "language": "GB"
+  },
+  {
+    "order": "175",
+    "code": "598",
+    "countryId": "PG",
+    "name": "Popua-Yangi Gvineya",
+    "language": "OZ"
+  },
+  {
+    "order": "175",
+    "code": "598",
+    "countryId": "PG",
+    "name": "Папуа-Новая Гвинея",
+    "language": "RU"
+  },
+  {
+    "order": "175",
+    "code": "598",
+    "countryId": "PG",
+    "name": "Попуа-Янги Гвинея",
+    "language": "UZ"
+  },
+  {
+    "order": "176",
+    "code": "608",
+    "countryId": "PH",
+    "name": "Philippines",
+    "language": "GB"
+  },
+  {
+    "order": "176",
+    "code": "608",
+    "countryId": "PH",
+    "name": "Filippin  ",
+    "language": "OZ"
+  },
+  {
+    "order": "176",
+    "code": "608",
+    "countryId": "PH",
+    "name": "Филиппины",
+    "language": "RU"
+  },
+  {
+    "order": "176",
+    "code": "608",
+    "countryId": "PH",
+    "name": "Филиппин  ",
+    "language": "UZ"
+  },
+  {
+    "order": "177",
+    "code": "586",
+    "countryId": "PK",
+    "name": "Pakistan",
+    "language": "GB"
+  },
+  {
+    "order": "177",
+    "code": "586",
+    "countryId": "PK",
+    "name": "Pokiston  ",
+    "language": "OZ"
+  },
+  {
+    "order": "177",
+    "code": "586",
+    "countryId": "PK",
+    "name": "Пакистан",
+    "language": "RU"
+  },
+  {
+    "order": "177",
+    "code": "586",
+    "countryId": "PK",
+    "name": "Покистон  ",
+    "language": "UZ"
+  },
+  {
+    "order": "178",
+    "code": "616",
+    "countryId": "PL",
+    "name": "Poland",
+    "language": "GB"
+  },
+  {
+    "order": "178",
+    "code": "616",
+    "countryId": "PL",
+    "name": "Polsha",
+    "language": "OZ"
+  },
+  {
+    "order": "178",
+    "code": "616",
+    "countryId": "PL",
+    "name": "Польша",
+    "language": "RU"
+  },
+  {
+    "order": "178",
+    "code": "616",
+    "countryId": "PL",
+    "name": "Полша",
+    "language": "UZ"
+  },
+  {
+    "order": "179",
+    "code": "666",
+    "countryId": "PM",
+    "name": "Saint Pierre and Miquelon",
+    "language": "GB"
+  },
+  {
+    "order": "179",
+    "code": "666",
+    "countryId": "PM",
+    "name": "Sen-P'er va Mikelon",
+    "language": "OZ"
+  },
+  {
+    "order": "179",
+    "code": "666",
+    "countryId": "PM",
+    "name": "Сен-Пьер и Микелон",
+    "language": "RU"
+  },
+  {
+    "order": "179",
+    "code": "666",
+    "countryId": "PM",
+    "name": "Сен-Пъэр ва Микелон",
+    "language": "UZ"
+  },
+  {
+    "order": "180",
+    "code": "612",
+    "countryId": "PN",
+    "name": "Pitcairn",
+    "language": "GB"
+  },
+  {
+    "order": "180",
+    "code": "612",
+    "countryId": "PN",
+    "name": "Pitkern",
+    "language": "OZ"
+  },
+  {
+    "order": "180",
+    "code": "612",
+    "countryId": "PN",
+    "name": "Питкэрн",
+    "language": "RU"
+  },
+  {
+    "order": "180",
+    "code": "612",
+    "countryId": "PN",
+    "name": "Питкерн",
+    "language": "UZ"
+  },
+  {
+    "order": "181",
+    "code": "630",
+    "countryId": "PR",
+    "name": "Puerto Rico",
+    "language": "GB"
+  },
+  {
+    "order": "181",
+    "code": "630",
+    "countryId": "PR",
+    "name": "Puerto-Riko",
+    "language": "OZ"
+  },
+  {
+    "order": "181",
+    "code": "630",
+    "countryId": "PR",
+    "name": "Пуэрто-Рико",
+    "language": "RU"
+  },
+  {
+    "order": "181",
+    "code": "630",
+    "countryId": "PR",
+    "name": "Пуерто-Рико",
+    "language": "UZ"
+  },
+  {
+    "order": "182",
+    "code": "275",
+    "countryId": "PS",
+    "name": "State of Palestine",
+    "language": "GB"
+  },
+  {
+    "order": "182",
+    "code": "275",
+    "countryId": "PS",
+    "name": "Palestin Davlati",
+    "language": "OZ"
+  },
+  {
+    "order": "182",
+    "code": "275",
+    "countryId": "PS",
+    "name": "Государство Палестина",
+    "language": "RU"
+  },
+  {
+    "order": "182",
+    "code": "275",
+    "countryId": "PS",
+    "name": "Палестин Давлати",
+    "language": "UZ"
+  },
+  {
+    "order": "183",
+    "code": "620",
+    "countryId": "PT",
+    "name": "Portugal",
+    "language": "GB"
+  },
+  {
+    "order": "183",
+    "code": "620",
+    "countryId": "PT",
+    "name": "Portugaliya",
+    "language": "OZ"
+  },
+  {
+    "order": "183",
+    "code": "620",
+    "countryId": "PT",
+    "name": "Португалия",
+    "language": "RU"
+  },
+  {
+    "order": "183",
+    "code": "620",
+    "countryId": "PT",
+    "name": "Португалия",
+    "language": "UZ"
+  },
+  {
+    "order": "184",
+    "code": "585",
+    "countryId": "PW",
+    "name": "Palau",
+    "language": "GB"
+  },
+  {
+    "order": "184",
+    "code": "585",
+    "countryId": "PW",
+    "name": "Palau",
+    "language": "OZ"
+  },
+  {
+    "order": "184",
+    "code": "585",
+    "countryId": "PW",
+    "name": "Палау",
+    "language": "RU"
+  },
+  {
+    "order": "184",
+    "code": "585",
+    "countryId": "PW",
+    "name": "Палау",
+    "language": "UZ"
+  },
+  {
+    "order": "185",
+    "code": "600",
+    "countryId": "PY",
+    "name": "Paraguay",
+    "language": "GB"
+  },
+  {
+    "order": "185",
+    "code": "600",
+    "countryId": "PY",
+    "name": "Paragvay",
+    "language": "OZ"
+  },
+  {
+    "order": "185",
+    "code": "600",
+    "countryId": "PY",
+    "name": "Парагвай",
+    "language": "RU"
+  },
+  {
+    "order": "185",
+    "code": "600",
+    "countryId": "PY",
+    "name": "Парагвай",
+    "language": "UZ"
+  },
+  {
+    "order": "186",
+    "code": "634",
+    "countryId": "QA",
+    "name": "Qatar",
+    "language": "GB"
+  },
+  {
+    "order": "186",
+    "code": "634",
+    "countryId": "QA",
+    "name": "Qatar",
+    "language": "OZ"
+  },
+  {
+    "order": "186",
+    "code": "634",
+    "countryId": "QA",
+    "name": "Катар",
+    "language": "RU"
+  },
+  {
+    "order": "186",
+    "code": "634",
+    "countryId": "QA",
+    "name": "Қатар",
+    "language": "UZ"
+  },
+  {
+    "order": "187",
+    "code": "638",
+    "countryId": "RE",
+    "name": "Reunion",
+    "language": "GB"
+  },
+  {
+    "order": "187",
+    "code": "638",
+    "countryId": "RE",
+    "name": "Reyun'on",
+    "language": "OZ"
+  },
+  {
+    "order": "187",
+    "code": "638",
+    "countryId": "RE",
+    "name": "Реюньон",
+    "language": "RU"
+  },
+  {
+    "order": "187",
+    "code": "638",
+    "countryId": "RE",
+    "name": "Реюнъон",
+    "language": "UZ"
+  },
+  {
+    "order": "188",
+    "code": "642",
+    "countryId": "RO",
+    "name": "Romania",
+    "language": "GB"
+  },
+  {
+    "order": "188",
+    "code": "642",
+    "countryId": "RO",
+    "name": "Ruminiya  ",
+    "language": "OZ"
+  },
+  {
+    "order": "188",
+    "code": "642",
+    "countryId": "RO",
+    "name": "Румыния",
+    "language": "RU"
+  },
+  {
+    "order": "188",
+    "code": "642",
+    "countryId": "RO",
+    "name": "Руминия  ",
+    "language": "UZ"
+  },
+  {
+    "order": "189",
+    "code": "688",
+    "countryId": "RS",
+    "name": "Serbia",
+    "language": "GB"
+  },
+  {
+    "order": "189",
+    "code": "688",
+    "countryId": "RS",
+    "name": "Serbiya  ",
+    "language": "OZ"
+  },
+  {
+    "order": "189",
+    "code": "688",
+    "countryId": "RS",
+    "name": "Сербия",
+    "language": "RU"
+  },
+  {
+    "order": "189",
+    "code": "688",
+    "countryId": "RS",
+    "name": "Сербия  ",
+    "language": "UZ"
+  },
+  {
+    "order": "190",
+    "code": "643",
+    "countryId": "RU",
+    "name": "Russian Federation",
+    "language": "GB"
+  },
+  {
+    "order": "190",
+    "code": "643",
+    "countryId": "RU",
+    "name": "Rossiya",
+    "language": "OZ"
+  },
+  {
+    "order": "190",
+    "code": "643",
+    "countryId": "RU",
+    "name": "Российская Федерация",
+    "language": "RU"
+  },
+  {
+    "order": "190",
+    "code": "643",
+    "countryId": "RU",
+    "name": "Россия",
+    "language": "UZ"
+  },
+  {
+    "order": "191",
+    "code": "646",
+    "countryId": "RW",
+    "name": "Rwanda",
+    "language": "GB"
+  },
+  {
+    "order": "191",
+    "code": "646",
+    "countryId": "RW",
+    "name": "Ruanda  ",
+    "language": "OZ"
+  },
+  {
+    "order": "191",
+    "code": "646",
+    "countryId": "RW",
+    "name": "Руанда",
+    "language": "RU"
+  },
+  {
+    "order": "191",
+    "code": "646",
+    "countryId": "RW",
+    "name": "Руанда  ",
+    "language": "UZ"
+  },
+  {
+    "order": "192",
+    "code": "682",
+    "countryId": "SA",
+    "name": "Saudi Arabia",
+    "language": "GB"
+  },
+  {
+    "order": "192",
+    "code": "682",
+    "countryId": "SA",
+    "name": "Saudiya Arabistoni",
+    "language": "OZ"
+  },
+  {
+    "order": "192",
+    "code": "682",
+    "countryId": "SA",
+    "name": "Саудовская Аравия",
+    "language": "RU"
+  },
+  {
+    "order": "192",
+    "code": "682",
+    "countryId": "SA",
+    "name": "Саудия Арабистони",
+    "language": "UZ"
+  },
+  {
+    "order": "193",
+    "code": "090",
+    "countryId": "SB",
+    "name": "Solomon Islands",
+    "language": "GB"
+  },
+  {
+    "order": "193",
+    "code": "090",
+    "countryId": "SB",
+    "name": "Solomon orollari  ",
+    "language": "OZ"
+  },
+  {
+    "order": "193",
+    "code": "090",
+    "countryId": "SB",
+    "name": "Соломоновы острова",
+    "language": "RU"
+  },
+  {
+    "order": "193",
+    "code": "090",
+    "countryId": "SB",
+    "name": "Соломон ороллари  ",
+    "language": "UZ"
+  },
+  {
+    "order": "194",
+    "code": "690",
+    "countryId": "SC",
+    "name": "Seychelles",
+    "language": "GB"
+  },
+  {
+    "order": "194",
+    "code": "690",
+    "countryId": "SC",
+    "name": "Seyshel orollari",
+    "language": "OZ"
+  },
+  {
+    "order": "194",
+    "code": "690",
+    "countryId": "SC",
+    "name": "Сейшельские острова",
+    "language": "RU"
+  },
+  {
+    "order": "194",
+    "code": "690",
+    "countryId": "SC",
+    "name": "Сейшел ороллари",
+    "language": "UZ"
+  },
+  {
+    "order": "195",
+    "code": "736",
+    "countryId": "SD",
+    "name": "Sudan",
+    "language": "GB"
+  },
+  {
+    "order": "195",
+    "code": "736",
+    "countryId": "SD",
+    "name": "Sudan  ",
+    "language": "OZ"
+  },
+  {
+    "order": "195",
+    "code": "736",
+    "countryId": "SD",
+    "name": "Судан",
+    "language": "RU"
+  },
+  {
+    "order": "195",
+    "code": "736",
+    "countryId": "SD",
+    "name": "Судан  ",
+    "language": "UZ"
+  },
+  {
+    "order": "196",
+    "code": "752",
+    "countryId": "SE",
+    "name": "Sweden",
+    "language": "GB"
+  },
+  {
+    "order": "196",
+    "code": "752",
+    "countryId": "SE",
+    "name": "Shvetsiya",
+    "language": "OZ"
+  },
+  {
+    "order": "196",
+    "code": "752",
+    "countryId": "SE",
+    "name": "Швеция",
+    "language": "RU"
+  },
+  {
+    "order": "196",
+    "code": "752",
+    "countryId": "SE",
+    "name": "Швеция",
+    "language": "UZ"
+  },
+  {
+    "order": "197",
+    "code": "702",
+    "countryId": "SG",
+    "name": "Singapore",
+    "language": "GB"
+  },
+  {
+    "order": "197",
+    "code": "702",
+    "countryId": "SG",
+    "name": "Singapur  ",
+    "language": "OZ"
+  },
+  {
+    "order": "197",
+    "code": "702",
+    "countryId": "SG",
+    "name": "Сингапур",
+    "language": "RU"
+  },
+  {
+    "order": "197",
+    "code": "702",
+    "countryId": "SG",
+    "name": "Сингапур  ",
+    "language": "UZ"
+  },
+  {
+    "order": "198",
+    "code": "654",
+    "countryId": "SH",
+    "name": "Saint Helena",
+    "language": "GB"
+  },
+  {
+    "order": "198",
+    "code": "654",
+    "countryId": "SH",
+    "name": "Muqaddas Elena oroli",
+    "language": "OZ"
+  },
+  {
+    "order": "198",
+    "code": "654",
+    "countryId": "SH",
+    "name": "Остров Святой Елены",
+    "language": "RU"
+  },
+  {
+    "order": "198",
+    "code": "654",
+    "countryId": "SH",
+    "name": "Муқаддас Элена ороли",
+    "language": "UZ"
+  },
+  {
+    "order": "199",
+    "code": "705",
+    "countryId": "SI",
+    "name": "Slovenia",
+    "language": "GB"
+  },
+  {
+    "order": "199",
+    "code": "705",
+    "countryId": "SI",
+    "name": "Sloveniya",
+    "language": "OZ"
+  },
+  {
+    "order": "199",
+    "code": "705",
+    "countryId": "SI",
+    "name": "Словения",
+    "language": "RU"
+  },
+  {
+    "order": "199",
+    "code": "705",
+    "countryId": "SI",
+    "name": "Словения",
+    "language": "UZ"
+  },
+  {
+    "order": "200",
+    "code": "744",
+    "countryId": "SJ",
+    "name": "Svalbard and Jan Mayen",
+    "language": "GB"
+  },
+  {
+    "order": "200",
+    "code": "744",
+    "countryId": "SJ",
+    "name": "Shpisbergen va Yan-Mayen",
+    "language": "OZ"
+  },
+  {
+    "order": "200",
+    "code": "744",
+    "countryId": "SJ",
+    "name": "Шпицберген и Ян-Майен",
+    "language": "RU"
+  },
+  {
+    "order": "200",
+    "code": "744",
+    "countryId": "SJ",
+    "name": "Шписберген ва Ян-Маен",
+    "language": "UZ"
+  },
+  {
+    "order": "201",
+    "code": "703",
+    "countryId": "SK",
+    "name": "Slovakia",
+    "language": "GB"
+  },
+  {
+    "order": "201",
+    "code": "703",
+    "countryId": "SK",
+    "name": "Slovakiya",
+    "language": "OZ"
+  },
+  {
+    "order": "201",
+    "code": "703",
+    "countryId": "SK",
+    "name": "Словакия",
+    "language": "RU"
+  },
+  {
+    "order": "201",
+    "code": "703",
+    "countryId": "SK",
+    "name": "Словакия",
+    "language": "UZ"
+  },
+  {
+    "order": "202",
+    "code": "694",
+    "countryId": "SL",
+    "name": "Sierra Leone",
+    "language": "GB"
+  },
+  {
+    "order": "202",
+    "code": "694",
+    "countryId": "SL",
+    "name": "S'yerra-Leone",
+    "language": "OZ"
+  },
+  {
+    "order": "202",
+    "code": "694",
+    "countryId": "SL",
+    "name": "Сьерра-Леоне",
+    "language": "RU"
+  },
+  {
+    "order": "202",
+    "code": "694",
+    "countryId": "SL",
+    "name": "Съерра-Леоне",
+    "language": "UZ"
+  },
+  {
+    "order": "203",
+    "code": "674",
+    "countryId": "SM",
+    "name": "San Marino",
+    "language": "GB"
+  },
+  {
+    "order": "203",
+    "code": "674",
+    "countryId": "SM",
+    "name": "San-Marino",
+    "language": "OZ"
+  },
+  {
+    "order": "203",
+    "code": "674",
+    "countryId": "SM",
+    "name": "Сан-Марино",
+    "language": "RU"
+  },
+  {
+    "order": "203",
+    "code": "674",
+    "countryId": "SM",
+    "name": "Сан-Марино",
+    "language": "UZ"
+  },
+  {
+    "order": "204",
+    "code": "686",
+    "countryId": "SN",
+    "name": "Senegal",
+    "language": "GB"
+  },
+  {
+    "order": "204",
+    "code": "686",
+    "countryId": "SN",
+    "name": "Senegal",
+    "language": "OZ"
+  },
+  {
+    "order": "204",
+    "code": "686",
+    "countryId": "SN",
+    "name": "Сенегал",
+    "language": "RU"
+  },
+  {
+    "order": "204",
+    "code": "686",
+    "countryId": "SN",
+    "name": "Сенегал",
+    "language": "UZ"
+  },
+  {
+    "order": "205",
+    "code": "706",
+    "countryId": "SO",
+    "name": "Somalia",
+    "language": "GB"
+  },
+  {
+    "order": "205",
+    "code": "706",
+    "countryId": "SO",
+    "name": "Somali",
+    "language": "OZ"
+  },
+  {
+    "order": "205",
+    "code": "706",
+    "countryId": "SO",
+    "name": "Сомали",
+    "language": "RU"
+  },
+  {
+    "order": "205",
+    "code": "706",
+    "countryId": "SO",
+    "name": "Сомали",
+    "language": "UZ"
+  },
+  {
+    "order": "206",
+    "code": "740",
+    "countryId": "SR",
+    "name": "Suriname",
+    "language": "GB"
+  },
+  {
+    "order": "206",
+    "code": "740",
+    "countryId": "SR",
+    "name": "Surinam",
+    "language": "OZ"
+  },
+  {
+    "order": "206",
+    "code": "740",
+    "countryId": "SR",
+    "name": "Суринам",
+    "language": "RU"
+  },
+  {
+    "order": "206",
+    "code": "740",
+    "countryId": "SR",
+    "name": "Суринам",
+    "language": "UZ"
+  },
+  {
+    "order": "207",
+    "code": "678",
+    "countryId": "ST",
+    "name": "Sao Tome and Principe",
+    "language": "GB"
+  },
+  {
+    "order": "207",
+    "code": "678",
+    "countryId": "ST",
+    "name": "San-Tome va Prinsipi",
+    "language": "OZ"
+  },
+  {
+    "order": "207",
+    "code": "678",
+    "countryId": "ST",
+    "name": "Сан-Томе и Принсипи",
+    "language": "RU"
+  },
+  {
+    "order": "207",
+    "code": "678",
+    "countryId": "ST",
+    "name": "Сан-Томе ва Принципи",
+    "language": "UZ"
+  },
+  {
+    "order": "208",
+    "code": "222",
+    "countryId": "SV",
+    "name": "El Salvador",
+    "language": "GB"
+  },
+  {
+    "order": "208",
+    "code": "222",
+    "countryId": "SV",
+    "name": "Solvador",
+    "language": "OZ"
+  },
+  {
+    "order": "208",
+    "code": "222",
+    "countryId": "SV",
+    "name": "Сальвадор",
+    "language": "RU"
+  },
+  {
+    "order": "208",
+    "code": "222",
+    "countryId": "SV",
+    "name": "Солвадор",
+    "language": "UZ"
+  },
+  {
+    "order": "209",
+    "code": "760",
+    "countryId": "SY",
+    "name": "Syrian Arab Republic",
+    "language": "GB"
+  },
+  {
+    "order": "209",
+    "code": "760",
+    "countryId": "SY",
+    "name": "Siriya",
+    "language": "OZ"
+  },
+  {
+    "order": "209",
+    "code": "760",
+    "countryId": "SY",
+    "name": "Сирия",
+    "language": "RU"
+  },
+  {
+    "order": "209",
+    "code": "760",
+    "countryId": "SY",
+    "name": "Сирия",
+    "language": "UZ"
+  },
+  {
+    "order": "210",
+    "code": "748",
+    "countryId": "SZ",
+    "name": "Swaziland",
+    "language": "GB"
+  },
+  {
+    "order": "210",
+    "code": "748",
+    "countryId": "SZ",
+    "name": "Svazilend",
+    "language": "OZ"
+  },
+  {
+    "order": "210",
+    "code": "748",
+    "countryId": "SZ",
+    "name": "Свазиленд",
+    "language": "RU"
+  },
+  {
+    "order": "210",
+    "code": "748",
+    "countryId": "SZ",
+    "name": "Свазиленд",
+    "language": "UZ"
+  },
+  {
+    "order": "211",
+    "code": "796",
+    "countryId": "TC",
+    "name": "Turks and Caicos Islands",
+    "language": "GB"
+  },
+  {
+    "order": "211",
+    "code": "796",
+    "countryId": "TC",
+    "name": "Terks va Kaykos orollari",
+    "language": "OZ"
+  },
+  {
+    "order": "211",
+    "code": "796",
+    "countryId": "TC",
+    "name": "Теркс и Кайкос острова",
+    "language": "RU"
+  },
+  {
+    "order": "211",
+    "code": "796",
+    "countryId": "TC",
+    "name": "Теркс ва Кайкос ороллари",
+    "language": "UZ"
+  },
+  {
+    "order": "212",
+    "code": "148",
+    "countryId": "TD",
+    "name": "Chad",
+    "language": "GB"
+  },
+  {
+    "order": "212",
+    "code": "148",
+    "countryId": "TD",
+    "name": "Chad",
+    "language": "OZ"
+  },
+  {
+    "order": "212",
+    "code": "148",
+    "countryId": "TD",
+    "name": "Чад",
+    "language": "RU"
+  },
+  {
+    "order": "212",
+    "code": "148",
+    "countryId": "TD",
+    "name": "Чад",
+    "language": "UZ"
+  },
+  {
+    "order": "213",
+    "code": "260",
+    "countryId": "TF",
+    "name": "French Southern Territories",
+    "language": "GB"
+  },
+  {
+    "order": "213",
+    "code": "260",
+    "countryId": "TF",
+    "name": "Fransuz Janubiy Territoriyasi",
+    "language": "OZ"
+  },
+  {
+    "order": "213",
+    "code": "260",
+    "countryId": "TF",
+    "name": "Французские Южные Территории",
+    "language": "RU"
+  },
+  {
+    "order": "213",
+    "code": "260",
+    "countryId": "TF",
+    "name": "Француз Жанубий Территорияси",
+    "language": "UZ"
+  },
+  {
+    "order": "214",
+    "code": "768",
+    "countryId": "TG",
+    "name": "Togo",
+    "language": "GB"
+  },
+  {
+    "order": "214",
+    "code": "768",
+    "countryId": "TG",
+    "name": "Togo",
+    "language": "OZ"
+  },
+  {
+    "order": "214",
+    "code": "768",
+    "countryId": "TG",
+    "name": "Того",
+    "language": "RU"
+  },
+  {
+    "order": "214",
+    "code": "768",
+    "countryId": "TG",
+    "name": "Того",
+    "language": "UZ"
+  },
+  {
+    "order": "215",
+    "code": "764",
+    "countryId": "TH",
+    "name": "Thailand",
+    "language": "GB"
+  },
+  {
+    "order": "215",
+    "code": "764",
+    "countryId": "TH",
+    "name": "Tayland",
+    "language": "OZ"
+  },
+  {
+    "order": "215",
+    "code": "764",
+    "countryId": "TH",
+    "name": "Таиланд",
+    "language": "RU"
+  },
+  {
+    "order": "215",
+    "code": "764",
+    "countryId": "TH",
+    "name": "Тайланд",
+    "language": "UZ"
+  },
+  {
+    "order": "216",
+    "code": "762",
+    "countryId": "TJ",
+    "name": "Tajikistan",
+    "language": "GB"
+  },
+  {
+    "order": "216",
+    "code": "762",
+    "countryId": "TJ",
+    "name": "Tojikiston",
+    "language": "OZ"
+  },
+  {
+    "order": "216",
+    "code": "762",
+    "countryId": "TJ",
+    "name": "Таджикистан",
+    "language": "RU"
+  },
+  {
+    "order": "216",
+    "code": "762",
+    "countryId": "TJ",
+    "name": "Тожикистон",
+    "language": "UZ"
+  },
+  {
+    "order": "217",
+    "code": "772",
+    "countryId": "TK",
+    "name": "Tokelau",
+    "language": "GB"
+  },
+  {
+    "order": "217",
+    "code": "772",
+    "countryId": "TK",
+    "name": "Tokelau",
+    "language": "OZ"
+  },
+  {
+    "order": "217",
+    "code": "772",
+    "countryId": "TK",
+    "name": "Токелау",
+    "language": "RU"
+  },
+  {
+    "order": "217",
+    "code": "772",
+    "countryId": "TK",
+    "name": "Токелау",
+    "language": "UZ"
+  },
+  {
+    "order": "219",
+    "code": "795",
+    "countryId": "TM",
+    "name": "Turkmenistan",
+    "language": "GB"
+  },
+  {
+    "order": "219",
+    "code": "795",
+    "countryId": "TM",
+    "name": "Turkmaniston",
+    "language": "OZ"
+  },
+  {
+    "order": "219",
+    "code": "795",
+    "countryId": "TM",
+    "name": "Туркменистан",
+    "language": "RU"
+  },
+  {
+    "order": "219",
+    "code": "795",
+    "countryId": "TM",
+    "name": "Туркманистон",
+    "language": "UZ"
+  },
+  {
+    "order": "220",
+    "code": "788",
+    "countryId": "TN",
+    "name": "Tunisia",
+    "language": "GB"
+  },
+  {
+    "order": "220",
+    "code": "788",
+    "countryId": "TN",
+    "name": "Tunis  ",
+    "language": "OZ"
+  },
+  {
+    "order": "220",
+    "code": "788",
+    "countryId": "TN",
+    "name": "Тунис",
+    "language": "RU"
+  },
+  {
+    "order": "220",
+    "code": "788",
+    "countryId": "TN",
+    "name": "Тунис  ",
+    "language": "UZ"
+  },
+  {
+    "order": "221",
+    "code": "776",
+    "countryId": "TO",
+    "name": "Tonga",
+    "language": "GB"
+  },
+  {
+    "order": "221",
+    "code": "776",
+    "countryId": "TO",
+    "name": "Tonga",
+    "language": "OZ"
+  },
+  {
+    "order": "221",
+    "code": "776",
+    "countryId": "TO",
+    "name": "Тонга",
+    "language": "RU"
+  },
+  {
+    "order": "221",
+    "code": "776",
+    "countryId": "TO",
+    "name": "Тонга",
+    "language": "UZ"
+  },
+  {
+    "order": "222",
+    "code": "792",
+    "countryId": "TR",
+    "name": "Turkey",
+    "language": "GB"
+  },
+  {
+    "order": "222",
+    "code": "792",
+    "countryId": "TR",
+    "name": "Turkiya",
+    "language": "OZ"
+  },
+  {
+    "order": "222",
+    "code": "792",
+    "countryId": "TR",
+    "name": "Турция",
+    "language": "RU"
+  },
+  {
+    "order": "222",
+    "code": "792",
+    "countryId": "TR",
+    "name": "Туркия",
+    "language": "UZ"
+  },
+  {
+    "order": "223",
+    "code": "780",
+    "countryId": "TT",
+    "name": "Trinidad and Tobago",
+    "language": "GB"
+  },
+  {
+    "order": "223",
+    "code": "780",
+    "countryId": "TT",
+    "name": "Trinidad va Tobago  ",
+    "language": "OZ"
+  },
+  {
+    "order": "223",
+    "code": "780",
+    "countryId": "TT",
+    "name": "Тринидад и Тобаго",
+    "language": "RU"
+  },
+  {
+    "order": "223",
+    "code": "780",
+    "countryId": "TT",
+    "name": "Тринидад ва Тобаго  ",
+    "language": "UZ"
+  },
+  {
+    "order": "224",
+    "code": "798",
+    "countryId": "TV",
+    "name": "Tuvalu",
+    "language": "GB"
+  },
+  {
+    "order": "224",
+    "code": "798",
+    "countryId": "TV",
+    "name": "Tuvalu",
+    "language": "OZ"
+  },
+  {
+    "order": "224",
+    "code": "798",
+    "countryId": "TV",
+    "name": "Тувалу",
+    "language": "RU"
+  },
+  {
+    "order": "224",
+    "code": "798",
+    "countryId": "TV",
+    "name": "Тувалу",
+    "language": "UZ"
+  },
+  {
+    "order": "225",
+    "code": "158",
+    "countryId": "TW",
+    "name": "Taiwan, Province of China",
+    "language": "GB"
+  },
+  {
+    "order": "225",
+    "code": "158",
+    "countryId": "TW",
+    "name": "Tayvan",
+    "language": "OZ"
+  },
+  {
+    "order": "225",
+    "code": "158",
+    "countryId": "TW",
+    "name": "Тайвань",
+    "language": "RU"
+  },
+  {
+    "order": "225",
+    "code": "158",
+    "countryId": "TW",
+    "name": "Тайван",
+    "language": "UZ"
+  },
+  {
+    "order": "226",
+    "code": "834",
+    "countryId": "TZ",
+    "name": "Tanzania",
+    "language": "GB"
+  },
+  {
+    "order": "226",
+    "code": "834",
+    "countryId": "TZ",
+    "name": "Tanzaniya  ",
+    "language": "OZ"
+  },
+  {
+    "order": "226",
+    "code": "834",
+    "countryId": "TZ",
+    "name": "Танзания",
+    "language": "RU"
+  },
+  {
+    "order": "226",
+    "code": "834",
+    "countryId": "TZ",
+    "name": "Танзания  ",
+    "language": "UZ"
+  },
+  {
+    "order": "227",
+    "code": "804",
+    "countryId": "UA",
+    "name": "Ukraine",
+    "language": "GB"
+  },
+  {
+    "order": "227",
+    "code": "804",
+    "countryId": "UA",
+    "name": "Ukraina",
+    "language": "OZ"
+  },
+  {
+    "order": "227",
+    "code": "804",
+    "countryId": "UA",
+    "name": "Украина",
+    "language": "RU"
+  },
+  {
+    "order": "227",
+    "code": "804",
+    "countryId": "UA",
+    "name": "Украина",
+    "language": "UZ"
+  },
+  {
+    "order": "228",
+    "code": "800",
+    "countryId": "UG",
+    "name": "Uganda",
+    "language": "GB"
+  },
+  {
+    "order": "228",
+    "code": "800",
+    "countryId": "UG",
+    "name": "Uganda",
+    "language": "OZ"
+  },
+  {
+    "order": "228",
+    "code": "800",
+    "countryId": "UG",
+    "name": "Уганда",
+    "language": "RU"
+  },
+  {
+    "order": "228",
+    "code": "800",
+    "countryId": "UG",
+    "name": "Уганда",
+    "language": "UZ"
+  },
+  {
+    "order": "229",
+    "code": "581",
+    "countryId": "UM",
+    "name": "United States Minor Outlying Islands",
+    "language": "GB"
+  },
+  {
+    "order": "229",
+    "code": "581",
+    "countryId": "UM",
+    "name": "Tashqi kichik orollar (AQSH)",
+    "language": "OZ"
+  },
+  {
+    "order": "229",
+    "code": "581",
+    "countryId": "UM",
+    "name": "Внешние малые острова (США)",
+    "language": "RU"
+  },
+  {
+    "order": "229",
+    "code": "581",
+    "countryId": "UM",
+    "name": "Ташқи кичик ороллар (АҚШ)",
+    "language": "UZ"
+  },
+  {
+    "order": "230",
+    "code": "840",
+    "countryId": "US",
+    "name": "United States of America",
+    "language": "GB"
+  },
+  {
+    "order": "230",
+    "code": "840",
+    "countryId": "US",
+    "name": "AQSH",
+    "language": "OZ"
+  },
+  {
+    "order": "230",
+    "code": "840",
+    "countryId": "US",
+    "name": "США",
+    "language": "RU"
+  },
+  {
+    "order": "230",
+    "code": "840",
+    "countryId": "US",
+    "name": "АҚШ",
+    "language": "UZ"
+  },
+  {
+    "order": "231",
+    "code": "858",
+    "countryId": "UY",
+    "name": "Uruguay",
+    "language": "GB"
+  },
+  {
+    "order": "231",
+    "code": "858",
+    "countryId": "UY",
+    "name": "Urugvay",
+    "language": "OZ"
+  },
+  {
+    "order": "231",
+    "code": "858",
+    "countryId": "UY",
+    "name": "Уругвай",
+    "language": "RU"
+  },
+  {
+    "order": "231",
+    "code": "858",
+    "countryId": "UY",
+    "name": "Уругвай",
+    "language": "UZ"
+  },
+  {
+    "order": "232",
+    "code": "860",
+    "countryId": "UZ",
+    "name": "Uzbekistan",
+    "language": "GB"
+  },
+  {
+    "order": "232",
+    "code": "860",
+    "countryId": "UZ",
+    "name": "O'zbekiston",
+    "language": "OZ"
+  },
+  {
+    "order": "232",
+    "code": "860",
+    "countryId": "UZ",
+    "name": "Узбекистан",
+    "language": "RU"
+  },
+  {
+    "order": "232",
+    "code": "860",
+    "countryId": "UZ",
+    "name": "Ўзбекистон",
+    "language": "UZ"
+  },
+  {
+    "order": "233",
+    "code": "336",
+    "countryId": "VA",
+    "name": "Holy See",
+    "language": "GB"
+  },
+  {
+    "order": "233",
+    "code": "336",
+    "countryId": "VA",
+    "name": "Vatikan (Muqaddas Prestol)",
+    "language": "OZ"
+  },
+  {
+    "order": "233",
+    "code": "336",
+    "countryId": "VA",
+    "name": "Ватикан (Святой Престол)",
+    "language": "RU"
+  },
+  {
+    "order": "233",
+    "code": "336",
+    "countryId": "VA",
+    "name": "Ватикан (Муқаддас Престол)",
+    "language": "UZ"
+  },
+  {
+    "order": "234",
+    "code": "670",
+    "countryId": "VC",
+    "name": "Saint Vincent and the Grenadines",
+    "language": "GB"
+  },
+  {
+    "order": "234",
+    "code": "670",
+    "countryId": "VC",
+    "name": "Sent-Vinsent Va Grenadin",
+    "language": "OZ"
+  },
+  {
+    "order": "234",
+    "code": "670",
+    "countryId": "VC",
+    "name": "Сент-Винсент и Гренадины",
+    "language": "RU"
+  },
+  {
+    "order": "234",
+    "code": "670",
+    "countryId": "VC",
+    "name": "Сент-Винсент Ва Гренадин",
+    "language": "UZ"
+  },
+  {
+    "order": "235",
+    "code": "862",
+    "countryId": "VE",
+    "name": "Venezuela",
+    "language": "GB"
+  },
+  {
+    "order": "235",
+    "code": "862",
+    "countryId": "VE",
+    "name": "Venesuela",
+    "language": "OZ"
+  },
+  {
+    "order": "235",
+    "code": "862",
+    "countryId": "VE",
+    "name": "Венесуэла",
+    "language": "RU"
+  },
+  {
+    "order": "235",
+    "code": "862",
+    "countryId": "VE",
+    "name": "Венесуела",
+    "language": "UZ"
+  },
+  {
+    "order": "236",
+    "code": "092",
+    "countryId": "VG",
+    "name": "Virgin Islands, British",
+    "language": "GB"
+  },
+  {
+    "order": "236",
+    "code": "092",
+    "countryId": "VG",
+    "name": "Virgina orollari, Britaniya",
+    "language": "OZ"
+  },
+  {
+    "order": "236",
+    "code": "092",
+    "countryId": "VG",
+    "name": "Виргинские о-ва, Британские",
+    "language": "RU"
+  },
+  {
+    "order": "236",
+    "code": "092",
+    "countryId": "VG",
+    "name": "Виргина ороллари, Британия",
+    "language": "UZ"
+  },
+  {
+    "order": "237",
+    "code": "850",
+    "countryId": "VI",
+    "name": "Virgin Islands, U.S.",
+    "language": "GB"
+  },
+  {
+    "order": "237",
+    "code": "850",
+    "countryId": "VI",
+    "name": "Virgina orollari (AQSH)",
+    "language": "OZ"
+  },
+  {
+    "order": "237",
+    "code": "850",
+    "countryId": "VI",
+    "name": "Виргинские Острова (США)",
+    "language": "RU"
+  },
+  {
+    "order": "237",
+    "code": "850",
+    "countryId": "VI",
+    "name": "Виргина ороллари (АҚШ)",
+    "language": "UZ"
+  },
+  {
+    "order": "238",
+    "code": "704",
+    "countryId": "VN",
+    "name": "Viet Nam",
+    "language": "GB"
+  },
+  {
+    "order": "238",
+    "code": "704",
+    "countryId": "VN",
+    "name": "V'yetnam",
+    "language": "OZ"
+  },
+  {
+    "order": "238",
+    "code": "704",
+    "countryId": "VN",
+    "name": "Вьетнам",
+    "language": "RU"
+  },
+  {
+    "order": "238",
+    "code": "704",
+    "countryId": "VN",
+    "name": "Въетнам",
+    "language": "UZ"
+  },
+  {
+    "order": "239",
+    "code": "548",
+    "countryId": "VU",
+    "name": "Vanuatu",
+    "language": "GB"
+  },
+  {
+    "order": "239",
+    "code": "548",
+    "countryId": "VU",
+    "name": "Vanuatu",
+    "language": "OZ"
+  },
+  {
+    "order": "239",
+    "code": "548",
+    "countryId": "VU",
+    "name": "Вануату",
+    "language": "RU"
+  },
+  {
+    "order": "239",
+    "code": "548",
+    "countryId": "VU",
+    "name": "Вануату",
+    "language": "UZ"
+  },
+  {
+    "order": "240",
+    "code": "876",
+    "countryId": "WF",
+    "name": "Wallis and Futuna",
+    "language": "GB"
+  },
+  {
+    "order": "240",
+    "code": "876",
+    "countryId": "WF",
+    "name": "Uollis va Futuna",
+    "language": "OZ"
+  },
+  {
+    "order": "240",
+    "code": "876",
+    "countryId": "WF",
+    "name": "Уоллис и Футуна",
+    "language": "RU"
+  },
+  {
+    "order": "240",
+    "code": "876",
+    "countryId": "WF",
+    "name": "Уоллис ва Футуна",
+    "language": "UZ"
+  },
+  {
+    "order": "241",
+    "code": "882",
+    "countryId": "WS",
+    "name": "Samoa",
+    "language": "GB"
+  },
+  {
+    "order": "241",
+    "code": "882",
+    "countryId": "WS",
+    "name": "Samoa",
+    "language": "OZ"
+  },
+  {
+    "order": "241",
+    "code": "882",
+    "countryId": "WS",
+    "name": "Самоа",
+    "language": "RU"
+  },
+  {
+    "order": "241",
+    "code": "882",
+    "countryId": "WS",
+    "name": "Самоа",
+    "language": "UZ"
+  },
+  {
+    "order": "242",
+    "code": "887",
+    "countryId": "YE",
+    "name": "Yemen",
+    "language": "GB"
+  },
+  {
+    "order": "242",
+    "code": "887",
+    "countryId": "YE",
+    "name": "Yemen",
+    "language": "OZ"
+  },
+  {
+    "order": "242",
+    "code": "887",
+    "countryId": "YE",
+    "name": "Йемен",
+    "language": "RU"
+  },
+  {
+    "order": "242",
+    "code": "887",
+    "countryId": "YE",
+    "name": "Емен",
+    "language": "UZ"
+  },
+  {
+    "order": "243",
+    "code": "175",
+    "countryId": "YT",
+    "name": "Mayotte",
+    "language": "GB"
+  },
+  {
+    "order": "243",
+    "code": "175",
+    "countryId": "YT",
+    "name": "Mayotta",
+    "language": "OZ"
+  },
+  {
+    "order": "243",
+    "code": "175",
+    "countryId": "YT",
+    "name": "Майотта",
+    "language": "RU"
+  },
+  {
+    "order": "243",
+    "code": "175",
+    "countryId": "YT",
+    "name": "Маётта",
+    "language": "UZ"
+  },
+  {
+    "order": "244",
+    "code": "710",
+    "countryId": "ZA",
+    "name": "South Africa",
+    "language": "GB"
+  },
+  {
+    "order": "244",
+    "code": "710",
+    "countryId": "ZA",
+    "name": "JAR",
+    "language": "OZ"
+  },
+  {
+    "order": "244",
+    "code": "710",
+    "countryId": "ZA",
+    "name": "ЮАР",
+    "language": "RU"
+  },
+  {
+    "order": "244",
+    "code": "710",
+    "countryId": "ZA",
+    "name": "ЖАР",
+    "language": "UZ"
+  },
+  {
+    "order": "245",
+    "code": "894",
+    "countryId": "ZM",
+    "name": "Zambia",
+    "language": "GB"
+  },
+  {
+    "order": "245",
+    "code": "894",
+    "countryId": "ZM",
+    "name": "Zambiya",
+    "language": "OZ"
+  },
+  {
+    "order": "245",
+    "code": "894",
+    "countryId": "ZM",
+    "name": "Замбия",
+    "language": "RU"
+  },
+  {
+    "order": "245",
+    "code": "894",
+    "countryId": "ZM",
+    "name": "Замбия",
+    "language": "UZ"
+  },
+  {
+    "order": "246",
+    "code": "716",
+    "countryId": "ZW",
+    "name": "Zimbabwe",
+    "language": "GB"
+  },
+  {
+    "order": "246",
+    "code": "716",
+    "countryId": "ZW",
+    "name": "Zimbabve",
+    "language": "OZ"
+  },
+  {
+    "order": "246",
+    "code": "716",
+    "countryId": "ZW",
+    "name": "Зимбабве",
+    "language": "RU"
+  },
+  {
+    "order": "246",
+    "code": "716",
+    "countryId": "ZW",
+    "name": "Зимбабве",
+    "language": "UZ"
+  }
+]
