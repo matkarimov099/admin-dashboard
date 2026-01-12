@@ -1,6 +1,6 @@
 import { CirclePlusIcon } from 'lucide-react';
-import type { UseFormReturn } from 'react-hook-form';
 import { useCallback } from 'react';
+import type { UseFormReturn } from 'react-hook-form';
 import DeclarationTypesPopover from '@/components/form-inputs/declaration-types-popover.tsx';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
@@ -48,7 +48,7 @@ export function Column1({ form, onSubmit }: Column1Props) {
       >
         1.Тип декларации
       </CardTitle>
-      <CardContent className="p-0">
+      <CardContent className="px-0 py-2">
         <Form {...form}>
           <form
             onSubmit={e => {

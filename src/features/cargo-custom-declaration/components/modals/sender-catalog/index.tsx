@@ -10,119 +10,128 @@ import {
 } from '@/components/common/modal';
 import { DataTable } from '@/components/data-table/data-table';
 import { Button } from '@/components/ui/button';
-import type { ExporterSchema } from '@/features/cargo-custom-declaration/schema/exporter.schema';
-import type { Exporter } from '@/features/cargo-custom-declaration/types';
-import { AddExporterModal } from './AddExporterModal';
-import { ExporterCatalogToolbar } from './ExporterCatalogToolbar';
-import { getExporterColumns } from './ExporterTableColumns.tsx';
+import type { SenderSchema } from '@/features/cargo-custom-declaration/schema/sender.schema';
+import type { Sender } from '@/features/cargo-custom-declaration/types';
+import { AddSenderModal } from './AddSenderModal';
+import { SenderCatalogToolbar } from './SenderCatalogToolbar';
+import { getSenderColumns } from './sender-table-columns';
 
-export interface ExporterCatalogModalProps {
+export interface SenderCatalogModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  exporters?: Exporter[];
-  onExportersChange?: (exporters: Exporter[]) => void;
-  onSelectExporter?: (exporter: Exporter) => void;
+  senders?: Sender[];
+  onSendersChange?: (senders: Sender[]) => void;
+  onSelectSender?: (sender: Sender) => void;
 }
 
-export function ExporterCatalogModal({
+export function SenderCatalogModal({
   open,
   onOpenChange,
-  exporters = [],
-  onExportersChange,
-  onSelectExporter,
-}: ExporterCatalogModalProps) {
+  senders = [],
+  onSendersChange,
+  onSelectSender,
+}: SenderCatalogModalProps) {
   // State
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [data, setData] = useState<Exporter[]>(exporters);
+  const [data, setData] = useState<Sender[]>(senders);
   const [searchQuery, setSearchQuery] = useState('');
   const [isPending, setIsPending] = useState(false);
-  const [selectedExporter, setSelectedExporter] = useState<Exporter | null>(null);
+  const [selectedSender, setSelectedSender] = useState<Sender | null>(null);
 
-  // Sync data with exporters prop
+  // Sync data with senders prop
   useEffect(() => {
-    setData(exporters);
-  }, [exporters]);
+    setData(senders);
+  }, [senders]);
 
-  // Filter exporters based on search query
+  // Filter senders based on search query
   const filteredData = useMemo(() => {
     if (!searchQuery.trim()) {
       return data;
     }
     const query = searchQuery.toLowerCase();
     return data.filter(
-      exporter =>
-        exporter.nameAndAddress.toLowerCase().includes(query) ||
-        exporter.country.toLowerCase().includes(query)
+      sender =>
+        sender.name.toLowerCase().includes(query) ||
+        sender.address.toLowerCase().includes(query) ||
+        (sender.country && sender.country.toLowerCase().includes(query))
     );
   }, [data, searchQuery]);
 
-  // Handle add new exporter
+  // Handle add new sender
   const handleAddNew = useCallback(() => {
-    setSelectedExporter(null);
+    setSelectedSender(null);
   }, []);
 
-  // Handle edit exporter
-  const handleEdit = useCallback((exporter: Exporter) => {
-    setSelectedExporter(exporter);
+  // Handle edit sender
+  const handleEdit = useCallback((sender: Sender) => {
+    setSelectedSender(sender);
   }, []);
 
-  // Handle save exporter (create or update)
+  // Handle save sender (create or update)
   const handleSave = useCallback(
-    (formData: ExporterSchema) => {
+    (formData: SenderSchema) => {
       setIsPending(true);
 
       // Simulate API call
       setTimeout(() => {
-        if (selectedExporter) {
-          // Update existing exporter
-          const updatedData = data.map(exp =>
-            exp.id === selectedExporter.id
-              ? { ...exp, nameAndAddress: formData.nameAndAddress, country: formData.country }
-              : exp
+        if (selectedSender) {
+          // Update existing sender
+          const updatedData = data.map(snd =>
+            snd.id === selectedSender.id
+              ? {
+                  ...snd,
+                  name: formData.name,
+                  address: formData.address,
+                  country: formData.country || '',
+                  additionalInfo: formData.additionalInfo,
+                }
+              : snd
           );
           setData(updatedData);
-          if (onExportersChange) {
-            onExportersChange(updatedData);
+          if (onSendersChange) {
+            onSendersChange(updatedData);
           }
-          toast.success('Eksportchi muvaffaqiyatli yangilandi');
+          toast.success("Jo'natuvchi muvaffaqiyatli yangilandi");
         } else {
-          // Create new exporter
-          const newExporter: Exporter = {
-            id: `exp-${Date.now()}`,
-            nameAndAddress: formData.nameAndAddress,
-            country: formData.country,
+          // Create new sender
+          const newSender: Sender = {
+            id: `snd-${Date.now()}`,
+            name: formData.name,
+            address: formData.address,
+            country: formData.country || '',
+            additionalInfo: formData.additionalInfo,
           };
-          const updatedData = [...data, newExporter];
+          const updatedData = [...data, newSender];
           setData(updatedData);
-          if (onExportersChange) {
-            onExportersChange(updatedData);
+          if (onSendersChange) {
+            onSendersChange(updatedData);
           }
-          toast.success("Yangi eksportchi muvaffaqiyatli qo'shildi");
+          toast.success("Yangi jo'natuvchi muvaffaqiyatli qo'shildi");
         }
 
         setIsPending(false);
-        setSelectedExporter(null);
+        setSelectedSender(null);
       }, 500);
     },
-    [selectedExporter, data, onExportersChange]
+    [selectedSender, data, onSendersChange]
   );
 
-  // Handle delete exporter
+  // Handle delete sender
   const handleDelete = useCallback(() => {
     toast.error("Iltimos, o'chirish uchun qatorlarni tanlang");
   }, []);
 
   // Handle edit - open the add modal
-  const handleEditExporter = useCallback(
-    (exporter: Exporter) => {
-      handleEdit(exporter);
+  const handleEditSender = useCallback(
+    (sender: Sender) => {
+      handleEdit(sender);
       setIsAddModalOpen(true);
     },
     [handleEdit]
   );
 
   // Handle add new - open the add modal
-  const handleAddNewExporter = useCallback(() => {
+  const handleAddNewSender = useCallback(() => {
     handleAddNew();
     setIsAddModalOpen(true);
   }, [handleAddNew]);
@@ -135,21 +144,21 @@ export function ExporterCatalogModal({
   // Table columns definition - as a function for DataTable
   const getColumns = useCallback(
     (handleRowDeselection: ((rowId: string) => void) | null | undefined) => {
-      return getExporterColumns({
-        onEdit: handleEditExporter,
-        onSelectExporter,
+      return getSenderColumns({
+        onEdit: handleEditSender,
+        onSelectSender,
         onCloseModal: handleCloseModal,
         enableRowSelection: true,
         handleRowDeselection,
       });
     },
-    [handleEditExporter, onSelectExporter, handleCloseModal]
+    [handleEditSender, onSelectSender, handleCloseModal]
   );
 
   // Custom toolbar content - render function that receives toolbar props
   const renderToolbarContent = useCallback(
-    () => <ExporterCatalogToolbar onAddNew={handleAddNewExporter} onDelete={handleDelete} />,
-    [handleAddNewExporter, handleDelete]
+    () => <SenderCatalogToolbar onAddNew={handleAddNewSender} onDelete={handleDelete} />,
+    [handleAddNewSender, handleDelete]
   );
 
   // Handle completed button
@@ -157,9 +166,9 @@ export function ExporterCatalogModal({
     onOpenChange(false);
   }, [onOpenChange]);
 
-  // Handle save from AddExporterModal
-  const handleSaveExporter = useCallback(
-    (data: ExporterSchema) => {
+  // Handle save from AddSenderModal
+  const handleSaveSender = useCallback(
+    (data: SenderSchema) => {
       handleSave(data);
       setIsAddModalOpen(false);
     },
@@ -171,11 +180,11 @@ export function ExporterCatalogModal({
       <Modal open={open} onOpenChange={onOpenChange}>
         <ModalContent className="sm:max-w-6xl">
           <ModalHeader>
-            <ModalTitle>Eksportchilar katalogi</ModalTitle>
+            <ModalTitle>Yuklarni jo'natuvchi qo'llanma</ModalTitle>
           </ModalHeader>
 
           <ModalBody className="flex flex-col overflow-hidden">
-            <DataTable<Exporter>
+            <DataTable<Sender>
               getColumns={getColumns}
               data={filteredData}
               totalItems={filteredData.length}
@@ -213,18 +222,18 @@ export function ExporterCatalogModal({
         </ModalContent>
       </Modal>
 
-      {/* Add/Edit Exporter Modal */}
-      <AddExporterModal
+      {/* Add/Edit Sender Modal */}
+      <AddSenderModal
         open={isAddModalOpen}
         onOpenChange={setIsAddModalOpen}
-        exporter={selectedExporter}
-        onSave={handleSaveExporter}
+        sender={selectedSender}
+        onSave={handleSaveSender}
         isPending={isPending}
       />
     </>
   );
 }
 
-ExporterCatalogModal.displayName = 'ExporterCatalogModal';
+SenderCatalogModal.displayName = 'SenderCatalogModal';
 
-export default ExporterCatalogModal;
+export default SenderCatalogModal;

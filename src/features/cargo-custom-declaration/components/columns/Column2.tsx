@@ -8,8 +8,9 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from '@/component
 import { Input } from '@/components/ui/input.tsx';
 import { Column2Info } from '@/features/cargo-custom-declaration/components/column-informations';
 import { ExporterCatalogModal } from '@/features/cargo-custom-declaration/components/modals/exporter-catalog';
-import type { Exporter } from '@/features/cargo-custom-declaration/types';
+import { SenderCatalogModal } from '@/features/cargo-custom-declaration/components/modals/sender-catalog';
 import type { AutoTransportDeclarationSchema } from '@/features/cargo-custom-declaration/schema/declaration.schema.ts';
+import type { Exporter, Sender } from '@/features/cargo-custom-declaration/types';
 import { useDisclosure } from '@/hooks/use-disclosure';
 import { useTranslations } from '@/hooks/use-translations';
 
@@ -24,6 +25,11 @@ export function Column2({ form, onSubmit }: Column2Props) {
     isOpen: exporterCatalogOpen,
     onOpen: openExporterCatalog,
     onOpenChange: setExporterCatalogOpen,
+  } = useDisclosure();
+  const {
+    isOpen: senderCatalogOpen,
+    onOpen: openSenderCatalog,
+    onOpenChange: setSenderCatalogOpen,
   } = useDisclosure();
 
   // Sample exporters data - in a real app, this would come from an API or state management
@@ -195,6 +201,38 @@ export function Column2({ form, onSubmit }: Column2Props) {
     form.setValue('exporter.anotherExporter', exporter.nameAndAddress);
   };
 
+  // Sample senders data - in a real app, this would come from an API or state management
+  const [senders, setSenders] = useState<Sender[]>([
+    {
+      id: 'snd-1',
+      name: 'OOO "Yuk Tashish Kompaniyasi"',
+      address: "Toshkent sh., Amir Temur ko'chasi, 15-uy",
+      country: 'UZ',
+    },
+    {
+      id: 'snd-2',
+      name: 'Global Logistics Ltd',
+      address: '123 Transport Street, Berlin, Germany',
+      country: 'DE',
+    },
+    {
+      id: 'snd-3',
+      name: 'Asia Cargo Express',
+      address: 'Beijing, Chaoyang District, Jianguo Road 88',
+      country: 'CN',
+    },
+  ]);
+
+  const handleSelectSender = (sender: Sender) => {
+    // Populate the "exporter.name" field when selecting from the catalog
+    form.setValue('exporter.name', sender.name);
+    form.setValue('exporter.address', sender.address);
+    form.setValue('exporter.country', sender.country);
+    if (sender.additionalInfo) {
+      form.setValue('exporter.moreInformation', sender.additionalInfo);
+    }
+  };
+
   return (
     <Card className="col-span-4 row-span-3 gap-y-3">
       <CardTitle
@@ -209,7 +247,12 @@ export function Column2({ form, onSubmit }: Column2Props) {
             >
               <CirclePlusIcon strokeWidth={2.2} className="text-(--color-primary)" />
             </Button>
-            <Button hoverText="Yuklarni jo'natuvchi qo'llanma" size="icon" variant="ghost">
+            <Button
+              hoverText="Yuklarni jo'natuvchi qo'llanma"
+              size="icon"
+              variant="ghost"
+              onClick={openSenderCatalog}
+            >
               <CirclePlusIcon strokeWidth={2.2} className="text-(--color-primary)" />
             </Button>
           </div>
@@ -327,6 +370,15 @@ export function Column2({ form, onSubmit }: Column2Props) {
         exporters={exporters}
         onExportersChange={setExporters}
         onSelectExporter={handleSelectExporter}
+      />
+
+      {/* Sender Catalog Modal */}
+      <SenderCatalogModal
+        open={senderCatalogOpen}
+        onOpenChange={setSenderCatalogOpen}
+        senders={senders}
+        onSendersChange={setSenders}
+        onSelectSender={handleSelectSender}
       />
     </Card>
   );

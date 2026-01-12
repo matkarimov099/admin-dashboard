@@ -120,3 +120,12 @@ export interface Exporter {
   nameAndAddress: string;
   country: string;
 }
+
+// Sender types for Sender Catalog
+export interface Sender {
+  id: string;
+  name: string;
+  address: string;
+  country: string;
+  additionalInfo?: string;
+}
