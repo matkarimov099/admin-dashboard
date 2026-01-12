@@ -1,15 +1,15 @@
 import { AnimatePresence, motion } from 'motion/react';
 import { Suspense, useId } from 'react';
 import { Outlet } from 'react-router';
-import { BreadcrumbNav } from '@/components/common/breadcrumb-nav';
 import { CurrentTime } from '@/components/common/current-time';
+import { FloatingSearchButton } from '@/components/common/floating-search-button.tsx';
 import { LanguageSwitcher } from '@/components/common/language-switcher.tsx';
 import { ModeToggle } from '@/components/common/mode-toggle.tsx';
 import { NotificationPopover } from '@/components/common/notification-popover.tsx';
+import { SettingsPanel } from '@/components/common/settings-panel.tsx';
 import { UsersTooltip } from '@/components/common/users-tooltip';
-import { FloatingSearchButton } from '@/components/custom/floating-search-button';
-import { SettingsPanel } from '@/components/custom/settings-panel.tsx';
 import { AppSidebar } from '@/components/layout/app-sidebar.tsx';
+import { BreadcrumbNav } from '@/components/navigation/breadcrumb-nav.tsx';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { Spinner } from '@/components/ui/spinner.tsx';
 

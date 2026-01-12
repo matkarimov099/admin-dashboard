@@ -1,6 +1,6 @@
 import type * as React from 'react';
 import { useLocation } from 'react-router';
-import { LocalizedNavLink } from '@/components/layout/localized-nav-link.tsx';
+import { NavLink } from '@/components/navigation/nav-link.tsx';
 import {
   SidebarGroup,
   SidebarGroupContent,
@@ -40,7 +40,7 @@ export function NavSecondary({ ...props }: React.ComponentPropsWithoutRef<typeof
               const isActive = item.path ? item.path === currentPath : false;
               return (
                 <SidebarMenuItem key={item.id}>
-                  <LocalizedNavLink to={item.path ?? '/'} className="block">
+                  <NavLink to={item.path ?? '/'} className="block">
                     <SidebarMenuButton
                       tooltip={
                         isCollapsed
@@ -67,7 +67,7 @@ export function NavSecondary({ ...props }: React.ComponentPropsWithoutRef<typeof
                         )}
                       </div>
                     </SidebarMenuButton>
-                  </LocalizedNavLink>
+                  </NavLink>
                 </SidebarMenuItem>
               );
             })}

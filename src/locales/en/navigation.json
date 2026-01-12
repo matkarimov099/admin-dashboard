@@ -31,9 +31,9 @@
         "title": "Import/Transit",
         "description": "Import transit operations"
       },
-      "autoTransport": {
-        "title": "Auto Transport",
-        "description": "Automobile transport declarations"
+      "cargoCustom": {
+        "title": "Cargo Custom Declaration",
+        "description": "Cargo custom declarations"
       },
       "railwayTransport": {
         "title": "Railway Transport",

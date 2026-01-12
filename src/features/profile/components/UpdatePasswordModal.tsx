@@ -10,7 +10,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalTitle,
-} from '@/components/custom/modal';
+} from '@/components/common/modal.tsx';
 import { Button } from '@/components/ui/button';
 import {
   Form,

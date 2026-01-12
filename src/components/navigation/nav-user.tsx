@@ -15,7 +15,7 @@ import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui
 import type { CurrentUser } from '@/features/auth/types.ts';
 import { useSidebar } from '@/hooks/use-sidebar';
 import { cn } from '@/utils/utils';
-import { LocalizedNavLink } from '../layout/localized-nav-link';
+import { NavLink } from './nav-link.tsx';
 
 interface NavUserProps {
   user?: CurrentUser | null;
@@ -111,12 +111,12 @@ export function NavUser({ user, logout }: NavUserProps) {
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
               <DropdownMenuGroup>
-                <LocalizedNavLink to="/profile">
+                <NavLink to="/profile">
                   <DropdownMenuItem>
                     <BadgeCheck />
                     {t('navigation.profile.title')}
                   </DropdownMenuItem>
-                </LocalizedNavLink>
+                </NavLink>
                 <DropdownMenuItem>
                   <CreditCard />
                   {t('navigation.profile.billing')}

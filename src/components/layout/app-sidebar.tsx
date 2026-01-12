@@ -2,7 +2,7 @@ import type * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import logo from '@/assets/logo.png';
-import { LocalizedNavLink } from '@/components/layout/localized-nav-link';
+import { NavLink } from '@/components/navigation/nav-link.tsx';
 import { NavMain } from '@/components/navigation/nav-main.tsx';
 import { NavSecondary } from '@/components/navigation/nav-secondary.tsx';
 import { NavUser } from '@/components/navigation/nav-user.tsx';
@@ -52,7 +52,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 isCollapsed && 'h-11 w-11 justify-center px-0'
               )}
             >
-              <LocalizedNavLink
+              <NavLink
                 to="/"
                 className={cn(
                   'flex items-center',
@@ -83,7 +83,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     </span>
                   </div>
                 )}
-              </LocalizedNavLink>
+              </NavLink>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

@@ -2,13 +2,13 @@ import type { Table } from '@tanstack/react-table';
 import { X } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { SearchInput } from '@/components/custom/search-input.tsx';
-import { Button } from '@/components/ui/button';
-import { DataTableExport } from './data-export';
-import { TableSettings } from './table-settings';
-import type { ExportConfig, ToolbarSections } from './types';
-import type { TableConfig } from './utils/table-config';
-import { DataTableViewOptions } from './view-options';
+import { SearchInput } from '@/components/common/search-input.tsx';
+import { Button } from '@/components/ui/button.tsx';
+import { DataTableExport } from './data-export.tsx';
+import { TableSettings } from './table-settings.tsx';
+import type { ExportConfig, ToolbarSections } from './types.ts';
+import type { TableConfig } from './utils/table-config.ts';
+import { DataTableViewOptions } from './view-options.tsx';
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
@@ -56,7 +56,7 @@ export function DataTableToolbar<TData>({
   const toolbarSections = isToolbarSections ? (customToolbarComponent as ToolbarSections) : null;
 
   return (
-    <div className="data-table-toolbar mb-2">
+    <div className="data-table-toolbar mb-2 p-0.5">
       {/* Desktop layouts */}
       <div className="toolbar-desktop hidden lg:flex lg:items-center lg:justify-between lg:gap-4">
         {/* Left side - Search or Custom Left Section */}
@@ -141,12 +141,14 @@ export function DataTableToolbar<TData>({
           )}
 
           {/* Table settings */}
-          <TableSettings
-            enableColumnResizing={config.enableColumnResizing}
-            resetColumnSizing={resetColumnSizing}
-            resetColumnOrder={resetColumnOrder}
-            size={config.size}
-          />
+          {config.tableSettings && (
+            <TableSettings
+              enableColumnResizing={config.enableColumnResizing}
+              resetColumnSizing={resetColumnSizing}
+              resetColumnOrder={resetColumnOrder}
+              size={config.size}
+            />
+          )}
         </div>
       </div>
 
@@ -158,7 +160,7 @@ export function DataTableToolbar<TData>({
             {toolbarSections.left && <div className="w-full">{toolbarSections.left}</div>}
             {/* Right section (filters) */}
             {toolbarSections.right && <div className="w-full">{toolbarSections.right}</div>}
-            {/* Table controls (export, visibility, settings) in same row */}
+            {/* Table controls (export, visibility, settings) in the same row */}
             <div className="flex w-full items-center justify-end gap-2">
               {config.enableExport && getAllItems && exportConfig && (
                 <DataTableExport<TData>
@@ -185,12 +187,14 @@ export function DataTableToolbar<TData>({
               )}
 
               {/* Table settings */}
-              <TableSettings
-                enableColumnResizing={config.enableColumnResizing}
-                resetColumnSizing={resetColumnSizing}
-                resetColumnOrder={resetColumnOrder}
-                size={config.size}
-              />
+              {config.tableSettings && (
+                <TableSettings
+                  enableColumnResizing={config.enableColumnResizing}
+                  resetColumnSizing={resetColumnSizing}
+                  resetColumnOrder={resetColumnOrder}
+                  size={config.size}
+                />
+              )}
             </div>
           </>
         ) : (
@@ -264,12 +268,14 @@ export function DataTableToolbar<TData>({
                 )}
 
                 {/* Table settings */}
-                <TableSettings
-                  enableColumnResizing={config.enableColumnResizing}
-                  resetColumnSizing={resetColumnSizing}
-                  resetColumnOrder={resetColumnOrder}
-                  size={config.size}
-                />
+                {config.tableSettings && (
+                  <TableSettings
+                    enableColumnResizing={config.enableColumnResizing}
+                    resetColumnSizing={resetColumnSizing}
+                    resetColumnOrder={resetColumnOrder}
+                    size={config.size}
+                  />
+                )}
               </div>
             </div>
 

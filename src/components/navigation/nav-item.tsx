@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { LocalizedNavLink } from '@/components/layout/localized-nav-link.tsx';
+import { NavLink } from '@/components/navigation/nav-link.tsx';
 import { SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar.tsx';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
 import { useCurrentPath } from '@/hooks/use-current-path.ts';
@@ -58,7 +58,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
   // Popover rendering (for collapsed sidebar dropdown)
   if (inPopover) {
     return (
-      <LocalizedNavLink
+      <NavLink
         to={itemPath}
         className="block"
         onClick={handleClick}
@@ -106,7 +106,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
             </div>
           )}
         </div>
-      </LocalizedNavLink>
+      </NavLink>
     );
   }
 
@@ -127,7 +127,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
           isCollapsed ? 'size-9 justify-center p-0' : 'px-2.5'
         )}
       >
-        <LocalizedNavLink
+        <NavLink
           to={itemPath}
           onClick={handleClick}
           target={isExternalLink ? '_blank' : undefined}
@@ -167,7 +167,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
               </div>
             )}
           </div>
-        </LocalizedNavLink>
+        </NavLink>
       </SidebarMenuButton>
     </SidebarMenuItem>
   );

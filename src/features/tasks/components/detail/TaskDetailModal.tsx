@@ -1,4 +1,4 @@
-import { Modal, ModalContent } from '@/components/custom/modal.tsx';
+import { Modal, ModalContent } from '@/components/common/modal.tsx';
 
 interface TaskDetailModalProps {
   taskKey: string;

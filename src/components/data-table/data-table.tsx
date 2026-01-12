@@ -516,7 +516,7 @@ export function DataTable<TData>({
   }, [table, tableId]);
 
   return (
-    <div className="data-table-wrapper">
+    <div className="data-table-wrapper flex flex-col overflow-hidden">
       {/* Toolbar */}
       {tableConfig.enableToolbar && (
         <DataTableToolbar
@@ -548,7 +548,7 @@ export function DataTable<TData>({
 
       <div
         ref={tableContainerRef}
-        className="table-container"
+        className="table-container min-h-0 flex-1 overflow-y-auto px-0.5"
         aria-label="Data table"
         role="region"
         onKeyDown={tableConfig.enableKeyboardNavigation ? handleKeyDown : undefined}
@@ -601,7 +601,7 @@ export function DataTable<TData>({
                           className="border-border border-b text-left text-foreground"
                           tabIndex={-1}
                         >
-                          <Skeleton className="h-6 w-full" />
+                          <Skeleton className="h-6 w-full border-none! bg-(--color-primary)/10" />
                         </TableCell>
                       );
                     })}
@@ -620,7 +620,7 @@ export function DataTable<TData>({
                     data-state={row.getIsSelected() ? 'selected' : undefined}
                     tabIndex={0}
                     aria-selected={row.getIsSelected()}
-                    className={`transition-colors duration-[var(--motion-short)] hover:bg-[var(--control-ghost-bg)] ${
+                    className={`transition-colors duration-(--motion-short) hover:bg-(--control-ghost-bg) ${
                       row.getIsSelected()
                         ? 'bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)]'
                         : ''

@@ -133,6 +133,10 @@ export function generateCSSVariables(
   cssVars['--color-error'] = '#ef4444';
   cssVars['--color-info'] = '#06b6d4';
 
+  // Static orange color for icons (always orange-600 from theme, matches --color-primary when orange theme is selected)
+  const orangeColorValues = THEME_COLOR_HSL.orange;
+  cssVars['--color-orange-static'] = getHexColor(orangeColorValues[600]);
+
   return cssVars;
 }
 

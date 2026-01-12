@@ -6,7 +6,7 @@
 // Export
 export { default as Export } from './export/Export';
 // Import
-export { default as AutoTransport } from './import/AutoTransport';
+export { default as CargoCustomDeclaration } from './import/CargoCustomDeclaration';
 export { default as ECommerce } from './import/ECommerce';
 export { default as ElectricEnergy } from './import/Energy/ElectricEnergy';
 // Import - Energy

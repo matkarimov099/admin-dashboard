@@ -27,6 +27,9 @@ export interface TableConfig {
   // Enable/disable column visibility options
   enableColumnVisibility: boolean;
 
+  // Enable/disable table settings (reset column sizing/order)
+  tableSettings: boolean;
+
   // Enable/disable data export
   enableExport: boolean;
 
@@ -70,6 +73,7 @@ const defaultConfig: TableConfig = {
   enableColumnFilters: true, // Column filters enabled by default
   enableDateFilter: true, // Date filter enabled by default
   enableColumnVisibility: true, // Column visibility options enabled by default
+  tableSettings: true, // Table settings enabled by default
   enableExport: true, // Data export enabled by default
   enableUrlState: true, // URL state persistence enabled by default
   enableColumnResizing: true, // Column resizing enabled by default

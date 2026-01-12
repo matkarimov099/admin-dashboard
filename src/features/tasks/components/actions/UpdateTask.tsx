@@ -4,8 +4,6 @@ import { useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
-import { DateTimePicker } from '@/components/custom/date-time-picker';
-import { FileUploader } from '@/components/custom/file-uploader';
 import {
   Modal,
   ModalBody,
@@ -14,8 +12,10 @@ import {
   ModalFooter,
   ModalHeader,
   ModalTitle,
-} from '@/components/custom/modal';
-import { UrlArrayInput } from '@/components/custom/url-array-input';
+} from '@/components/common/modal.tsx';
+import { DateTimePicker } from '@/components/data-table/date-time-picker.tsx';
+import { FileUploader } from '@/components/data-table/file-uploader.tsx';
+import { UrlArrayInput } from '@/components/data-table/url-array-input.tsx';
 import { Button } from '@/components/ui/button';
 import {
   Form,

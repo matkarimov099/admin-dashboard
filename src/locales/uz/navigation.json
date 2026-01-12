@@ -31,9 +31,9 @@
         "title": "Import/Tranzit",
         "description": "Import tranzit operatsiyalari"
       },
-      "autoTransport": {
-        "title": "Avtotransport",
-        "description": "Avtotransport deklaratsiyalari"
+      "cargoCustom": {
+        "title": "Yuk bojxona deklaratsiyasi",
+        "description": "Yuk bojxona deklaratsiyalari"
       },
       "railwayTransport": {
         "title": "Temir yo'l transporti",

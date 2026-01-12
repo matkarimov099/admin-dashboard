@@ -45,15 +45,15 @@ const declarationCreate: MenuGroupConfig = {
           roles: [],
           breadcrumbs: true,
           children: [
-            // Auto Transport - 3rd level
+            // Cargo Custom Declaration - 3rd level
             {
-              id: 'auto-transport',
-              title: 'navigation.exportImportTransit.autoTransport.title',
+              id: 'cargo-custom',
+              title: 'navigation.exportImportTransit.cargoCustom.title',
               type: 'item',
-              path: '/declaration-create/import/auto',
+              path: '/declaration-create/import/cargo-custom',
               icon: <TruckIcon />,
               roles: [],
-              component: lazy(() => import('@/pages/declaration-create/import/AutoTransport.tsx')),
+              component: lazy(() => import('@/pages/declaration-create/import/CargoCustomDeclaration.tsx')),
               breadcrumbs: true,
             },
             // Railway Transport - 3rd level

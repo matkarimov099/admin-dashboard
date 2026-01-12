@@ -1,9 +1,8 @@
 import { ChevronDown, Menu } from 'lucide-react';
 import { type ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router';
 import logo from '@/assets/logo.png';
-import { LocalizedNavLink } from '@/components/layout/localized-nav-link';
+import { NavLink } from '@/components/navigation/nav-link.tsx';
 import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -455,7 +454,7 @@ export function HorizontalNav() {
       {/* Desktop Navigation */}
       <nav className="hidden items-center gap-4 md:flex">
         {/* Logo */}
-        <LocalizedNavLink
+        <NavLink
           to="/"
           className="flex items-center gap-2.5 transition-all duration-300 hover:opacity-80"
         >
@@ -465,7 +464,7 @@ export function HorizontalNav() {
           <span className="truncate font-bold font-sans text-(--color-primary) text-base tracking-wide">
             {t('app.name')}
           </span>
-        </LocalizedNavLink>
+        </NavLink>
 
         <Separator orientation="vertical" className="h-6" />
 
@@ -496,7 +495,7 @@ export function HorizontalNav() {
           <div className="flex h-full flex-col">
             {/* Header */}
             <div className="flex items-center gap-3 border-b p-4">
-              <LocalizedNavLink
+              <NavLink
                 to="/"
                 className="flex items-center gap-2.5 transition-all duration-300"
                 onClick={() => setMobileMenuOpen(false)}
@@ -507,7 +506,7 @@ export function HorizontalNav() {
                 <span className="truncate font-bold font-sans text-(--color-primary) text-sm tracking-wide">
                   {t('app.name')}
                 </span>
-              </LocalizedNavLink>
+              </NavLink>
             </div>
 
             {/* Navigation Items */}
