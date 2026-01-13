@@ -8,10 +8,10 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from '@/component
 import { Input } from '@/components/ui/input.tsx';
 import { declarationTypes } from '@/data/declaration-types.ts';
 import { Column1Info } from '@/features/cargo-custom-declaration/components/column-informations';
-import type { AutoTransportDeclarationSchema } from '@/features/cargo-custom-declaration/schema/declaration.schema.ts';
+import type { CargoCustomDeclarationSchema } from '@/features/cargo-custom-declaration/schema/declaration.schema.ts';
 
 interface Column1Props {
-  form: UseFormReturn<AutoTransportDeclarationSchema>;
+  form: UseFormReturn<CargoCustomDeclarationSchema>;
   onSubmit: (data: any) => void;
 }
 

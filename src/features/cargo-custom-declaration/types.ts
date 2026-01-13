@@ -91,7 +91,7 @@ export interface GoodsItem {
   statisticalValue?: number;
 }
 
-export interface AutoTransportDeclaration {
+export interface CargoCustomDeclaration {
   header: DeclarationHeader;
   exporter: PartyDetails;
   importer: PartyDetails;
@@ -110,7 +110,7 @@ export interface AutoTransportDeclaration {
   goods: GoodsItem[];
 }
 
-export interface AutoTransportDeclarationFormData extends Omit<AutoTransportDeclaration, 'goods'> {
+export interface CargoCustomDeclarationFormData extends Omit<CargoCustomDeclaration, 'goods'> {
   goods: GoodsItem[];
 }
 

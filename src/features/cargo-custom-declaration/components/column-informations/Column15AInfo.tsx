@@ -5,8 +5,7 @@ export function Column15AInfo() {
 
   return (
     <div className="space-y-2 text-sm">
-      <p className="font-semibold">Код страны отпр.</p>
-      {/* Info will be added later */}
+      <p className="font-semibold">{t('declarationForm.infoLabel.column15a.title')}</p>
     </div>
   );
 }

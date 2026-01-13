@@ -5,8 +5,7 @@ export function Column12Info() {
 
   return (
     <div className="space-y-2 text-sm">
-      <p className="font-semibold">12</p>
-      {/* Info will be added later */}
+      <p className="font-semibold">{t('declarationForm.infoLabel.column12.title')}</p>
     </div>
   );
 }

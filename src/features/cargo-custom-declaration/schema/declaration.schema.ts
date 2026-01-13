@@ -93,7 +93,7 @@ export const goodsItemSchema = z.object({
   statisticalValue: z.number().min(0).optional(),
 });
 
-export const autoTransportDeclarationSchema = z.object({
+export const cargoCustomDeclarationSchema = z.object({
   declarationType: declarationTypeSchema,
   exporter: exporterSchema,
   importer: partyDetailsSchema,
@@ -112,7 +112,4 @@ export const autoTransportDeclarationSchema = z.object({
   goods: z.array(goodsItemSchema).min(1, 'At least one goods item is required'),
 });
 
-export type CargoCustomDeclarationSchema = z.infer<typeof autoTransportDeclarationSchema>;
-
-// Keep the old type name for backward compatibility
-export type AutoTransportDeclarationSchema = CargoCustomDeclarationSchema;
+export type CargoCustomDeclarationSchema = z.infer<typeof cargoCustomDeclarationSchema>;

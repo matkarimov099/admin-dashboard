@@ -9,13 +9,13 @@ import { Input } from '@/components/ui/input.tsx';
 import { Column2Info } from '@/features/cargo-custom-declaration/components/column-informations';
 import { ExporterCatalogModal } from '@/features/cargo-custom-declaration/components/modals/exporter-catalog';
 import { SenderCatalogModal } from '@/features/cargo-custom-declaration/components/modals/sender-catalog';
-import type { AutoTransportDeclarationSchema } from '@/features/cargo-custom-declaration/schema/declaration.schema.ts';
+import type { CargoCustomDeclarationSchema } from '@/features/cargo-custom-declaration/schema/declaration.schema.ts';
 import type { Exporter, Sender } from '@/features/cargo-custom-declaration/types';
 import { useDisclosure } from '@/hooks/use-disclosure';
 import { useTranslations } from '@/hooks/use-translations';
 
 interface Column2Props {
-  form: UseFormReturn<AutoTransportDeclarationSchema>;
+  form: UseFormReturn<CargoCustomDeclarationSchema>;
   onSubmit: (data: any) => void;
 }
 
@@ -237,26 +237,26 @@ export function Column2({ form, onSubmit }: Column2Props) {
     <Card className="col-span-4 row-span-3 gap-y-3">
       <CardTitle
         infoTitle={<Column2Info />}
-        rightSection={
-          <div className="flex items-center gap-2">
-            <Button
-              hoverText="Eksportchilar katalogi"
-              size="icon"
-              variant="ghost"
-              onClick={openExporterCatalog}
-            >
-              <CirclePlusIcon strokeWidth={2.2} className="text-(--color-primary)" />
-            </Button>
-            <Button
-              hoverText="Yuklarni jo'natuvchi qo'llanma"
-              size="icon"
-              variant="ghost"
-              onClick={openSenderCatalog}
-            >
-              <CirclePlusIcon strokeWidth={2.2} className="text-(--color-primary)" />
-            </Button>
-          </div>
-        }
+        // rightSection={
+        //   <div className="flex items-center gap-2">
+        //     <Button
+        //       hoverText="Eksportchilar katalogi"
+        //       size="icon"
+        //       variant="ghost"
+        //       onClick={openExporterCatalog}
+        //     >
+        //       <CirclePlusIcon strokeWidth={2.2} className="text-(--color-primary)" />
+        //     </Button>
+        //     <Button
+        //       hoverText="Yuklarni jo'natuvchi qo'llanma"
+        //       size="icon"
+        //       variant="ghost"
+        //       onClick={openSenderCatalog}
+        //     >
+        //       <CirclePlusIcon strokeWidth={2.2} className="text-(--color-primary)" />
+        //     </Button>
+        //   </div>
+        // }
       >
         2.Отправитель/экспортер
       </CardTitle>
@@ -272,15 +272,27 @@ export function Column2({ form, onSubmit }: Column2Props) {
               control={form.control}
               name="exporter.name"
               render={({ field }) => (
-                <FormItem>
-                  <FormControl className="flex-1">
-                    <Input
-                      inputSize="md"
-                      placeholder="Yuk jo'natuvchining nomini kiriting"
-                      infoText="Yuk jo'natuvchining to'liq nomi"
-                      {...field}
-                    />
-                  </FormControl>
+                <FormItem className="flex flex-row items-center gap-2">
+                  <div className="min-w-0 flex-1">
+                    <FormControl>
+                      <Input
+                        inputSize="md"
+                        placeholder="Yuk jo'natuvchining nomini kiriting"
+                        infoText="Yuk jo'natuvchining to'liq nomi"
+                        {...field}
+                      />
+                    </FormControl>
+                  </div>
+                  <Button
+                    type="button"
+                    hoverText="Yuklarni jo'natuvchi qo'llanma"
+                    className="shrink-0"
+                    size="icon"
+                    variant="ghost"
+                    onClick={openSenderCatalog}
+                  >
+                    <CirclePlusIcon strokeWidth={2.2} className="text-(--color-primary)" />
+                  </Button>
                   <FormMessage />
                 </FormItem>
               )}
@@ -325,15 +337,27 @@ export function Column2({ form, onSubmit }: Column2Props) {
               control={form.control}
               name="exporter.anotherExporter"
               render={({ field }) => (
-                <FormItem>
-                  <FormControl className="flex-1">
-                    <Input
-                      infoText="Exportchi nomini ko'rsatish (agar eksportchi va jo'natuvchi boshqa shaxs bo'lsa)"
-                      inputSize="md"
-                      placeholder="Eksportchining nomini ko'rsatish"
-                      {...field}
-                    />
-                  </FormControl>
+                <FormItem className="flex flex-row items-center gap-2">
+                  <div className="min-w-0 flex-1">
+                    <FormControl className="flex-1">
+                      <Input
+                        infoText="Exportchi nomini ko'rsatish (agar eksportchi va jo'natuvchi boshqa shaxs bo'lsa)"
+                        inputSize="md"
+                        placeholder="Eksportchining nomini ko'rsatish"
+                        {...field}
+                      />
+                    </FormControl>
+                  </div>
+                  <Button
+                    type="button"
+                    hoverText="Eksportchilar katalogi"
+                    className="shrink-0"
+                    size="icon"
+                    variant="ghost"
+                    onClick={openExporterCatalog}
+                  >
+                    <CirclePlusIcon strokeWidth={2.2} className="text-(--color-primary)" />
+                  </Button>
                   <FormMessage />
                 </FormItem>
               )}

@@ -37,8 +37,8 @@ import {
   ColumnA,
 } from '@/features/cargo-custom-declaration/components/columns';
 import {
-  type AutoTransportDeclarationSchema,
-  autoTransportDeclarationSchema,
+  type CargoCustomDeclarationSchema,
+  cargoCustomDeclarationSchema,
 } from '@/features/cargo-custom-declaration/schema/declaration.schema.ts';
 import type { TaskCreate } from '@/features/tasks/types.ts';
 import { useTranslations } from '@/hooks/use-translations';
@@ -46,8 +46,8 @@ import { useTranslations } from '@/hooks/use-translations';
 export function CargoCustomDeclarationForm() {
   const { t } = useTranslations();
 
-  const form = useForm<AutoTransportDeclarationSchema>({
-    resolver: zodResolver(autoTransportDeclarationSchema),
+  const form = useForm<CargoCustomDeclarationSchema>({
+    resolver: zodResolver(cargoCustomDeclarationSchema),
   });
 
   function onSubmit(data: TaskCreate) {

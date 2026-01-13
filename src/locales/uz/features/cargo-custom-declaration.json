@@ -1,5 +1,5 @@
 {
-  "autoTransport": {
+  "cargoCustomDeclaration": {
     "title": "Avtotransport deklaratsiyasi",
     "subtitle": "Avtotransport orqali import-tranzit deklaratsiyalarini yaratish",
 
@@ -233,7 +233,7 @@
       "graph7Placeholder": "Deklaratsiyanig 7-grafasi raqami",
       "rowsCount": "qatorlar soni",
       "table": {
-        "no": "№",
+        "no": "No",
         "declarationId": "Deklaratsiya ID raqami",
         "graph7Number": "Deklaratsiyanig 7-grafasi raqami (partiyaning raqami)",
         "transportType": "Transport turi",
@@ -270,7 +270,7 @@
     "versionFormatted": "Rasmiylashtirilgan",
     "versionCancelled": "Bekor qilingan",
     "versionDraft": "Qoralama",
-    "declarationNumber": "Yuk bojxona deklaratsiyasi №",
+    "declarationNumber": "Yuk bojxona deklaratsiyasi No",
     "declarationNumberPlaceholder": "Deklaratsiya raqamini kiriting",
     "declarationNumberInfo": "Ro'yxatdan o'tkazilganda beriladigan yuk bojxona deklaratsiyasining noyob raqami",
     "declarationType": "1. Deklaratsiya turi",
@@ -281,16 +281,16 @@
     "declarationTypeImport": "Erkin muomalaga chiqarish",
     "exporterName": "Nomi",
     "exporterNamePlaceholder": "Tashkilot nomini kiriting",
-    "exporterNameInfo": "Eksportyer kompaniyasining to'liq yuridik nomi",
+    "exporterNameInfo": "Eksportyor kompaniyasining to'liq yuridik nomi",
     "exporterAddress": "Manzil",
     "exporterAddressPlaceholder": "Manzilni kiriting",
-    "exporterAddressInfo": "Eksportyer kompaniyasining haqiqiy manzili",
+    "exporterAddressInfo": "Eksportyor kompaniyasining haqiqiy manzili",
     "exporterCountry": "Mamlakat",
     "exporterCountryPlaceholder": "Mamlakatni tanlang",
     "exporterCountryInfo": "Yuk jo'natiladigan mamlakat (mamlakatlar tasniflagichi bo'yicha kod)",
     "exporterAdditionalInfo": "Qo'shimcha ma'lumot",
     "exporterAdditionalInfoPlaceholder": "Qo'shimcha ma'lumotni kiriting",
-    "exporterAdditionalInfoInfo": "Eksportyer haqida qo'shimcha ma'lumot (INN, OKPO va boshqa ma'lumotlar)",
+    "exporterAdditionalInfoInfo": "Eksportyor haqida qo'shimcha ma'lumot (INN, OKPO va boshqa ma'lumotlar)",
     "additionalSheet": "3. Qo'shimcha varaq",
     "additionalSheetPlaceholder": "1/1",
     "additionalSheetInfo": "Qo'shimcha varaq to'g'risida ma'lumot",
@@ -314,49 +314,32 @@
     "deleteButton": "Olib tashlash",
     "deleteButtonInfo": "Bojxona deklaratsiyasini bojxona qiymatlari registridan olib tashlash",
     "sendButtonShort": "Yuborish",
-    "deleteButtonShort": "Delete",
+    "deleteButtonShort": "O'chirish",
     "cancel": "Bekor qilish",
     "save": "Saqlash",
-    "exporterSectionTitle": "2. Eksportyer/Yuk jo'natuvchi",
+    "exporterSectionTitle": "2. Eksportyor/Yuk jo'natuvchi",
     "infoNumberTitle": "7. Ma'lumot raqami",
 
     "infoLabel": {
-      "noteInfo": "Deklaratsiyaga qo'shimcha izoh",
-      "statusInfo": {
-        "title": "Deklaratsiya statuslari:",
-        "new": "Birlamchi deklaratsiya topshirish",
-        "reregistration": "Tovar chiqarilishidan oldin ma'lumotlarni o'zgartirish",
-        "redesign": "Tovarlar chiqarilgandan keyin ma'lumotlarni o'zgartirish"
-      },
-      "versionInfo": {
-        "title": "Deklaratsiya versiyalari:",
-        "working": "Qoralama, to'ldirilmoqda",
-        "formatted": "Topshirishga tayyor deklaratsiya",
-        "cancelled": "Bekor qilingan deklaratsiya",
-        "draft": "To'ldirishning boshlang'ich bosqichi"
-      },
-      "declarationNumberInfo": "Ro'yxatdan o'tkazilganda beriladigan yuk bojxona deklaratsiyasining noyob raqami",
-      "declarationTypeInfo": {
+      "column1": {
+        "name": "1.Deklaratsiya turi",
         "title": "1. Deklaratsiya turi",
         "subsection1": "Birinchi bo'limda tovarlarning ko'chirilish yo'nalishi ko'rsatiladi — «IM»",
         "subsection2": "Ikkinchi bo'limda bojxona rejimining ikki xonali kodi Bojxona rejimlari klassifikatoriga ko'ra ko'rsatiladi",
         "subsection3": "Uchinchi bo'lim to'ldirilmaydi"
       },
-      "exporterNameInfo": "Eksportyer kompaniyasining to'liq yuridik nomi",
-      "exporterAddressInfo": "Eksportyer kompaniyasining haqiqiy manzili",
-      "exporterCountryInfo": "Yuk jo'natiladigan mamlakat (mamlakatlar tasniflagichi bo'yicha kod)",
-      "exporterAdditionalInfoInfo": "Eksportyer haqida qo'shimcha ma'lumot (INN, OKPO va boshqa ma'lumotlar)",
-      "exporterSectionInfo": {
-        "title": "2. Eksportyer/yuk jo'natuvchi",
+      "column2": {
+        "name": "2.Jo'natuvchi/eksportyor",
+        "title": "2. Eksportyor/yuk jo'natuvchi",
         "description": "Transport hujjatlarida yuk jo'natuvchi sifatida ko'rsatilgan shaxs haqida ma'lumotlar kiritiladi.",
         "label": "Qismda ko'rsatiladi:",
         "individualPerson": {
           "title": "Agar yuk jo'natuvchi jismoniy shaxs bo'lsa:",
-          "description": "jismoniy shaxsning familiyasi, ismi, sharifi, yashash joyi (dunyo mamlakatlari klassifikatoriga ko'ra mamlakatning qisqa nomi va manzil)"
+          "description": "jismoniy shaxsning familiyasi, ismi, sharifi, yashash joyi (dunyo mamlakatlar klassifikatoriga ko'ra mamlakatning qisqa nomi va manzil)"
         },
         "legalEntity": {
           "title": "Agar yuk jo'natuvchi yuridik shaxs bo'lsa:",
-          "description": "uning qisqa nomi va joylashuvi (dunyo mamlakatlari klassifikatoriga ko'ra mamlakatning qisqa nomi va manzil)"
+          "description": "uning qisqa nomi va joylashuvi (dunyo mamlakatlar klassifikatoriga ko'ra mamlakatning qisqa nomi va manzil)"
         },
         "exampleLabel": "Masalan:",
         "individualPersonExample": "Jismoniy shaxs:",
@@ -368,7 +351,8 @@
         "note1": "Elektron BYuD'da jo'natuvchi va jo'natuvchi tomonidan qabul qilingan tovar haqida (BYuDning 9-grafasida ko'rsatilgan shaxs bilan tashqi savdo shartnomasi (shartnoma, bitim) tuzgan shaxs) va boshqa ma'lumotlar tovarga hamroh bo'luvchi hujjatlarda ko'rsatilgan har bir ma'lumot alohida ajratilgan maydonda ko'rsatiladi.",
         "note2": "Qog'oz shaklida tovarlarni deklaratsiyalashda qo'shimcha varaqda qism to'ldirilmaydi."
       },
-      "additionalSheetInfo": {
+      "column3": {
+        "name": "3.Qo'sh. varaq",
         "title": "3. Qo'shimcha varaq",
         "description": "Birinchi bo'limda varaqning tartib raqami, ikkinchi bo'limda asosiy va barcha qo'shimcha varaqlarni o'z ichiga olgan holda taqdim etiladigan BYuD varaqlarining umumiy soni ko'rsatiladi.",
         "exampleLabel": "Masalan:",
@@ -376,33 +360,28 @@
         "example2": "Agar BYUdda qo'shimcha varaq bo'lmasa, «1/1» ko'rsatiladi",
         "note": "Elektron shaklda tovarlarni deklaratsiyalashda qismda, ushbu bobda belgilangan tartibda, varaqning tartib raqami va BYuD varaqlarining umumiy soni ko'rsatiladi, agar elektron BYuD qog'ozga chop etilsa."
       },
-      "totalItemsInfo": {
-        "title": "5. Tovar umumiy nomi",
-        "description": "Qismda BYUding 31-grafasida ko'rsatilgan tovarlarning umumiy soni ko'rsatiladi. Bu son BYUding 31-grafasining to'ldirilgan soniga mos kelishi kerak.",
+      "column5": {
+        "name": "5.Jami noml. soni",
+        "title": "5. Tovarlar nomlanishlarining umumiy soni",
+        "description": "5-grafikada bojxona deklaratsiyasining 31-grafikalarida ko'rsatilgan tovarlar nomlanishlarining umumiy soni ko'rsatiladi. Bu son 31-grafikalarning to'ldirilgan soniga mos kelishi kerak.",
         "note": "Eslatma: 31-grafadagi har bir tovar pozitsiyasi alohida nom sifatida hisoblanadi"
       },
-      "totalPlacesInfo": "Maydon to'ldirilmaydi",
-      "specialDispatchInfo": "Maydon to'ldirilmaydi",
-      "customsPostInfo": {
-        "title": "7. BYuD ro'yxatdan o'tish raqami",
-        "description": "Qismda BYuD topshiriladigan bojxona postining ",
-        "description2": "besh xonali raqamli kodi",
-        "description3": "Bojxona postlari klassifikatoriga ko'ra ko'rsatiladi.",
-        "exampleLabel": "Kod misoli:",
-        "note": "Kod 5 raqamdan iborat va tovarlarni rasmiylashtiriladigan bojxona postida belgilanadi"
+      "column7short": {
+        "title": "5) 7-grafika. «Bojxona deklaratsiyasining ro'yxatga olish raqami»",
+        "description": "7-grafikada bojxona postlari klassifikatoriga ko'ra, bojxona deklaratsiyasi topshiriladigan bojxona postining besh xonali raqamli kodi ko'rsatiladi."
       },
-      "fieldNotFilledInfo": {
-        "warning": "Diqqat!",
-        "message": "Ushbu rejimda bu qism to'ldirilmaydi!"
+      "column7": {
+        "name": "7.Ma'lumotnoma raqami",
+        "title": "7-grafika. «BYuDning ro'yxatga olish raqami»",
+        "description": "Grafikada rasmiylashtirilishi uchun BYuD topshiriladigan bojxona postining besh xonali raqamli kodi Bojxona postlari klassifikatoriga muvofiq ko'rsatiladi."
       },
-      "sendToRegisterInfo": "Bojxona qiymatlari reestriga BYuD ni yuborish",
-      "deleteFromRegisterInfo": "Bojxona deklaratsiyasini bojxona qiymatlari registridan olib tashlash",
-      "importerSectionInfo": {
+      "column8": {
+        "name": "8.Qabul qiluvchi/importyor",
         "title": "8. Importer/Yuk qabul qiluvchi",
-        "description": "Qismda yuk qabul qiluvchi va importyer tovarlari haqida ma'lumotlar kiritiladi.",
+        "description": "Qismda yuk qabul qiluvchi va importyor tovarlari haqida ma'lumotlar kiritiladi.",
         "label": "Qismda ko'rsatiladi:",
         "sameEntity": {
-          "title": "Agar importyer va yuk qabul qiluvchi bir xil shaxs bo'lsa:",
+          "title": "Agar importyor va yuk qabul qiluvchi bir xil shaxs bo'lsa:",
           "individualPerson": {
             "title": "Jismoniy shaxs - rezident:",
             "description": "jismoniy shaxsning familiyasi, ismi, sharifi va doimiy yashash joyi, shuningdek telefon raqami",
@@ -418,19 +397,19 @@
             "example": "\"Trans group\" MCHJ\nToshkent shahri, Yunusobod tumani, O'ch terak ko'chasi, 3-uy, 19-xonadon, telefon: +99871-999-99-99, elektron pochta: pochta@pochta.uz\""
           },
           "structuralUnit": {
-            "title": "Agar importyer va yuk qabul qiluvchi nomidan yuridik shaxsning tarkibiy bo'linmasi chiqib tursa:",
+            "title": "Agar importyor va yuk qabul qiluvchi nomidan yuridik shaxsning tarkibiy bo'linmasi chiqib tursa:",
             "description": "tarkibiy bo'linmaning qisqa nomi, joylashuvi (yuridik manzil), telefon raqami va elektron pochta manzili (agar bo'lsa), shuningdek yuqorida sanalgan ma'lumotlar yuridik shaxs haqida ko'rsatiladi",
             "example": "\"Vodiy-Farg'ona\" MCHJ\nFarg'ona viloyati, Farg'ona shahri, San'at ko'chasi, 2-uy, telefon: 8-373-999-99-99, elektron pochta: pochta@pochta.uz\nVodiy MCHJ filiali\nAndijon viloyati, Andijon shahri, Bobur ko'chasi, 597-uy, telefon: 8-374-999-99-99, elektron pochta: pochta@pochta.uz\""
           }
         },
         "differentEntity": {
-          "title": "Agar importyer va yuk qabul qiluvchi turli shaxslar bo'lsa, ya'ni qabul qiluvchi tovarni importyer topshirig'i bilan yetkazib bersa yoki boshqa o'xshash holatlarda:",
-          "description": "qismda avval yuk qabul qiluvchining qisqa nomi, joylashuvi (yuridik manzil) va telefon raqami, keyin importyerning (tovarni topshirgan shaxsning) qisqa nomi va joylashuvi (yuridik manzil) ko'rsatiladi",
+          "title": "Agar importyor va yuk qabul qiluvchi turli shaxslar bo'lsa, ya'ni qabul qiluvchi tovarni importyor topshirig'i bilan yetkazib bersa yoki boshqa o'xshash holatlarda:",
+          "description": "qismda avval yuk qabul qiluvchining qisqa nomi, joylashuvi (yuridik manzil) va telefon raqami, keyin importyorning (tovarni topshirgan shaxsning) qisqa nomi va joylashuvi (yuridik manzil) ko'rsatiladi",
           "example": "\"Xolis\" MCHJ\nToshkent viloyati, Chinaz tumani, Ukituvchilar ko'chasi, 17-uy, telefon: +998XX-XXX-XX-XX\nTamminot AJ topshirig'i bilan, Toshkent shahri, Shayxontohur tumani, A. Xo'jayev ko'chasi, 310-uy"
         },
-        "sameAsColumn9": "Agar 9-grafada importyer haqida ma'lumotlar ko'rsatilgan bo'lsa, ushbu qismda importyer haqida ma'lumotlar ko'rsatish shart emas",
+        "sameAsColumn9": "Agar 9-grafada importyor haqida ma'lumotlar ko'rsatilgan bo'lsa, ushbu qismda importyor haqida ma'lumotlar ko'rsatish shart emas",
         "topRightSection": {
-          "title": "Qismning o'ng yuqori qismida «№» belgisidan keyin agar yuk qabul qiluvchilar quyidagilar bo'lsa:",
+          "title": "Qismning o'ng yuqori qismida «No» belgisidan keyin agar yuk qabul qiluvchilar quyidagilar bo'lsa:",
           "individualResident": "jismoniy shaxslar — rezidentlar bo'lsa, «00000001» kodi ko'rsatiladi",
           "individualNonResident": "jismoniy shaxslar — nerezidentlar bo'lsa, «00000002» kodi ko'rsatiladi",
           "stateShare": "ustav kapitalida davlat ulushi bo'lgan tashkilotlar bo'lsa, «00000003» kodi ko'rsatiladi",
@@ -439,16 +418,17 @@
           "other": "yuqorida 4-bobdan 27-bobgacha ko'rsatilmagan shaxslar bo'lsa, ma'lumotlar ko'rsatilmaydi"
         },
         "bottomSection": {
-          "title": "Qismning pastki qismida «№» belgisidan keyin yuk qabul qiluvchining INN kodi ko'rsatiladi, agar yuk qabul qiluvchi nomidan uning tarkibiy bo'linmasi chiqib tursa, tarkibiy bo'linmaning INN kodi, keyin «/» belgisidan keyin O'zbekiston Respublikasi tumanlari va shaharlari klassifikatoriga muvofiq tuman (shahar) kodi yuridik manzil (jismoniy shaxsning doimiy yashash joyi) bo'yicha ko'rsatiladi",
+          "title": "Qismning pastki qismida «No» belgisidan keyin yuk qabul qiluvchining INN kodi ko'rsatiladi, agar yuk qabul qiluvchi nomidan uning tarkibiy bo'linmasi chiqib tursa, tarkibiy bo'linmaning INN kodi, keyin «/» belgisidan keyin O'zbekiston Respublikasi tumanlari va shaharlari klassifikatoriga muvofiq tuman (shahar) kodi yuridik manzil (jismoniy shaxsning doimiy yashash joyi) bo'yicha ko'rsatiladi",
           "noTin": "INN yoki JSHSHIRga ega bo'lmagan shaxslar tomonidan tovarlarni deklaratsiyalashda «999999999» kodi ko'rsatiladi"
         },
         "note": "Qog'oz shaklida tovarlarni deklaratsiyalashda qo'shimcha varaqda qism to'ldirilmaydi"
       },
-      "financialSettlementInfo": {
+      "column9": {
+        "name": "9.Moliyaviy tartibga mas'ul shaxs",
         "title": "9. Moliyaviy tartibga solishga mas'ul shaxs",
         "description": "Qismda tashqi savdo shartnomasini (shartnoma, bitim) tuzgan va mazkur tashqi savdo shartnomasi (shartnoma, bitim) bo'yicha hisob-kitobdan mas'ul bo'lgan yuridik shaxsning qisqa nomi, joylashuvi (yuridik manzil), telefon raqami va elektron pochta manzili (agar bo'lsa) yoki jismoniy shaxsning familiyasi, ismi, sharifi, yashash joyi, shuningdek telefon raqami ko'rsatiladi",
         "topRightSection": {
-          "title": "Qismning o'ng yuqori qismida «№» belgisidan keyin agar quyidagilar bo'lsa:",
+          "title": "Qismning o'ng yuqori qismida «No» belgisidan keyin agar quyidagilar bo'lsa:",
           "individualResident": "jismoniy shaxslar — rezidentlar bo'lsa, «00000001» kodi ko'rsatiladi",
           "individualNonResident": "jismoniy shaxslar — nerezidentlar bo'lsa, «00000002» kodi ko'rsatiladi",
           "stateShare": "ustav kapitalida davlat ulushi bo'lgan tashkilotlar bo'lsa, «00000003» kodi ko'rsatiladi",
@@ -457,10 +437,118 @@
           "other": "yuqorida 4-bobdan 7-bobgacha ko'rsatilmagan shaxslar bo'lsa, ma'lumotlar ko'rsatilmaydi"
         },
         "bottomSection": {
-          "title": "Qismning pastki qismida «№» belgisidan keyin moliyaviy tartibga solishga mas'ul shaxsning INN (agar jismoniy shaxs bo'lsa, JSHSHIR) kodi ko'rsatiladi, keyin «/» belgisidan keyin uning yuridik manzili (jismoniy shaxsning doimiy yashash joyi) bo'yicha O'zbekiston Respublikasi tumanlari va shaharlari klassifikatoriga muvofiq tuman (shahar) kodi ko'rsatiladi",
+          "title": "Qismning pastki qismida «No» belgisidan keyin moliyaviy tartibga solishga mas'ul shaxsning INN (agar jismoniy shaxs bo'lsa, JSHSHIR) kodi ko'rsatiladi, keyin «/» belgisidan keyin uning yuridik manzili (jismoniy shaxsning doimiy yashash joyi) bo'yicha O'zbekiston Respublikasi tumanlari va shaharlari klassifikatoriga muvofiq tuman (shahar) kodi ko'rsatiladi",
           "noTin": "INN yoki JSHSHIRga ega bo'lmagan shaxslar tomonidan tovarlarni deklaratsiyalashda «999999999» kodi ko'rsatiladi"
         },
         "note": "Tovarlarni bepul asosdagi bitimlar bo'yicha ko'chirishda qism to'ldirilmaydi"
+      },
+      "column4": {
+        "name": "4.Yuk jo'n. spec.",
+        "title": "4. Yuk jo'natish spetsifikatsiyasi"
+      },
+      "column6": {
+        "name": "6.Joylar soni",
+        "title": "6. Joylar soni"
+      },
+      "column10": {
+        "name": "10.1-tayinlangan mamlakat",
+        "title": "10. Birinchi tayinlangan mamlakat"
+      },
+      "column11": {
+        "name": "11.Savdo mamlakatiti",
+        "title": "11. Savdo mamlakatiti"
+      },
+      "column12": {
+        "name": "12",
+        "title": "12. Bojxona qiymati"
+      },
+      "column13": {
+        "name": "13",
+        "title": "13. KAP"
+      },
+      "column14": {
+        "name": "14.Deklarant/vakil",
+        "title": "14. Deklarant/vakil"
+      },
+      "column15": {
+        "name": "15.Jo'natuvchi mamlakat",
+        "title": "15. Jo'natuvchi mamlakat"
+      },
+      "column15a": {
+        "name": "15a.Jo'n. mamlakat kodi",
+        "title": "15a. Jo'natuvchi mamlakat kodi"
+      },
+      "column16": {
+        "name": "16.Kelib chiqish mamlakatiti",
+        "title": "16. Kelib chiqish mamlakatiti"
+      },
+      "column17": {
+        "name": "17.Tayinlash mamlakatiti",
+        "title": "17. Tayinlash mamlakatiti"
+      },
+      "column17a": {
+        "name": "17a.Tayin. mamlakat kodi",
+        "title": "17a. Tayinlash mamlakat kodi"
+      },
+      "column18": {
+        "name": "18.Jo'natishdagi transport vositasi",
+        "title": "18. Jo'natishdagi transport vositasi"
+      },
+      "column19": {
+        "name": "19.Kont",
+        "title": "19. Konteyner"
+      },
+      "column20": {
+        "name": "20.Yetkazib berish shartlari",
+        "title": "20. Yetkazib berish shartlari"
+      },
+      "column21": {
+        "name": "21.Chegaradagi transport vositasi",
+        "title": "21. Chegaradagi transport vositasi"
+      },
+      "column22": {
+        "name": "22.Valyuta va tovarlar umumiy qiymati",
+        "title": "22. Valyuta va tovarlarning umumiy qiymati"
+      },
+      "column23": {
+        "name": "23.Valyuta kursi",
+        "title": "23. Valyuta kursi"
+      },
+      "column24": {
+        "name": "24.Bitim xarakteri",
+        "title": "24. Bitim xarakteri"
+      },
+      "column25": {
+        "name": "25.Chegaradagi transport turi",
+        "title": "25. Chegaradagi transport turi"
+      },
+      "column26": {
+        "name": "26.Mamlakat ichidagi transport turi",
+        "title": "26. Mamlakat ichidagi transport turi"
+      },
+      "column27": {
+        "name": "27.Yuklash/tushirish joyi",
+        "title": "27. Yuklash/tushirish joyi"
+      },
+      "column28": {
+        "name": "28.Moliyaviy va bank ma'lumotlari",
+        "title": "28. Moliyaviy va bank ma'lumotlari"
+      },
+      "column29": {
+        "name": "29.Chegaradagi bojxona",
+        "title": "29. Chegaradagi bojxona"
+      },
+      "column30": {
+        "name": "30.Tovarni ko'rish joyi",
+        "title": "30. Tovarni ko'rish joyi"
+      },
+      "columnA": {
+        "name": "A",
+        "title": "A. Ombor/TQ identifikatsiyasi"
+      },
+      "fieldNotFilledInfo": {
+        "warning": "Diqqat!",
+        "message": "Ushbu rejimda bu qism to'ldirilmaydi!"
       }
     }
   }

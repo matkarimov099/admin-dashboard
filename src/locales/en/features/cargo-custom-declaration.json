@@ -1,5 +1,5 @@
 {
-  "autoTransport": {
+  "cargoCustomDeclaration": {
     "title": "Auto Transport Declaration",
     "subtitle": "Create import-transit declarations via auto transport",
 
@@ -321,32 +321,15 @@
     "infoNumberTitle": "7. Registration Number",
 
     "infoLabel": {
-      "noteInfo": "Additional note to the declaration",
-      "statusInfo": {
-        "title": "Declaration statuses:",
-        "new": "Initial declaration submission",
-        "reregistration": "Change of goods information before release",
-        "redesign": "Change of information after goods release"
-      },
-      "versionInfo": {
-        "title": "Declaration versions:",
-        "working": "Draft, in progress of filling",
-        "formatted": "Declaration ready for submission",
-        "cancelled": "Cancelled declaration",
-        "draft": "Initial stage of filling"
-      },
-      "declarationNumberInfo": "Unique number of the customs declaration assigned upon registration",
-      "declarationTypeInfo": {
+      "column1": {
+        "name": "1.Declaration type",
         "title": "1. Declaration Type",
         "subsection1": "The first subdivision indicates the direction of goods movement — «IM»",
         "subsection2": "The second subdivision indicates the two-digit customs regime code according to the Customs Regimes Classifier",
         "subsection3": "the third subdivision is not filled"
       },
-      "exporterNameInfo": "Full legal name of the exporter company",
-      "exporterAddressInfo": "Actual address of the exporter company",
-      "exporterCountryInfo": "Country of dispatch of goods (code according to countries classifier)",
-      "exporterAdditionalInfoInfo": "Additional information about the exporter (TIN, OKPO and other details)",
-      "exporterSectionInfo": {
+      "column2": {
+        "name": "2.Sender/exporter",
         "title": "2. Exporter/Consignor",
         "description": "The graph indicates information about the person specified in the transport documents as the sender of goods.",
         "label": "The graph indicates:",
@@ -368,7 +351,8 @@
         "note1": "In the electronic GTD, each piece of information about the sender and the person on whose behalf the sender accepts the goods (the person who concluded the foreign trade contract (agreement, agreement) with the person indicated in column 9 of the GTD) and other persons indicated in the accompanying documents is indicated in a separate field.",
         "note2": "When declaring goods in paper form, the graph is not filled in on additional sheets."
       },
-      "additionalSheetInfo": {
+      "column3": {
+        "name": "3.Add. sheet",
         "title": "3. Additional sheets",
         "description": "The first subdivision indicates the serial number of the sheet, the second — the total number of GTD sheets presented, including the main and all additional sheets.",
         "exampleLabel": "For example:",
@@ -376,28 +360,24 @@
         "example2": "If the GTD has no additional sheets, «1/1» is indicated",
         "note": "When declaring goods in electronic form, the column indicates the serial number of the sheet and the total number of GTD sheets, in the order established in this subparagraph, if the electronic GTD were printed on paper."
       },
-      "totalItemsInfo": {
-        "title": "5. Total item names",
-        "description": "The column indicates the total number of item names specified in columns 31 of the GTD. This number must correspond to the number of filled columns 31 of the GTD.",
+      "column5": {
+        "name": "5.Total items",
+        "title": "5. Total number of items",
+        "description": "The column shows the total number of items listed in columns 31 of the customs declaration. This number must correspond to the number of filled columns 31 of the customs declaration.",
         "note": "Note: Each item position in column 31 is considered a separate name"
       },
-      "totalPlacesInfo": "Field not filled",
-      "specialDispatchInfo": "Field not filled",
-      "customsPostInfo": {
-        "title": "7. GTD registration number",
-        "description": "The column indicates the ",
-        "description2": "five-digit numeric code",
-        "description3": "of the customs post to which the GTD will be submitted, according to the Classifier of customs posts.",
-        "exampleLabel": "Code example:",
-        "note": "The code consists of 5 digits and is determined by the customs post where the goods are processed"
+      "column7short": {
+        "name": "7.Reference number",
+        "title": "5) column 7. «Customs declaration registration number»",
+        "description": "The column indicates the five-digit code of the customs post where the customs declaration will be submitted, according to the Classifier of customs posts."
       },
-      "fieldNotFilledInfo": {
-        "warning": "Attention!",
-        "message": "In this mode, this column is not filled!"
+      "column7": {
+        "name": "7.Reference number",
+        "title": "Column 7. «Customs declaration registration number»",
+        "description": "The column indicates the five-digit numeric code of the customs post to which the customs declaration will be submitted for processing, according to the Classifier of customs posts."
       },
-      "sendToRegisterInfo": "Send customs value declaration to customs values register",
-      "deleteFromRegisterInfo": "Remove customs declaration from customs values register",
-      "importerSectionInfo": {
+      "column8": {
+        "name": "8.Consignee/importer",
         "title": "8. Importer/Consignee",
         "description": "The graph indicates information about the recipient and importer of goods.",
         "label": "The graph indicates:",
@@ -430,7 +410,7 @@
         },
         "sameAsColumn9": "If information about the importer is indicated in column 9 of the GTD, then it is not required to indicate information about the importer in this graph after the recipient",
         "topRightSection": {
-          "title": "In the upper right part of the graph after the sign «№», if the recipients are:",
+          "title": "In the upper right part of the graph after the sign «No», if the recipients are:",
           "individualResident": "individual persons — residents, code «00000001» is indicated",
           "individualNonResident": "individual persons — non-residents, code «00000002» is indicated",
           "stateShare": "organizations with a state share in the authorized capital, code «00000003» is indicated",
@@ -439,16 +419,17 @@
           "other": "persons not mentioned in paragraphs twenty-fourth to twenty-eighth of this subparagraph, then data are not indicated"
         },
         "bottomSection": {
-          "title": "In the lower part of the graph after the sign «№», the TIN of the recipient is indicated, and in case when a structural subdivision acts on behalf of the recipient, the TIN of the structural subdivision is indicated, then after the sign «/» the code of the district (city) in accordance with the Classifier of districts and cities of the Republic of Uzbekistan, given in Appendix No. 15 to this Instruction, according to the legal address (permanent place of residence of the individual person) is indicated",
+          "title": "In the lower part of the graph after the sign «No», the TIN of the recipient is indicated, and in case when a structural subdivision acts on behalf of the recipient, the TIN of the structural subdivision is indicated, then after the sign «/» the code of the district (city) in accordance with the Classifier of districts and cities of the Republic of Uzbekistan, given in Appendix No. 15 to this Instruction, according to the legal address (permanent place of residence of the individual person) is indicated",
           "noTin": "When declaring goods moved by persons without TIN, code «999999999» is indicated"
         },
         "note": "When declaring goods in paper form, the graph is not filled in on additional sheets"
       },
-      "financialSettlementInfo": {
+      "column9": {
+        "name": "9.Person responsible for fin. settlement",
         "title": "9. Person responsible for financial settlement",
         "description": "The graph indicates the short name, location (legal address), phone number and email address (if available) of a legal entity or the surname, first name, patronymic, place of residence, as well as phone number of an individual person, who concluded the foreign trade contract (agreement, agreement) and is responsible for settlements under this foreign trade contract (agreement, agreement)",
         "topRightSection": {
-          "title": "In the upper part of the graph after the sign «№», if the persons are:",
+          "title": "In the upper part of the graph after the sign «No», if the persons are:",
           "individualResident": "individual persons — residents, code «00000001» is indicated",
           "individualNonResident": "individual persons — non-residents, code «00000002» is indicated",
           "stateShare": "organizations with a state share in the authorized capital, code «00000003» is indicated",
@@ -457,10 +438,118 @@
           "other": "persons not mentioned in paragraphs fourth to eighth of this subparagraph, then data are not indicated"
         },
         "bottomSection": {
-          "title": "In the lower part of the graph after the sign «№», the TIN (if individual person, then PINFL) of the person responsible for financial settlement is indicated, then after the sign «/» the code of the district (city) in accordance with the Classifier of districts and cities of the Republic of Uzbekistan, given in Appendix No. 15 to this Instruction, according to his legal address (permanent place of residence of the individual person) is indicated",
+          "title": "In the lower part of the graph after the sign «No», the TIN (if individual person, then PINFL) of the person responsible for financial settlement is indicated, then after the sign «/» the code of the district (city) in accordance with the Classifier of districts and cities of the Republic of Uzbekistan, given in Appendix No. 15 to this Instruction, according to his legal address (permanent place of residence of the individual person) is indicated",
           "noTin": "When declaring goods moved by persons without TIN or PINFL, code «999999999» is indicated"
         },
         "note": "The graph is not filled in the case of movement of goods under gratuitous transactions"
+      },
+      "column4": {
+        "name": "4.Shipping spec.",
+        "title": "4. Shipping spec."
+      },
+      "column6": {
+        "name": "6.Number of packages",
+        "title": "6. Number of packages"
+      },
+      "column10": {
+        "name": "10.Country of 1st destination",
+        "title": "10. Country of 1st destination"
+      },
+      "column11": {
+        "name": "11.Trading country",
+        "title": "11. Trading country"
+      },
+      "column12": {
+        "name": "12.Customs value",
+        "title": "12. Customs value"
+      },
+      "column13": {
+        "name": "13.CAP",
+        "title": "13. CAP"
+      },
+      "column14": {
+        "name": "14.Declarant/representative",
+        "title": "14. Declarant/representative"
+      },
+      "column15": {
+        "name": "15.Country of dispatch",
+        "title": "15. Country of dispatch"
+      },
+      "column15a": {
+        "name": "15a.Country of dispatch code",
+        "title": "15a. Country of dispatch code"
+      },
+      "column16": {
+        "name": "16.Country of origin",
+        "title": "16. Country of origin"
+      },
+      "column17": {
+        "name": "17.Country of destination",
+        "title": "17. Country of destination"
+      },
+      "column17a": {
+        "name": "17a.Country of destination code",
+        "title": "17a. Country of destination code"
+      },
+      "column18": {
+        "name": "18.Transport at departure",
+        "title": "18. Transport at departure"
+      },
+      "column19": {
+        "name": "19.Cont.",
+        "title": "19. Cont."
+      },
+      "column20": {
+        "name": "20.Delivery terms",
+        "title": "20. Delivery terms"
+      },
+      "column21": {
+        "name": "21.Transport at border",
+        "title": "21. Transport at border"
+      },
+      "column22": {
+        "name": "22.Currency and total value",
+        "title": "22. Currency and total goods value"
+      },
+      "column23": {
+        "name": "23.Exchange rate",
+        "title": "23. Exchange rate"
+      },
+      "column24": {
+        "name": "24.Nature of transaction",
+        "title": "24. Nature of transaction"
+      },
+      "column25": {
+        "name": "25.Mode of transport at border",
+        "title": "25. Mode of transport at border"
+      },
+      "column26": {
+        "name": "26.Mode of transport inland",
+        "title": "26. Mode of transport inland"
+      },
+      "column27": {
+        "name": "27.Place of loading/unloading",
+        "title": "27. Place of loading/unloading"
+      },
+      "column28": {
+        "name": "28.Financial and banking details",
+        "title": "28. Financial and banking details"
+      },
+      "column29": {
+        "name": "29.Customs office at border",
+        "title": "29. Customs office at border"
+      },
+      "column30": {
+        "name": "30.Place of goods inspection",
+        "title": "30. Place of goods inspection"
+      },
+      "columnA": {
+        "name": "A.Warehouse/vehicle ID",
+        "title": "A. Warehouse/vehicle identification"
+      },
+      "fieldNotFilledInfo": {
+        "warning": "Attention!",
+        "message": "In this mode, this column is not filled!"
       }
     }
   }
