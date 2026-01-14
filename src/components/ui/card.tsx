@@ -48,8 +48,7 @@ function CardTitle({ className, infoTitle, rightSection, children, ...props }: C
           <PopoverTrigger asChild>
             <InfoIcon
               strokeWidth={2.2}
-              className="size-4.5 shrink-0 cursor-help"
-              style={{ color: 'var(--color-primary)' }}
+              className="size-4.5 shrink-0 cursor-help text-muted-foreground transition-colors hover:text-muted-foreground"
             />
           </PopoverTrigger>
           <PopoverContent className="max-h-[60vh] w-[calc(100vw-2rem)] overflow-y-auto sm:w-fit md:max-w-md lg:max-w-xl">

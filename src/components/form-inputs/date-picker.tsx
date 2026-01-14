@@ -43,9 +43,11 @@ interface DatePickerProps {
   label?: string;
   placeholder?: string;
   id?: string;
+  size?: 'sm' | 'md' | 'lg';
 }
 
 export function DatePicker({
+  size = 'md',
   value,
   onChange,
   label = 'Subscription Date',
@@ -89,6 +91,7 @@ export function DatePicker({
       </Label>
       <div className="relative">
         <Input
+          inputSize={size}
           ref={ref as React.RefObject<HTMLInputElement>}
           id={id}
           value={inputValue}

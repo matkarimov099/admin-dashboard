@@ -1,5 +1,5 @@
 import type { VariantProps } from 'class-variance-authority';
-import { CheckIcon, ChevronDownIcon, XIcon } from 'lucide-react';
+import { CheckIcon, ChevronDown, XIcon } from 'lucide-react';
 import * as React from 'react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button.tsx';
@@ -192,12 +192,12 @@ export const CountrySelect = React.forwardRef<React.ElementRef<typeof Popover>, 
         variant="outline"
         size={size}
         className={cn(
-          'justify-between! w-full font-normal text-left!',
+          'w-full justify-between text-left font-normal',
           !value && 'text-muted-foreground',
           className
         )}
       >
-        <span className="flex flex-1 items-center gap-2 truncate">
+        <div className="mr-3 flex flex-1 items-center gap-2 truncate">
           {showFlags && selectedOption && (
             <span
               className={`fi fi-${selectedOption.countryId.toLowerCase()}`}
@@ -205,18 +205,22 @@ export const CountrySelect = React.forwardRef<React.ElementRef<typeof Popover>, 
             />
           )}
           {getDisplayLabel()}
-        </span>
+        </div>
         <div className="flex shrink-0 items-center gap-1.5">
           {allowClear && value && (
             <button
               type="button"
               onClick={handleClear}
-              className="rounded-sm opacity-70 hover:opacity-100 focus:outline-none focus:ring-(--color-primary) focus:ring-2 focus:ring-inset"
+              className="-translate-y-1/2 absolute top-1/2 right-3 rounded-sm opacity-70 hover:opacity-100 focus:outline-none focus:ring-(--color-primary) focus:ring-2 focus:ring-inset"
             >
               <XIcon className="size-4!" />
             </button>
           )}
-          <ChevronDownIcon className="size-4! opacity-50" />
+          {!selectedOption && (
+            <div className="-translate-y-1/2 pointer-events-none absolute top-1/2 right-3">
+              <ChevronDown className="h-4 w-4 opacity-50" />
+            </div>
+          )}
         </div>
       </Button>
     );

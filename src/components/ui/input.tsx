@@ -164,7 +164,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             {infoText && (
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <InfoIcon className="-translate-y-1/2 absolute top-1/2 right-2.5 size-4.5! text-(--color-primary) transition-colors hover:text-primary" />
+                  <InfoIcon className="-translate-y-1/2 absolute top-1/2 right-2.5 size-4.5! text-muted-foreground transition-colors hover:text-muted-foreground" />
                 </TooltipTrigger>
                 <TooltipContent side="top">
                   <p>{infoText}</p>
