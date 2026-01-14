@@ -668,15 +668,17 @@ export function DataTable<TData>({
         </Table>
       </div>
 
-      {tableConfig.enablePagination && (
-        <DataTablePagination
-          table={table}
-          totalItems={totalItems}
-          totalSelectedItems={totalSelectedItems}
-          pageSizeOptions={pageSizeOptions || [10, 20, 30, 40, 50]}
-          size={tableConfig.size}
-        />
-      )}
+      <div className="px-0.5">
+        {tableConfig.enablePagination && (
+          <DataTablePagination
+            table={table}
+            totalItems={totalItems}
+            totalSelectedItems={totalSelectedItems}
+            pageSizeOptions={pageSizeOptions || [10, 20, 30, 40, 50]}
+            size={tableConfig.size}
+          />
+        )}
+      </div>
     </div>
   );
 }
