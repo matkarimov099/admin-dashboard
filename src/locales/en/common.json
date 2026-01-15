@@ -296,6 +296,8 @@
     "themeModeDescription": "Choose your appearance preference",
     "layoutMode": "Layout Mode",
     "layoutModeDescription": "Choose your dashboard layout",
+    "sidebarVariant": "Sidebar Style",
+    "sidebarVariantDescription": "Choose sidebar appearance",
     "styleVariant": "Style Variant",
     "themeColor": "Theme Color",
     "font": "Font",
@@ -326,17 +328,13 @@
         "horizontal": "Navigation in top header bar",
         "compact": "Collapsed sidebar with icons only"
       },
-      "styleVariant": {
-        "vega": "Vega",
-        "nova": "Nova",
-        "maia": "Maia",
-        "mira": "Mira"
+      "sidebarVariant": {
+        "floating": "Floating",
+        "sidebar": "Docked"
       },
-      "styleDescriptions": {
-        "vega": "Modern and clean design",
-        "nova": "Bold and vibrant style",
-        "maia": "Soft and elegant look",
-        "mira": "Professional appearance"
+      "sidebarVariantDescriptions": {
+        "floating": "With gaps and rounded corners",
+        "sidebar": "Attached to edges"
       },
       "colors": {
         "gray": "Gray",
@@ -386,6 +384,14 @@
         "default": "Balanced shadow",
         "medium": "Prominent shadow",
         "large": "Strong shadow"
+      },
+      "gradients": {
+        "default": "Default",
+        "blue": "Blue",
+        "orange": "Orange",
+        "indigo": "Indigo",
+        "green": "Green",
+        "gray": "Gray"
       }
     }
   }

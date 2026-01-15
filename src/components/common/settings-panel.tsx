@@ -1,4 +1,5 @@
 import { PaletteIcon } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button.tsx';
 import { ScrollArea } from '@/components/ui/scroll-area.tsx';
@@ -11,13 +12,16 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet.tsx';
+import { useTheme } from '@/hooks/use-theme.ts';
 import { useThemeConfig } from '@/hooks/use-theme-config.ts';
+import { BackgroundGradientPicker } from '../custom/settings-panel/background-gradient-picker.tsx';
 import { FontPicker } from '../custom/settings-panel/font-picker.tsx';
 import { LayoutModePicker } from '../custom/settings-panel/layout-mode-picker.tsx';
 import { RadiusPicker } from '../custom/settings-panel/radius-picker.tsx';
 import { SettingsActions } from '../custom/settings-panel/settings-actions.tsx';
 import { SettingsSection } from '../custom/settings-panel/settings-section.tsx';
 import { ShadowPicker } from '../custom/settings-panel/shadow-picker.tsx';
+import { SidebarVariantPicker } from '../custom/settings-panel/sidebar-variant-picker.tsx';
 import { ThemeColorPicker } from '../custom/settings-panel/theme-color-picker.tsx';
 import { ThemeModeToggle } from '../custom/settings-panel/theme-mode-toggle.tsx';
 
@@ -49,7 +53,38 @@ export function SettingsTrigger() {
 
 export function SettingsPanel() {
   const { t } = useTranslation();
-  const { config } = useThemeConfig();
+  const { config, setLayoutMode } = useThemeConfig();
+  const { theme } = useTheme();
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile screen size
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      // Force vertical layout on mobile
+      if (mobile && config.layoutMode !== 'vertical') {
+        setLayoutMode('vertical');
+      }
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, [config.layoutMode, setLayoutMode]);
+
+  // Resolve actual theme mode (handle 'system' setting)
+  const getResolvedTheme = (): 'light' | 'dark' => {
+    if (theme === 'system') {
+      return typeof window !== 'undefined' &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
+    }
+    return theme;
+  };
+
+  const isDarkMode = getResolvedTheme() === 'dark';
 
   // Get border radius value for styling (only left side corners)
   const radiusClass = {
@@ -86,23 +121,40 @@ export function SettingsPanel() {
               <ThemeModeToggle />
             </SettingsSection>
 
-            {/* Layout Mode */}
-            <SettingsSection
-              title={t('settingsPanel.layoutMode')}
-              description={t('settingsPanel.layoutModeDescription')}
-            >
-              <LayoutModePicker />
-            </SettingsSection>
+            {/* Layout Mode - Hidden on mobile */}
+            {!isMobile && (
+              <SettingsSection
+                title={t('settingsPanel.layoutMode')}
+                description={t('settingsPanel.layoutModeDescription')}
+              >
+                <LayoutModePicker />
+              </SettingsSection>
+            )}
 
-            {/* Style Variant */}
-            {/*<SettingsSection title={t('settingsPanel.styleVariant')}>*/}
-            {/*  <StyleVariantPicker />*/}
-            {/*</SettingsSection>*/}
+            {/* Sidebar Variant - Hidden on mobile */}
+            {!isMobile && (
+              <SettingsSection
+                title={t('settingsPanel.sidebarVariant')}
+                description={t('settingsPanel.sidebarVariantDescription')}
+              >
+                <SidebarVariantPicker />
+              </SettingsSection>
+            )}
 
             {/* Theme Color */}
             <SettingsSection title={t('settingsPanel.themeColor')}>
               <ThemeColorPicker />
             </SettingsSection>
+
+            {/* Background Gradient - Only visible in light mode */}
+            {!isDarkMode && (
+              <SettingsSection
+                title={t('settingsPanel.backgroundGradients')}
+                description={t('settingsPanel.backgroundGradientsDescription')}
+              >
+                <BackgroundGradientPicker />
+              </SettingsSection>
+            )}
 
             {/* Font Family */}
             <SettingsSection title={t('settingsPanel.font')}>

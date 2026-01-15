@@ -315,6 +315,8 @@
     "themeModeDescription": "Кўриниш афзалликларини танланг",
     "layoutMode": "Layout режими",
     "layoutModeDescription": "Бошқарув панелингиз layoutини танланг",
+    "sidebarVariant": "Sidebar кўриниши",
+    "sidebarVariantDescription": "Sidebar ёпишқоғини танланг",
     "styleVariant": "Услуб варианти",
     "themeColor": "Тема ранги",
     "font": "Шрифт",
@@ -345,17 +347,13 @@
         "horizontal": "Юқори header баридаги навигация",
         "compact": "Фақат иконали ёпилган sidebar"
       },
-      "styleVariant": {
-        "vega": "Vega",
-        "nova": "Nova",
-        "maia": "Maia",
-        "mira": "Mira"
+      "sidebarVariant": {
+        "floating": "Сузувчи",
+        "sidebar": "Ёпиқ"
       },
-      "styleDescriptions": {
-        "vega": "Замонавий ва тоза dizайн",
-        "nova": "Живали ва ҳонли услуб",
-        "maia": "Юмшоқ ва нафис кўриниш",
-        "mira": "Professional кўриниш"
+      "sidebarVariantDescriptions": {
+        "floating": "Бўшлиқли ва юмалоқ бурчакли",
+        "sidebar": "Чегарага ёпишган"
       },
       "colors": {
         "gray": "Кулранг",
@@ -405,6 +403,14 @@
         "default": "Мувозанатли сўя",
         "medium": "Ажралиб турадиган сўя",
         "large": "Кучли сўя"
+      },
+      "gradients": {
+        "default": "Стандарт",
+        "blue": "Мовий",
+        "orange": "Тўқ сариқ",
+        "indigo": "Индиго",
+        "green": "Яшил",
+        "gray": "Кулранг"
       }
     }
   }

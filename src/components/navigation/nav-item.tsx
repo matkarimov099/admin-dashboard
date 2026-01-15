@@ -4,6 +4,8 @@ import { SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar.tsx'
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
 import { useCurrentPath } from '@/hooks/use-current-path.ts';
 import { useSidebar } from '@/hooks/use-sidebar';
+import { useTheme } from '@/hooks/use-theme';
+import { useThemeConfig } from '@/hooks/use-theme-config';
 import type { MenuItemConfig } from '@/types/navigation';
 import { cn } from '@/utils/utils';
 
@@ -29,7 +31,13 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
   const currentPath = useCurrentPath();
   const { state, isMobile, setOpenMobile } = useSidebar();
   const { hasRole } = useAuthContext();
+  const { theme } = useTheme();
+  const { config } = useThemeConfig();
   const isCollapsed = state === 'collapsed';
+
+  // Check if gradient is active (not default and light mode)
+  const isDarkMode = theme === 'dark' || (theme === 'system' && typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const isGradientActive = !isDarkMode && config.backgroundGradient !== 'default';
 
   // Close the sidebar on mobile when clicking a link
   const handleClick = () => {
@@ -69,7 +77,7 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
           className={cn(
             'flex cursor-pointer items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-all duration-200',
             'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
-            // Active state - only text color
+            // Active state - theme color text
             isActive && 'font-bold text-(--color-primary)! hover:text-(--color-primary)!',
             // Inactive state
             !isActive && 'text-gray-700 hover:text-gray-700! dark:text-white dark:hover:text-white!'
@@ -78,17 +86,20 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
           {item.icon && (
             <span
               className={cn(
-                'flex size-5 shrink-0 items-center justify-center transition-colors duration-200 dark:text-white',
-                isActive &&
-                  'text-(--color-primary) hover:text-(--color-primary)! dark:text-(--color-primary)!',
-                !isActive && 'hover:text-current'
+                'flex size-5 shrink-0 items-center justify-center transition-colors duration-200',
+                // Active - theme color
+                isActive && 'text-(--color-primary) hover:text-(--color-primary)! dark:text-(--color-primary)!',
+                // Inactive
+                !isActive && 'dark:text-white hover:text-current'
               )}
             >
               {item.icon}
             </span>
           )}
 
-          <span className="flex-1">{titleText}</span>
+          <span className="flex-1">
+            {titleText}
+          </span>
 
           {/* Badge and chip support */}
           {(item.chip || item.badge !== undefined) && (
@@ -119,10 +130,14 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
         className={cn(
           'relative h-fit w-full rounded-md transition-all duration-200',
           'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
-          // Active state - only text color
-          isActive && 'font-medium text-(--color-primary)! hover:text-(--color-primary)!',
-          // Inactive state
-          !isActive && 'text-gray-700 hover:text-gray-700! dark:text-white dark:hover:text-white!',
+          // Active state with gradient - semi-transparent white background, white text
+          isActive && isGradientActive && 'bg-white/20! font-medium text-white! hover:bg-white/20!',
+          // Active state without gradient - only text color
+          isActive && !isGradientActive && 'font-medium text-(--color-primary)! hover:text-(--color-primary)!',
+          // Inactive state with gradient - white text
+          !isActive && isGradientActive && 'text-white! hover:text-white! hover:bg-white/10!',
+          // Inactive state without gradient
+          !isActive && !isGradientActive && 'text-gray-700 hover:text-gray-700! dark:text-white dark:hover:text-white!',
           // Collapsed sidebar specific styles
           isCollapsed ? 'size-9 justify-center p-0' : 'px-2.5'
         )}
@@ -140,8 +155,12 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
                 className={cn(
                   'flex shrink-0 items-center justify-center transition-colors duration-200',
                   isCollapsed ? 'size-6' : 'size-5',
-                  isActive && 'text-(--color-primary) hover:text-(--color-primary)!',
-                  !isActive && 'hover:text-current'
+                  // With gradient - always white
+                  isGradientActive && 'text-white!',
+                  // Active without gradient
+                  !isGradientActive && isActive && 'text-(--color-primary) hover:text-(--color-primary)!',
+                  // Inactive without gradient
+                  !isGradientActive && !isActive && 'hover:text-current'
                 )}
               >
                 {item.icon}
@@ -149,7 +168,16 @@ export function NavItem({ item, inPopover = false }: NavItemProps) {
             )}
 
             {/* Title */}
-            {!isCollapsed && <span className="flex-1 font-bold">{titleText}</span>}
+            {!isCollapsed && (
+              <span
+                className={cn(
+                  'flex-1 font-bold',
+                  isGradientActive && 'text-white!'
+                )}
+              >
+                {titleText}
+              </span>
+            )}
 
             {/* Badges and chips (only when expanded) */}
             {!isCollapsed && (item.chip || item.badge !== undefined) && (

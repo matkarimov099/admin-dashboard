@@ -218,7 +218,7 @@ function Sidebar({
           // Adjust the padding for floating and inset variants.
           variant === 'floating' || variant === 'inset'
             ? 'p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]'
-            : 'group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l',
+            : 'group-data-[collapsible=icon]:w-(--sidebar-width-icon)',
           className
         )}
         {...props}
@@ -329,7 +329,11 @@ function SidebarHeader({ className, ...props }: ComponentProps<'div'>) {
     <div
       data-slot="sidebar-header"
       data-sidebar="header"
-      className={cn('flex flex-col gap-3 border-sidebar-border/50 border-b p-4', className)}
+      className={cn(
+        'flex flex-col gap-3 border-sidebar-border/50 border-b p-4',
+        'group-data-[collapsible=icon]:border-b-0',
+        className
+      )}
       style={{
         fontFamily: 'var(--font-sans)',
       }}
@@ -481,7 +485,7 @@ const sidebarMenuButtonVariants = cva(
           'bg-background shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:!bg-[var(--sidebar-accent)] hover:shadow-[0_0_0_1px_hsl(var(--sidebar-primary))] hover:!text-[var(--sidebar-accent-foreground)] rounded-[var(--radius-md)]',
       },
       size: {
-        default: 'h-8 text-sm',
+        default: 'h-9 text-sm',
         sm: 'h-7 text-xs',
         lg: 'h-12 text-sm group-data-[collapsible=icon]:p-0!',
       },

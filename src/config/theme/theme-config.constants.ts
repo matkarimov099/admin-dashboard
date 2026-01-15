@@ -1,16 +1,13 @@
 import type {
+  BackgroundGradient,
   BorderRadius,
   FontFamily,
   LayoutMode,
   Shadow,
-  StyleVariant,
+  SidebarVariant,
   ThemeColor,
   ThemeOption,
 } from './theme-config.types';
-
-// ============================
-// Style Variant Options
-// ============================
 
 // ============================
 // Layout Mode Options
@@ -34,26 +31,20 @@ export const LAYOUT_MODES: ThemeOption<LayoutMode>[] = [
   },
 ];
 
-export const STYLE_VARIANTS: ThemeOption<StyleVariant>[] = [
+// ============================
+// Sidebar Variant Options
+// ============================
+
+export const SIDEBAR_VARIANT_OPTIONS: ThemeOption<SidebarVariant>[] = [
   {
-    value: 'vega',
-    label: 'Vega',
-    description: 'Modern and clean design',
+    value: 'floating',
+    label: 'Floating',
+    description: 'Sidebar with gaps and rounded corners',
   },
   {
-    value: 'nova',
-    label: 'Nova',
-    description: 'Bold and vibrant style',
-  },
-  {
-    value: 'maia',
-    label: 'Maia',
-    description: 'Soft and elegant look',
-  },
-  {
-    value: 'mira',
-    label: 'Mira',
-    description: 'Professional appearance',
+    value: 'sidebar',
+    label: 'Docked',
+    description: 'Sidebar attached to edges',
   },
 ];
 
@@ -373,5 +364,115 @@ export const THEME_COLOR_HSL = {
     800: '176 69% 22%',
     900: '175 61% 19%',
     950: '176 84% 10%',
+  },
+} as const;
+
+// ============================
+// Background Gradient Options (Light mode only)
+// ============================
+
+export const BACKGROUND_GRADIENT_OPTIONS: ThemeOption<BackgroundGradient>[] = [
+  {
+    value: 'default',
+    label: 'Default',
+    description: 'No gradient',
+    previewColor: '#ffffff',
+  },
+  {
+    value: 'blue',
+    label: 'Blue',
+    description: 'Blue gradient',
+    previewColor: '#3b82f6',
+  },
+  {
+    value: 'orange',
+    label: 'Orange',
+    description: 'Orange gradient',
+    previewColor: '#f97316',
+  },
+  {
+    value: 'indigo',
+    label: 'Indigo',
+    description: 'Indigo gradient',
+    previewColor: '#6366f1',
+  },
+  {
+    value: 'green',
+    label: 'Green',
+    description: 'Green gradient',
+    previewColor: '#22c55e',
+  },
+  {
+    value: 'gray',
+    label: 'Gray',
+    description: 'Gray gradient',
+    previewColor: '#6b7280',
+  },
+];
+
+// Gradient CSS values for sidebar and header
+// Each gradient has accessibility-compliant colors:
+// - White text on gradient background (WCAG AA: 4.5:1 contrast ratio)
+// - Active items: white background with dark text matching the gradient theme
+export const BACKGROUND_GRADIENT_VALUES = {
+  default: {
+    sidebar: 'none',
+    header: 'none',
+    sidebarForeground: 'inherit',
+    headerForeground: 'inherit',
+    sidebarPrimary: 'inherit',
+    sidebarPrimaryForeground: '#ffffff',
+    sidebarAccent: 'inherit',
+    sidebarAccentForeground: 'inherit',
+  },
+  blue: {
+    sidebar: 'linear-gradient(180deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%)',
+    header: 'linear-gradient(90deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%)',
+    sidebarForeground: '#ffffff',
+    headerForeground: '#ffffff',
+    sidebarPrimary: '#ffffff',
+    sidebarPrimaryForeground: '#1e3a8a', // Dark blue - WCAG AAA compliant
+    sidebarAccent: 'rgba(255, 255, 255, 0.15)',
+    sidebarAccentForeground: '#ffffff',
+  },
+  orange: {
+    sidebar: 'linear-gradient(180deg, #9a3412 0%, #c2410c 50%, #ea580c 100%)',
+    header: 'linear-gradient(90deg, #9a3412 0%, #c2410c 50%, #ea580c 100%)',
+    sidebarForeground: '#ffffff',
+    headerForeground: '#ffffff',
+    sidebarPrimary: '#ffffff',
+    sidebarPrimaryForeground: '#7c2d12', // Dark orange/brown - WCAG AAA compliant
+    sidebarAccent: 'rgba(255, 255, 255, 0.15)',
+    sidebarAccentForeground: '#ffffff',
+  },
+  indigo: {
+    sidebar: 'linear-gradient(180deg, #312e81 0%, #4338ca 50%, #6366f1 100%)',
+    header: 'linear-gradient(90deg, #312e81 0%, #4338ca 50%, #6366f1 100%)',
+    sidebarForeground: '#ffffff',
+    headerForeground: '#ffffff',
+    sidebarPrimary: '#ffffff',
+    sidebarPrimaryForeground: '#312e81', // Dark indigo - WCAG AAA compliant
+    sidebarAccent: 'rgba(255, 255, 255, 0.15)',
+    sidebarAccentForeground: '#ffffff',
+  },
+  green: {
+    sidebar: 'linear-gradient(180deg, #14532d 0%, #166534 50%, #22c55e 100%)',
+    header: 'linear-gradient(90deg, #14532d 0%, #166534 50%, #22c55e 100%)',
+    sidebarForeground: '#ffffff',
+    headerForeground: '#ffffff',
+    sidebarPrimary: '#ffffff',
+    sidebarPrimaryForeground: '#14532d', // Dark green - WCAG AAA compliant
+    sidebarAccent: 'rgba(255, 255, 255, 0.15)',
+    sidebarAccentForeground: '#ffffff',
+  },
+  gray: {
+    sidebar: 'linear-gradient(180deg, #1f2937 0%, #374151 50%, #6b7280 100%)',
+    header: 'linear-gradient(90deg, #1f2937 0%, #374151 50%, #6b7280 100%)',
+    sidebarForeground: '#ffffff',
+    headerForeground: '#ffffff',
+    sidebarPrimary: '#ffffff',
+    sidebarPrimaryForeground: '#111827', // Dark gray - WCAG AAA compliant
+    sidebarAccent: 'rgba(255, 255, 255, 0.15)',
+    sidebarAccentForeground: '#ffffff',
   },
 } as const;

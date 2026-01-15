@@ -2,9 +2,6 @@
 // Theme Configuration Types
 // ============================
 
-// Style Variants
-export type StyleVariant = 'vega' | 'nova' | 'maia' | 'mira';
-
 // Theme Colors (accent colors for interactive elements)
 export type ThemeColor = 'gray' | 'blue' | 'indigo' | 'orange' | 'purple' | 'rose' | 'teal';
 
@@ -20,29 +17,37 @@ export type Shadow = 'none' | 'small' | 'default' | 'medium' | 'large';
 // Layout Mode Options
 export type LayoutMode = 'vertical' | 'horizontal' | 'compact';
 
+// Sidebar Variant Options (desktop only)
+export type SidebarVariant = 'floating' | 'sidebar';
+
+// Background Gradient Options (light mode only)
+export type BackgroundGradient = 'default' | 'blue' | 'orange' | 'indigo' | 'green' | 'gray';
+
 // ============================
 // Configuration Interfaces
 // ============================
 
 // Main theme configuration
 export interface ThemeConfig {
-  styleVariant: StyleVariant;
   themeColor: ThemeColor;
   fontFamily: FontFamily;
   borderRadius: BorderRadius;
   shadow: Shadow;
   layoutMode: LayoutMode;
+  sidebarVariant: SidebarVariant;
+  backgroundGradient: BackgroundGradient;
 }
 
 // Context value interface
 export interface ThemeConfigContextValue {
   config: ThemeConfig;
-  setStyleVariant: (variant: StyleVariant) => void;
   setThemeColor: (color: ThemeColor) => void;
   setFontFamily: (font: FontFamily) => void;
   setBorderRadius: (radius: BorderRadius) => void;
   setShadow: (shadow: Shadow) => void;
   setLayoutMode: (mode: LayoutMode) => void;
+  setSidebarVariant: (variant: SidebarVariant) => void;
+  setBackgroundGradient: (gradient: BackgroundGradient) => void;
   randomize: () => void;
   reset: () => void;
 }

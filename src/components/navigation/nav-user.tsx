@@ -14,6 +14,8 @@ import {
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar.tsx';
 import type { CurrentUser } from '@/features/auth/types.ts';
 import { useSidebar } from '@/hooks/use-sidebar';
+import { useTheme } from '@/hooks/use-theme';
+import { useThemeConfig } from '@/hooks/use-theme-config';
 import { cn } from '@/utils/utils';
 import { NavLink } from './nav-link.tsx';
 
@@ -24,7 +26,13 @@ interface NavUserProps {
 export function NavUser({ user, logout }: NavUserProps) {
   const { t } = useTranslation();
   const { isMobile, state } = useSidebar();
+  const { theme } = useTheme();
+  const { config } = useThemeConfig();
   const isCollapsed = state === 'collapsed';
+
+  // Check if gradient is active (not default and light mode)
+  const isDarkMode = theme === 'dark' || (theme === 'system' && typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const isGradientActive = !isDarkMode && config.backgroundGradient !== 'default';
 
   return (
     <div
@@ -40,9 +48,11 @@ export function NavUser({ user, logout }: NavUserProps) {
               <SidebarMenuButton
                 size={isCollapsed ? 'sm' : 'lg'}
                 className={cn(
-                  'group relative cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)] hover:bg-(--color-primary)/10!',
-                  'hover:border-(--color-primary)/30',
-                  'data-[state=open]:border-(--color-primary)/40 data-[state=open]:bg-(--control-ghost-bg)',
+                  'group relative cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
+                  // Gradient active - white/10 hover and open state
+                  isGradientActive && 'hover:bg-white/10! data-[state=open]:bg-white/20!',
+                  // No gradient - default styling
+                  !isGradientActive && 'hover:bg-(--color-primary)/10! hover:border-(--color-primary)/30 data-[state=open]:border-(--color-primary)/40 data-[state=open]:bg-(--control-ghost-bg)',
                   isCollapsed && 'h-9 w-9 justify-center p-0'
                 )}
               >
@@ -68,14 +78,23 @@ export function NavUser({ user, logout }: NavUserProps) {
                 {!isCollapsed && (
                   <>
                     <div className="grid flex-1 text-left font-sans text-sm leading-tight transition-all duration-300">
-                      <span className="truncate font-medium text-(--label)">
+                      <span className={cn(
+                        'truncate font-medium',
+                        isGradientActive ? 'text-white!' : 'text-(--label)'
+                      )}>
                         {user?.firstName || 'First Name'}
                       </span>
-                      <span className="truncate text-(--secondaryLabel) text-xs">
+                      <span className={cn(
+                        'truncate text-xs',
+                        isGradientActive ? 'text-white/70!' : 'text-(--secondaryLabel)'
+                      )}>
                         {user?.lastName || 'Last Name'}
                       </span>
                     </div>
-                    <ChevronsUpDown className="ml-auto size-4 text-(--tertiaryLabel) transition-colors group-hover:text-(--secondaryLabel)" />
+                    <ChevronsUpDown className={cn(
+                      'ml-auto size-4 transition-colors',
+                      isGradientActive ? 'text-white/70! group-hover:text-white!' : 'text-(--tertiaryLabel) group-hover:text-(--secondaryLabel)'
+                    )} />
                   </>
                 )}
               </SidebarMenuButton>

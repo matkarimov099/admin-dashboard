@@ -263,6 +263,132 @@
 	:root:not(.dark)[data-sidebar-gradient-active] [data-header-trigger="true"] img {
 		color: var(--sidebar-foreground, inherit);
 	}
+
+	/* ---------- Gradient Active State Overrides ---------- */
+	/* Override colors in header when gradient is active */
+	:root:not(.dark)[data-sidebar-gradient-active] header button,
+	:root:not(.dark)[data-sidebar-gradient-active] header > nav svg {
+		color: #ffffff !important;
+	}
+
+	/* Breadcrumb colors for VERTICAL and COMPACT layout with gradient - WHITE */
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="vertical"] [data-slot="breadcrumb"],
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="vertical"] [data-slot="breadcrumb"] *,
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="vertical"] [data-slot="breadcrumb-link"],
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="vertical"] [data-slot="breadcrumb-link"] a,
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="vertical"] [data-slot="breadcrumb-page"],
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="vertical"] [data-slot="breadcrumb-separator"],
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="vertical"] [data-slot="breadcrumb-separator"] svg,
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="compact"] [data-slot="breadcrumb"],
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="compact"] [data-slot="breadcrumb"] *,
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="compact"] [data-slot="breadcrumb-link"],
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="compact"] [data-slot="breadcrumb-link"] a,
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="compact"] [data-slot="breadcrumb-page"],
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="compact"] [data-slot="breadcrumb-separator"],
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="compact"] [data-slot="breadcrumb-separator"] svg {
+		color: #ffffff !important;
+	}
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="vertical"] [data-slot="breadcrumb-link"] a:hover,
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="compact"] [data-slot="breadcrumb-link"] a:hover {
+		color: rgba(255, 255, 255, 0.8) !important;
+	}
+
+	/* Breadcrumb colors for HORIZONTAL layout with gradient - NORMAL */
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="horizontal"] [data-slot="breadcrumb"] {
+		color: inherit !important;
+	}
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="horizontal"] [data-slot="breadcrumb-link"],
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="horizontal"] [data-slot="breadcrumb-link"] a {
+		color: var(--secondaryLabel) !important;
+	}
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="horizontal"] [data-slot="breadcrumb-page"] {
+		color: var(--color-primary) !important;
+	}
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="horizontal"] [data-slot="breadcrumb-separator"],
+	:root:not(.dark)[data-sidebar-gradient-active][data-layout-mode="horizontal"] [data-slot="breadcrumb-separator"] svg {
+		color: var(--secondaryLabel) !important;
+	}
+
+	/* ===== SIDEBAR GRADIENT OVERRIDES ===== */
+	/* Force sidebar elements to white text - EXCEPT active items */
+	:root:not(.dark)[data-sidebar-gradient-active] [data-slot="sidebar"],
+	:root:not(.dark)[data-sidebar-gradient-active] [data-slot="sidebar-inner"],
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="sidebar"],
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="group-label"],
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="header"],
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="header"] *,
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="footer"],
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="footer"] *,
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="content"] {
+		color: #ffffff !important;
+	}
+
+	/* Menu buttons - white text only for NON-active items */
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="menu-button"]:not([data-active="true"]),
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="menu-button"]:not([data-active="true"]) *,
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="menu-sub-button"]:not([data-active="true"]),
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="menu-sub-button"]:not([data-active="true"]) * {
+		color: #ffffff !important;
+	}
+
+	/* Group labels slightly transparent */
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="group-label"] {
+		color: rgba(255, 255, 255, 0.75) !important;
+	}
+
+	/* Hover state - semi-transparent white background */
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="menu-button"]:hover,
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="menu-sub-button"]:hover {
+		background: rgba(255, 255, 255, 0.15) !important;
+	}
+
+
+	/* Sidebar border colors when gradient is active */
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="sidebar"] {
+		--sidebar-border: rgba(255, 255, 255, 0.15);
+	}
+
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="header"],
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="footer"] {
+		border-color: rgba(255, 255, 255, 0.15) !important;
+	}
+
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="menu-sub"] {
+		border-color: rgba(255, 255, 255, 0.25) !important;
+	}
+
+	/* Chevron/arrow icons */
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="menu-button"] [data-slot="chevron"],
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="menu-button"] .lucide-chevron-right,
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="menu-button"] .lucide-chevron-down {
+		color: rgba(255, 255, 255, 0.7) !important;
+	}
+
+	/* Active state - white background with gradient-matched text color */
+	/* Using higher specificity to override the white color rules above */
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="sidebar"] [data-sidebar="menu-button"][data-active="true"],
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="sidebar"] [data-sidebar="menu-sub-button"][data-active="true"],
+	:root:not(.dark)[data-sidebar-gradient-active] [data-slot="sidebar-inner"] [data-sidebar="menu-button"][data-active="true"],
+	:root:not(.dark)[data-sidebar-gradient-active] [data-slot="sidebar-inner"] [data-sidebar="menu-sub-button"][data-active="true"] {
+		background: #ffffff !important;
+		color: var(--sidebar-primary-foreground, #1e3a8a) !important;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+	}
+
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="sidebar"] [data-sidebar="menu-button"][data-active="true"] *,
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="sidebar"] [data-sidebar="menu-button"][data-active="true"] span,
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="sidebar"] [data-sidebar="menu-button"][data-active="true"] svg,
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="sidebar"] [data-sidebar="menu-sub-button"][data-active="true"] *,
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="sidebar"] [data-sidebar="menu-sub-button"][data-active="true"] span,
+	:root:not(.dark)[data-sidebar-gradient-active] [data-sidebar="sidebar"] [data-sidebar="menu-sub-button"][data-active="true"] svg,
+	:root:not(.dark)[data-sidebar-gradient-active] [data-slot="sidebar-inner"] [data-sidebar="menu-button"][data-active="true"] *,
+	:root:not(.dark)[data-sidebar-gradient-active] [data-slot="sidebar-inner"] [data-sidebar="menu-button"][data-active="true"] span,
+	:root:not(.dark)[data-sidebar-gradient-active] [data-slot="sidebar-inner"] [data-sidebar="menu-button"][data-active="true"] svg,
+	:root:not(.dark)[data-sidebar-gradient-active] [data-slot="sidebar-inner"] [data-sidebar="menu-sub-button"][data-active="true"] *,
+	:root:not(.dark)[data-sidebar-gradient-active] [data-slot="sidebar-inner"] [data-sidebar="menu-sub-button"][data-active="true"] span,
+	:root:not(.dark)[data-sidebar-gradient-active] [data-slot="sidebar-inner"] [data-sidebar="menu-sub-button"][data-active="true"] svg {
+		color: var(--sidebar-primary-foreground, #1e3a8a) !important;
+	}
 }
 
 /* ============================

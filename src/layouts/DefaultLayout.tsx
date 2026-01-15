@@ -12,17 +12,35 @@ import { AppSidebar } from '@/components/layout/app-sidebar.tsx';
 import { BreadcrumbNav } from '@/components/navigation/breadcrumb-nav.tsx';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { Spinner } from '@/components/ui/spinner.tsx';
+import { useTheme } from '@/hooks/use-theme';
+import { useThemeConfig } from '@/hooks/use-theme-config';
+import { cn } from '@/utils/utils';
 
 export const DefaultLayout = () => {
+  const { config } = useThemeConfig();
+  const { theme } = useTheme();
+  const isDocked = config.sidebarVariant === 'sidebar';
+
+  // Check if gradient is active
+  const isDarkMode =
+    theme === 'dark' ||
+    (theme === 'system' &&
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const isGradientActive = !isDarkMode && config.backgroundGradient !== 'default';
+
   return (
     <div className="h-screen w-full overflow-hidden bg-background">
       <SidebarProvider>
-        <AppSidebar />
+        <AppSidebar variant={config.sidebarVariant} />
         <SidebarInset className="flex h-full min-w-0 flex-col bg-background">
           {/* Fixed header - does not scroll */}
-          <div className="shrink-0 p-2">
+          <div className={cn('shrink-0', isDocked ? 'p-0' : 'p-2')}>
             <header
-              className="relative z-40 flex h-12 items-center justify-between gap-2 rounded-lg shadow-sm sm:h-14"
+              className={cn(
+                'relative z-40 flex h-12 items-center justify-between gap-2 shadow-sm sm:h-14',
+                isDocked ? 'rounded-none' : 'rounded-lg'
+              )}
               style={{
                 background: 'var(--header-gradient, var(--card-bg))',
                 color: 'var(--header-foreground, inherit)',
@@ -44,13 +62,25 @@ export const DefaultLayout = () => {
                 <ModeToggle />
               </div>
 
-              {/* Glass morphism overlay */}
-              <div className="pointer-events-none absolute inset-0 rounded-lg bg-linear-to-r from-(--card-bg)/30 via-transparent to-(--card-bg)/30" />
+              {/* Glass morphism overlay - hidden when gradient is active */}
+              {!isGradientActive && (
+                <div
+                  className={cn(
+                    'pointer-events-none absolute inset-0 bg-linear-to-r from-(--card-bg)/30 via-transparent to-(--card-bg)/30',
+                    isDocked ? 'rounded-none' : 'rounded-lg'
+                  )}
+                />
+              )}
             </header>
           </div>
 
           {/* Scrollable main content area - flexible height */}
-          <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-3 px-2 pb-2 sm:gap-4">
+          <div
+            className={cn(
+              'flex min-h-0 min-w-0 flex-1 flex-col',
+              isDocked ? 'gap-2 p-2' : 'gap-3 px-2 pb-2 sm:gap-4'
+            )}
+          >
             <Suspense
               fallback={
                 <div className="flex h-full items-center justify-center bg-background">
@@ -71,7 +101,12 @@ export const DefaultLayout = () => {
                   className="flex min-h-0 min-w-0 flex-1 flex-col"
                 >
                   {/* Main content - overflow hidden to enable nested scrolling */}
-                  <main className="flex max-h-[calc(100vh-5rem)] min-w-0 flex-1 flex-col overflow-y-auto overflow-x-hidden rounded-lg bg-content p-4 shadow-md sm:h-[calc(100vh-6rem)]">
+                  <main
+                    className={cn(
+                      'flex max-h-[calc(100vh-5rem)] min-w-0 flex-1 flex-col overflow-y-auto overflow-x-hidden bg-content p-4 shadow-md sm:h-[calc(100vh-6rem)]',
+                      isDocked ? 'rounded-md' : 'rounded-lg'
+                    )}
+                  >
                     <Outlet />
                   </main>
                 </motion.div>

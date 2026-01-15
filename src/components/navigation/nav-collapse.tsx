@@ -5,6 +5,8 @@ import { SidebarMenuButton, SidebarMenuItem, SidebarMenuSub } from '@/components
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
 import { useCurrentPath } from '@/hooks/use-current-path.ts';
 import { useSidebar } from '@/hooks/use-sidebar';
+import { useTheme } from '@/hooks/use-theme';
+import { useThemeConfig } from '@/hooks/use-theme-config';
 import type { MenuItemConfig } from '@/types/navigation';
 import { cn } from '@/utils/utils';
 import { NavCollapsePopover } from './nav-collapse-popover';
@@ -32,8 +34,18 @@ export function NavCollapse({ item }: NavCollapseProps) {
   const currentPath = useCurrentPath();
   const { state } = useSidebar();
   const { hasRole } = useAuthContext();
+  const { theme } = useTheme();
+  const { config } = useThemeConfig();
   const isCollapsed = state === 'collapsed';
   const [isOpen, setIsOpen] = useState(false);
+
+  // Check if gradient is active (not default and light mode)
+  const isDarkMode =
+    theme === 'dark' ||
+    (theme === 'system' &&
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const isGradientActive = !isDarkMode && config.backgroundGradient !== 'default';
 
   // Get children (support both 'children' and 'items' properties)
   const children = item.children || item.items || [];
@@ -120,7 +132,13 @@ export function NavCollapse({ item }: NavCollapseProps) {
         className={cn(
           'relative h-9 w-full cursor-pointer rounded-md px-2.5 py-2 transition-all duration-200',
           'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
-          'text-gray-700 hover:text-gray-700! dark:text-gray-200 dark:hover:text-white!'
+          // Gradient active with active child - semi-transparent white background
+          isGradientActive && isParentActive && 'bg-white/20! text-white! hover:bg-white/20!',
+          // Gradient active without active child - white text, white/10 hover
+          isGradientActive && !isParentActive && 'text-white! hover:bg-white/10! hover:text-white!',
+          // No gradient
+          !isGradientActive &&
+            'text-gray-700 hover:text-gray-700! dark:text-gray-200 dark:hover:text-white!'
         )}
       >
         <div className="flex w-full items-center justify-between gap-2.5">
@@ -131,8 +149,11 @@ export function NavCollapse({ item }: NavCollapseProps) {
               <span
                 className={cn(
                   'flex size-5 shrink-0 items-center justify-center transition-colors duration-200',
-                  isParentActive && 'text-(--color-primary)',
-                  !isParentActive && 'dark:text-white'
+                  // With gradient - always white icon
+                  isGradientActive && 'text-white!',
+                  // Without gradient - theme color if parent active
+                  !isGradientActive && isParentActive && 'text-(--color-primary)',
+                  !isGradientActive && !isParentActive && 'dark:text-white'
                 )}
               >
                 {item.icon}
@@ -143,8 +164,11 @@ export function NavCollapse({ item }: NavCollapseProps) {
             <span
               className={cn(
                 'flex-1 truncate font-bold transition-colors duration-200',
-                isParentActive && 'text-(--color-primary)',
-                !isParentActive && 'text-gray-800 dark:text-white'
+                // With gradient - always white text
+                isGradientActive && 'text-white!',
+                // Without gradient - theme color if parent active
+                !isGradientActive && isParentActive && 'text-(--color-primary)',
+                !isGradientActive && !isParentActive && 'text-gray-800 dark:text-white'
               )}
             >
               {titleText}
@@ -164,7 +188,10 @@ export function NavCollapse({ item }: NavCollapseProps) {
             <ChevronDown
               className={cn(
                 'size-4.5 shrink-0 transition-all duration-200',
-                isParentActive && 'text-(--color-primary)',
+                // With gradient - white
+                isGradientActive && 'text-white!',
+                // Without gradient - theme color if active
+                !isGradientActive && isParentActive && 'text-(--color-primary)',
                 isOpen && 'rotate-180'
               )}
             />

@@ -5,10 +5,11 @@ import type { ThemeConfig } from './theme-config.types';
 // ============================
 
 export const DEFAULT_THEME_CONFIG: ThemeConfig = {
-  styleVariant: 'vega',
   themeColor: 'blue',
   fontFamily: 'inter',
   borderRadius: 'default',
   shadow: 'default',
   layoutMode: 'vertical',
+  sidebarVariant: 'floating',
+  backgroundGradient: 'default',
 };

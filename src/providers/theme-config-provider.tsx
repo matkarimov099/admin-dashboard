@@ -1,11 +1,12 @@
-import { createContext, type ReactNode, useEffect, useState } from 'react';
+import { createContext, type ReactNode, useEffect, useRef, useState } from 'react';
 import { DEFAULT_THEME_CONFIG } from '@/config/theme/theme-config.defaults';
 import type {
+  BackgroundGradient,
   BorderRadius,
   FontFamily,
   LayoutMode,
   Shadow,
-  StyleVariant,
+  SidebarVariant,
   ThemeColor,
   ThemeConfig,
   ThemeConfigContextValue,
@@ -36,8 +37,20 @@ function loadInitialConfig(): ThemeConfig {
         configWithoutBaseColor.themeColor = 'blue';
       }
 
+      // Ensure backgroundGradient exists (migration for old configs)
+      const validGradients = ['default', 'blue', 'orange', 'indigo', 'green', 'gray'];
+      if (!configWithoutBaseColor.backgroundGradient || !validGradients.includes(configWithoutBaseColor.backgroundGradient)) {
+        configWithoutBaseColor.backgroundGradient = 'default';
+      }
+
+      // Ensure sidebarVariant exists (migration for old configs)
+      const validSidebarVariants = ['floating', 'sidebar'];
+      if (!configWithoutBaseColor.sidebarVariant || !validSidebarVariants.includes(configWithoutBaseColor.sidebarVariant)) {
+        configWithoutBaseColor.sidebarVariant = 'floating';
+      }
+
       // Save cleaned config if needed
-      if (parsed.baseColor || !validThemeColors.includes(parsed.themeColor)) {
+      if (parsed.baseColor || !validThemeColors.includes(parsed.themeColor) || !parsed.backgroundGradient || !parsed.sidebarVariant) {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(configWithoutBaseColor));
       }
 
@@ -52,12 +65,13 @@ function loadInitialConfig(): ThemeConfig {
 
 const initialContextValue: ThemeConfigContextValue = {
   config: DEFAULT_THEME_CONFIG,
-  setStyleVariant: () => null,
   setThemeColor: () => null,
   setFontFamily: () => null,
   setBorderRadius: () => null,
   setShadow: () => null,
   setLayoutMode: () => null,
+  setSidebarVariant: () => null,
+  setBackgroundGradient: () => null,
   randomize: () => null,
   reset: () => null,
 };
@@ -140,6 +154,42 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
     loadGoogleFont(config.fontFamily);
   }, [config.fontFamily]);
 
+  // Track previous dark mode state
+  const prevIsDarkRef = useRef(isDarkMode);
+
+  // Reset gradient when switching to dark mode
+  useEffect(() => {
+    const wasDark = prevIsDarkRef.current;
+    prevIsDarkRef.current = isDarkMode;
+
+    // If switching from light to dark mode, reset gradient to default
+    if (isDarkMode && !wasDark && config.backgroundGradient !== 'default') {
+      setConfig(prev => ({ ...prev, backgroundGradient: 'default' }));
+    }
+  }, [isDarkMode, config.backgroundGradient]);
+
+  // Manage data-sidebar-gradient-active attribute on document element
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const root = document.documentElement;
+    const hasActiveGradient = !isDarkMode && config.backgroundGradient !== 'default';
+
+    if (hasActiveGradient) {
+      root.setAttribute('data-sidebar-gradient-active', 'true');
+    } else {
+      root.removeAttribute('data-sidebar-gradient-active');
+    }
+  }, [config.backgroundGradient, isDarkMode]);
+
+  // Manage data-layout-mode attribute on document element
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const root = document.documentElement;
+    root.setAttribute('data-layout-mode', config.layoutMode);
+  }, [config.layoutMode]);
+
   // Save to localStorage when config changes
   useEffect(() => {
     try {
@@ -150,10 +200,6 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
   }, [config]);
 
   // Setter functions
-  const setStyleVariant = (variant: StyleVariant) => {
-    setConfig(prev => ({ ...prev, styleVariant: variant }));
-  };
-
   const setThemeColor = (color: ThemeColor) => {
     setConfig(prev => ({ ...prev, themeColor: color }));
   };
@@ -174,6 +220,14 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
     setConfig(prev => ({ ...prev, layoutMode: mode }));
   };
 
+  const setSidebarVariant = (variant: SidebarVariant) => {
+    setConfig(prev => ({ ...prev, sidebarVariant: variant }));
+  };
+
+  const setBackgroundGradient = (gradient: BackgroundGradient) => {
+    setConfig(prev => ({ ...prev, backgroundGradient: gradient }));
+  };
+
   const randomize = () => {
     const randomConfig = randomizeConfig();
     setConfig(randomConfig);
@@ -185,12 +239,13 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
 
   const value: ThemeConfigContextValue = {
     config,
-    setStyleVariant,
     setThemeColor,
     setFontFamily,
     setBorderRadius,
     setShadow,
     setLayoutMode,
+    setSidebarVariant,
+    setBackgroundGradient,
     randomize,
     reset,
   };

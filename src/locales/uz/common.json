@@ -296,6 +296,8 @@
     "themeModeDescription": "Ko'rinish afzalliklarini tanlang",
     "layoutMode": "Layout rejimi",
     "layoutModeDescription": "Boshqaruv panelingiz layoutini tanlang",
+    "sidebarVariant": "Sidebar ko'rinishi",
+    "sidebarVariantDescription": "Sidebar yopishqog'ini tanlang",
     "styleVariant": "Uslub varianti",
     "themeColor": "Tema rangi",
     "font": "Shrift",
@@ -326,17 +328,13 @@
         "horizontal": "Yuqori header baridagi navigatsiya",
         "compact": "Faqat ikonali yopilgan sidebar"
       },
-      "styleVariant": {
-        "vega": "Vega",
-        "nova": "Nova",
-        "maia": "Maia",
-        "mira": "Mira"
+      "sidebarVariant": {
+        "floating": "Suzuvchi",
+        "sidebar": "Yopiq"
       },
-      "styleDescriptions": {
-        "vega": "Zamonaviy va toza dizayn",
-        "nova": "Jivali va jonli uslub",
-        "maia": "Yumshoq va nafis ko'rinish",
-        "mira": "Professional ko'rinish"
+      "sidebarVariantDescriptions": {
+        "floating": "Bo'shliqli va yumaloq burchakli",
+        "sidebar": "Chegaraga yopishgan"
       },
       "colors": {
         "gray": "Kulrang",
@@ -386,6 +384,14 @@
         "default": "Muvozanatli soya",
         "medium": "Ajralib turadigan soya",
         "large": "Kuchli soya"
+      },
+      "gradients": {
+        "default": "Standart",
+        "blue": "Moviy",
+        "orange": "To'q sariq",
+        "indigo": "Indigo",
+        "green": "Yashil",
+        "gray": "Kulrang"
       }
     }
   }

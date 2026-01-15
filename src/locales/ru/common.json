@@ -296,6 +296,8 @@
     "themeModeDescription": "Выберите предпочтения внешнего вида",
     "layoutMode": "Режим макета",
     "layoutModeDescription": "Выберите макет вашей панели управления",
+    "sidebarVariant": "Стиль боковой панели",
+    "sidebarVariantDescription": "Выберите внешний вид боковой панели",
     "styleVariant": "Вариант стиля",
     "themeColor": "Цвет темы",
     "font": "Шрифт",
@@ -326,17 +328,13 @@
         "horizontal": "Навигация в верхней панели",
         "compact": "Свернутая боковая панель с иконками"
       },
-      "styleVariant": {
-        "vega": "Vega",
-        "nova": "Nova",
-        "maia": "Maia",
-        "mira": "Mira"
+      "sidebarVariant": {
+        "floating": "Плавающая",
+        "sidebar": "Прикреплённая"
       },
-      "styleDescriptions": {
-        "vega": "Современный и чистый дизайн",
-        "nova": "Смелый и яркий стиль",
-        "maia": "Мягкий и элегантный вид",
-        "mira": "Профессиональный вид"
+      "sidebarVariantDescriptions": {
+        "floating": "С отступами и скруглёнными углами",
+        "sidebar": "Прикреплена к краям"
       },
       "colors": {
         "gray": "Серый",
@@ -386,6 +384,14 @@
         "default": "Сбалансированная тень",
         "medium": "Заметная тень",
         "large": "Сильная тень"
+      },
+      "gradients": {
+        "default": "По умолчанию",
+        "blue": "Синий",
+        "orange": "Оранжевый",
+        "indigo": "Индиго",
+        "green": "Зелёный",
+        "gray": "Серый"
       }
     }
   }

@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar.tsx';
+import { useTheme } from '@/hooks/use-theme';
+import { useThemeConfig } from '@/hooks/use-theme-config';
 import type { MenuItemConfig } from '@/types/navigation';
 import { cn } from '@/utils/utils';
 
@@ -31,6 +33,13 @@ export function NavCollapsePopover({
   renderChildren,
   visibleChildren,
 }: NavCollapsePopoverProps) {
+  const { theme } = useTheme();
+  const { config } = useThemeConfig();
+
+  // Check if gradient is active (not default and light mode)
+  const isDarkMode = theme === 'dark' || (theme === 'system' && typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const isGradientActive = !isDarkMode && config.backgroundGradient !== 'default';
+
   return (
     <SidebarMenuItem>
       <Popover>
@@ -40,14 +49,22 @@ export function NavCollapsePopover({
             className={cn(
               'relative size-9 rounded-md p-0 transition-all duration-200',
               'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
-              'text-gray-700 hover:text-gray-700! dark:text-gray-200 dark:hover:text-white!'
+              // Gradient active with active child - semi-transparent white background
+              isGradientActive && isParentActive && 'bg-white/20! text-white! hover:bg-white/20!',
+              // Gradient active without active child - white text, white/10 hover
+              isGradientActive && !isParentActive && 'text-white! hover:text-white! hover:bg-white/10!',
+              // No gradient
+              !isGradientActive && 'text-gray-700 hover:text-gray-700! dark:text-gray-200 dark:hover:text-white!'
             )}
           >
             <div
               className={cn(
                 'flex size-5 items-center justify-center transition-colors duration-200',
-                isParentActive && 'text-(--color-primary)',
-                !isParentActive && 'text-gray-500 dark:text-gray-400'
+                // With gradient - always white icon
+                isGradientActive && 'text-white!',
+                // Without gradient - theme color if active
+                !isGradientActive && isParentActive && 'text-(--color-primary)',
+                !isGradientActive && !isParentActive && 'text-gray-500 dark:text-gray-400'
               )}
             >
               {item.icon}
@@ -64,11 +81,23 @@ export function NavCollapsePopover({
           <div className="mb-2 border-gray-200 border-b pb-2 dark:border-gray-700">
             <div className="flex items-center gap-2 px-1.5 py-1.5 text-xs">
               {item.icon && (
-                <span className="flex size-4.5 shrink-0 items-center justify-center text-gray-500 dark:text-gray-400">
+                <span
+                  className={cn(
+                    'flex size-4.5 shrink-0 items-center justify-center',
+                    isParentActive && 'text-(--color-primary)!',
+                    !isParentActive && 'text-gray-500 dark:text-gray-400'
+                  )}
+                >
                   {item.icon}
                 </span>
               )}
-              <span className="font-semibold text-gray-700 uppercase tracking-wide dark:text-gray-300">
+              <span
+                className={cn(
+                  'font-semibold uppercase tracking-wide',
+                  isParentActive && 'text-(--color-primary)!',
+                  !isParentActive && 'text-gray-700 dark:text-gray-300'
+                )}
+              >
                 {titleText}
               </span>
             </div>

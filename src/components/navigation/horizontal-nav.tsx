@@ -11,6 +11,8 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import menuItems from '@/config/navigation/modules';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
 import { useCurrentPath } from '@/hooks/use-current-path.ts';
+import { useTheme } from '@/hooks/use-theme';
+import { useThemeConfig } from '@/hooks/use-theme-config';
 import type { Role } from '@/types/common';
 import type { MenuGroupConfig, MenuItemConfig } from '@/types/navigation';
 import { cn } from '@/utils/utils';
@@ -36,6 +38,19 @@ function HorizontalNavNestedItem({
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isActive = item.path === currentPath || item.url === currentPath;
   const nestedChildren = item.children || item.items || [];
+
+  // Check if any child is active (recursive)
+  const hasActiveChild = (items: MenuItemConfig[]): boolean => {
+    return items.some(child => {
+      const childPath = child.path || child.url || child.link || '';
+      if (childPath === currentPath) return true;
+      const children = child.children || child.items || [];
+      if (children.length > 0) return hasActiveChild(children);
+      return false;
+    });
+  };
+
+  const isParentActive = hasActiveChild(nestedChildren);
 
   const clearCloseTimeout = useCallback(() => {
     if (closeTimeoutRef.current) {
@@ -78,16 +93,25 @@ function HorizontalNavNestedItem({
           <div
             className={cn(
               'flex cursor-pointer items-center justify-between gap-2.5 rounded-md px-2.5 py-2 text-sm transition-all duration-200',
-              isActive && 'bg-(--color-primary)/10 font-semibold text-(--color-primary)',
-              !isActive && 'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
-              'text-gray-700 hover:text-gray-700! dark:text-gray-200 dark:hover:text-white!'
+              // Active or has active child - show active styling
+              (isActive || isParentActive) &&
+                'bg-(--color-primary)/10 font-semibold text-(--color-primary)',
+              // Inactive - hover styling
+              !isActive &&
+                !isParentActive &&
+                'text-gray-700 hover:bg-(--color-primary)/10! hover:text-gray-700! dark:text-gray-200 dark:hover:bg-(--color-primary)/20! dark:hover:text-white!'
             )}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
             <div className="flex min-w-0 flex-1 items-center gap-2.5">
               {item.icon && (
-                <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">
+                <span
+                  className={cn(
+                    'inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4',
+                    (isActive || isParentActive) && 'text-(--color-primary)!'
+                  )}
+                >
                   {item.icon}
                 </span>
               )}
@@ -95,7 +119,9 @@ function HorizontalNavNestedItem({
             </div>
             <ChevronDown
               className={cn(
-                'size-4 shrink-0 text-gray-400 transition-transform duration-200 dark:text-gray-500',
+                'size-4 shrink-0 transition-transform duration-200',
+                (isActive || isParentActive) && 'text-(--color-primary)!',
+                !isActive && !isParentActive && 'text-gray-400 dark:text-gray-500',
                 isOpen ? 'rotate-0' : '-rotate-90'
               )}
             />
@@ -105,7 +131,7 @@ function HorizontalNavNestedItem({
         <PopoverContent
           side="right"
           align="start"
-          className="w-fit min-w-[var(--radix-popover-trigger-width)] rounded-lg border border-gray-200 p-2 shadow-lg dark:border-gray-700"
+          className="w-fit min-w-(--radix-popover-trigger-width) rounded-lg border border-gray-200 p-2 shadow-lg dark:border-gray-700"
           onOpenAutoFocus={e => e.preventDefault()}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -148,14 +174,21 @@ function HorizontalNavNestedItem({
       to={item.path || item.url || '#'}
       className={cn(
         'flex cursor-pointer items-center justify-between gap-2.5 rounded-md px-2.5 py-2 text-sm transition-all duration-200',
-        isActive && 'bg-(--color-primary)/10 font-semibold text-(--color-primary)',
-        !isActive && 'hover:bg-(--color-primary)/10! dark:hover:bg-(--color-primary)/20!',
-        'text-gray-700 hover:text-gray-700! dark:text-gray-200 dark:hover:text-white!'
+        // Active state - theme color
+        isActive && 'bg-(--color-primary)/10 font-semibold text-(--color-primary)!',
+        // Inactive state - gray with hover
+        !isActive &&
+          'text-gray-700 hover:bg-(--color-primary)/10! hover:text-gray-700! dark:text-gray-200 dark:hover:bg-(--color-primary)/20! dark:hover:text-white!'
       )}
     >
       <div className="flex min-w-0 flex-1 items-center gap-2.5">
         {item.icon && (
-          <span className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4">
+          <span
+            className={cn(
+              'inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-4',
+              isActive && 'text-(--color-primary)!'
+            )}
+          >
             {item.icon}
           </span>
         )}
@@ -169,7 +202,17 @@ export function HorizontalNav() {
   const { t } = useTranslation();
   const currentPath = useCurrentPath();
   const { hasRole } = useAuthContext();
+  const { theme } = useTheme();
+  const { config } = useThemeConfig();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Check if gradient is active (not default and light mode)
+  const isDarkMode =
+    theme === 'dark' ||
+    (theme === 'system' &&
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const isGradientActive = !isDarkMode && config.backgroundGradient !== 'default';
 
   // Filter menu items based on roles
   const filterMenuItems = (items: (MenuItemConfig | MenuGroupConfig)[]) => {
@@ -224,7 +267,8 @@ export function HorizontalNav() {
             size="sm"
             className={cn(
               'h-9 gap-2 px-3 transition-colors',
-              isActive && 'bg-(--color-primary) text-white hover:bg-(--color-primary-hover)'
+              isActive &&
+                'bg-(--color-primary-hover) text-white hover:bg-(--color-primary-hover)/70'
             )}
           >
             <div className="flex items-center gap-2">
@@ -240,7 +284,7 @@ export function HorizontalNav() {
         </PopoverTrigger>
         <PopoverContent
           align="start"
-          className="w-fit min-w-[var(--radix-popover-trigger-width)] p-0"
+          className="w-fit min-w-(--radix-popover-trigger-width) p-0"
           sideOffset={4}
         >
           <div className="p-2">
@@ -309,7 +353,7 @@ export function HorizontalNav() {
           </PopoverTrigger>
           <PopoverContent
             align="start"
-            className="w-fit min-w-[var(--radix-popover-trigger-width)] p-2"
+            className="w-fit min-w-(--radix-popover-trigger-width) p-2"
             sideOffset={4}
           >
             {/* Children */}
@@ -461,7 +505,12 @@ export function HorizontalNav() {
           <div className="relative flex size-10 shrink-0 items-center justify-center rounded-md">
             <img src={logo} alt={t('app.name')} className="size-10 object-contain" />
           </div>
-          <span className="truncate font-bold font-sans text-(--color-primary) text-base tracking-wide">
+          <span
+            className={cn(
+              'truncate font-bold font-sans text-base tracking-wide',
+              isGradientActive ? 'text-white!' : 'text-(--color-primary)'
+            )}
+          >
             {t('app.name')}
           </span>
         </NavLink>

@@ -15,11 +15,16 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar.tsx';
+import type { SidebarVariant } from '@/config/theme/theme-config.types';
 import { useAuthContext } from '@/hooks/use-auth-context.ts';
 import { useSidebar } from '@/hooks/use-sidebar';
 import { cn } from '@/utils/utils';
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
+  variant?: SidebarVariant;
+}
+
+export function AppSidebar({ variant = 'floating', ...props }: AppSidebarProps) {
   const { t } = useTranslation();
   const { logout, currentUser } = useAuthContext();
   const { state } = useSidebar();
@@ -27,7 +32,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <Sidebar
-      variant="floating"
+      variant={variant}
       collapsible="icon"
       className={cn(
         'transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
@@ -37,19 +42,20 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     >
       <SidebarHeader
         className={cn(
-          'p-3 transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
-          isCollapsed && 'flex items-center justify-center p-1.5'
+          'p-2.5 transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
+          isCollapsed && 'flex items-center justify-center px-1.5 py-3'
         )}
       >
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton
-              size="sm"
+              tooltip="Cargo Customs"
+              size="lg"
               asChild
               className={cn(
-                'group h-11 w-full transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
+                'group h-9 w-full transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
                 'hover:border-(--color-primary)/30 hover:bg-(--color-primary)/10!',
-                isCollapsed && 'h-11 w-11 justify-center px-0'
+                isCollapsed && 'h-9 justify-center px-0'
               )}
             >
               <NavLink
@@ -62,7 +68,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <div
                   className={cn(
                     'relative flex items-center justify-center rounded-md transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.25,1)]',
-                    isCollapsed ? 'size-9' : 'size-10',
+                    isCollapsed ? 'size-10' : 'size-10',
                     'shrink-0'
                   )}
                 >
@@ -71,7 +77,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     alt={t('app.name')}
                     className={cn(
                       'relative z-10 object-contain transition-transform duration-300 group-hover:scale-110',
-                      isCollapsed ? 'size-9' : 'size-10'
+                      isCollapsed ? 'size-8' : 'size-8'
                     )}
                   />
                 </div>
