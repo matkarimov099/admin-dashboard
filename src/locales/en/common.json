@@ -303,6 +303,8 @@
     "font": "Font",
     "radius": "Radius",
     "shadow": "Shadow",
+    "bodyColor": "Body Color",
+    "bodyColorDescription": "Customize the background color of the body",
     "backgroundGradients": "Background Gradients",
     "backgroundGradientsDescription": "Customize sidebar and header backgrounds",
     "shuffle": "Shuffle",
@@ -392,6 +394,14 @@
         "indigo": "Indigo",
         "green": "Green",
         "gray": "Gray"
+      },
+      "bodyColors": {
+        "default": "Default",
+        "slate": "Slate",
+        "zinc": "Zinc",
+        "stone": "Stone",
+        "sky": "Sky",
+        "emerald": "Emerald"
       }
     }
   }

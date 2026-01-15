@@ -303,6 +303,8 @@
     "font": "Шрифт",
     "radius": "Радиус",
     "shadow": "Тень",
+    "bodyColor": "Цвет фона",
+    "bodyColorDescription": "Настройте цвет фона страницы",
     "backgroundGradients": "Градиенты фона",
     "backgroundGradientsDescription": "Настройте фон боковой панели и шапки",
     "shuffle": "Перемешать",
@@ -392,6 +394,14 @@
         "indigo": "Индиго",
         "green": "Зелёный",
         "gray": "Серый"
+      },
+      "bodyColors": {
+        "default": "По умолчанию",
+        "slate": "Сланец",
+        "zinc": "Цинк",
+        "stone": "Камень",
+        "sky": "Небо",
+        "emerald": "Изумруд"
       }
     }
   }

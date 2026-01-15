@@ -303,6 +303,8 @@
     "font": "Shrift",
     "radius": "Radius",
     "shadow": "Soya",
+    "bodyColor": "Fon rangi",
+    "bodyColorDescription": "Asosiy fon rangini sozlang",
     "backgroundGradients": "Fon Gradiyentlari",
     "backgroundGradientsDescription": "Sidebar va header fonlarini sozlang",
     "shuffle": "Aralashtirish",
@@ -392,6 +394,14 @@
         "indigo": "Indigo",
         "green": "Yashil",
         "gray": "Kulrang"
+      },
+      "bodyColors": {
+        "default": "Standart",
+        "slate": "Kulrang-ko'k",
+        "zinc": "Sink",
+        "stone": "Tosh",
+        "sky": "Osmon",
+        "emerald": "Zumrad"
       }
     }
   }

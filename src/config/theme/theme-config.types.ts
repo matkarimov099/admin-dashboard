@@ -23,6 +23,9 @@ export type SidebarVariant = 'floating' | 'sidebar';
 // Background Gradient Options (light mode only)
 export type BackgroundGradient = 'default' | 'blue' | 'orange' | 'indigo' | 'green' | 'gray';
 
+// Body Background Color Options
+export type BodyColor = 'default' | 'slate' | 'zinc' | 'stone' | 'sky' | 'emerald';
+
 // ============================
 // Configuration Interfaces
 // ============================
@@ -36,6 +39,7 @@ export interface ThemeConfig {
   layoutMode: LayoutMode;
   sidebarVariant: SidebarVariant;
   backgroundGradient: BackgroundGradient;
+  bodyColor: BodyColor;
 }
 
 // Context value interface
@@ -48,6 +52,7 @@ export interface ThemeConfigContextValue {
   setLayoutMode: (mode: LayoutMode) => void;
   setSidebarVariant: (variant: SidebarVariant) => void;
   setBackgroundGradient: (gradient: BackgroundGradient) => void;
+  setBodyColor: (color: BodyColor) => void;
   randomize: () => void;
   reset: () => void;
 }

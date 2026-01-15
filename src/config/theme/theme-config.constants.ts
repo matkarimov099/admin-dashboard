@@ -1,5 +1,6 @@
 import type {
   BackgroundGradient,
+  BodyColor,
   BorderRadius,
   FontFamily,
   LayoutMode,
@@ -475,4 +476,56 @@ export const BACKGROUND_GRADIENT_VALUES = {
     sidebarAccent: 'rgba(255, 255, 255, 0.15)',
     sidebarAccentForeground: '#ffffff',
   },
+} as const;
+
+// ============================
+// Body Background Color Options
+// ============================
+
+export const BODY_COLOR_OPTIONS: ThemeOption<BodyColor>[] = [
+  {
+    value: 'default',
+    label: 'Default',
+    description: 'Neutral gray',
+    previewColor: '#f5f5f5',
+  },
+  {
+    value: 'slate',
+    label: 'Slate',
+    description: 'Cool slate',
+    previewColor: '#f1f5f9',
+  },
+  {
+    value: 'zinc',
+    label: 'Zinc',
+    description: 'Modern zinc',
+    previewColor: '#f4f4f5',
+  },
+  {
+    value: 'stone',
+    label: 'Stone',
+    description: 'Warm stone',
+    previewColor: '#f5f5f4',
+  },
+  {
+    value: 'sky',
+    label: 'Sky',
+    description: 'Light sky blue',
+    previewColor: '#f0f9ff',
+  },
+  {
+    value: 'emerald',
+    label: 'Emerald',
+    description: 'Soft emerald',
+    previewColor: '#ecfdf5',
+  },
+];
+
+export const BODY_COLOR_VALUES = {
+  default: '#f5f5f5',
+  slate: '#f1f5f9',
+  zinc: '#f4f4f5',
+  stone: '#f5f5f4',
+  sky: '#f0f9ff',
+  emerald: '#ecfdf5',
 } as const;

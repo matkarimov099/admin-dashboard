@@ -322,6 +322,8 @@
     "font": "Шрифт",
     "radius": "Радиус",
     "shadow": "Соя",
+    "bodyColor": "Фон ранги",
+    "bodyColorDescription": "Асосий фон рангини созланг",
     "backgroundGradients": "Фон Градиентлари",
     "backgroundGradientsDescription": "Sidebar ва header фонларини созланг",
     "shuffle": "Аралаштириш",
@@ -411,6 +413,14 @@
         "indigo": "Индиго",
         "green": "Яшил",
         "gray": "Кулранг"
+      },
+      "bodyColors": {
+        "default": "Стандарт",
+        "slate": "Кулранг-кўк",
+        "zinc": "Синк",
+        "stone": "Тош",
+        "sky": "Осмон",
+        "emerald": "Зумрад"
       }
     }
   }

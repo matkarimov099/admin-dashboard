@@ -2,6 +2,7 @@ import { createContext, type ReactNode, useEffect, useRef, useState } from 'reac
 import { DEFAULT_THEME_CONFIG } from '@/config/theme/theme-config.defaults';
 import type {
   BackgroundGradient,
+  BodyColor,
   BorderRadius,
   FontFamily,
   LayoutMode,
@@ -11,6 +12,7 @@ import type {
   ThemeConfig,
   ThemeConfigContextValue,
 } from '@/config/theme/theme-config.types';
+import { BODY_COLOR_VALUES } from '@/config/theme/theme-config.constants';
 import { generateCSSVariables, randomizeConfig } from '@/config/theme/theme-config.utils';
 import { useTheme } from '@/hooks/use-theme';
 import { loadGoogleFont } from '@/lib/google-fonts';
@@ -49,8 +51,14 @@ function loadInitialConfig(): ThemeConfig {
         configWithoutBaseColor.sidebarVariant = 'floating';
       }
 
+      // Ensure bodyColor exists (migration for old configs)
+      const validBodyColors = ['default', 'slate', 'zinc', 'stone', 'sky', 'emerald'];
+      if (!configWithoutBaseColor.bodyColor || !validBodyColors.includes(configWithoutBaseColor.bodyColor)) {
+        configWithoutBaseColor.bodyColor = 'default';
+      }
+
       // Save cleaned config if needed
-      if (parsed.baseColor || !validThemeColors.includes(parsed.themeColor) || !parsed.backgroundGradient || !parsed.sidebarVariant) {
+      if (parsed.baseColor || !validThemeColors.includes(parsed.themeColor) || !parsed.backgroundGradient || !parsed.sidebarVariant || !parsed.bodyColor) {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(configWithoutBaseColor));
       }
 
@@ -72,6 +80,7 @@ const initialContextValue: ThemeConfigContextValue = {
   setLayoutMode: () => null,
   setSidebarVariant: () => null,
   setBackgroundGradient: () => null,
+  setBodyColor: () => null,
   randomize: () => null,
   reset: () => null,
 };
@@ -190,6 +199,21 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
     root.setAttribute('data-layout-mode', config.layoutMode);
   }, [config.layoutMode]);
 
+  // Apply body background color CSS variable (light mode only)
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const root = document.documentElement;
+    // Only apply custom body color in light mode
+    if (!isDarkMode) {
+      const bodyColorValue = BODY_COLOR_VALUES[config.bodyColor];
+      root.style.setProperty('--backgroundBody', bodyColorValue);
+    } else {
+      // Reset to dark mode default
+      root.style.removeProperty('--backgroundBody');
+    }
+  }, [config.bodyColor, isDarkMode]);
+
   // Save to localStorage when config changes
   useEffect(() => {
     try {
@@ -228,6 +252,10 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
     setConfig(prev => ({ ...prev, backgroundGradient: gradient }));
   };
 
+  const setBodyColor = (color: BodyColor) => {
+    setConfig(prev => ({ ...prev, bodyColor: color }));
+  };
+
   const randomize = () => {
     const randomConfig = randomizeConfig();
     setConfig(randomConfig);
@@ -246,6 +274,7 @@ export function ThemeConfigProvider({ children }: ThemeConfigProviderProps) {
     setLayoutMode,
     setSidebarVariant,
     setBackgroundGradient,
+    setBodyColor,
     randomize,
     reset,
   };

@@ -15,6 +15,7 @@ import {
 import { useTheme } from '@/hooks/use-theme.ts';
 import { useThemeConfig } from '@/hooks/use-theme-config.ts';
 import { BackgroundGradientPicker } from '../custom/settings-panel/background-gradient-picker.tsx';
+import { BodyColorPicker } from '../custom/settings-panel/body-color-picker.tsx';
 import { FontPicker } from '../custom/settings-panel/font-picker.tsx';
 import { LayoutModePicker } from '../custom/settings-panel/layout-mode-picker.tsx';
 import { RadiusPicker } from '../custom/settings-panel/radius-picker.tsx';
@@ -169,6 +170,14 @@ export function SettingsPanel() {
             {/* Shadow */}
             <SettingsSection title={t('settingsPanel.shadow')}>
               <ShadowPicker />
+            </SettingsSection>
+
+            {/* Body Color */}
+            <SettingsSection
+              title={t('settingsPanel.bodyColor')}
+              description={t('settingsPanel.bodyColorDescription')}
+            >
+              <BodyColorPicker />
             </SettingsSection>
           </div>
         </ScrollArea>

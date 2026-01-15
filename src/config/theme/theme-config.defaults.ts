@@ -12,4 +12,5 @@ export const DEFAULT_THEME_CONFIG: ThemeConfig = {
   layoutMode: 'vertical',
   sidebarVariant: 'floating',
   backgroundGradient: 'default',
+  bodyColor: 'default',
 };
