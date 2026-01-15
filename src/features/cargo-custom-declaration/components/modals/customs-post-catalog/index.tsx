@@ -36,7 +36,7 @@ export function CustomsPostCatalogModal({
       post =>
         post.code.toLowerCase().includes(query) ||
         post.name.toLowerCase().includes(query) ||
-        (post.phone && post.phone.toLowerCase().includes(query))
+        post.phone?.toLowerCase().includes(query)
     );
   }, [searchQuery]);
 
