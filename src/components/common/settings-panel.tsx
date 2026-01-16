@@ -157,6 +157,16 @@ export function SettingsPanel() {
               </SettingsSection>
             )}
 
+            {/* Body Color - Only visible in light mode */}
+            {!isDarkMode && (
+              <SettingsSection
+                title={t('settingsPanel.bodyColor')}
+                description={t('settingsPanel.bodyColorDescription')}
+              >
+                <BodyColorPicker />
+              </SettingsSection>
+            )}
+
             {/* Font Family */}
             <SettingsSection title={t('settingsPanel.font')}>
               <FontPicker />
@@ -170,14 +180,6 @@ export function SettingsPanel() {
             {/* Shadow */}
             <SettingsSection title={t('settingsPanel.shadow')}>
               <ShadowPicker />
-            </SettingsSection>
-
-            {/* Body Color */}
-            <SettingsSection
-              title={t('settingsPanel.bodyColor')}
-              description={t('settingsPanel.bodyColorDescription')}
-            >
-              <BodyColorPicker />
             </SettingsSection>
           </div>
         </ScrollArea>

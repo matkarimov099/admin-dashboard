@@ -523,9 +523,9 @@ export const BODY_COLOR_OPTIONS: ThemeOption<BodyColor>[] = [
 
 export const BODY_COLOR_VALUES = {
   default: '#f5f5f5',
-  slate: '#f1f5f9',
-  zinc: '#f4f4f5',
-  stone: '#f5f5f4',
+  slate: '#e2e8f0',
+  zinc: '#e4e4e7',
+  stone: '#e7e5e4',
   sky: '#f0f9ff',
   emerald: '#ecfdf5',
 } as const;
