@@ -64,7 +64,7 @@ export function CargoCustomDeclarationForm() {
         </div>
       </div>
 
-      <div className="grid grid-cols-8 grid-rows-12 gap-0.5">
+      <div className="grid grid-cols-8 grid-rows-none gap-0.5">
         {/*Column 2*/}
         <Column2 form={form} onSubmit={onSubmit} />
         {/*Column 1*/}
@@ -75,7 +75,7 @@ export function CargoCustomDeclarationForm() {
         <Column6 />
         <ColumnA />
         <Column7 />
-        <Column8 />
+        <Column8 form={form} onSubmit={onSubmit} />
         <Column9 />
         <Column10 />
         <Column11 />

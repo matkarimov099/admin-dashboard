@@ -129,3 +129,53 @@ export interface Sender {
   country: string;
   additionalInfo?: string;
 }
+
+// TIF (Receiver) - Legal Entity
+export interface TIFLegalEntity {
+  id: string;
+  stir: string;
+  ktut: string;
+  district?: string;
+  districtCode?: string;
+  name: string;
+  address: string;
+  additionalInfo?: string;
+  director?: string;
+  oked?: string;
+  ndsCode?: string;
+  phone: string;
+  regNo?: string;
+  registrationDate?: string;
+  settlementAccount?: string;
+  settlementBankMfo?: string;
+  currencyAccount?: string;
+  currencyBankMfo?: string;
+}
+
+// TIF (Receiver) - Individual Person
+export interface TIFIndividual {
+  id: string;
+  pinfl: string;
+  district?: string;
+  districtCode?: string;
+  patentNumber?: string;
+  fullName: string;
+  address: string;
+  additionalInfo?: string;
+  phone: string;
+  passportNumber: string;
+  issueDate: string;
+  issuedBy: string;
+  settlementAccount?: string;
+  settlementBankMfo?: string;
+  currencyAccount?: string;
+  currencyBankMfo?: string;
+}
+
+// Importer type
+export interface Importer {
+  id: string;
+  ktut: string;
+  stir: string;
+  nameAndAddress: string;
+}

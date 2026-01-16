@@ -550,6 +550,91 @@
         "warning": "Diqqat!",
         "message": "Ushbu rejimda bu qism to'ldirilmaydi!"
       }
+    },
+
+    "tifCatalog": {
+      "title": "TIF a'zolari ma'lumotnomasi",
+      "tabs": {
+        "yuridikShaxslar": "Yuridik shaxslar",
+        "jismoniyShaxslar": "Jismoniy shaxslar"
+      },
+      "search": "Izlash",
+      "addNew": "Yangi qo'shish",
+      "delete": "O'chirish",
+      "cancel": "Bekor qilish",
+      "completed": "Bajarildi",
+      "save": "Saqlash",
+      "yuridikShaxs": {
+        "addTitle": "Yangi yuridik shaxs qo'shish",
+        "editTitle": "Yuridik shaxsni tahrirlash",
+        "stir": "STIR",
+        "ktut": "KTUT",
+        "rayon": "Rayon",
+        "ism": "Ism",
+        "manzil": "Manzil",
+        "qoshimchaMalumot": "Qo'shimcha ma'lumot",
+        "boshliq": "Boshliq",
+        "oked": "OKED",
+        "ndsCode": "Kod NDS",
+        "tel": "Tel.",
+        "regNo": "Reg.No.",
+        "royxatgaOlinganSana": "Ro'yxatga olingan sana",
+        "rsHisob": "P/c",
+        "vsHisob": "B/c",
+        "mfoBanka": "MFO banka"
+      },
+      "jismoniyShaxs": {
+        "addTitle": "Yangi jismoniy shaxs qo'shish",
+        "editTitle": "Jismoniy shaxsni tahrirlash",
+        "pinfl": "ПИНФЛ",
+        "rayon": "Rayon",
+        "patentRaqami": "Patent raqami",
+        "fio": "FIO",
+        "manzil": "Manzil",
+        "qoshimchaMalumot": "Qo'shimcha ma'lumot",
+        "tel": "Tel.",
+        "pasportRaqami": "Pasport raqami",
+        "topshirilganSana": "Topshirilgan sana",
+        "kimTomonidanBerildi": "Kim tomonidan berildi",
+        "rsHisob": "P/c",
+        "vsHisob": "B/c",
+        "mfoBanka": "MFO banka"
+      }
+    },
+
+    "importerCatalog": {
+      "title": "Importer katalogi",
+      "addTitle": "Yangi importer qo'shish",
+      "editTitle": "Importerni tahrirlash",
+      "search": "Izlash",
+      "addNew": "Yangi importer qo'shish",
+      "delete": "O'chirish",
+      "cancel": "Bekor qilish",
+      "completed": "Bajarildi",
+      "save": "Saqlash",
+      "ktut": "KTUT",
+      "stir": "STIR",
+      "nomiVaManzil": "Nomi va manzil"
+    },
+
+    "column8Form": {
+      "receiverName": "Yuk qabul qiluvchi nomini ko'rsating",
+      "receiverNameInfo": "Yuk qabul qiluvchining to'liq nomi",
+      "receiverCatalogHover": "Yuklarni qabul qilish bo'yicha qo'llanma",
+      "address": "Manzilni ko'rsating",
+      "addressInfo": "Yuk qabul qiluvchining manzili",
+      "phone": "Telefon raqam",
+      "phoneInfo": "Telefon raqami",
+      "additionalInfo": "Qo'shimcha ma'lumot",
+      "additionalInfoInfo": "Qo'shimcha ma'lumot",
+      "importerName": "Importator nomini ko'rsating (agar importer va qabul qiluvchi turli shaxslar bo'lsa)",
+      "importerNameInfo": "Importerning nomi",
+      "importerCatalogHover": "Importer katalogi",
+      "stirPinfl": "STIR/PINFL",
+      "stirPinflInfo": "Soliq to'lovchi identifikatsiya raqami",
+      "districtCode": "Tuman kodi",
+      "districtCodeInfo": "Qabul qiluvchining tuman kodi",
+      "districtCatalogHover": "Tumanlar katalogi"
     }
   }
 }
